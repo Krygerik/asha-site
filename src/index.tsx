@@ -1,11 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
+import {Games} from "./components/games";
+import 'semantic-ui-css/semantic.min.css'
 import './index.css';
-import {App} from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Games />
   </React.StrictMode>,
   document.getElementById('root')
 );
