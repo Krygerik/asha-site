@@ -24,14 +24,5 @@ jobs:
         username: ${{secrets.SSH_USERNAME}}
         passphrase: ${{secrets.SERVER_SSH_PASSPHRASE}}
         key: ${{secrets.SERVER_SSH_KEY}}
-        source: build
-        target: projects/site
-    - name: Restart server process
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{secrets.SSH_HOST}}
-        username: ${{secrets.SSH_USERNAME}}
-        key: ${{secrets.SERVER_SSH_KEY}}
-        passphrase: ${{secrets.SERVER_SSH_PASSPHRASE}}
-        script: |
-          cd ~/projects/site
+        source: build/*
+        target: /var/www/hrta-site/html/
