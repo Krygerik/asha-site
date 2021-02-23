@@ -24,6 +24,6 @@ jobs:
         username: ${{secrets.SSH_USERNAME}}
         passphrase: ${{secrets.SERVER_SSH_PASSPHRASE}}
         key: ${{secrets.SERVER_SSH_KEY}}
-        rm: true
+        overwrite: true
         source: build/*
         target: /var/www/hrta-site.com/html/
