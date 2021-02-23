@@ -8,7 +8,7 @@ type TConfigCell = {
 export const SHORT_GAME_INFO_TABLE_CONFIG: TConfigCell[] = [
     {
         title: "Дата",
-        width: 1,
+        width: 2,
     },
     {
         title: "Игрок",
@@ -20,14 +20,14 @@ export const SHORT_GAME_INFO_TABLE_CONFIG: TConfigCell[] = [
     },
     {
         title: "",
-        width: 2,
+        width: 1,
     },
     {
         title: "Герой",
         width: 2,
     },
     {
-        title: "Герой",
+        title: "Игрок",
         width: 2,
     },
     {

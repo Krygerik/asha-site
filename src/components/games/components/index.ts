@@ -1,0 +1,1 @@
+export { ShortGameInfoRow } from "./short-game-info-row";

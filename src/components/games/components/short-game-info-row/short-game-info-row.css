@@ -1,0 +1,12 @@
+.red_player {
+    background: linear-gradient(95deg, #ff00005c, #ff00005c);
+}
+.red_hero {
+    background: linear-gradient(95deg, #ff00005c, transparent);
+}
+.blue_hero {
+    background: linear-gradient(95deg, transparent, #0000ff69);
+}
+.blue_player {
+    background: linear-gradient(95deg, #0000ff69, #0000ff69);
+}

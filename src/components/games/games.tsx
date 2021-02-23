@@ -1,7 +1,8 @@
 import * as React from "react";
-import {Container, Icon, Loader, Segment, Table} from "semantic-ui-react";
+import {Container, Loader, Segment, Table} from "semantic-ui-react";
 import {SHORT_GAME_INFO_TABLE_CONFIG} from "./games-constants";
 import {GamesConnector, TGameConnectedProps} from "./games-connector";
+import {ShortGameInfoRow} from "./components";
 
 type TProps = TGameConnectedProps;
 
@@ -36,18 +37,15 @@ export const Games = React.memo((props: TProps) => {
                             <Table.Body>
                                 {
                                     props.tableData.map((row, index) => (
-                                        <Table.Row
-                                            textAlign={"center"}
+                                        <ShortGameInfoRow
+                                            blueHero={row.blueHero}
+                                            blueNickname={row.blueNickname}
+                                            date={row.date}
                                             key={index}
-                                        >
-                                            <Table.Cell>{row.date}</Table.Cell>
-                                            <Table.Cell className={"red_player"}>{row.redNickname}</Table.Cell>
-                                            <Table.Cell>{row.redHero}</Table.Cell>
-                                            <Table.Cell><Icon name={row.result}/></Table.Cell>
-                                            <Table.Cell>{row.blueHero}</Table.Cell>
-                                            <Table.Cell className={"blue_player"}>{row.blueNickname}</Table.Cell>
-                                            <Table.Cell><Icon name="angle down"/></Table.Cell>
-                                        </Table.Row>
+                                            redHero={row.redHero}
+                                            redNickname={row.redNickname}
+                                            result={row.result}
+                                        />
                                     ))
                                 }
                             </Table.Body>
