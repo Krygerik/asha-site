@@ -25,4 +25,4 @@ jobs:
         passphrase: ${{secrets.SERVER_SSH_PASSPHRASE}}
         key: ${{secrets.SERVER_SSH_KEY}}
         source: build/*
-        target: /var/www/hrta-site/html/
+        target: /var/www/hrta-site.com/html/
