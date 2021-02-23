@@ -27,3 +27,4 @@ jobs:
         overwrite: true
         source: build/*
         target: /var/www/hrta-site.com/html/
+        strip_components: 1
