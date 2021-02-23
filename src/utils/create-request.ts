@@ -5,7 +5,7 @@ const DEVELOP_AXIOS_OPTIONS = {
 };
 
 const PRODUCTION_AXIOS_OPTIONS = {
-    baseURL: 'http://46.101.232.123/server/api',
+    baseURL: 'http://46.101.232.123:3002/api',
     headers: {
         'Authorization': 'Basic dGVjaGNlbnRvczpFeHRlcm5hbDEyMzQ1NjEyMw=='
     }
