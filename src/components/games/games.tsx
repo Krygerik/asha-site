@@ -1,17 +1,9 @@
 import * as React from "react";
-import {connect} from "react-redux";
-import {createStructuredSelector} from "reselect";
 import {Container, Icon, Loader, Segment, Table} from "semantic-ui-react";
-import {fetchGames} from "./games-actions";
-import {getIsFetchedShortGameInfoList, getShortGameInfoListTableData} from "./games-selectors";
 import {SHORT_GAME_INFO_TABLE_CONFIG} from "./games-constants";
+import {GamesConnector, TGameConnectedProps} from "./games-connector";
 
-type TConnectedProps = {
-    fetchGames: () => void;
-    isFetchedShortGameInfoList: boolean;
-    tableData: any[]
-};
-type TProps = TConnectedProps;
+type TProps = TGameConnectedProps;
 
 /**
  * Компонент отображения списка всех сыгранных игр
@@ -71,15 +63,4 @@ export const Games = React.memo((props: TProps) => {
     )
 });
 
-const mapStateToProps = createStructuredSelector({
-    isFetchedShortGameInfoList: getIsFetchedShortGameInfoList,
-    tableData: getShortGameInfoListTableData,
-});
-
-const mapDispatchToProps = {
-    fetchGames,
-};
-
-export const GamesController = connect(
-    mapStateToProps, mapDispatchToProps,
-)(Games);
+export const GamesController = GamesConnector(Games);
