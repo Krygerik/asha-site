@@ -5,8 +5,7 @@ import {SHORT_GAME_INFO_TABLE_CONFIG} from "./short-game-info-table-constants";
 import {TShortGameInfoTableConnectedProps, withShortGameInfoTableConnector} from "./short-game-info-table-connector";
 
 type TProps = {
-    isFetchedShortGameInfoList: boolean;
-    tableData: any[];
+    config: { items?: number; };
 } & TShortGameInfoTableConnectedProps;
 
 /**
@@ -17,7 +16,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
      * Запрос данных для таблицы
      */
     React.useEffect(() => {
-        props.fetchGames()
+        props.fetchGames(props.config)
     }, []);
 
 

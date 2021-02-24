@@ -44,3 +44,11 @@ export type TResponse = {
     MESSAGE: string;
     STATUS: "SUCCESS",
 }
+
+/**
+ * Тип параметров запроса списка краткой информации по играм
+ */
+export type TGetShortGameInfoParams = {
+    // undefined - запрос всех записей
+    items?: number;
+};

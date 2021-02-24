@@ -13,7 +13,7 @@ export const GamesHistory = React.memo((props: TProps) => {
         <>
             <PageHeader />
             <Container  style={{ marginTop: "6em"}}>
-                <ShortGameInfoTable />
+                <ShortGameInfoTable config={{}} />
             </Container>
         </>
     )
