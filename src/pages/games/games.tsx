@@ -1,5 +1,6 @@
 import * as React from "react";
 import {Container, Loader, Segment, Table} from "semantic-ui-react";
+import {PageHeader} from "../../modules/page-header";
 import {SHORT_GAME_INFO_TABLE_CONFIG} from "./games-constants";
 import {GamesConnector, TGameConnectedProps} from "./games-connector";
 import {ShortGameInfoRow} from "./components";
@@ -15,49 +16,52 @@ export const Games = React.memo((props: TProps) => {
     }, []);
 
     return (
-        <Container>
-            {
-                props.isFetchedShortGameInfoList
-                    ? (
-                        <Table>
-                            <Table.Header>
-                                <Table.Row textAlign={"center"}>
+        <>
+            <PageHeader />
+            <Container  style={{ marginTop: "6em"}}>
+                {
+                    props.isFetchedShortGameInfoList
+                        ? (
+                            <Table>
+                                <Table.Header>
+                                    <Table.Row textAlign={"center"}>
+                                        {
+                                            SHORT_GAME_INFO_TABLE_CONFIG.map((cell, index) => (
+                                                <Table.HeaderCell
+                                                    key={index}
+                                                    width={cell.width}
+                                                >
+                                                    {cell.title}
+                                                </Table.HeaderCell>
+                                            ))
+                                        }
+                                    </Table.Row>
+                                </Table.Header>
+                                <Table.Body>
                                     {
-                                        SHORT_GAME_INFO_TABLE_CONFIG.map((cell, index) => (
-                                            <Table.HeaderCell
+                                        props.tableData.map((row, index) => (
+                                            <ShortGameInfoRow
+                                                blueHero={row.blueHero}
+                                                blueNickname={row.blueNickname}
+                                                date={row.date}
                                                 key={index}
-                                                width={cell.width}
-                                            >
-                                                {cell.title}
-                                            </Table.HeaderCell>
+                                                redHero={row.redHero}
+                                                redNickname={row.redNickname}
+                                                result={row.result}
+                                            />
                                         ))
                                     }
-                                </Table.Row>
-                            </Table.Header>
-                            <Table.Body>
-                                {
-                                    props.tableData.map((row, index) => (
-                                        <ShortGameInfoRow
-                                            blueHero={row.blueHero}
-                                            blueNickname={row.blueNickname}
-                                            date={row.date}
-                                            key={index}
-                                            redHero={row.redHero}
-                                            redNickname={row.redNickname}
-                                            result={row.result}
-                                        />
-                                    ))
-                                }
-                            </Table.Body>
-                        </Table>
-                    )
-                    : (
-                        <Segment>
-                            <Loader active inline="centered" size={"large"}/>
-                        </Segment>
-                    )
-            }
-        </Container>
+                                </Table.Body>
+                            </Table>
+                        )
+                        : (
+                            <Segment>
+                                <Loader active inline="centered" size={"large"}/>
+                            </Segment>
+                        )
+                }
+            </Container>
+        </>
     )
 });
 

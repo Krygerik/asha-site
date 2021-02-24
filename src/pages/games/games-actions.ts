@@ -8,12 +8,12 @@ const setShortGameInfoList = (data: IShortGame[]) => ({
 });
 
 /**
- * Запрос на получение краткого списка игр
+ * Запрос на получение краткой информации по всем играм
  */
 export const fetchGames = () => async (
     dispatch: any
 ) => {
-    const shortGameInfoList: { data: TResponse } = await createRequest().get('/get-all-short-game-info');
+    const shortGameInfoList: { data: TResponse } = await createRequest().get('/get-short-game-info-list');
 
     dispatch(setShortGameInfoList(shortGameInfoList.data.DATA));
 }

@@ -8,7 +8,7 @@ import {PageHeader} from "../../modules/page-header";
 export const MainPage = React.memo(() => (
     <>
         <PageHeader />
-        <Container style={{ marginTop: "5em"}}>
+        <Container style={{ marginTop: "6em"}}>
             <Header>asd</Header>
         </Container>
     </>
