@@ -8,7 +8,7 @@ type TProps = {};
 /**
  * Компонент отображения списка всех сыгранных игр
  */
-export const Games = React.memo((props: TProps) => {
+export const GamesHistory = React.memo((props: TProps) => {
     return (
         <>
             <PageHeader />
@@ -19,4 +19,4 @@ export const Games = React.memo((props: TProps) => {
     )
 });
 
-export const GamesController = Games;
+export const GamesController = GamesHistory;

@@ -14,8 +14,8 @@ export const getHeaderMenuNavigation: ParametricSelector<any, any, THeaderNavIte
         },
         {
             title: "История игр",
-            link: "/games",
-            active: match.path === "/games",
+            link: "/games-history",
+            active: match.path === "/games-history",
         },
     ]),
 );
