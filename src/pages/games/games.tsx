@@ -1,68 +1,22 @@
 import * as React from "react";
-import {Container, Loader, Segment, Table} from "semantic-ui-react";
+import {Container} from "semantic-ui-react";
 import {PageHeader} from "../../modules/page-header";
-import {SHORT_GAME_INFO_TABLE_CONFIG} from "./games-constants";
-import {GamesConnector, TGameConnectedProps} from "./games-connector";
-import {ShortGameInfoRow} from "./components";
+import {ShortGameInfoTable} from "../../modules/short-game-info-table";
 
-type TProps = TGameConnectedProps;
+type TProps = {};
 
 /**
  * Компонент отображения списка всех сыгранных игр
  */
 export const Games = React.memo((props: TProps) => {
-    React.useEffect(() => {
-        props.fetchGames()
-    }, []);
-
     return (
         <>
             <PageHeader />
             <Container  style={{ marginTop: "6em"}}>
-                {
-                    props.isFetchedShortGameInfoList
-                        ? (
-                            <Table>
-                                <Table.Header>
-                                    <Table.Row textAlign={"center"}>
-                                        {
-                                            SHORT_GAME_INFO_TABLE_CONFIG.map((cell, index) => (
-                                                <Table.HeaderCell
-                                                    key={index}
-                                                    width={cell.width}
-                                                >
-                                                    {cell.title}
-                                                </Table.HeaderCell>
-                                            ))
-                                        }
-                                    </Table.Row>
-                                </Table.Header>
-                                <Table.Body>
-                                    {
-                                        props.tableData.map((row, index) => (
-                                            <ShortGameInfoRow
-                                                blueHero={row.blueHero}
-                                                blueNickname={row.blueNickname}
-                                                date={row.date}
-                                                key={index}
-                                                redHero={row.redHero}
-                                                redNickname={row.redNickname}
-                                                result={row.result}
-                                            />
-                                        ))
-                                    }
-                                </Table.Body>
-                            </Table>
-                        )
-                        : (
-                            <Segment>
-                                <Loader active inline="centered" size={"large"}/>
-                            </Segment>
-                        )
-                }
+                <ShortGameInfoTable />
             </Container>
         </>
     )
 });
 
-export const GamesController = GamesConnector(Games);
+export const GamesController = Games;

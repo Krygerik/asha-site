@@ -1,5 +1,5 @@
 import {createRequest} from "../../utils/create-request";
-import {IShortGame, TResponse} from "./games-types";
+import {IShortGame, TResponse} from "./short-game-info-table-types";
 
 export const SET_SHORT_GAME_INFO_LIST = "SET_SHORT_GAME_INFO_LIST";
 const setShortGameInfoList = (data: IShortGame[]) => ({

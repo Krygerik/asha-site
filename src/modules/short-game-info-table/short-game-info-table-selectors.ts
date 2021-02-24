@@ -1,11 +1,9 @@
-import {Icon} from "semantic-ui-react";
-import * as React from "react";
 import {createSelector, Selector} from "reselect";
 import {find, get, map} from "lodash/fp";
-import {GAMES_NAMESPACE} from "./games-constants";
-import {EPlayerColor, IShortGame, IShortPlayer} from "./games-types";
+import {SHORT_GAME_INFO_TABLE_NAMESPACE} from "./short-game-info-table-constants";
+import {EPlayerColor, IShortGame, IShortPlayer } from "./short-game-info-table-types";
 
-const getGamesStoreValue = get(GAMES_NAMESPACE);
+const getGamesStoreValue = get(SHORT_GAME_INFO_TABLE_NAMESPACE);
 
 /**
  * Статус загрузки данных для таблицы из сервера

@@ -1,4 +1,4 @@
-export const GAMES_NAMESPACE = "@@GAMES";
+export const SHORT_GAME_INFO_TABLE_NAMESPACE = "@@SHORT_GAME_INFO_LIST";
 
 type TConfigCell = {
     title: string;

@@ -1,11 +1,11 @@
-import {SET_SHORT_GAME_INFO_LIST} from "./games-actions";
+import {SET_SHORT_GAME_INFO_LIST} from "./short-game-info-table-actions";
 
 const initialState = {
     isFetched: false,
     shortGameInfoList: []
 }
 
-export const gamesReducer = (state = initialState, action: any) => {
+export const shortGameInfoTableReducer = (state = initialState, action: any) => {
     console.log("action:", action);
     if (action.type === SET_SHORT_GAME_INFO_LIST) {
         return {

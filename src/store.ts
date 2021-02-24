@@ -1,9 +1,9 @@
 import {createStore, combineReducers, applyMiddleware} from "redux";
 import thunk from "redux-thunk";
-import {gamesReducer, GAMES_NAMESPACE} from "./pages/games";
+import {SHORT_GAME_INFO_TABLE_NAMESPACE, shortGameInfoTableReducer} from "./modules/short-game-info-table";
 
 const rootReducer = combineReducers({
-    [GAMES_NAMESPACE]: gamesReducer,
+    [SHORT_GAME_INFO_TABLE_NAMESPACE]: shortGameInfoTableReducer,
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));
