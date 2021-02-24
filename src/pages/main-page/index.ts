@@ -1,0 +1,1 @@
+export { MainPageRouting as MainPage } from "./main-page-routing";
