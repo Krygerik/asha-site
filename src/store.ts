@@ -1,6 +1,6 @@
 import {createStore, combineReducers, applyMiddleware} from "redux";
 import thunk from "redux-thunk";
-import {gamesReducer, GAMES_NAMESPACE} from "./components/games";
+import {gamesReducer, GAMES_NAMESPACE} from "./pages/games";
 
 const rootReducer = combineReducers({
     [GAMES_NAMESPACE]: gamesReducer,
