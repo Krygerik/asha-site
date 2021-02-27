@@ -1,7 +1,6 @@
 import * as React from "react";
-import {Container} from "semantic-ui-react";
-import {PageHeader} from "../../modules/page-header";
 import {ShortGameInfoTable} from "../../modules/short-game-info-table";
+import {Page} from "../../modules/page";
 
 type TProps = {};
 
@@ -10,12 +9,9 @@ type TProps = {};
  */
 export const GamesHistory = React.memo((props: TProps) => {
     return (
-        <>
-            <PageHeader />
-            <Container  style={{ marginTop: "6em"}}>
-                <ShortGameInfoTable config={{}} />
-            </Container>
-        </>
+        <Page>
+            <ShortGameInfoTable config={{}} />
+        </Page>
     )
 });
 

@@ -9,10 +9,10 @@ import {MainPage} from "./main-page";
 export const MainPageRouting = React.memo(() => (
     <BrowserRouter>
         <Switch>
-            <Route path="/games-history">
+            <Route exact path="/games-history">
                 <Games />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
                 <MainPage />
             </Route>
         </Switch>
