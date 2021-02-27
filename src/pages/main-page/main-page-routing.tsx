@@ -1,5 +1,6 @@
 import * as React from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {Game} from "../game";
 import {Games} from "../games-history";
 import {MainPage} from "./main-page";
 
@@ -11,6 +12,9 @@ export const MainPageRouting = React.memo(() => (
         <Switch>
             <Route exact path="/games-history">
                 <Games />
+            </Route>
+            <Route exact path="/game/:id">
+                <Game />
             </Route>
             <Route exact path="/">
                 <MainPage />
