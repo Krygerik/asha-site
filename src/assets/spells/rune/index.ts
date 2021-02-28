@@ -1,0 +1,10 @@
+export { default as BerserkRuneIcon } from "./Руна берсеркерства.png";
+export { default as RuneOfBattleFuryIcon } from "./Руна боевой ярости.png";
+export { default as RuneOfResurrectionIcon } from "./Руна воскрешения.png";
+export { default as RuneOfRollingThunderIcon } from "./Руна громового раската.png";
+export { default as RuneOfDragonFormIcon } from "./Руна драконьего обличья.png";
+export { default as RuneOfMagicalSupervisionIcon } from "./Руна магического надзора.png";
+export { default as RuneOfIntangibilityIcon } from "./Руна неосязаемости.png";
+export { default as RuneOfElementalImmunityIcon } from "./Руна стихийной невосприимчивости.png";
+export { default as RuneOfExorcismIcon } from "./Руна экзорцизма.png";
+export { default as RuneOfEnergyIcon } from "./Руна энергии.png";

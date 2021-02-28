@@ -1,0 +1,11 @@
+export { default as MagicFistIcon } from "./Волшебный кулак.png";
+export { default as CrystalOfTheSecretIcon } from "./Кристалл тайного.png";
+export { default as HeavenlyShieldIcon } from "./Небесный щит.png";
+export { default as FireTrapIcon } from "./Огненная ловушка.png";
+export { default as RaisingTheDeadIcon } from "./Поднятие мертвых.png";
+export { default as SummonWaspSwarmIcon } from "./Призыв осиного роя.png";
+export { default as SummonTheHiveIcon } from "./Призыв улья.png";
+export { default as PhoenixSummonIcon } from "./Призыв феникса.png";
+export { default as SummonElementalsIcon } from "./Призыв элементалей.png";
+export { default as PhantomCreationIcon } from "./Создание фантома.png";
+export { default as WallOfSwordsIcon } from "./Стена мечей.png";

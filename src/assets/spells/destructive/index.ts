@@ -1,0 +1,12 @@
+export { default as ArmageddonIcon } from "./Армагеддон.png";
+export { default as StoneThornsIcon } from "./Каменные шипы.png";
+export { default as RingOfColdIcon } from "./Кольцо холода.png";
+export { default as IceBlockIcon } from "./Ледяная глыба.png";
+export { default as MagicArrowIcon } from "./Магическая стрела.png";
+export { default as MeteorRainIcon } from "./Метеоритный дождь.png";
+export { default as LightningIcon } from "./Молния.png";
+export { default as FireballIcon } from "./Огненный шар.png";
+export { default as StoppingColdIcon } from "./Останавливающий холод.png";
+export { default as WallOfFireIcon } from "./Стена огня.png";
+export { default as LightningChainIcon } from "./Цепь молний.png";
+export { default as EarthShockIcon } from "./Шок земли.png";

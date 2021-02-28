@@ -1,0 +1,11 @@
+export { default as BerserkIcon } from "./Берсерк.png";
+export { default as VampirismIcon } from "./Вампиризм.png";
+export { default as DecelerationIcon } from "./Замедление.png";
+export { default as WeaknessIcon } from "./Немощность.png";
+export { default as WeakeningIcon } from "./Ослабление.png";
+export { default as BlindnessIcon } from "./Ослепление.png";
+export { default as SubordinationIcon } from "./Подчинение.png";
+export { default as DestructiveBeamIcon } from "./Разрушающий луч.png";
+export { default as DistractionIcon } from "./Рассеянность.png";
+export { default as SorrowIcon } from "./Скорбь.png";
+export { default as PlagueIcon } from "./Чума.png";

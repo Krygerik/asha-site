@@ -1,0 +1,10 @@
+export { default as AntiMagicIcon } from "./Антимагия.png";
+export { default as DivinePowerIcon } from "./Божественная сила.png";
+export { default as ResurrectionIcon } from "./Воскрешение.png";
+export { default as StoneSkinIcon } from "./Каменная кожа.png";
+export { default as PunishingBlowIcon } from "./Карающий удар.png";
+export { default as RegenerationIcon } from "./Регенерация.png";
+export { default as DisenchantmentIcon } from "./Снятие чар.png";
+export { default as TeleportIcon } from "./Телепорт.png";
+export { default as EvasionIcon } from "./Уклонение.png";
+export { default as AccelerationIcon } from "./Ускорение.png";
