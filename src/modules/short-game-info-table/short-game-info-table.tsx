@@ -51,6 +51,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                             blueHero={row.blueHero}
                             blueNickname={row.blueNickname}
                             date={row.date}
+                            id={row.id}
                             key={index}
                             redHero={row.redHero}
                             redNickname={row.redNickname}

@@ -37,12 +37,13 @@ export const getShortGameInfoListTableData: Selector<any, any[]> = createSelecto
             : "angle left";
 
         return {
-            date: shortGameInfo.date,
-            redNickname: redHero?.nickname,
-            redHero: redHero?.hero,
-            result: resultIcon,
             blueHero: blueHero?.hero,
             blueNickname: blueHero?.nickname,
+            date: shortGameInfo.date,
+            id: shortGameInfo._id,
+            redHero: redHero?.hero,
+            redNickname: redHero?.nickname,
+            result: resultIcon,
         };
     }),
 );
