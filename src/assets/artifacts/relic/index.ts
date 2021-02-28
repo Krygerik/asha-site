@@ -5,7 +5,7 @@ export { default as RingOfSwiftnessIcon } from "./Кольцо стремите�
 export { default as LeadershipCrownIcon } from "./Корона лидерства.png";
 export { default as LionCrownIcon } from "./Корона льва.png";
 export { default as CrownOfSarIssaIcon } from "./Корона Сар-Иссы.png";
-export { default as PendantOfIcyEmbraceIcon } from "./Кулон ледяных обьятий.png";
+export { default as PendantOfIcyEmbraceIcon } from "./Кулон ледяных объятий.png";
 export { default as PendantOfAbsorptionIcon } from "./Кулон Поглощения.png";
 export { default as UnicornHornBowIcon } from "./Лук из рога Единорога.png";
 export { default as BloodClawNecklaceIcon } from "./Ожерелье Кровавого Когтя.png";

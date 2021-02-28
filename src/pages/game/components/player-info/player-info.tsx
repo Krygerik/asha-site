@@ -5,6 +5,7 @@ import {TPlayer} from "../../game-types";
 import {
     AdditionalProperties,
     ArmyTable,
+    CustomList,
     HeroPropertiesTable,
     TableAsList,
 } from "./components";
@@ -35,7 +36,7 @@ export const PlayerInfo = React.memo((props: TProps) => (
             <TableAsList list={props.player.spells} header="Заклинания" />
             <TableAsList list={props.player.skills} header="Школы" />
             <TableAsList list={props.player.perks} header="Навыки" />
-            <TableAsList list={props.player.arts} header="Артефакты" />
+            <CustomList list={props.player.arts} />
             {
                 props.player.army_remainder.length > 0 && (
                     <ArmyTable armyList={props.player.army_remainder} header="Армия осталась" />
