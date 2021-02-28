@@ -22,7 +22,7 @@ export const ShortGameInfoRow = React.memo((props: TProps) => (
         <Table.Cell className={"blue_hero"}>{props.blueHero}</Table.Cell>
         <Table.Cell className={"blue_player"}>{props.blueNickname}</Table.Cell>
         <Table.Cell>
-            <Link to={`/game/${props.id}`} target="_blank">
+            <Link to={`/game/${props.id}`}>
                 <Icon name="eye" size="large" />
             </Link>
         </Table.Cell>
