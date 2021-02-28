@@ -1,0 +1,18 @@
+export { default as BeginnersMagicWandIcon } from "./Волшебная палочка новичка.png";
+export { default as TheEdgeOfBalanceIcon } from "./Грань равновесия.png";
+export { default as FearlessArmorIcon } from "./Доспехи бесстрашия.png";
+export { default as TarotDeckIcon } from "./Колода Таро.png";
+export { default as RingOfSinnersIcon } from "./Кольцо грешников.png";
+export { default as LightningProtectionRingIcon } from "./Кольцо защиты от молний.png";
+export { default as SwordOfMightIcon } from "./Меч мощи.png";
+export { default as ChestpieceOfImmensePowerIcon } from "./Нагрудник огромной мощи.png";
+export { default as LionCollarIcon } from "./Ошейник льва.png";
+export { default as SilannasCloakIcon } from "./Плащ Силанны.png";
+export { default as ElementalBeltIcon } from "./Пояс элементалей.png";
+export { default as BootsOfArcaneProtectionIcon } from "./Сапоги магической защиты.png";
+export { default as ManaScrollIcon } from "./Свиток маны.png";
+export { default as SecretShieldsIcon } from "./Тайные защитные покровы.png";
+export { default as TunicOfFleshIcon } from "./Туника из плоти.png";
+export { default as FourLeafCloverIcon } from "./Четырехлистный клевер.png";
+export { default as NecromancerHelmetIcon } from "./Шлем некроманта.png";
+export { default as ChaosHelmetIcon } from "./Шлем Хаоса.png";
