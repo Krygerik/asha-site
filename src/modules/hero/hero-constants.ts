@@ -9,7 +9,7 @@ import {
     RutgerIcon,
     ValeriaIcon,
     VittorioIcon
-} from "../../assets/haven";
+} from "../../assets/heroes/haven";
 import {
     AgraelIcon,
     AlastorIcon,
@@ -21,7 +21,7 @@ import {
     NebirosIcon,
     NymusIcon,
     OrlandoIcon
-} from "../../assets/inferno";
+} from "../../assets/heroes/inferno";
 import {
     ArantirIcon,
     DeirdreIcon,
@@ -35,7 +35,7 @@ import {
     RavenIcon,
     VladimirIcon,
     ZoltanIcon
-} from "../../assets/necropolis";
+} from "../../assets/heroes/necropolis";
 import {
     AlaronIcon,
     AnwenIcon,
@@ -47,7 +47,7 @@ import {
     VinraelIcon,
     WyngaalIcon,
     YlthinIcon
-} from "../../assets/sylvan";
+} from "../../assets/heroes/sylvan";
 import {
     FaizIcon,
     GalipIcon,
@@ -59,7 +59,7 @@ import {
     NurIcon,
     RazzakIcon,
     ZehirIcon
-} from "../../assets/academy";
+} from "../../assets/heroes/academy";
 import {
     EruinaIcon,
     KythraIcon,
@@ -71,7 +71,7 @@ import {
     YlayaIcon,
     YrbethIcon,
     YrwannaIcon
-} from "../../assets/dungeon";
+} from "../../assets/heroes/dungeon";
 import {
     BrandIcon,
     EbbaIcon,
@@ -83,7 +83,7 @@ import {
     RolfIcon,
     SveaIcon,
     WulfstanIcon
-} from "../../assets/fortress";
+} from "../../assets/heroes/fortress";
 import {
     GarunaIcon,
     GorshakIcon,
@@ -95,7 +95,7 @@ import {
     QuroqIcon,
     ShakKarukatIcon,
     TelsekIcon
-} from "../../assets/stronghold";
+} from "../../assets/heroes/stronghold";
 
 /**
  * Тип героя

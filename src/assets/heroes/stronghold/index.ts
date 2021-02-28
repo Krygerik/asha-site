@@ -7,4 +7,4 @@ export { default as KujinIcon } from "./Куджин.png";
 export { default as QuroqIcon } from "./Курак.png";
 export { default as TelsekIcon } from "./Тилсек.png";
 export { default as HaggashIcon } from "./Хаггеш.png";
-export { default as ShakKarukatIcon } from "./Шак'Карукат.png";
+export { default as ShakKarukatIcon } from "./Шак\'Карукат.png";
