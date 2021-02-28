@@ -1,8 +1,9 @@
-import {Header, Loader, Segment, Message} from "semantic-ui-react";
+import {Header, Loader, Segment, Message, Grid} from "semantic-ui-react";
 import * as React from "react";
 import {useParams} from "react-router-dom";
 import {Page} from "../../modules/page";
 import {TGameConnectedProps, withGameConnector} from "./game-connector";
+import {PlayerInfo} from "./components/player-info";
 
 /**
  * Тип параметров урла для страницы подробной информации
@@ -27,20 +28,32 @@ export const Game = React.memo((props: TGameConnectedProps) => {
     return (
         <Page>
             <Header as="h1" content={`Информация об игре №${id}`} />
-            <Segment>
+            <Segment loading={!props.isFetchedGameInfo}>
                 {
-                    !props.isFetchedGameInfo && (
-                        <Loader active inline="centered" size={"large"}/>
-                    )
-                }
-                {
-                    props.isFetchedGameInfo && props.hasError && (
+                    props.hasError && (
                         <Message error content="Ошибка при запросе данных с сервера" />
                     )
                 }
                 {
                     props.isFetchedGameInfo && !props.hasError && (
-                        <div></div>
+                        <>
+                            <Header content={`Дата игры: ${props.gameInfo.date}`} />
+                            <Header content={`Победитель: ${props.gameInfo.winning_player.nickname}`} />
+                            <Grid columns={2}>
+                                <Grid.Row>
+                                    <Grid.Column>
+                                        <PlayerInfo
+                                            player={props.gameInfo.winning_player}
+                                        />
+                                    </Grid.Column>
+                                    <Grid.Column>
+                                        <PlayerInfo
+                                            player={props.gameInfo.loosing_player}
+                                        />
+                                    </Grid.Column>
+                                </Grid.Row>
+                            </Grid>
+                        </>
                     )
                 }
             </Segment>

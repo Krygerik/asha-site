@@ -21,7 +21,7 @@ type TCreatures = {
 /**
  * Тип всех данных игрока в игре
  */
-type TPlayer = {
+export type TPlayer = {
     // id в mongodb
     _id: string;
     // Список войск героя
@@ -33,7 +33,7 @@ type TPlayer = {
     // Нападение героя
     attack: number;
     // цвет игрока
-    color: EPlayerColor[];
+    color: EPlayerColor;
     // Защита героя
     defence: number;
     // Название героя

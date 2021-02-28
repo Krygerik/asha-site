@@ -1,11 +1,12 @@
 import {connect, ConnectedProps} from "react-redux";
 import {createStructuredSelector} from "reselect";
-import {getHasError, getIsFetchedGameInfo} from "./game-selectors";
+import {getGameInfo, getHasError, getIsFetchedGameInfo} from "./game-selectors";
 import {fetchFullGameInfo} from "./game-actions";
 
 const mapStateToProps = createStructuredSelector({
-    isFetchedGameInfo: getIsFetchedGameInfo,
+    gameInfo: getGameInfo,
     hasError: getHasError,
+    isFetchedGameInfo: getIsFetchedGameInfo,
 });
 
 const mapDispatchToProps = {
