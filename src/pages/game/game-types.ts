@@ -11,7 +11,7 @@ export enum EPlayerColor {
 /**
  * Тип ячейки существ
  */
-type TCreatures = {
+export type TCreatures = {
     // Количество
     count: number;
     // Название
