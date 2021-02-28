@@ -1,0 +1,10 @@
+export { default as GarunaIcon } from "./Гаруна.png";
+export { default as GotaiIcon } from "./Готай.png";
+export { default as GorshakIcon } from "./Гошак.png";
+export { default as KilghanIcon } from "./Киган.png";
+export { default as KraghIcon } from "./Краг.png";
+export { default as KujinIcon } from "./Куджин.png";
+export { default as QuroqIcon } from "./Курак.png";
+export { default as TelsekIcon } from "./Тилсек.png";
+export { default as HaggashIcon } from "./Хаггеш.png";
+export { default as ShakKarukatIcon } from "./Шак'Карукат.png";

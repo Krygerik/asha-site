@@ -1,0 +1,10 @@
+export { default as VayshanIcon } from "./Вайшан.png";
+export { default as YlayaIcon } from "./Илайя.png";
+export { default as YrwannaIcon } from "./Иранна.png";
+export { default as YrbethIcon } from "./Ирбет.png";
+export { default as KythraIcon } from "./Кифра.png";
+export { default as LethosIcon } from "./Летос.png";
+export { default as SinitarIcon } from "./Синитар.png";
+export { default as SorgalIcon } from "./Соргал.png";
+export { default as ShadyaIcon } from "./Шадия.png";
+export { default as EruinaIcon } from "./Эрин.png";

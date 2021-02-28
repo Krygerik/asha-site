@@ -1,6 +1,6 @@
 import * as React from "react";
-import {Segment, Image, Header} from "semantic-ui-react";
-import ora from "../../../../assets/ora.png";
+import {Segment} from "semantic-ui-react";
+import {Hero} from "../../../../modules/hero";
 import {TPlayer} from "../../game-types";
 import {
     AdditionalProperties,
@@ -28,8 +28,7 @@ export const PlayerInfo = React.memo((props: TProps) => (
             textAlign="center"
         />
         <Segment attached="bottom">
-            <Image src={ora} centered />
-            <Header content={`${props.player.hero}, ${props.player.race}`} textAlign="center" />
+            <Hero hero={props.player.hero} />
             <HeroPropertiesTable player={props.player} />
             <AdditionalProperties player={props.player} />
             <ArmyTable armyList={props.player.army} header="Армия игрока" />

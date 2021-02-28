@@ -1,0 +1,12 @@
+export { default as ArantirIcon } from "./Арантир.png";
+export { default as VladimirIcon } from "./Влад.png";
+export { default as DeirdreIcon } from "./Дейдра.png";
+export { default as ZoltanIcon } from "./Золтан.png";
+export { default as KasparIcon } from "./Каспар.png";
+export { default as LucretiaIcon } from "./Лукреция.png";
+export { default as MarkalIcon } from "./Маркел.png";
+export { default as NaadirIcon } from "./Наадир.png";
+export { default as NicolaiIcon } from "./Николас.png";
+export { default as OrnellaIcon } from "./Орнелла.png";
+export { default as OrsonIcon } from "./Орсон.png";
+export { default as RavenIcon } from "./Равэнна.png";

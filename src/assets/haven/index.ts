@@ -1,0 +1,10 @@
+export { default as IrinaIcon } from "./Айрис.png";
+export { default as KlausIcon } from "./Аксель.png";
+export { default as ValeriaIcon } from "./Валерия.png";
+export { default as VittorioIcon } from "./Виторрио.png";
+export { default as GodricIcon } from "./Годрик.png";
+export { default as DougalIcon } from "./Дугал.png";
+export { default as LaszloIcon } from "./Ласло.png";
+export { default as MaeveIcon } from "./Мив.png";
+export { default as RutgerIcon } from "./Рутгер.png";
+export { default as EllaineIcon } from "./Эллайна.png";

@@ -1,0 +1,10 @@
+export { default as BrandIcon } from "./Бранд.png";
+export { default as WulfstanIcon } from "./Вульфстен.png";
+export { default as EbbaIcon } from "./Ибба.png";
+export { default as IngaIcon } from "./Инга.png";
+export { default as IngvarIcon } from "./Ингвар.png";
+export { default as KarliIcon } from "./Карли.png";
+export { default as RolfIcon } from "./Рольф.png";
+export { default as SveaIcon } from "./Свея.png";
+export { default as HelmarIcon } from "./Хельмар.png";
+export { default as ErlingIcon } from "./Эрлинг.png";

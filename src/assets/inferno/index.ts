@@ -1,0 +1,10 @@
+export { default as AgraelIcon } from "./Аграил.png";
+export { default as AlastorIcon } from "./Аластор.png";
+export { default as GrokIcon } from "./Грок.png";
+export { default as GrawlIcon } from "./Грол.png";
+export { default as JezebethIcon } from "./Джезебет.png";
+export { default as DelebIcon } from "./Дэлеб.png";
+export { default as MarbasIcon } from "./Марбас.png";
+export { default as NebirosIcon } from "./Ниброс.png";
+export { default as NymusIcon } from "./Нимус.png";
+export { default as OrlandoIcon } from "./Орландо.png";
