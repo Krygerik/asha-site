@@ -18,7 +18,7 @@ export const CustomCard = (props: TProps) => {
 
     if (!item) {
         return (
-            <Message error content={`Запись не быа найдена в справочнике: ${props.name}`} />
+            <Message error content={`Запись не была найдена в справочнике: ${props.name}`} />
         )
     }
 
