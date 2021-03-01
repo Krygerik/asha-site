@@ -1,9 +1,10 @@
 import * as React from "react";
 import {Grid, Header, Segment} from "semantic-ui-react";
-import {Artifact} from "../../../../../components/artifact";
+import {CustomCard, EDictionaryType, mapTypeDictionaryToHeader} from "../../../../../components/custom-card";
 
 type TProps = {
     list: string[];
+    type: EDictionaryType;
 };
 
 /**
@@ -16,13 +17,13 @@ export const CustomList = (props: TProps) => {
 
     return (
         <>
-            <Header attached="top" content="Артефакты" textAlign="center" block />
+            <Header attached="top" content={mapTypeDictionaryToHeader[props.type]} textAlign="center" block />
             <Segment attached="bottom">
                 <Grid columns={3}>
                     {
                         props.list.map((art: string) => (
                             <Grid.Column key={art}>
-                                <Artifact name={art} />
+                                <CustomCard name={art} type={props.type} />
                             </Grid.Column>
                         ))
                     }

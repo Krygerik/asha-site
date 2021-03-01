@@ -74,7 +74,7 @@ import {
 /**
  * Тип артефакта для представления
  */
-type TArtifact = {
+export type TArtifact = {
     name: string;
     locale: string;
     icon: string;
