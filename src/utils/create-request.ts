@@ -1,13 +1,13 @@
 import axios from "axios";
 
 const DEVELOP_AXIOS_OPTIONS = {
-    baseURL: 'http://localhost:3000/api',
+    baseURL: process.env.REACT_APP_API_URL,
 };
 
 const PRODUCTION_AXIOS_OPTIONS = {
-    baseURL: 'http://46.101.232.123:3002/api',
+    baseURL: process.env.REACT_APP_API_URL,
     headers: {
-        'Authorization': 'Basic dGVjaGNlbnRvczpFeHRlcm5hbDEyMzQ1NjEyMw=='
+        'Authorization': btoa(process.env.REACT_APP_LOGIN + ':' + process.env.REACT_APP_PASSWORD),
     }
 };
 

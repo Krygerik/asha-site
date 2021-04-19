@@ -20,4 +20,3 @@ export const fetchGames = (params: TGetShortGameInfoParams) => async (
 
     dispatch(setShortGameInfoList(shortGameInfoList.data.DATA));
 }
-// test
