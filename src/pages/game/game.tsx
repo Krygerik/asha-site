@@ -1,4 +1,4 @@
-import {Header, Loader, Segment, Message, Grid} from "semantic-ui-react";
+import {Header, Segment, Message, Grid} from "semantic-ui-react";
 import * as React from "react";
 import {useParams} from "react-router-dom";
 import {Page} from "../../modules/page";
@@ -38,17 +38,17 @@ export const Game = React.memo((props: TGameConnectedProps) => {
                     props.isFetchedGameInfo && !props.hasError && (
                         <>
                             <Header content={`Дата игры: ${props.gameInfo.date}`} />
-                            <Header content={`Победитель: ${props.gameInfo.winning_player.nickname}`} />
+                            <Header content={`Победитель: ${props.winnerNickname}`} />
                             <Grid columns={2}>
                                 <Grid.Row>
                                     <Grid.Column>
                                         <PlayerInfo
-                                            player={props.gameInfo.winning_player}
+                                            player={props.redPlayer}
                                         />
                                     </Grid.Column>
                                     <Grid.Column>
                                         <PlayerInfo
-                                            player={props.gameInfo.loosing_player}
+                                            player={props.bluePlayer}
                                         />
                                     </Grid.Column>
                                 </Grid.Row>

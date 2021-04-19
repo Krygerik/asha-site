@@ -26,10 +26,6 @@ export const AdditionalProperties = (props: TProps) => (
                 <Table.Cell content="Количество ментора" />
                 <Table.Cell content={props.player.mentoring} />
             </Table.Row>
-            <Table.Row>
-                <Table.Cell content="Маны осталось" />
-                <Table.Cell content={props.player.mana_end} />
-            </Table.Row>
         </Table.Body>
     </Table>
 );

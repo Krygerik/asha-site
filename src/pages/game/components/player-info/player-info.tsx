@@ -32,11 +32,6 @@ export const PlayerInfo = React.memo((props: TProps) => (
             <TableAsList list={props.player.skills} header="Школы" />
             <TableAsList list={props.player.perks} header="Навыки" />
             <CustomList list={props.player.arts} type={EDictionaryType.ARTS} />
-            {
-                props.player.army_remainder.length > 0 && (
-                    <ArmyTable armyList={props.player.army_remainder} header="Армия осталась" />
-                )
-            }
         </Segment>
     </>
 ));

@@ -24,15 +24,10 @@ const getShortGameInfoListResponse: Selector<any, IShortGame[]> = createSelector
 export const getShortGameInfoListTableData: Selector<any, any[]> = createSelector(
     getShortGameInfoListResponse,
     map((shortGameInfo: IShortGame) => {
-        const allPlayer: IShortPlayer[] = [
-            shortGameInfo.winning_player,
-            shortGameInfo.loosing_player,
-        ];
+        const redHero = find<IShortPlayer>({ color: EPlayerColor.RED })(shortGameInfo.players);
+        const blueHero = find<IShortPlayer>({ color: EPlayerColor.BLUE })(shortGameInfo.players);
 
-        const redHero = find<IShortPlayer>({ color: EPlayerColor.RED })(allPlayer);
-        const blueHero = find<IShortPlayer>({ color: EPlayerColor.BLUE })(allPlayer);
-
-        const resultIcon = redHero?.nickname === shortGameInfo.winning_player.nickname
+        const resultIcon = shortGameInfo.winner === EPlayerColor.RED
             ? "angle right"
             : "angle left";
 

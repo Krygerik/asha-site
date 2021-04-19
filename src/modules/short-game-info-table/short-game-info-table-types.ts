@@ -7,9 +7,9 @@ export enum EPlayerColor {
 }
 
 /**
- * Краткая информация об игроке
+ * Тип краткой информации по игроку
  */
-export type IShortPlayer = {
+export interface IShortPlayer {
     // Цвет игрока
     color: EPlayerColor;
     // Название героя
@@ -21,19 +21,19 @@ export type IShortPlayer = {
 }
 
 /**
- * Краткая информация по игре
+ * Тип краткой информации по игре
  */
-export type IShortGame = {
+export interface IShortGame {
     // id в mongodb
     _id: string;
     // id сражения
     combat_id: number;
     // Дата окончания игры
-    date: string;
-    // Данные проигравшего игрока
-    loosing_player: IShortPlayer;
-    // Данные победившего игрока
-    winning_player: IShortPlayer;
+    date?: string;
+    // Список данных обоих игроков
+    players: IShortPlayer[];
+    // Цвет победителя
+    winner: EPlayerColor;
 }
 
 /**

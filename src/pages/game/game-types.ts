@@ -26,8 +26,6 @@ export type TPlayer = {
     _id: string;
     // Список войск героя
     army: TCreatures[];
-    // Список оставшихся войск героя
-    army_remainder: TCreatures[];
     // Артефакты героя
     arts: string[];
     // Нападение героя
@@ -44,8 +42,6 @@ export type TPlayer = {
     level: number;
     // Удача героя
     luck: number;
-    // Конечная мана героя
-    mana_end: number;
     // Стартовая мана героя
     mana_start: number;
     // Количество использования ментора
@@ -66,8 +62,6 @@ export type TPlayer = {
     spells: string[];
     // Выбранный стартовый бонус
     start_bonus: string;
-    // Ходов осталось
-    turns_left: number;
 };
 
 /**
@@ -79,11 +73,13 @@ export type TGame = {
     // id сражения
     combat_id: number;
     // Дата окончания игры
-    date: string;
-    // Данные проигравшего игрока
-    loosing_player: TPlayer;
-    // Данные победившего игрока
-    winning_player: TPlayer;
+    date?: string;
+    // Список данных обоих игроков
+    players: TPlayer[];
+    // Список ников игроков, участвующих в игре
+    players_nicknames: string[];
+    // Цвет победителя
+    winner?: EPlayerColor;
 };
 
 /**

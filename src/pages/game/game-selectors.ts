@@ -1,8 +1,8 @@
 import {Selector} from "react-redux";
 import {createSelector} from "reselect";
-import {get} from "lodash/fp";
+import {flow, find, get, getOr} from "lodash/fp";
 import {GAME_INFO_NAMESPACE} from "./game-constants";
-import {TGame} from "./game-types";
+import {EPlayerColor, TGame, TPlayer} from "./game-types";
 
 export const getGameState = get(GAME_INFO_NAMESPACE);
 
@@ -27,5 +27,36 @@ export const getHasError: Selector<any, boolean> = createSelector(
  */
 export const getGameInfo: Selector<any, TGame> = createSelector(
     getGameState,
-    get('game'),
+    getOr({}, 'game'),
+);
+
+/**
+ * Получение yикнейма победителя
+ */
+export const getWinnerNickname: Selector<any, string> = createSelector(
+    getGameInfo,
+    (gameInfo: TGame) => flow(
+        find((player: TPlayer) => player.color === gameInfo.winner),
+        getOr('Не определено', 'nickname'),
+    )(gameInfo.players),
+);
+
+/**
+ * Получение данных красного игрока
+ */
+export const getRedPlayerData: Selector<any, TPlayer> = createSelector(
+    getGameInfo,
+    (gameInfo: TGame) => find(
+        (player: TPlayer) => player.color === EPlayerColor.RED
+    )(gameInfo.players) || {} as TPlayer,
+);
+
+/**
+ * Получение данных синего игрока
+ */
+export const getBluePlayerData: Selector<any, TPlayer> = createSelector(
+    getGameInfo,
+    (gameInfo: TGame) => find(
+        (player: TPlayer) => player.color === EPlayerColor.BLUE
+    )(gameInfo.players) || {} as TPlayer,
 );
