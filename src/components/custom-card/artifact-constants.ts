@@ -22,7 +22,8 @@ import {
     RunedBattleAxIcon,
     RunedWarHarnessIcon,
     VictoryNecklaceIcon,
-    VolumeOfForceIcon
+    VolumeOfForceIcon,
+    GoldenHorseshoeIcon,
 } from "../../assets/artifacts/great";
 import {
     BloodClawNecklaceIcon,
@@ -36,7 +37,8 @@ import {
     LeadershipCrownIcon,
     LeggingsOfTheDwarfKingIcon,
     LightMagicVolumeIcon,
-    LionCrownIcon, MarkelsSkullIcon,
+    LionCrownIcon,
+    MarkelsSkullIcon,
     PendantOfAbsorptionIcon,
     PendantOfIcyEmbraceIcon,
     RingOfSarIssaIcon,
@@ -46,7 +48,8 @@ import {
     StaffOfSarIssaIcon,
     StaffOfTheUnderworldIcon,
     TridentOfTheTitansIcon,
-    UnicornHornBowIcon, VolumeOfDarkMagicIcon,
+    UnicornHornBowIcon,
+    VolumeOfDarkMagicIcon,
     VolumeOfSummoningMagicIcon,
     WanderersBootsIcon
 } from "../../assets/artifacts/relic";
@@ -98,6 +101,11 @@ export const ARTIFACTS: TArtifact[] = [
        name: "Дубина людоеда",
        locale: "Дубина людоеда",
        icon: OgresCudgelIcon,
+    },
+    {
+       name: "Золотая подкова",
+       locale: "Золотая подкова",
+       icon: GoldenHorseshoeIcon,
     },
     {
        name: "Изумительный колчан",
