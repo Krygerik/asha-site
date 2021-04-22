@@ -1,3 +1,4 @@
+import {isEmpty} from "lodash";
 import * as React from "react";
 import {Segment} from "semantic-ui-react";
 import {EDictionaryType} from "../../../../components/custom-card";
@@ -32,6 +33,11 @@ export const PlayerInfo = React.memo((props: TProps) => (
             <TableAsList list={props.player.skills} header="Школы" />
             <TableAsList list={props.player.perks} header="Навыки" />
             <CustomList list={props.player.arts} type={EDictionaryType.ARTS} />
+            {
+                !isEmpty(props.player.army_remainder) && (
+                    <ArmyTable armyList={props.player.army_remainder} header="Конечная армия игрока" />
+                )
+            }
         </Segment>
     </>
 ));

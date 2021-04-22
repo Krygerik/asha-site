@@ -26,6 +26,8 @@ export type TPlayer = {
     _id: string;
     // Список войск героя
     army: TCreatures[];
+    // Конечный состав армии
+    army_remainder: TCreatures[];
     // Артефакты героя
     arts: string[];
     // Нападение героя
