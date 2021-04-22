@@ -3,6 +3,6 @@
  */
 export const mapBonusToRussian: Record<string, string> = {
     "gold": "Золото",
-    "item": "Артефакт",
+    "art": "Артефакт",
     "spell": "Заклинание",
 };
