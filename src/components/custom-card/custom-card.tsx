@@ -25,7 +25,12 @@ export const CustomCard = (props: TProps) => {
     return (
         <Card>
             <Image src={item.icon} />
-            <Card.Content textAlign="center">
+            <Card.Content
+                textAlign="center"
+                style={{
+                    wordBreak: "break-word"
+                }}
+            >
                 <Card.Header content={item.locale} />
             </Card.Content>
         </Card>
