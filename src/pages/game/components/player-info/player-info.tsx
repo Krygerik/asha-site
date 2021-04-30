@@ -2,7 +2,7 @@ import {isEmpty} from "lodash";
 import * as React from "react";
 import {Segment} from "semantic-ui-react";
 import {EDictionaryType} from "../../../../components/custom-card";
-import {Hero} from "../../../../modules/hero";
+import {DictionaryHero} from "../../../../modules/dictionary/components/dictionary-hero";
 import {TPlayer} from "../../game-types";
 import {AdditionalProperties, ArmyTable, CustomList, HeroPropertiesTable, TableAsList} from "./components";
 import {mapPlayerColorToSegmentColor} from "./player-info-utils";
@@ -25,7 +25,7 @@ export const PlayerInfo = React.memo((props: TProps) => (
             textAlign="center"
         />
         <Segment attached="bottom">
-            <Hero hero={props.player.hero} />
+            <DictionaryHero hero={props.player.hero} />
             <HeroPropertiesTable player={props.player} />
             <AdditionalProperties player={props.player} />
             <ArmyTable armyList={props.player.army} header="Армия игрока" />
