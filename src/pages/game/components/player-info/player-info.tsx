@@ -3,7 +3,7 @@ import * as React from "react";
 import {Segment} from "semantic-ui-react";
 import {EDictionaryType} from "../../../../components/custom-card";
 import {DictionaryCreatureList} from "../../../../modules/dictionary-creature-list";
-import {DictionaryHero} from "../../../../modules/dictionary/components/dictionary-hero";
+import {DictionaryHero} from "../../../../modules/dictionary-hero";
 import {TPlayer} from "../../game-types";
 import {AdditionalProperties, CustomList, HeroPropertiesTable, TableAsList} from "./components";
 import {mapPlayerColorToSegmentColor} from "./player-info-utils";

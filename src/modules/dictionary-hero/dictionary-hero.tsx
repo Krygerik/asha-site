@@ -2,8 +2,7 @@ import {find, flow, get} from "lodash/fp";
 import * as React from "react";
 import {compose} from "redux";
 import {Header, Image, Message} from "semantic-ui-react";
-import {EDictionaryName} from "../../dictionary-constants";
-import {withDictionaries} from "../../with-dictionaries";
+import {EDictionaryName, withDictionaries} from "../dictionary";
 import {TDictionaryHeroConnectedProps, withDictionaryHeroConnector} from "./dictionary-hero-connector";
 import {MAP_HERO_IDS_TO_ICONS} from "./dictionary-hero-constants";
 

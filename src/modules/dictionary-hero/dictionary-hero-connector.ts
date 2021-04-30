@@ -1,6 +1,6 @@
 import {connect, ConnectedProps} from "react-redux";
 import {createStructuredSelector} from "reselect";
-import {getDictionaryPropertyUtil, getDictionaryRecordUtil} from "../../dictionary-selectors";
+import {getDictionaryPropertyUtil, getDictionaryRecordUtil} from "../dictionary/dictionary-selectors";
 
 const mapStateToProps = createStructuredSelector({
     getDictionaryProperty: getDictionaryPropertyUtil,
