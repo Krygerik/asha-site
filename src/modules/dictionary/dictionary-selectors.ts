@@ -1,20 +1,20 @@
-import {find, flow, get, getOr} from "lodash/fp";
+import {find, flow, get} from "lodash/fp";
 import {Selector} from "react-redux";
 import {createSelector} from "reselect";
 import {
     DICTIONARY_NAMESPACE,
     EDictionaryName,
 } from "./dictionary-constants";
-import {TDictionaryState, TGetDictionaryRecord, TGetDictionaryRecordProperty} from "./dictionary-types";
+import {TDictionary, TDictionaryState, TGetDictionaryRecord, TGetDictionaryRecordProperty} from "./dictionary-types";
 
 const getDictionaryState = get(DICTIONARY_NAMESPACE);
 
 /**
  * Статус загрузки данных из сервера
  */
-export const getIsFetchedDictionaries: Selector<any, boolean> = createSelector(
+export const getIsFetchingStatusDictionaries: Selector<any, boolean> = createSelector(
     getDictionaryState,
-    get('isFetched')
+    get('isFetching')
 );
 
 /**
@@ -23,6 +23,14 @@ export const getIsFetchedDictionaries: Selector<any, boolean> = createSelector(
 export const getIsErrorFetchedDictionaries: Selector<any, boolean> = createSelector(
     getDictionaryState,
     get('error')
+);
+
+/**
+ * Данные справочника из стейта
+ */
+export const getDictionaries: Selector<any, TDictionary[] | undefined> = createSelector(
+    getDictionaryState,
+    get('dictionaries')
 );
 
 /**

@@ -1,11 +1,16 @@
 import {connect, ConnectedProps} from "react-redux";
 import {createStructuredSelector} from "reselect";
 import {fetchDictionaries} from "./dictionary-actions";
-import {getIsErrorFetchedDictionaries, getIsFetchedDictionaries} from "./dictionary-selectors";
+import {
+    getDictionaries,
+    getIsErrorFetchedDictionaries,
+    getIsFetchingStatusDictionaries,
+} from "./dictionary-selectors";
 
 const mapStateToProps = createStructuredSelector({
+    dictionaries: getDictionaries,
     isErrorFetchedDictionaries: getIsErrorFetchedDictionaries,
-    isFetchedDictionary: getIsFetchedDictionaries,
+    isFetchingStatusDictionaries: getIsFetchingStatusDictionaries,
 });
 
 const mapDispatchToProps = {

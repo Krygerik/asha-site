@@ -7,5 +7,5 @@ export {withDictionaries} from "./with-dictionaries";
 export {
     getDictionaryPropertyUtil,
     getIsErrorFetchedDictionaries,
-    getIsFetchedDictionaries,
+    getIsFetchingStatusDictionaries,
 } from './dictionary-selectors';

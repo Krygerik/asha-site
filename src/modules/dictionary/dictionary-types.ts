@@ -1,4 +1,4 @@
-import {EDictionaryName, SET_DICTIONARIES} from "./dictionary-constants";
+import {EDictionaryName, SET_DICTIONARIES, SET_FETCHING_DICTIONARIES_STATUS} from "./dictionary-constants";
 import {TGame} from "../../pages/game/game-types";
 
 /**
@@ -40,9 +40,19 @@ export type TSetErrorFetchDictionariesAction = {
 };
 
 /**
+ * Экшен выставления статуса загрузки словарей
+ */
+export type TSetFetchingDictionariesStatusAction = {
+    type: typeof SET_FETCHING_DICTIONARIES_STATUS;
+    data: undefined;
+};
+
+/**
  * Тип всех экшенов
  */
-export type TDictionaryActions = TSetDictionariesAction | TSetErrorFetchDictionariesAction;
+export type TDictionaryActions = TSetDictionariesAction
+    | TSetErrorFetchDictionariesAction
+    | TSetFetchingDictionariesStatusAction;
 
 /**
  * Тип данных в стейте
@@ -50,7 +60,7 @@ export type TDictionaryActions = TSetDictionariesAction | TSetErrorFetchDictiona
 export type TDictionaryState = {
     error: boolean;
     dictionaries?: TDictionary[];
-    isFetched: boolean;
+    isFetching: boolean;
 };
 
 /**

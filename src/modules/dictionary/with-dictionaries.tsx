@@ -13,7 +13,7 @@ export const withDictionaries = (Component: React.FC<any>) => withDictionaryConn
          * Запрос справочников
          */
         React.useEffect(() => {
-            if (!props.isFetchedDictionary) {
+            if (!props.dictionaries && !props.isFetchingStatusDictionaries) {
                 props.fetchDictionaries();
             }
         }, []);
@@ -21,7 +21,7 @@ export const withDictionaries = (Component: React.FC<any>) => withDictionaryConn
         /**
          * Спиннер, если справочник не загружен
          */
-        if (!props.isFetchedDictionary) {
+        if (props.isFetchingStatusDictionaries) {
             return (
                 <Segment>
                     <Loader active inline="centered" size={"large"}/>
