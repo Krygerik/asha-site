@@ -3,10 +3,13 @@ import {Loader, Segment, Table} from "semantic-ui-react";
 import {ShortGameInfoRow} from "./components/short-game-info-row";
 import {SHORT_GAME_INFO_TABLE_CONFIG} from "./short-game-info-table-constants";
 import {TShortGameInfoTableConnectedProps, withShortGameInfoTableConnector} from "./short-game-info-table-connector";
+import { compose } from "redux";
+import {EDictionaryName, withDictionaries} from "../dictionary";
 
-type TProps = {
+type TOwnProps = {
     config: { items?: number; };
-} & TShortGameInfoTableConnectedProps;
+};
+type TProps = TOwnProps & TShortGameInfoTableConnectedProps;
 
 /**
  * Визуальное отображение
@@ -48,12 +51,16 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                 {
                     props.tableData.map((row, index) => (
                         <ShortGameInfoRow
-                            blueHero={row.blueHero}
+                            blueHero={props.getDictionaryProperty(
+                                EDictionaryName.Heroes, 'game_id', row.blueHero, 'localize_name'
+                            )}
                             blueNickname={row.blueNickname}
                             date={row.date}
                             id={row.id}
                             key={index}
-                            redHero={row.redHero}
+                            redHero={props.getDictionaryProperty(
+                                EDictionaryName.Heroes, 'game_id', row.redHero, 'localize_name'
+                            )}
                             redNickname={row.redNickname}
                             result={row.result}
                         />
@@ -64,4 +71,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
     );
 });
 
-export const ShortGameInfoTableController = withShortGameInfoTableConnector(ShortGameInfoTable);
+export const ShortGameInfoTableController = compose<React.FC<TOwnProps>>(
+    withDictionaries,
+    withShortGameInfoTableConnector,
+)(ShortGameInfoTable);
