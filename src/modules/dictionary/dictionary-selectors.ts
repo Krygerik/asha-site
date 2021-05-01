@@ -1,11 +1,17 @@
-import {find, flow, get} from "lodash/fp";
+import {find, flow, get, getOr} from "lodash/fp";
 import {Selector} from "react-redux";
 import {createSelector} from "reselect";
 import {
     DICTIONARY_NAMESPACE,
     EDictionaryName,
+    recordNotFound,
 } from "./dictionary-constants";
-import {TDictionary, TDictionaryState, TGetDictionaryRecord, TGetDictionaryRecordProperty} from "./dictionary-types";
+import {
+    TDictionary,
+    TDictionaryState,
+    TGetDictionaryRecord,
+    TGetDictionaryRecordProperty,
+} from "./dictionary-types";
 
 const getDictionaryState = get(DICTIONARY_NAMESPACE);
 
@@ -65,6 +71,6 @@ export const getDictionaryPropertyUtil: Selector<any, TGetDictionaryRecordProper
         find({ name: dictionaryName }),
         get('records'),
         find({ [inputPropertyName]: inputPropertyValue }),
-        get(outputPropertyName),
+        getOr(recordNotFound(inputPropertyValue), outputPropertyName),
     )(dictionaryState),
 );

@@ -14,7 +14,7 @@ export enum EPlayerColor {
 export type TCreatures = {
     // Количество
     count: number;
-    // Название
+    // Id существа
     name: string;
 };
 

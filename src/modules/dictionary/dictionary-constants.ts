@@ -17,5 +17,9 @@ export enum EDictionaryName {
     Spells = 'spells',
 }
 
-export const NOT_FOUND_DICTIONARY_VALUE = 'Запись не найдена в справочнике';
 export const ERROR_FETCH_DICTIONARY = 'Ошибка при загрузке справочника';
+
+/**
+ * Утилита получения сообщения, что запись не найдена
+ */
+export const recordNotFound = (value: string) => `Запись не найдена в справочнике: ${value}`;

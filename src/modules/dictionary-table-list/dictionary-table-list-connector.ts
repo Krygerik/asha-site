@@ -6,6 +6,6 @@ const mapStateToProps = createStructuredSelector({
     getDictionaryProperty: getDictionaryPropertyUtil,
 });
 
-export const withDictionaryCreatureList = connect(mapStateToProps);
+export const withDictionaryTableList = connect(mapStateToProps);
 
-export type TDictionaryCreatureListConnectedProps = ConnectedProps<typeof withDictionaryCreatureList>;
+export type TDictionaryTableListConnectedProps = ConnectedProps<typeof withDictionaryTableList>;
