@@ -2,19 +2,19 @@ import {Grid, Header, Segment} from "semantic-ui-react";
 import * as React from "react";
 import {compose} from "redux";
 import {DictionaryCard, mapTypeDictionaryToHeader} from "../dictionary-card";
-import {EDictionaryName, withDictionaries} from "../dictionary";
-import {TDictionaryCardListConnectedProps, withDictionaryCardListConnector} from "./dictionary-card-list-connector";
+import {DictionaryContext, EDictionaryName, withDictionaries} from "../dictionary";
 
-type TOwnProps = {
+type TProps = {
     list: string[];
     type: EDictionaryName;
 };
-type TProps = TOwnProps & TDictionaryCardListConnectedProps;
 
 /**
  * Список артефактов (в будущем любых элементов)
  */
 const DictionaryCardList = React.memo((props: TProps) => {
+    const dictionaries = React.useContext(DictionaryContext);
+
     if (props.list.length === 0) {
         return null;
     }
@@ -29,7 +29,7 @@ const DictionaryCardList = React.memo((props: TProps) => {
                             <Grid.Column key={item}>
                                 <DictionaryCard
                                     gameId={item}
-                                    locale={props.getDictionaryProperty(props.type, 'game_id', item, 'localize_name')}
+                                    locale={dictionaries.getLocalizeDictionaryValueByGameId(props.type, item)}
                                     type={props.type}
                                 />
                             </Grid.Column>
@@ -41,7 +41,6 @@ const DictionaryCardList = React.memo((props: TProps) => {
     )
 });
 
-export const DictionaryCardListController = compose<React.FC<TOwnProps>>(
+export const DictionaryCardListController = compose<React.FC<TProps>>(
     withDictionaries,
-    withDictionaryCardListConnector,
 )(DictionaryCardList);

@@ -2,29 +2,30 @@ import {find, flow, get} from "lodash/fp";
 import * as React from "react";
 import {compose} from "redux";
 import {Header, Image, Message} from "semantic-ui-react";
-import {EDictionaryName, withDictionaries} from "../dictionary";
-import {TDictionaryHeroConnectedProps, withDictionaryHeroConnector} from "./dictionary-hero-connector";
+import {DictionaryContext, EDictionaryName, withDictionaries} from "../dictionary";
 import {MAP_HERO_IDS_TO_ICONS} from "./dictionary-hero-constants";
 
-type TOwnProps = {
+type TProps = {
     hero: string;
-}
-
-type TProps = TOwnProps & TDictionaryHeroConnectedProps;
+};
 
 /**
  * Компонент отображения иконки, названия и расы героя
  */
 export const DictionaryHero = React.memo((props: TProps) => {
-    const heroRecord = props.getDictionaryRecord(EDictionaryName.Heroes, 'game_id', props.hero);
+    const {
+        getDictionaryRecordByGameId,
+        getLocalizeDictionaryValueByGameId,
+    } = React.useContext(DictionaryContext);
+
+    const heroRecord = getDictionaryRecordByGameId(EDictionaryName.Heroes, props.hero);
 
     if (!heroRecord) {
         return <Message error content={`Не удалось найти героя: ${props.hero}`} />
     }
 
-    const heroRaceName = props.getDictionaryProperty(
-        EDictionaryName.Races, 'game_id', heroRecord.race_game_id, 'localize_name'
-    );
+    const heroRaceName = getLocalizeDictionaryValueByGameId(EDictionaryName.Races, heroRecord.race_game_id);
+
     const heroIcon: string = flow(
         find({ gameId: props.hero }),
         get('icon')
@@ -41,7 +42,6 @@ export const DictionaryHero = React.memo((props: TProps) => {
     )
 });
 
-export const DictionaryHeroController = compose<React.FC<TOwnProps>>(
+export const DictionaryHeroController = compose<React.FC<TProps>>(
     withDictionaries,
-    withDictionaryHeroConnector,
 )(DictionaryHero);

@@ -1,5 +1,4 @@
-import {EDictionaryName, SET_DICTIONARIES, SET_FETCHING_DICTIONARIES_STATUS} from "./dictionary-constants";
-import {TGame} from "../../pages/game/game-types";
+import {EDictionaryName} from "./dictionary-constants";
 
 /**
  * Тип одиночной записи в справочнике
@@ -24,60 +23,13 @@ export type TDictionary = {
 };
 
 /**
- * Тип экшена для записи справочников в стейт
+ * Тип контекста словарей
  */
-export type TSetDictionariesAction = {
-    type: typeof SET_DICTIONARIES;
-    data: TDictionary[];
-};
-
-/**
- * Тип экшена при неудачном запросе данных с сервера
- */
-export type TSetErrorFetchDictionariesAction = {
-    type: typeof SET_DICTIONARIES;
-    data: undefined;
-};
-
-/**
- * Экшен выставления статуса загрузки словарей
- */
-export type TSetFetchingDictionariesStatusAction = {
-    type: typeof SET_FETCHING_DICTIONARIES_STATUS;
-    data: undefined;
-};
-
-/**
- * Тип всех экшенов
- */
-export type TDictionaryActions = TSetDictionariesAction
-    | TSetErrorFetchDictionariesAction
-    | TSetFetchingDictionariesStatusAction;
-
-/**
- * Тип данных в стейте
- */
-export type TDictionaryState = {
-    error: boolean;
-    dictionaries?: TDictionary[];
+export type TDictionaryContext = {
+    dictionaries: TDictionary[];
+    fetchDictionaries: () => void;
+    getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string) => TRecord;
+    getLocalizeDictionaryValueByGameId: (dictName: EDictionaryName, gameId: string) => string;
+    isErrorFetch: boolean;
     isFetching: boolean;
 };
-
-/**
- * Тип утилиты, возвращающей данные из справочника
- */
-export type TGetDictionaryRecordProperty = (
-    dictionaryName: EDictionaryName,
-    inputPropertyName: string,
-    inputPropertyValue: string,
-    outputPropertyName: string,
-) => any;
-
-/**
- * Тип утилиты, возвращающей запись из справочника
- */
-export type TGetDictionaryRecord = (
-    dictionaryName: EDictionaryName,
-    inputPropertyName: string,
-    inputPropertyValue: string,
-) => TRecord | undefined;

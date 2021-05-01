@@ -1,10 +1,10 @@
 import * as React from "react";
+import {compose} from "redux";
 import {Loader, Segment, Table} from "semantic-ui-react";
 import {ShortGameInfoRow} from "./components/short-game-info-row";
 import {SHORT_GAME_INFO_TABLE_CONFIG} from "./short-game-info-table-constants";
 import {TShortGameInfoTableConnectedProps, withShortGameInfoTableConnector} from "./short-game-info-table-connector";
-import { compose } from "redux";
-import {EDictionaryName, withDictionaries} from "../dictionary";
+import {DictionaryContext, EDictionaryName, withDictionaries} from "../dictionary";
 
 type TOwnProps = {
     config: { items?: number; };
@@ -15,6 +15,8 @@ type TProps = TOwnProps & TShortGameInfoTableConnectedProps;
  * Визуальное отображение
  */
 export const ShortGameInfoTable = React.memo((props: TProps) => {
+    const { getLocalizeDictionaryValueByGameId } = React.useContext(DictionaryContext);
+
     /**
      * Запрос данных для таблицы
      */
@@ -51,16 +53,12 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                 {
                     props.tableData.map((row, index) => (
                         <ShortGameInfoRow
-                            blueHero={props.getDictionaryProperty(
-                                EDictionaryName.Heroes, 'game_id', row.blueHero, 'localize_name'
-                            )}
+                            blueHero={getLocalizeDictionaryValueByGameId(EDictionaryName.Heroes, row.blueHero)}
                             blueNickname={row.blueNickname}
                             date={row.date}
                             id={row.id}
                             key={index}
-                            redHero={props.getDictionaryProperty(
-                                EDictionaryName.Heroes, 'game_id', row.redHero, 'localize_name'
-                            )}
+                            redHero={getLocalizeDictionaryValueByGameId(EDictionaryName.Heroes, row.redHero)}
                             redNickname={row.redNickname}
                             result={row.result}
                         />
