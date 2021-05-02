@@ -1,0 +1,30 @@
+name: Compile and deploy to test server
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  compile_with_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout to code
+      uses: actions/checkout@v2
+    - name: Compile project
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: npm install --production
+    - run: REACT_APP_API_URL=${{secrets.TEST_API_URL}} REACT_APP_LOGIN=${{secrets.BASIC_AUTH}} REACT_APP_PASSWORD=${{secrets.BASIC_PASS}} npm run build
+    - name: Deploy to server
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{secrets.SSH_HOST}}
+        username: ${{secrets.SSH_USERNAME}}
+        passphrase: ${{secrets.SERVER_SSH_PASSPHRASE}}
+        key: ${{secrets.SERVER_SSH_KEY}}
+        overwrite: true
+        source: build/*
+        target: /var/www/test-hrta-site.com/html/
+        strip_components: 1
