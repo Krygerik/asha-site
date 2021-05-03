@@ -1,4 +1,4 @@
-import {Header, Segment, Message, Grid} from "semantic-ui-react";
+import {Header, Segment, Message, Grid, Loader} from "semantic-ui-react";
 import * as React from "react";
 import {useParams} from "react-router-dom";
 import {Page} from "../../modules/page";
@@ -25,37 +25,38 @@ export const Game = React.memo((props: TGameConnectedProps) => {
         props.fetchFullGameInfo(id);
     },[]);
 
+    if (!props.isFetchedGameInfo) {
+        return (
+            <Segment>
+                <Loader active inline="centered" size={"large"}/>
+            </Segment>
+        );
+    }
+
+    if (props.hasError) {
+        return <Message error content="Ошибка при запросе данных с сервера" />
+    }
+
     return (
         <Page>
             <Header as="h1" content={`Информация об игре №${id}`} />
-            <Segment loading={!props.isFetchedGameInfo}>
-                {
-                    props.hasError && (
-                        <Message error content="Ошибка при запросе данных с сервера" />
-                    )
-                }
-                {
-                    props.isFetchedGameInfo && !props.hasError && (
-                        <>
-                            <Header content={`Дата игры: ${props.gameInfo.date}`} />
-                            <Header content={`Победитель: ${props.winnerNickname}`} />
-                            <Grid columns={2}>
-                                <Grid.Row>
-                                    <Grid.Column>
-                                        <PlayerInfo
-                                            player={props.redPlayer}
-                                        />
-                                    </Grid.Column>
-                                    <Grid.Column>
-                                        <PlayerInfo
-                                            player={props.bluePlayer}
-                                        />
-                                    </Grid.Column>
-                                </Grid.Row>
-                            </Grid>
-                        </>
-                    )
-                }
+            <Segment>
+                <Header content={`Дата игры: ${props.gameInfo.date}`} />
+                <Header content={`Победитель: ${props.winnerNickname}`} />
+                <Grid columns={2}>
+                    <Grid.Row>
+                        <Grid.Column>
+                            <PlayerInfo
+                                player={props.redPlayer}
+                            />
+                        </Grid.Column>
+                        <Grid.Column>
+                            <PlayerInfo
+                                player={props.bluePlayer}
+                            />
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
             </Segment>
         </Page>
     );

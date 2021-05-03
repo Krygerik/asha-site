@@ -1,17 +1,22 @@
 import * as React from "react";
+import {compose} from "redux";
 import {Loader, Segment, Table} from "semantic-ui-react";
 import {ShortGameInfoRow} from "./components/short-game-info-row";
 import {SHORT_GAME_INFO_TABLE_CONFIG} from "./short-game-info-table-constants";
 import {TShortGameInfoTableConnectedProps, withShortGameInfoTableConnector} from "./short-game-info-table-connector";
+import {DictionaryContext, EDictionaryName, withDictionaries} from "../dictionary";
 
-type TProps = {
+type TOwnProps = {
     config: { items?: number; };
-} & TShortGameInfoTableConnectedProps;
+};
+type TProps = TOwnProps & TShortGameInfoTableConnectedProps;
 
 /**
  * Визуальное отображение
  */
 export const ShortGameInfoTable = React.memo((props: TProps) => {
+    const { getLocalizeDictionaryValueByGameId } = React.useContext(DictionaryContext);
+
     /**
      * Запрос данных для таблицы
      */
@@ -48,12 +53,12 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                 {
                     props.tableData.map((row, index) => (
                         <ShortGameInfoRow
-                            blueHero={row.blueHero}
+                            blueHero={getLocalizeDictionaryValueByGameId(EDictionaryName.Heroes, row.blueHero)}
                             blueNickname={row.blueNickname}
                             date={row.date}
                             id={row.id}
                             key={index}
-                            redHero={row.redHero}
+                            redHero={getLocalizeDictionaryValueByGameId(EDictionaryName.Heroes, row.redHero)}
                             redNickname={row.redNickname}
                             result={row.result}
                         />
@@ -64,4 +69,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
     );
 });
 
-export const ShortGameInfoTableController = withShortGameInfoTableConnector(ShortGameInfoTable);
+export const ShortGameInfoTableController = compose<React.FC<TOwnProps>>(
+    withDictionaries,
+    withShortGameInfoTableConnector,
+)(ShortGameInfoTable);
