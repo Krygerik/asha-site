@@ -26,9 +26,7 @@ export const DictionaryProvider = ({ children }: { children: React.ReactChild}) 
      * Загрузка справочников по дебаунсу
      */
     const fetchDictionaries = debounce(() => {
-        console.log('fetchDictionaries');
         if (!isFetching) {
-            console.log('setFetchingStatus');
             setFetchingStatus(true);
 
             createRequest()
@@ -46,7 +44,7 @@ export const DictionaryProvider = ({ children }: { children: React.ReactChild}) 
         dictName: EDictionaryName,
         gameId: string
     ) => flow(
-        find({ name: dictName }),
+        get(dictName),
         get('records'),
         find({ game_id: gameId }),
     )(dictionaries);
