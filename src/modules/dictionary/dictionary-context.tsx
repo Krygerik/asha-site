@@ -9,18 +9,18 @@ import {TDictionaryContext} from "./dictionary-types";
  * Писец, как это меня бесит
  */
 export const DictionaryContext = React.createContext<TDictionaryContext>({
-    dictionaries: [],
+    dictionaries: {},
     fetchDictionaries(): void {},
     getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string) => ({}) as any,
     getLocalizeDictionaryValueByGameId: (dictName: EDictionaryName, gameId: string) => '',
     isErrorFetch: false,
     isFetching: false,
-});
+} as TDictionaryContext);
 
 export const DictionaryProvider = ({ children }: { children: React.ReactChild}) => {
     const [isFetching, setFetchingStatus] = React.useState(false);
     const [isErrorFetch, setErrorFetchingStatus] = React.useState(false);
-    const [dictionaries, setDictionaries] = React.useState([]);
+    const [dictionaries, setDictionaries] = React.useState({});
 
     /**
      * Загрузка справочников по дебаунсу

@@ -26,7 +26,7 @@ export type TDictionary = {
  * Тип контекста словарей
  */
 export type TDictionaryContext = {
-    dictionaries: TDictionary[];
+    dictionaries: Record<EDictionaryName, TDictionary> | {};
     fetchDictionaries: () => void;
     getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string) => TRecord;
     getLocalizeDictionaryValueByGameId: (dictName: EDictionaryName, gameId: string) => string;
