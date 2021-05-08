@@ -5,6 +5,7 @@ import {compose} from "redux";
 import {noop} from "lodash";
 import {TPageHeaderConnectedProps, withPageHeaderConnector} from "./page-header-connector";
 import {THeaderNavItem} from "./page-header-types";
+import {AuthorizationModal} from "./modals/authorization-modal";
 import {RegistrationModal} from "./modals/registration";
 
 type TProps = TPageHeaderConnectedProps;
@@ -13,7 +14,8 @@ type TProps = TPageHeaderConnectedProps;
  * Заголовок страницы
  */
 export const PageHeader = React.memo((props: TProps) => {
-    const [isOpenModal, setModalOpenStatus] = React.useState(false);
+    const [isOpenRegModal, setRegModalOpenStatus] = React.useState(false);
+    const [isOpenAuthModal, setAuthModalOpenStatus] = React.useState(false);
 
     const history = useHistory();
 
@@ -26,9 +28,13 @@ export const PageHeader = React.memo((props: TProps) => {
 
     return (
         <>
+            <AuthorizationModal
+                open={isOpenAuthModal}
+                setOpen={setAuthModalOpenStatus}
+            />
             <RegistrationModal
-                open={isOpenModal}
-                setOpen={setModalOpenStatus}
+                open={isOpenRegModal}
+                setOpen={setRegModalOpenStatus}
             />
             <Menu fixed="top" style={{ height: "5em" }}>
                 <Container>
@@ -59,12 +65,13 @@ export const PageHeader = React.memo((props: TProps) => {
                     <Menu.Item position='right'>
                         <Button
                             content="Войти"
+                            onClick={() => setAuthModalOpenStatus(true)}
                         />
                         <Button
                             content="Зарегистрироваться"
                             primary
                             style={{ marginLeft: '0.5em' }}
-                            onClick={() => setModalOpenStatus(true)}
+                            onClick={() => setRegModalOpenStatus(true)}
                         />
                     </Menu.Item>
                 </Container>

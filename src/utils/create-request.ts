@@ -1,23 +1,29 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
-const DEVELOP_AXIOS_OPTIONS = {
+const DEVELOP_AXIOS_OPTIONS: AxiosRequestConfig = {
     baseURL: process.env.REACT_APP_API_URL,
 };
 
-const PRODUCTION_AXIOS_OPTIONS = {
+const PRODUCTION_AXIOS_OPTIONS: AxiosRequestConfig = {
     baseURL: process.env.REACT_APP_API_URL,
-    headers: {
-        'Authorization': 'Basic ' + btoa(process.env.REACT_APP_LOGIN + ':' + process.env.REACT_APP_PASSWORD),
-    }
+    auth: {
+        username: String(process.env.REACT_APP_LOGIN),
+        password: String(process.env.REACT_APP_PASSWORD)
+    },
 };
 
 /**
  * Конструктор запросов
  */
 export const createRequest = () => {
-    const option = process.env.NODE_ENV !== 'production'
+    let option: AxiosRequestConfig = process.env.NODE_ENV !== 'production'
         ? DEVELOP_AXIOS_OPTIONS
-        : PRODUCTION_AXIOS_OPTIONS
+        : PRODUCTION_AXIOS_OPTIONS;
+
+    option.headers = {
+        ...option.headers,
+        'Authorization': 'Bearer ' + localStorage.getItem('token'),
+    }
 
     return axios.create(option);
 };

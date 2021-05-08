@@ -1,12 +1,19 @@
 import {hashSync} from "bcryptjs";
 import {FORM_ERROR} from "final-form";
+import {
+    Button,
+    Form as SemanticForm,
+    Header,
+    Message,
+    Modal,
+    Segment
+} from "semantic-ui-react";
 import * as React from "react";
-import {Form } from "react-final-form";
 import {useHistory} from "react-router-dom";
-import {Button, Modal, Form as SemanticForm, Segment, Header, Message} from "semantic-ui-react";
+import {Form} from "react-final-form";
 import {FinalFormInputTextField} from "../../../../components/final-form-input-text-field";
 import {createRequest} from "../../../../utils/create-request";
-import {formValidators} from "./registration-modal-utils";
+import {formValidators} from "./authorization-modal-utils";
 
 type TProps = {
     open: boolean;
@@ -14,31 +21,22 @@ type TProps = {
 };
 
 /**
- * Модальное окно регистрации пользователя
+ * Модальное окно авторизации пользователя
+ * (DRY вышел из чата ^_^)
  */
-export const RegistrationModal = React.memo((props: TProps) => {
+export const AuthorizationModal = (props: TProps) => {
     const [isLoading, setLoadingStatus] = React.useState(false);
+
     const history = useHistory();
 
-    /**
-     * Обработчик регистрации
-     */
     const handleSubmit = async (values: any) => {
         try {
             setLoadingStatus(true);
 
             const requestBody = {
                 email: values.email,
-                hash_password: hashSync(values.password, '$2a$10$m/x6e5Oamg.Iyz80/1s0se'),
+                hash_password: hashSync(values.password,'$2a$10$m/x6e5Oamg.Iyz80/1s0se'),
             };
-
-            const regResponse = await createRequest().post('/auth/registration', requestBody);
-
-            if (regResponse.data.STATUS !== 'SUCCESS') {
-                return {
-                    [FORM_ERROR]: regResponse.data.MESSAGE
-                }
-            }
 
             const authResponse = await createRequest().post('/auth/login', requestBody);
 
@@ -63,7 +61,8 @@ export const RegistrationModal = React.memo((props: TProps) => {
                 [FORM_ERROR]: message
             }
         }
-    }
+
+    };
 
     return (
         <Modal
@@ -83,7 +82,7 @@ export const RegistrationModal = React.memo((props: TProps) => {
                                 as='h2'
                                 color='teal'
                                 textAlign='center'
-                                content="Регистрация"
+                                content="Авторизация"
                             />
                             <Segment
                                 stacked
@@ -100,12 +99,6 @@ export const RegistrationModal = React.memo((props: TProps) => {
                                     placeholder='Пароль'
                                     type='password'
                                 />
-                                <FinalFormInputTextField
-                                    icon='lock'
-                                    name="second_password"
-                                    placeholder='Повторите пароль'
-                                    type='password'
-                                />
                                 {
                                     submitError && (
                                         <Message
@@ -116,7 +109,7 @@ export const RegistrationModal = React.memo((props: TProps) => {
                                 }
                                 <Button
                                     color='teal'
-                                    content="Зарегистрироваться"
+                                    content="Войти"
                                     fluid
                                     size='large'
                                     type="submit"
@@ -128,4 +121,4 @@ export const RegistrationModal = React.memo((props: TProps) => {
             </Modal.Content>
         </Modal>
     )
-});
+}
