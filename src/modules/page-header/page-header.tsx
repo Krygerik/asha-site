@@ -1,12 +1,11 @@
-import {Button, Container, Header, Icon, Menu} from "semantic-ui-react";
+import {Container, Header, Icon, Menu} from "semantic-ui-react";
 import * as React from "react";
 import {useHistory, withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {noop} from "lodash";
+import {Profile} from "../profile";
 import {TPageHeaderConnectedProps, withPageHeaderConnector} from "./page-header-connector";
 import {THeaderNavItem} from "./page-header-types";
-import {AuthorizationModal} from "./modals/authorization-modal";
-import {RegistrationModal} from "./modals/registration";
 
 type TProps = TPageHeaderConnectedProps;
 
@@ -14,9 +13,6 @@ type TProps = TPageHeaderConnectedProps;
  * Заголовок страницы
  */
 export const PageHeader = React.memo((props: TProps) => {
-    const [isOpenRegModal, setRegModalOpenStatus] = React.useState(false);
-    const [isOpenAuthModal, setAuthModalOpenStatus] = React.useState(false);
-
     const history = useHistory();
 
     /**
@@ -28,14 +24,6 @@ export const PageHeader = React.memo((props: TProps) => {
 
     return (
         <>
-            <AuthorizationModal
-                open={isOpenAuthModal}
-                setOpen={setAuthModalOpenStatus}
-            />
-            <RegistrationModal
-                open={isOpenRegModal}
-                setOpen={setRegModalOpenStatus}
-            />
             <Menu fixed="top" style={{ height: "5em" }}>
                 <Container>
                     <Menu.Item>
@@ -63,16 +51,7 @@ export const PageHeader = React.memo((props: TProps) => {
                         ))
                     }
                     <Menu.Item position='right'>
-                        <Button
-                            content="Войти"
-                            onClick={() => setAuthModalOpenStatus(true)}
-                        />
-                        <Button
-                            content="Зарегистрироваться"
-                            primary
-                            style={{ marginLeft: '0.5em' }}
-                            onClick={() => setRegModalOpenStatus(true)}
-                        />
+                        <Profile />
                     </Menu.Item>
                 </Container>
             </Menu>
