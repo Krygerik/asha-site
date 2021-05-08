@@ -1,4 +1,4 @@
-import {Button, Header, Loader, Message} from "semantic-ui-react";
+import {Button, Dropdown, Header, Loader, Menu, Message} from "semantic-ui-react";
 import * as React from "react";
 import {TProfileConnectedProps, withProfileConnector} from "./profile-connector";
 import {AuthorizationModal} from "./modals/authorization-modal";
@@ -12,6 +12,14 @@ type TProps = TProfileConnectedProps;
 const Profile = React.memo((props: TProps) => {
     const [isOpenRegModal, setRegModalOpenStatus] = React.useState(false);
     const [isOpenAuthModal, setAuthModalOpenStatus] = React.useState(false);
+
+    /**
+     * Обработчик выхода из аккаунта
+     */
+    const handleOnClickLogout = async () => {
+        localStorage.removeItem('token');
+        await props.removeProfileData();
+    }
 
     /**
      * Запрос профиля
@@ -47,14 +55,21 @@ const Profile = React.memo((props: TProps) => {
             />
             {
                 props.profile && (
-                    <Header>
-                        {props.profile?.email}
-                    </Header>
+                    <Dropdown as={Header} text="Профиль" className='right item'>
+                        <Dropdown.Menu>
+                            <Dropdown.Header content={props.profile?.email} />
+                            <Dropdown.Divider />
+                            <Dropdown.Item
+                                content="Выход"
+                                onClick={handleOnClickLogout}
+                            />
+                        </Dropdown.Menu>
+                    </Dropdown>
                 )
             }
             {
                 !props.profile && (
-                    <>
+                    <Menu.Item position="right">
                         <Button
                             content="Войти"
                             onClick={() => setAuthModalOpenStatus(true)}
@@ -65,7 +80,7 @@ const Profile = React.memo((props: TProps) => {
                             style={{ marginLeft: '0.5em' }}
                             onClick={() => setRegModalOpenStatus(true)}
                         />
-                    </>
+                    </Menu.Item>
                 )
             }
         </>

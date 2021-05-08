@@ -24,4 +24,10 @@ export type TSetErrorFetchProfileAction = {
     type: typeof SET_ERROR_FETCH_PROFILE;
 }
 
-export type TProfileActions = TSetProfileAction | TSetErrorFetchProfileAction;
+export const REMOVE_PROFILE_DATA = 'REMOVE_PROFILE_DATA';
+
+export type TRemoveProfileDataAction = {
+    type: typeof REMOVE_PROFILE_DATA;
+}
+
+export type TProfileActions = TSetProfileAction | TSetErrorFetchProfileAction | TRemoveProfileDataAction;

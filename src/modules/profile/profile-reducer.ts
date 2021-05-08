@@ -1,4 +1,10 @@
-import {SET_ERROR_FETCH_PROFILE, SET_PROFILE, TProfileActions, TProfileState} from "./profile-types";
+import {
+    REMOVE_PROFILE_DATA,
+    SET_ERROR_FETCH_PROFILE,
+    SET_PROFILE,
+    TProfileActions,
+    TProfileState
+} from "./profile-types";
 
 const initialState = {
     data: null,
@@ -12,6 +18,7 @@ export const profileReducer = (
 ) => {
     if (action.type === SET_PROFILE) {
         return {
+            ...state,
             data: action.data,
             isFetching: false,
         }
@@ -19,7 +26,15 @@ export const profileReducer = (
 
     if (action.type === SET_ERROR_FETCH_PROFILE) {
         return {
+            ...state,
             error: true,
+        }
+    }
+
+    if (action.type === REMOVE_PROFILE_DATA) {
+        return {
+            ...state,
+            data: null,
         }
     }
 

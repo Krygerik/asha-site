@@ -20,9 +20,13 @@ export const createRequest = () => {
         ? DEVELOP_AXIOS_OPTIONS
         : PRODUCTION_AXIOS_OPTIONS;
 
-    option.headers = {
-        ...option.headers,
-        'Authorization': 'Bearer ' + localStorage.getItem('token'),
+    const token = localStorage.getItem('token');
+
+    if (token) {
+        option.headers = {
+            ...option.headers,
+            'Authorization': 'Bearer ' + token,
+        }
     }
 
     return axios.create(option);

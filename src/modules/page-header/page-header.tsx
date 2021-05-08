@@ -50,9 +50,7 @@ export const PageHeader = React.memo((props: TProps) => {
                             </Menu.Item>
                         ))
                     }
-                    <Menu.Item position='right'>
-                        <Profile />
-                    </Menu.Item>
+                    <Profile />
                 </Container>
             </Menu>
         </>
