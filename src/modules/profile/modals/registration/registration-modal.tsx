@@ -1,5 +1,6 @@
 import {hashSync} from "bcryptjs";
 import {FORM_ERROR} from "final-form";
+import { omit } from "lodash";
 import * as React from "react";
 import {Form } from "react-final-form";
 import {useHistory} from "react-router-dom";
@@ -28,7 +29,7 @@ export const RegistrationModal = React.memo((props: TProps) => {
             setLoadingStatus(true);
 
             const requestBody = {
-                email: values.email,
+                ...omit(values, ['password', 'second_password']),
                 hash_password: hashSync(values.password, '$2a$10$m/x6e5Oamg.Iyz80/1s0se'),
             };
 
@@ -93,18 +94,33 @@ export const RegistrationModal = React.memo((props: TProps) => {
                                     icon='user'
                                     name="email"
                                     placeholder='E-mail адрес'
+                                    required
                                 />
                                 <FinalFormInputTextField
                                     icon='lock'
                                     name="password"
                                     placeholder='Пароль'
+                                    required
                                     type='password'
                                 />
                                 <FinalFormInputTextField
                                     icon='lock'
                                     name="second_password"
                                     placeholder='Повторите пароль'
+                                    required
                                     type='password'
+                                />
+                                <FinalFormInputTextField
+                                    icon='user'
+                                    name="nickname"
+                                    placeholder='Основной никнейм'
+                                    required
+                                />
+                                <FinalFormInputTextField
+                                    icon='discord'
+                                    name="discord"
+                                    placeholder='Идентификатор в дискорде'
+                                    required
                                 />
                                 {
                                     submitError && (

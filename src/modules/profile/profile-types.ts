@@ -2,7 +2,12 @@
 export const PROFILE_NAMESPACE = '@@PROFILE_NAMESPACE';
 
 export type TProfile = {
+    // номер дискорда
+    discord: string;
+    // почта пользователя, используется вместо логина
     email: string;
+    // ник игрока
+    nickname: string;
 }
 
 export type TProfileState = {

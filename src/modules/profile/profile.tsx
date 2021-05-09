@@ -57,7 +57,7 @@ const Profile = React.memo((props: TProps) => {
                 props.profile && (
                     <Dropdown as={Header} text="Профиль" className='right item'>
                         <Dropdown.Menu>
-                            <Dropdown.Header content={props.profile?.email} />
+                            <Dropdown.Header content={props.profile.nickname} />
                             <Dropdown.Divider />
                             <Dropdown.Item
                                 content="Выход"

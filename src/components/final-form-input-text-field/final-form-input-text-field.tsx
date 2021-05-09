@@ -6,18 +6,24 @@ type TProps = {
     icon: string;
     name: string;
     placeholder?: string;
+    required?: boolean;
     type?: string;
 };
 
+const notEmptyValidator = (value?: string) => (value ? undefined : 'Поле обязательно для заполнения');
+
 export const FinalFormInputTextField = (props: TProps) => (
-    <Field name={props.name}>
+    <Field
+        name={props.name}
+        validate={props.required ? notEmptyValidator : undefined}
+    >
         {
             innerProps => (
                 <SemanticForm.Input
-                    fluid
-                    icon='lock'
-                    iconPosition='left'
                     error={innerProps.meta.touched && innerProps.meta.error}
+                    fluid
+                    icon={props.icon}
+                    iconPosition='left'
                     name={innerProps.input.name}
                     onChange={innerProps.input.onChange}
                     placeholder={props.placeholder}
