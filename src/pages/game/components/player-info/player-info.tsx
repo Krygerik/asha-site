@@ -36,6 +36,10 @@ export const PlayerInfo = React.memo((props: TProps) => (
                 type={EDictionaryName.Creatures}
             />
             <DictionaryCardList
+                list={props.player.war_machines}
+                type={EDictionaryName.WarMachines}
+            />
+            <DictionaryCardList
                 list={props.player.spells}
                 type={EDictionaryName.Spells}
             />

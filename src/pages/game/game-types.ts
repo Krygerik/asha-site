@@ -64,6 +64,8 @@ export type TPlayer = {
     spells: string[];
     // Выбранный стартовый бонус
     start_bonus: string;
+    // Боевые машины игрока
+    war_machines: string[];
 };
 
 /**
