@@ -1,0 +1,14 @@
+export { default as Archmage } from './Архимаг.png';
+export { default as BattleMage } from './Боевой маг.png';
+export { default as DjinnVizier } from './Визирь джиннов.png';
+export { default as GremlinSaboteur } from './Гремлин-вредитель.png';
+export { default as StormTitan } from './Громовержец.png';
+export { default as RakshasaKshatra } from './Кшатрий-ракшас.png';
+export { default as ObsidianGargoyle } from './Обсидиановая горгулья.png';
+export { default as MagneticGolem } from './Обсидиановый голем.png';
+export { default as RakshasaRaja } from './Ракшас-раджа.png';
+export { default as SteelGolem } from './Стальной голем.png';
+export { default as MasterGremlin } from './Старший гремлин.png';
+export { default as ElementalGargoyle } from './Стихийная горгулья.png';
+export { default as DjinnSultan } from './Султан джиннов.png';
+export { default as Titan } from './Титан.png';
