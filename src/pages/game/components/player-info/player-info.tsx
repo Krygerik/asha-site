@@ -5,7 +5,6 @@ import {EDictionaryName} from "../../../../modules/dictionary";
 import {DictionaryArmyList} from "../../../../modules/dictionary-army-list";
 import {DictionaryCardList} from "../../../../modules/dictionary-card-list";
 import {DictionaryHero} from "../../../../modules/dictionary-hero";
-import {DictionaryTableList} from "../../../../modules/dictionary-table-list";
 import {TPlayer} from "../../game-types";
 import {AdditionalProperties, HeroPropertiesTable} from "./components";
 import {mapPlayerColorToSegmentColor} from "./player-info-utils";
@@ -47,8 +46,7 @@ export const PlayerInfo = React.memo((props: TProps) => (
                 list={props.player.skills}
                 type={EDictionaryName.Skills}
             />
-            <DictionaryTableList
-                header="Навыки"
+            <DictionaryCardList
                 list={props.player.perks}
                 type={EDictionaryName.Perks}
             />
