@@ -12,8 +12,8 @@ import * as React from "react";
 import {useHistory} from "react-router-dom";
 import {Form} from "react-final-form";
 import {FinalFormInputTextField} from "../../../../components/final-form-input-text-field";
-import {createRequest} from "../../../../utils/create-request";
 import {formValidators} from "./authorization-modal-utils";
+import {login} from "../../profile-actions";
 
 type TProps = {
     open: boolean;
@@ -38,27 +38,15 @@ export const AuthorizationModal = (props: TProps) => {
                 hash_password: hashSync(values.password,'$2a$10$m/x6e5Oamg.Iyz80/1s0se'),
             };
 
-            const authResponse = await createRequest().post('/auth/login', requestBody);
-
-            if (authResponse.data.STATUS !== 'SUCCESS') {
-                return {
-                    [FORM_ERROR]: authResponse.data.MESSAGE
-                }
-            }
-
-            localStorage.setItem('token', authResponse.data.DATA.token);
+            await login(requestBody);
 
             setLoadingStatus(false);
             history.go(0);
         } catch (error) {
             setLoadingStatus(false);
 
-            const message = error.response.data.STATUS === 'FAILURE'
-                ? error.response.data.MESSAGE
-                : 'Непредвиденная ошибка сервера'
-
             return {
-                [FORM_ERROR]: message
+                [FORM_ERROR]: error.toString()
             }
         }
 

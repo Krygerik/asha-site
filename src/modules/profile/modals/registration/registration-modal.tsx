@@ -1,12 +1,13 @@
 import {hashSync} from "bcryptjs";
 import {FORM_ERROR} from "final-form";
-import { omit } from "lodash";
+import {omit, pick} from "lodash";
 import * as React from "react";
-import {Form } from "react-final-form";
+import {Form} from "react-final-form";
 import {useHistory} from "react-router-dom";
 import {Button, Modal, Form as SemanticForm, Segment, Header, Message} from "semantic-ui-react";
 import {FinalFormInputTextField} from "../../../../components/final-form-input-text-field";
-import {createRequest} from "../../../../utils/create-request";
+import {login, registration} from "../../profile-actions";
+import {TRegistrationFormValues} from "../../profile-types";
 import {formValidators} from "./registration-modal-utils";
 
 type TProps = {
@@ -24,44 +25,28 @@ export const RegistrationModal = React.memo((props: TProps) => {
     /**
      * Обработчик регистрации
      */
-    const handleSubmit = async (values: any) => {
+    const handleSubmit = async (values: TRegistrationFormValues) => {
         try {
             setLoadingStatus(true);
 
-            const requestBody = {
+            const registrationRequestData = {
                 ...omit(values, ['password', 'second_password']),
                 hash_password: hashSync(values.password, '$2a$10$m/x6e5Oamg.Iyz80/1s0se'),
             };
 
-            const regResponse = await createRequest().post('/auth/registration', requestBody);
+            await registration(registrationRequestData);
 
-            if (regResponse.data.STATUS !== 'SUCCESS') {
-                return {
-                    [FORM_ERROR]: regResponse.data.MESSAGE
-                }
-            }
+            const authRequestData = pick(registrationRequestData, ['email', 'hash_password']);
 
-            const authResponse = await createRequest().post('/auth/login', requestBody);
-
-            if (authResponse.data.STATUS !== 'SUCCESS') {
-                return {
-                    [FORM_ERROR]: authResponse.data.MESSAGE
-                }
-            }
-
-            localStorage.setItem('token', authResponse.data.DATA.token);
+            await login(authRequestData);
 
             setLoadingStatus(false);
             history.go(0);
         } catch (error) {
             setLoadingStatus(false);
 
-            const message = error.response.data.STATUS === 'FAILURE'
-                ? error.response.data.MESSAGE
-                : 'Непредвиденная ошибка сервера'
-
             return {
-                [FORM_ERROR]: message
+                [FORM_ERROR]: error.toString()
             }
         }
     }

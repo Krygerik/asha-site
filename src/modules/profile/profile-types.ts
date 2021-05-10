@@ -10,6 +10,35 @@ export type TProfile = {
     nickname: string;
 }
 
+/**
+ * Тип данных запроса на авторизацию
+ */
+export type TLoginRequestData = {
+    email: string;
+    hash_password: string;
+}
+
+/**
+ * Тип данных формы регистрации
+ */
+export type TRegistrationFormValues = {
+    discord: string;
+    email: string;
+    nickname: string;
+    password: string;
+    second_password: string;
+}
+
+/**
+ * Тип данных запроса на регистрацию
+ */
+export type TRegistrationRequestData = {
+    discord: string;
+    email: string;
+    nickname: string;
+    hash_password: string;
+}
+
 export type TProfileState = {
     data: TProfile | null;
     error: boolean;

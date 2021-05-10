@@ -16,10 +16,7 @@ const Profile = React.memo((props: TProps) => {
     /**
      * Обработчик выхода из аккаунта
      */
-    const handleOnClickLogout = async () => {
-        localStorage.removeItem('token');
-        await props.removeProfileData();
-    }
+    const handleOnClickLogout = () => props.removeProfileData();
 
     /**
      * Запрос профиля
@@ -32,10 +29,12 @@ const Profile = React.memo((props: TProps) => {
 
     if (props.isErrorFetch) {
         return (
-            <Message
-                color="red"
-                content="Ошибка при запросе профиля"
-            />
+            <Menu.Item position="right">
+                <Message
+                    color="red"
+                    content="Ошибка при запросе профиля"
+                />
+            </Menu.Item>
         );
     }
 
