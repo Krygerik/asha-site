@@ -1,0 +1,10 @@
+export { default as BattleToTheLast } from "./Битва до последнего.png";
+export { default as Readiness } from "./Готовность.png";
+export { default as ProtectUsAll } from "./Защити всех нас.png";
+export { default as GraveCold } from "./Могильный холод.png";
+export { default as DefensiveHird } from "./Оборонительный хирд.png";
+export { default as Reflection } from "./Отражение.png";
+export { default as StoneStrength } from "./Прочность камня.png";
+export { default as Resistance } from "./Сопротивление.png";
+export { default as Persistence } from "./Стойкость.png";
+export { default as Evasion } from "./Уклонение.png";

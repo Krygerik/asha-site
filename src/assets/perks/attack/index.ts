@@ -1,0 +1,10 @@
+export { default as AttackingHird } from "./Атакующий хирд.png";
+export { default as BattleFrenzy } from "./Боевое безумие.png";
+export { default as Retribution } from "./Воздаяние.png";
+export { default as SpeedMagic } from "./Волшебство скорости.png";
+export { default as DevilsBlow } from "./Дьявольский удар.png";
+export { default as StunningBlow } from "./Оглушающий удар.png";
+export { default as FireArrows } from "./Огненные стрелы.png";
+export { default as Shooting } from "./Стрельба.png";
+export { default as Tactics } from "./Тактика.png";
+export { default as ColdSteel } from "./Холодная сталь.png";

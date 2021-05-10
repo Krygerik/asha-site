@@ -1,0 +1,11 @@
+export { default as SilentStalker } from "./Бесшумный преследователь.png";
+export { default as SwiftGating } from "./Быстрое открытие врат.png";
+export { default as TeleportAssault } from "./Внезапная атака.png";
+export { default as Snatch } from "./Мародёрство.png";
+export { default as MarchOfTheGolems } from "./Марш големов.png";
+export { default as Navigation } from "./Навигация.png";
+export { default as SwiftMind } from "./Острый ум.png";
+export { default as Pathfinding } from "./Поиск пути.png";
+export { default as Warpath } from "./Путь войны.png";
+export { default as Scouting } from "./Разведка.png";
+export { default as FamiliarGround } from "./Родные земли.png";
