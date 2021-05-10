@@ -43,8 +43,7 @@ export const PlayerInfo = React.memo((props: TProps) => (
                 list={props.player.spells}
                 type={EDictionaryName.Spells}
             />
-            <DictionaryTableList
-                header="Школы"
+            <DictionaryCardList
                 list={props.player.skills}
                 type={EDictionaryName.Skills}
             />
