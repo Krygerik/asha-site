@@ -1,10 +1,11 @@
 import {isEmpty} from "lodash";
 import * as React from "react";
 import {Segment} from "semantic-ui-react";
-import {DictionaryTableList} from "../../../../modules/dictionary-table-list";
 import {EDictionaryName} from "../../../../modules/dictionary";
-import {DictionaryHero} from "../../../../modules/dictionary-hero";
+import {DictionaryArmyList} from "../../../../modules/dictionary-army-list";
 import {DictionaryCardList} from "../../../../modules/dictionary-card-list";
+import {DictionaryHero} from "../../../../modules/dictionary-hero";
+import {DictionaryTableList} from "../../../../modules/dictionary-table-list";
 import {TPlayer} from "../../game-types";
 import {AdditionalProperties, HeroPropertiesTable} from "./components";
 import {mapPlayerColorToSegmentColor} from "./player-info-utils";
@@ -30,10 +31,9 @@ export const PlayerInfo = React.memo((props: TProps) => (
             <DictionaryHero hero={props.player.hero} />
             <HeroPropertiesTable player={props.player} />
             <AdditionalProperties player={props.player} />
-            <DictionaryTableList
+            <DictionaryArmyList
                 header="Армия игрока"
                 list={props.player.army}
-                type={EDictionaryName.Creatures}
             />
             <DictionaryCardList
                 list={props.player.war_machines}
@@ -59,10 +59,9 @@ export const PlayerInfo = React.memo((props: TProps) => (
             />
             {
                 !isEmpty(props.player.army_remainder) && (
-                    <DictionaryTableList
+                    <DictionaryArmyList
                         header="Конечная армия игрока"
                         list={props.player.army_remainder}
-                        type={EDictionaryName.Creatures}
                     />
                 )
             }

@@ -1,12 +1,10 @@
 import {Table} from "semantic-ui-react";
 import * as React from "react";
-import {compose} from "redux";
-import {TCreatures} from "../../pages/game/game-types";
 import {DictionaryContext, EDictionaryName, withDictionaries} from "../dictionary";
 
 type TProps = {
     header: string;
-    list: (TCreatures | string)[];
+    list: string[];
     type: EDictionaryName;
 };
 
@@ -15,7 +13,7 @@ const DictionaryTableList = React.memo((props: TProps) => {
 
     return (
         <Table
-            columns={props.type === EDictionaryName.Creatures ? 2 : 1}
+            columns={1}
             textAlign="center"
             striped
         >
@@ -26,32 +24,17 @@ const DictionaryTableList = React.memo((props: TProps) => {
             </Table.Header>
             <Table.Body>
                 {
-                    props.list.map((item: TCreatures | string) => {
-                        if (typeof item === 'string') {
-                            return (
-                                <Table.Row key={item}>
-                                    <Table.Cell>
-                                        {getLocalizeDictionaryValueByGameId(props.type, item)}
-                                    </Table.Cell>
-                                </Table.Row>
-                            )
-                        }
-
-                        return (
-                            <Table.Row key={item.name}>
-                                <Table.Cell>
-                                    {getLocalizeDictionaryValueByGameId(EDictionaryName.Creatures, item.name)}
-                                </Table.Cell>
-                                <Table.Cell content={item.count} />
-                            </Table.Row>
-                        )
-                    })
+                    props.list.map((item: string) => (
+                        <Table.Row key={item}>
+                            <Table.Cell>
+                                {getLocalizeDictionaryValueByGameId(props.type, item)}
+                            </Table.Cell>
+                        </Table.Row>
+                    ))
                 }
             </Table.Body>
         </Table>
     )
 });
 
-export const DictionaryTableListController = compose<React.FC<TProps>>(
-    withDictionaries,
-)(DictionaryTableList);
+export const DictionaryTableListController = withDictionaries(DictionaryTableList);

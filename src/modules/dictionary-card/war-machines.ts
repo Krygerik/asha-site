@@ -1,7 +1,7 @@
 import {AmmoCart, Ballista, FirstAidTent} from "../../assets/war-machines";
 
 /**
- * Тип заклинания для отображения
+ * Тип маппинга id на иконку военных машин для отображения
  */
 export type TWarMachine = {
     gameId: string;

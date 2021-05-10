@@ -23,7 +23,7 @@ const DictionaryCardList = React.memo((props: TProps) => {
         <>
             <Header attached="top" content={mapTypeDictionaryToHeader[props.type]} textAlign="center" block />
             <Segment attached="bottom">
-                <Grid columns={3}>
+                <Grid columns={3} centered>
                     {
                         props.list.map((item: string) => (
                             <Grid.Column key={item}>
