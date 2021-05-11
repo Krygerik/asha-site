@@ -1,4 +1,4 @@
-import {Header, Segment, Message, Grid, Loader} from "semantic-ui-react";
+import {Header, Segment, Message, Grid, Loader, Rating} from "semantic-ui-react";
 import * as React from "react";
 import {useParams} from "react-router-dom";
 import {Page} from "../../modules/page";
@@ -10,6 +10,26 @@ import {PlayerInfo} from "./components/player-info";
  */
 type TGameParams = {
     id: string;
+}
+
+/**
+ * Маппинг процентиля силы оставшейся армии на рейтинг
+ */
+const mapPercentileToRating = (percentile: number) => {
+    if (percentile < 51) {
+        return 1;
+    }
+    if (percentile < 65) {
+        return 2;
+    }
+    if (percentile < 80) {
+        return 3;
+    }
+    if (percentile < 95) {
+        return 4;
+    }
+
+    return 5;
 }
 
 /**
@@ -28,7 +48,7 @@ export const Game = React.memo((props: TGameConnectedProps) => {
     if (!props.isFetchedGameInfo) {
         return (
             <Segment>
-                <Loader active inline="centered" size={"large"}/>
+                <Loader active inline="centered" size="large"/>
             </Segment>
         );
     }
@@ -43,6 +63,18 @@ export const Game = React.memo((props: TGameConnectedProps) => {
             <Segment>
                 <Header content={`Дата игры: ${props.gameInfo.date}`} />
                 <Header content={`Победитель: ${props.winnerNickname}`} />
+                <Header>
+                    Зрелищность:
+                    <Rating
+                        defaultRating={mapPercentileToRating(props.gameInfo.percentage_of_army_left)}
+                        disabled
+                        icon='star'
+                        maxRating={5}
+                        size='massive'
+                    />
+                </Header>
+
+
                 <Grid columns={2}>
                     <Grid.Row>
                         <Grid.Column>
