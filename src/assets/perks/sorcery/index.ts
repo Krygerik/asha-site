@@ -7,3 +7,4 @@ export { default as Distract } from "./Отвлечение.png";
 export { default as ArcaneBrilliance } from "./Тайное откровение.png";
 export { default as ArcaneExcellence } from "./Тайное преимущество.png";
 export { default as ArcaneTraining } from "./Тайные знания.png";
+export { default as ArcaneProtection } from "./Чародейская защита.png";

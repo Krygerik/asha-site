@@ -10,3 +10,4 @@ export { default as ArcaneIntuition} from "./Разгадка тайного.png
 export { default as TapRunes } from "./Рунный откат.png";
 export { default as Scholar } from "./Учёный.png";
 export { default as ArcaneExaltation } from "./Хранитель тайного.png";
+export { default as Astrology } from "./Астрология.png";
