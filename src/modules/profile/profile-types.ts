@@ -2,6 +2,8 @@
 export const PROFILE_NAMESPACE = '@@PROFILE_NAMESPACE';
 
 export type TProfile = {
+    // id пользователя в бд
+    _id: string;
     // номер дискорда
     discord: string;
     // почта пользователя, используется вместо логина
