@@ -3,6 +3,7 @@ import * as React from "react";
 import {TProfileConnectedProps, withProfileConnector} from "./profile-connector";
 import {AuthorizationModal} from "./modals/authorization-modal";
 import {RegistrationModal} from "./modals/registration";
+import { useHistory } from "react-router-dom";
 
 type TProps = TProfileConnectedProps;
 
@@ -13,10 +14,17 @@ const Profile = React.memo((props: TProps) => {
     const [isOpenRegModal, setRegModalOpenStatus] = React.useState(false);
     const [isOpenAuthModal, setAuthModalOpenStatus] = React.useState(false);
 
+    const history = useHistory();
+
     /**
      * Обработчик выхода из аккаунта
      */
     const handleOnClickLogout = () => props.removeProfileData();
+
+    /**
+     * Обработчик захода в свой профиль
+     */
+    const handleClickMyProfile = () => history.push(`/profile/${props.profile?._id}`);
 
     /**
      * Запрос профиля
@@ -58,6 +66,11 @@ const Profile = React.memo((props: TProps) => {
                         <Dropdown.Menu>
                             <Dropdown.Header content={props.profile.nickname} />
                             <Dropdown.Divider />
+                            <Dropdown.Item
+                                as={'a'}
+                                content="Мой профиль"
+                                onClick={handleClickMyProfile}
+                            />
                             <Dropdown.Item
                                 content="Выход"
                                 onClick={handleOnClickLogout}
