@@ -78,6 +78,8 @@ export type TGame = {
     combat_id: number;
     // Дата окончания игры
     date?: string;
+    // Версия карты
+    map_version: string;
     // Процент сил оставшейся армии
     percentage_of_army_left: number;
     // Список данных обоих игроков

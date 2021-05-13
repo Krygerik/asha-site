@@ -62,6 +62,7 @@ export const Game = React.memo((props: TGameConnectedProps) => {
             <Header as="h1" content={`Информация об игре №${id}`} />
             <Segment>
                 <Header content={`Дата игры: ${props.gameInfo.date}`} />
+                <Header content={`Версия карты: ${props.gameInfo.map_version}`} />
                 <Header content={`Победитель: ${props.winnerNickname}`} />
                 <Header>
                     Зрелищность:
