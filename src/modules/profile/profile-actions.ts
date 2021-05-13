@@ -56,6 +56,12 @@ export const removeProfileData = () => (
     dispatch(removeProfile);
 }
 
+const ERROR_MESSAGES = [
+    'Пользователь не авторизован',
+    'Действите токена истекло',
+    'Пользователь не найден'
+]
+
 /**
  * Запрос профиля для авторизованного пользователя
  */
@@ -67,11 +73,7 @@ export const fetchProfile = () => async (
 
         dispatch(setProfile(response.data.DATA));
     } catch (error) {
-        if (error.response?.data?.MESSAGE === 'Пользователь не авторизован') {
-            return dispatch(setProfile(error.response?.data?.DATA));
-        }
-
-        if (error.response?.data?.MESSAGE === 'Действите токена истекло') {
+        if (ERROR_MESSAGES.includes(error.response?.data?.MESSAGE)) {
             return dispatch(setProfile(error.response?.data?.DATA));
         }
 
