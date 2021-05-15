@@ -17,5 +17,10 @@ export const getHeaderMenuNavigation: ParametricSelector<any, any, THeaderNavIte
             link: "/games-history",
             active: match.path === "/games-history",
         },
+        {
+            title: "Об АСХА",
+            link: "/about-asha",
+            active: match.path === "/about-asha",
+        }
     ]),
 );

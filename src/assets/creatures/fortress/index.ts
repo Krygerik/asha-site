@@ -1,0 +1,14 @@
+export { default as Berserker } from './Берсерк.png';
+export { default as Battlerager } from './Воин Арката.png';
+export { default as Shieldguard } from './Воитель.png';
+export { default as Harpooner } from './Гарпунёр.png';
+export { default as MountainGuard } from './Горный страж.png';
+export { default as LavaDragon } from './Дракон Арката.png';
+export { default as RunePatriarch } from './Жрец Арката.png';
+export { default as RuneKeeper } from './Жрец Пламени.png';
+export { default as MagmaDragon } from './Лавовый дракон.png';
+export { default as Skirmisher } from './Мастер копья.png';
+export { default as WhitebearRider } from './Северный наездник.png';
+export { default as BlackbearRider } from './Хозяин медведя.png';
+export { default as ThunderThane } from './Эрл.png';
+export { default as FlameLord } from './Ярл.png';

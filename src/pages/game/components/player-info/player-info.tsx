@@ -1,10 +1,12 @@
 import {isEmpty} from "lodash";
 import * as React from "react";
 import {Segment} from "semantic-ui-react";
-import {EDictionaryType} from "../../../../components/custom-card";
-import {Hero} from "../../../../modules/hero";
+import {EDictionaryName} from "../../../../modules/dictionary";
+import {DictionaryArmyList} from "../../../../modules/dictionary-army-list";
+import {DictionaryCardList} from "../../../../modules/dictionary-card-list";
+import {DictionaryHero} from "../../../../modules/dictionary-hero";
 import {TPlayer} from "../../game-types";
-import {AdditionalProperties, ArmyTable, CustomList, HeroPropertiesTable, TableAsList} from "./components";
+import {AdditionalProperties, HeroPropertiesTable} from "./components";
 import {mapPlayerColorToSegmentColor} from "./player-info-utils";
 
 type TProps = {
@@ -25,17 +27,39 @@ export const PlayerInfo = React.memo((props: TProps) => (
             textAlign="center"
         />
         <Segment attached="bottom">
-            <Hero hero={props.player.hero} />
+            <DictionaryHero hero={props.player.hero} />
             <HeroPropertiesTable player={props.player} />
             <AdditionalProperties player={props.player} />
-            <ArmyTable armyList={props.player.army} header="Армия игрока" />
-            <CustomList list={props.player.spells} type={EDictionaryType.SPELLS} />
-            <TableAsList list={props.player.skills} header="Школы" />
-            <TableAsList list={props.player.perks} header="Навыки" />
-            <CustomList list={props.player.arts} type={EDictionaryType.ARTS} />
+            <DictionaryArmyList
+                header="Армия игрока"
+                list={props.player.army}
+            />
+            <DictionaryCardList
+                list={props.player.war_machines}
+                type={EDictionaryName.WarMachines}
+            />
+            <DictionaryCardList
+                list={props.player.spells}
+                type={EDictionaryName.Spells}
+            />
+            <DictionaryCardList
+                list={props.player.skills}
+                type={EDictionaryName.Skills}
+            />
+            <DictionaryCardList
+                list={props.player.perks}
+                type={EDictionaryName.Perks}
+            />
+            <DictionaryCardList
+                list={props.player.arts}
+                type={EDictionaryName.Artifacts}
+            />
             {
                 !isEmpty(props.player.army_remainder) && (
-                    <ArmyTable armyList={props.player.army_remainder} header="Конечная армия игрока" />
+                    <DictionaryArmyList
+                        header="Конечная армия игрока"
+                        list={props.player.army_remainder}
+                    />
                 )
             }
         </Segment>

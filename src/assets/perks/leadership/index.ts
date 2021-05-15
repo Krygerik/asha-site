@@ -1,0 +1,11 @@
+export { default as AuraOfSwiftness } from "./Аура скорости.png";
+export { default as HeraldOfDeath } from "./Вестник Смерти.png";
+export { default as DivineGuidance } from "./Воодушевление.png";
+export { default as Diplomacy } from "./Дипломатия.png";
+export { default as BattleCommander } from "./Лесной лидер.png";
+export { default as RunicAttunement } from "./Рунная гармония.png";
+export { default as Recruitment } from "./Сбор войск.png";
+export { default as Empathy } from "./Сопереживание.png";
+export { default as BattleElation } from "./Упоение битвой.png";
+export { default as Estates } from "./Управление казной.png";
+export { default as GateMaster } from "./Хозяин врат.png";

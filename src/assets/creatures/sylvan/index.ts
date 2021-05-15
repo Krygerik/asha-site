@@ -1,0 +1,14 @@
+export { default as SilverUnicorn } from './Боевой единорог.png';
+export { default as DruidElder } from './Верховный друид.png';
+export { default as SavageTreant } from './Дикий энт.png';
+export { default as AncientTreant } from './Древний энт.png';
+export { default as Sprite } from './Дриада.png';
+export { default as EmeraldDragon } from './Изумрудный дракон.png';
+export { default as CrystalDragon } from './Кристаллический дракон.png';
+export { default as ArcaneArcher } from './Лесной стрелок.png';
+export { default as MasterHunter } from './Мастер лука.png';
+export { default as Dryad } from './Нимфа.png';
+export { default as PristineUnicorn } from './Светлый единорог.png';
+export { default as HighDruid } from './Старший друид.png';
+export { default as WindDancer } from './Танцующий с ветром.png';
+export { default as WarDancer } from './Танцующий со смертью.png';

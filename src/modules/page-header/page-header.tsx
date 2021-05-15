@@ -3,6 +3,7 @@ import * as React from "react";
 import {useHistory, withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {noop} from "lodash";
+import {Profile} from "../profile";
 import {TPageHeaderConnectedProps, withPageHeaderConnector} from "./page-header-connector";
 import {THeaderNavItem} from "./page-header-types";
 
@@ -22,34 +23,37 @@ export const PageHeader = React.memo((props: TProps) => {
     }
 
     return (
-        <Menu fixed="top" style={{ height: "5em" }}>
-            <Container>
-                <Menu.Item>
-                    <Header>
-                        <Icon name="chess" />
-                        Half Random Tactical Arena
-                    </Header>
-                </Menu.Item>
-                {
-                    props.headerMenuNavigation.map((item: THeaderNavItem) => (
-                        <Menu.Item
-                            as="a"
-                            active={item.active}
-                            key={item.link}
-                            onClick={
-                                item.active
-                                    ? noop
-                                    : handleMenuItemClick(item.link)
-                            }
-                        >
-                            <Header>
-                                {item.title}
-                            </Header>
-                        </Menu.Item>
-                    ))
-                }
-            </Container>
-        </Menu>
+        <>
+            <Menu fixed="top" style={{ height: "5em" }}>
+                <Container>
+                    <Menu.Item>
+                        <Header>
+                            <Icon name="chess" />
+                            Half Random Tactical Arena
+                        </Header>
+                    </Menu.Item>
+                    {
+                        props.headerMenuNavigation.map((item: THeaderNavItem) => (
+                            <Menu.Item
+                                as="a"
+                                active={item.active}
+                                key={item.link}
+                                onClick={
+                                    item.active
+                                        ? noop
+                                        : handleMenuItemClick(item.link)
+                                }
+                            >
+                                <Header>
+                                    {item.title}
+                                </Header>
+                            </Menu.Item>
+                        ))
+                    }
+                    <Profile />
+                </Container>
+            </Menu>
+        </>
     )
 });
 

@@ -14,7 +14,7 @@ export enum EPlayerColor {
 export type TCreatures = {
     // Количество
     count: number;
-    // Название
+    // Id существа
     name: string;
 };
 
@@ -64,6 +64,8 @@ export type TPlayer = {
     spells: string[];
     // Выбранный стартовый бонус
     start_bonus: string;
+    // Боевые машины игрока
+    war_machines: string[];
 };
 
 /**
@@ -76,6 +78,10 @@ export type TGame = {
     combat_id: number;
     // Дата окончания игры
     date?: string;
+    // Версия карты
+    map_version: string;
+    // Процент сил оставшейся армии
+    percentage_of_army_left: number;
     // Список данных обоих игроков
     players: TPlayer[];
     // Список ников игроков, участвующих в игре

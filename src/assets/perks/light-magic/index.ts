@@ -1,0 +1,10 @@
+export { default as GuardianAngel } from "./Ангел-хранитель.png";
+export { default as EternalLight } from "./Вечный Свет.png";
+export { default as MasterOfWrath } from "./Гнев праведный.png";
+export { default as MasterOfBlessings } from "./Дарующий благословение.png";
+export { default as MasterOfAbjuration } from "./Дарующий защиту.png";
+export { default as FireResistance } from "./Защита от огня.png";
+export { default as SuppressLight } from "./Печать Света.png";
+export { default as Twilight } from "./Сумерки.png";
+export { default as RefinedMana } from "./Тайны Света.png";
+export { default as StormWind } from "./Штормовой ветер.png";
