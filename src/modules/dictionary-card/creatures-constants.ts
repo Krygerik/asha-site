@@ -506,7 +506,7 @@ export const CREATURES: TCreatures[] = [
         icon: RuneKeeper
     },
     {
-        gameId: "ID171",
+        gameId: "ID95",
         icon: ThunderThane
     },
     {
@@ -578,7 +578,7 @@ export const CREATURES: TCreatures[] = [
         icon: ImperialGriffin
     },
     {
-        gameId: "ID54",
+        gameId: "ID53",
         icon: AncientTreant
     },
     {
@@ -586,7 +586,7 @@ export const CREATURES: TCreatures[] = [
         icon: EmeraldDragon
     },
     {
-        gameId: "ID44",
+        gameId: "ID43",
         icon: Sprite
     },
     {
@@ -594,7 +594,7 @@ export const CREATURES: TCreatures[] = [
         icon: FlameLord
     },
     {
-        gameId: "ID46",
+        gameId: "ID45",
         icon: WarDancer
     },
     {
@@ -602,7 +602,7 @@ export const CREATURES: TCreatures[] = [
         icon: MasterHunter
     },
     {
-        gameId: "ID50",
+        gameId: "ID49",
         icon: DruidElder
     },
     {
@@ -610,7 +610,7 @@ export const CREATURES: TCreatures[] = [
         icon: ShadowMatriarch
     },
     {
-        gameId: "ID99",
+        gameId: "ID98",
         icon: Berserker
     },
     {
