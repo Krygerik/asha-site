@@ -19,7 +19,7 @@ export const DictionaryArmyCard = (props: TProps) => {
 
     if (!item) {
         return (
-            <Message error content={`Запись не была найдена иконка для: ${props.gameId}`} />
+            <Message error content={`Отсутствует иконка для: ${props.gameId}`} />
         )
     }
 

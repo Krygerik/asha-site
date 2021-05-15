@@ -378,10 +378,6 @@ export const CREATURES: TCreatures[] = [
         icon: PitSpawn
     },
     {
-        gameId: "ID27",
-        icon: ArchDevil
-    },
-    {
         gameId: "ID137",
         icon: ArchDemon
     },
@@ -590,10 +586,6 @@ export const CREATURES: TCreatures[] = [
         icon: EmeraldDragon
     },
     {
-        gameId: "ID14",
-        icon: Archangel
-    },
-    {
         gameId: "ID44",
         icon: Sprite
     },
@@ -620,5 +612,13 @@ export const CREATURES: TCreatures[] = [
     {
         gameId: "ID99",
         icon: Berserker
+    },
+    {
+        gameId: "ID24",
+        icon: ArchDevil
+    },
+    {
+        gameId: "ID13",
+        icon: Archangel
     },
 ];
