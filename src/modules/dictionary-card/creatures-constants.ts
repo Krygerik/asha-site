@@ -621,4 +621,96 @@ export const CREATURES: TCreatures[] = [
         gameId: "ID13",
         icon: Archangel
     },
+    {
+        gameId: "ID54",
+        icon: AncientTreant
+    },
+    {
+        gameId: "ID14",
+        icon: Archangel
+    },
+    {
+        gameId: "ID16",
+        icon: SuccubusSeducer
+    },
+    {
+        gameId: "ID30",
+        icon: Poltergeist
+    },
+    {
+        gameId: "ID44",
+        icon: Dryad
+    },
+    {
+        gameId: "ID93",
+        icon: Stalker
+    },
+    {
+        gameId: "ID84",
+        icon: ShadowMatriarch
+    },
+    {
+        gameId: "ID118",
+        icon: Archangel
+    },
+    {
+        gameId: "ID52",
+        icon: Seraph
+    },
+    {
+        gameId: "ID66",
+        icon: Archangel
+    },
+    {
+        gameId: "ID46",
+        icon: WarDancer
+    },
+    {
+        gameId: "ID18",
+        icon: WindDancer
+    },
+    {
+        gameId: "ID20",
+        icon: ArcaneArcher
+    },
+    {
+        gameId: "ID50",
+        icon: DruidElder
+    },
+    {
+        gameId: "ID22",
+        icon: HighDruid
+    },
+    {
+        gameId: "ID62",
+        icon: MasterHunter
+    },
+    {
+        gameId: "ID76",
+        icon: ArcaneArcher
+    },
+    {
+        gameId: "ID72",
+        icon: DruidElder
+    },
+    {
+        gameId: "ID74",
+        icon: HighDruid
+    },
+    {
+        gameId: "ID200",
+        icon: GrimRaider
+    },
+    {
+        gameId: "ID210",
+        icon: BriskRaider
+    },
+    {
+        gameId: "ID99",
+        icon: Berserker
+    },
+    {
+        gameId: "ID80",
+        icon: Battlerager
+    },
 ];
