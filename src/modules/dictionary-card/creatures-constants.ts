@@ -713,4 +713,8 @@ export const CREATURES: TCreatures[] = [
         gameId: "ID80",
         icon: Battlerager
     },
+    {
+        gameId: "ID171",
+        icon: ThunderThane
+    },
 ];
