@@ -4,6 +4,7 @@ import {useParams} from "react-router-dom";
 import {Page} from "../../modules/page";
 import {TGameConnectedProps, withGameConnector} from "./game-connector";
 import {PlayerInfo} from "./components/player-info";
+import {convertUtcToLocalDate} from "../../utils/convert-utc-to-local-date";
 
 /**
  * Тип параметров урла для страницы подробной информации
@@ -61,7 +62,11 @@ export const Game = React.memo((props: TGameConnectedProps) => {
         <Page>
             <Header as="h1" content={`Информация об игре №${id}`} />
             <Segment>
-                <Header content={`Дата игры: ${props.gameInfo.date}`} />
+                <Header content={`Дата игры: ${
+                    props.gameInfo.date
+                        ? convertUtcToLocalDate(props.gameInfo.date)
+                        : 'Не определена'
+                }`} />
                 <Header content={`Версия карты: ${props.gameInfo.map_version}`} />
                 <Header content={`Победитель: ${props.winnerNickname}`} />
                 <Header>
