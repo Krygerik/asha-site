@@ -31,13 +31,13 @@ export const getGameInfo: Selector<any, TGame> = createSelector(
 );
 
 /**
- * Получение yикнейма победителя
+ * Получение никнейма победителя
  */
 export const getWinnerNickname: Selector<any, string> = createSelector(
     getGameInfo,
     (gameInfo: TGame) => flow(
         find((player: TPlayer) => player.color === gameInfo.winner),
-        getOr('Не определено', 'nickname'),
+        getOr("Неизвестный", 'nickname'),
     )(gameInfo.players),
 );
 
