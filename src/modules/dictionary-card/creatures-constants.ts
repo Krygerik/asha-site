@@ -725,4 +725,84 @@ export const CREATURES: TCreatures[] = [
         gameId: "ID27",
         icon: ArchDevil
     },
+    {
+        gameId: "ID102",
+        icon: FlameLord
+    },
+    {
+        gameId: "ID81",
+        icon: ShadowMatriarch
+    },
+    {
+        gameId: "ID201",
+        icon: GrimRaider
+    },
+    {
+        gameId: "ID202",
+        icon: GrimRaider
+    },
+    {
+        gameId: "ID203",
+        icon: GrimRaider
+    },
+    {
+        gameId: "ID204",
+        icon: GrimRaider
+    },
+    {
+        gameId: "ID205",
+        icon: GrimRaider
+    },
+    {
+        gameId: "ID206",
+        icon: GrimRaider
+    },
+    {
+        gameId: "ID207",
+        icon: GrimRaider
+    },
+    {
+        gameId: "ID208",
+        icon: GrimRaider
+    },
+    {
+        gameId: "ID209",
+        icon: GrimRaider
+    },
+    {
+        gameId: "ID211",
+        icon: BriskRaider
+    },
+    {
+        gameId: "ID212",
+        icon: BriskRaider
+    },
+    {
+        gameId: "ID213",
+        icon: BriskRaider
+    },
+    {
+        gameId: "ID214",
+        icon: BriskRaider
+    },
+    {
+        gameId: "ID215",
+        icon: BriskRaider
+    },
+    {
+        gameId: "ID216",
+        icon: BriskRaider
+    },
+    {
+        gameId: "ID217",
+        icon: BriskRaider
+    },
+    {
+        gameId: "ID218",
+        icon: BriskRaider
+    },
+    {
+        gameId: "ID219",
+        icon: BriskRaider
+    },
 ];
