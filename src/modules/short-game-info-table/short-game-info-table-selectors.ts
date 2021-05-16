@@ -33,11 +33,11 @@ export const getShortGameInfoListTableData: Selector<any, any[]> = createSelecto
 
         return {
             blueHero: blueHero?.hero,
-            blueNickname: blueHero?.nickname,
+            blueNickname: blueHero?.nickname || "Не определено",
             date: shortGameInfo.date,
             id: shortGameInfo._id,
             redHero: redHero?.hero,
-            redNickname: redHero?.nickname,
+            redNickname: redHero?.nickname || "Не определено",
             result: resultIcon,
         };
     }),
