@@ -21,7 +21,7 @@ export const PlayerInfo = React.memo((props: TProps) => (
         <Segment
             attached="top"
             color={mapPlayerColorToSegmentColor(props.player.color)}
-            content={props.player.nickname}
+            content={props.player.nickname || "Не определено"}
             inverted={true}
             size="massive"
             textAlign="center"
