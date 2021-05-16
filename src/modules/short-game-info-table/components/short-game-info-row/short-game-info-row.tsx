@@ -1,6 +1,7 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
 import {Icon, SemanticICONS, Table} from "semantic-ui-react";
+import {convertUtcToLocalDate} from "../../../../utils/convert-utc-to-local-date";
 import "./short-game-info-row.css";
 
 type TProps = {
@@ -15,7 +16,7 @@ type TProps = {
 
 export const ShortGameInfoRow = React.memo((props: TProps) => (
     <Table.Row textAlign={"center"}>
-        <Table.Cell>{props.date}</Table.Cell>
+        <Table.Cell>{convertUtcToLocalDate(props.date)}</Table.Cell>
         <Table.Cell className={"red_player"}>{props.redNickname}</Table.Cell>
         <Table.Cell className={"red_hero"}>{props.redHero}</Table.Cell>
         <Table.Cell><Icon name={props.result}/></Table.Cell>
