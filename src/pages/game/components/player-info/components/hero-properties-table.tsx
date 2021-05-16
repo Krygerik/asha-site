@@ -18,6 +18,10 @@ export const HeroPropertiesTable = (props: TProps) => (
         </Table.Header>
         <Table.Body>
             <Table.Row>
+                <Table.Cell content="Уровень" />
+                <Table.Cell content={props.player.level} />
+            </Table.Row>
+            <Table.Row>
                 <Table.Cell content="Нападение" />
                 <Table.Cell content={props.player.attack} />
             </Table.Row>
