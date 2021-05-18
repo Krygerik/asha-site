@@ -1,16 +1,32 @@
 import {createSelector, Selector} from "reselect";
 import {find, get, map} from "lodash/fp";
 import {SHORT_GAME_INFO_TABLE_NAMESPACE} from "./short-game-info-table-constants";
-import {EPlayerColor, IShortGame, IShortPlayer } from "./short-game-info-table-types";
+import {EPlayerColor, IShortGame, IShortPlayer, TPagination} from "./short-game-info-table-types";
 
 const getGamesStoreValue = get(SHORT_GAME_INFO_TABLE_NAMESPACE);
 
 /**
  * Статус загрузки данных для таблицы из сервера
  */
-export const getIsFetchedShortGameInfoList: Selector<any, boolean> = createSelector(
+export const getIsFetchingStatusShortGameInfoList: Selector<any, boolean> = createSelector(
     getGamesStoreValue,
-    get('isFetched')
+    get('isFetching')
+);
+
+/**
+ * Наличие ошибок при загрузке данных для таблицы из сервера
+ */
+export const getErrorFetchingStatus: Selector<any, boolean> = createSelector(
+    getGamesStoreValue,
+    get('error')
+);
+
+/**
+ * Данные пагинации
+ */
+export const getPagination: Selector<any, TPagination> = createSelector(
+    getGamesStoreValue,
+    get('pagination')
 );
 
 /**

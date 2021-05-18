@@ -1,19 +1,41 @@
-import {SET_SHORT_GAME_INFO_LIST} from "./short-game-info-table-actions";
+import {
+    SET_ERROR_FETCH,
+    SET_SHORT_GAME_INFO_LIST,
+    TShortGameInfoTableAction,
+    TShortGameInfoTableState
+} from "./short-game-info-table-types";
 
 const initialState = {
-    isFetched: false,
-    shortGameInfoList: []
+    error: false,
+    isFetching: true,
+    pagination: {
+        activePage: 1,
+        totalPages: 0,
+    },
+    shortGameInfoList: [],
 }
 
-export const shortGameInfoTableReducer = (state = initialState, action: any) => {
-    console.log("action:", action);
+export const shortGameInfoTableReducer = (
+    state: TShortGameInfoTableState = initialState,
+    action: TShortGameInfoTableAction,
+) => {
     if (action.type === SET_SHORT_GAME_INFO_LIST) {
         return {
             ...state,
-            isFetched: true,
+            isFetching: false,
+            pagination: {
+               ...action.data.pagination,
+            },
             shortGameInfoList: [
-                ...action.data,
+                ...action.data.shortGameInfoList,
             ]
+        }
+    }
+    if (action.type === SET_ERROR_FETCH) {
+        return {
+            ...state,
+            error: true,
+            isFetching: false,
         }
     }
 

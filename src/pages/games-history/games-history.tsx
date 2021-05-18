@@ -10,7 +10,7 @@ type TProps = {};
 export const GamesHistory = React.memo((props: TProps) => {
     return (
         <Page>
-            <ShortGameInfoTable config={{}} />
+            <ShortGameInfoTable />
         </Page>
     )
 });
