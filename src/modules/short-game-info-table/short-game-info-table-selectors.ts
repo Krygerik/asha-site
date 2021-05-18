@@ -43,9 +43,12 @@ export const getShortGameInfoListTableData: Selector<any, any[]> = createSelecto
         const redHero = find<IShortPlayer>({ color: EPlayerColor.RED })(shortGameInfo.players);
         const blueHero = find<IShortPlayer>({ color: EPlayerColor.BLUE })(shortGameInfo.players);
 
-        const resultIcon = shortGameInfo.winner === EPlayerColor.RED
-            ? "angle right"
-            : "angle left";
+
+        const resultIcon = shortGameInfo.disconnect
+            ? "broken chain"
+            : shortGameInfo.winner === EPlayerColor.RED
+                ? "angle right"
+                : "angle left";
 
         return {
             blueHero: blueHero?.hero,
