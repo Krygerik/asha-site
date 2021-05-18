@@ -1,8 +1,8 @@
-name: Compile and deploy main branch to server at the end of every day
+name: Compile and deploy to server
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
+  push:
+    branches: [main]
 
 jobs:
   compile_with_deploy:
