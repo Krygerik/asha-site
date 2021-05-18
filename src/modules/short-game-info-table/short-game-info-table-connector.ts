@@ -1,10 +1,17 @@
 import {connect, ConnectedProps} from "react-redux";
 import {createStructuredSelector} from "reselect";
-import {getIsFetchedShortGameInfoList, getShortGameInfoListTableData} from "./short-game-info-table-selectors";
+import {
+    getErrorFetchingStatus,
+    getIsFetchingStatusShortGameInfoList,
+    getPagination,
+    getShortGameInfoListTableData
+} from "./short-game-info-table-selectors";
 import {fetchGames} from "./short-game-info-table-actions";
 
 const mapStateToProps = createStructuredSelector({
-    isFetchedShortGameInfoList: getIsFetchedShortGameInfoList,
+    isErrorFetch: getErrorFetchingStatus,
+    isFetchingStatus: getIsFetchingStatusShortGameInfoList,
+    pagination: getPagination,
     tableData: getShortGameInfoListTableData,
 });
 

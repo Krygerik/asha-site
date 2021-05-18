@@ -1,10 +1,29 @@
 import {createRequest} from "../../utils/create-request";
-import {IShortGame, TGetShortGameInfoParams, TResponse} from "./short-game-info-table-types";
+import {
+    SET_ERROR_FETCH,
+    SET_LOADING_GAME_STATUS,
+    SET_SHORT_GAME_INFO_LIST,
+    TGetShortGameInfoParams,
+    TResponse,
+    TResponseData,
+    TSetErrorFetchAction,
+    TSetLoadingGameStatusAction,
+    TSetShortGamesInfoListAction,
+} from "./short-game-info-table-types";
 
-export const SET_SHORT_GAME_INFO_LIST = "SET_SHORT_GAME_INFO_LIST";
-const setShortGameInfoList = (data: IShortGame[]) => ({
-    type: SET_SHORT_GAME_INFO_LIST,
+const setShortGameInfoList = (data: TResponseData): TSetShortGamesInfoListAction => ({
     data,
+    type: SET_SHORT_GAME_INFO_LIST,
+});
+
+const setErrorFetch: TSetErrorFetchAction = ({
+    data: undefined,
+    type: SET_ERROR_FETCH,
+});
+
+const setLoadingGameStatus = (newStatus: boolean): TSetLoadingGameStatusAction => ({
+    data: newStatus,
+    type: SET_LOADING_GAME_STATUS,
 });
 
 /**
@@ -13,10 +32,16 @@ const setShortGameInfoList = (data: IShortGame[]) => ({
 export const fetchGames = (params: TGetShortGameInfoParams) => async (
     dispatch: any
 ) => {
-    const shortGameInfoList: { data: TResponse } = await createRequest().get(
-        '/get-short-game-info-list',
-        { params }
-    );
+    try {
+        await dispatch(setLoadingGameStatus(true));
 
-    dispatch(setShortGameInfoList(shortGameInfoList.data.DATA));
+        const shortGameInfoList: { data: TResponse } = await createRequest().get(
+            '/get-short-game-info-list',
+            { params }
+        );
+
+        dispatch(setShortGameInfoList(shortGameInfoList.data.DATA));
+    } catch (e) {
+        dispatch(setErrorFetch);
+    }
 }
