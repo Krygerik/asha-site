@@ -699,4 +699,27 @@ export const PERKS: TPerk[] = [
         gameId: "ID110",
         icon: enlightenment.Astrology
     },
+    {
+        gameId: "ID216",
+        icon: lightMagic.FireResistance
+    },
+    {
+        gameId: "ID217",
+        icon: destructiveMagic.ManaBurst
+    },
+    {
+        gameId: "ID218",
+        icon: sorcery.Distract
+    },
+    {
+        gameId: "ID219",
+        icon: sorcery.ArcaneBrilliance
+    },
+    {
+        gameId: "ID220",
+        icon: enlightenment.Mentoring
+    },
+    /*
+     Темное откровение-219
+     */
 ];
