@@ -362,4 +362,8 @@ export const ARTIFACTS: TArtifact[] = [
        gameId: "ID66",
        icon: ChaosHelmetIcon,
     },
+    {
+       gameId: "ID7",
+       icon: StaffOfTheUnderworldIcon,
+    },
 ];

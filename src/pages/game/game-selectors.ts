@@ -35,10 +35,16 @@ export const getGameInfo: Selector<any, TGame> = createSelector(
  */
 export const getWinnerNickname: Selector<any, string> = createSelector(
     getGameInfo,
-    (gameInfo: TGame) => flow(
-        find((player: TPlayer) => player.color === gameInfo.winner),
-        getOr("Неизвестный", 'nickname'),
-    )(gameInfo.players),
+    (gameInfo: TGame) => {
+        if (gameInfo.disconnect) {
+            return "Не определен из-за разрыва соединения";
+        }
+
+        return flow(
+            find((player: TPlayer) => player.color === gameInfo.winner),
+            getOr("Неизвестный", 'nickname'),
+        )(gameInfo.players)
+    },
 );
 
 /**

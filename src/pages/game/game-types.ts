@@ -78,6 +78,8 @@ export type TGame = {
     combat_id: number;
     // Дата окончания игры
     date?: string;
+    // Произошел ли разрыв соединения
+    disconnect: boolean;
     // Версия карты
     map_version: string;
     // Процент сил оставшейся армии
