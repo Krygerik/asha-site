@@ -1,13 +1,30 @@
+import {FormApi} from "final-form";
 import * as React from "react";
+import {Form} from "react-final-form";
 import {compose} from "redux";
-import {Grid, Icon, Loader, Message, Pagination, Segment, Table, PaginationProps} from "semantic-ui-react";
+import {
+    Button,
+    Form as SemanticForm,
+    Grid,
+    Header,
+    Icon,
+    Loader,
+    Message,
+    Pagination,
+    PaginationProps,
+    Segment,
+    Table
+} from "semantic-ui-react";
+import {FinalFormDictionarySelectField} from "../../components/final-form-dictionary-select-field";
 import {DictionaryContext, EDictionaryName, withDictionaries} from "../dictionary";
 import {ShortGameInfoRow} from "./components/short-game-info-row";
 import {SHORT_GAME_INFO_TABLE_CONFIG} from "./short-game-info-table-constants";
 import {TShortGameInfoTableConnectedProps, withShortGameInfoTableConnector} from "./short-game-info-table-connector";
+import {TSearchGamesFormValues} from "./short-game-info-table-types";
 
 type TOwnProps = {
     countItems?: number;
+    hideFilter?: boolean;
     hidePagination?: boolean;
 };
 type TProps = TOwnProps & TShortGameInfoTableConnectedProps;
@@ -20,15 +37,49 @@ const DEFAULT_PAGE_SIZE = 10;
 export const ShortGameInfoTable = React.memo((props: TProps) => {
     const { getLocalizeDictionaryValueByGameId } = React.useContext(DictionaryContext);
 
+    /**
+     * Активные значения фильтрации
+     */
+    const [searchGameFilter, setFilterGamesData] = React.useState({} as TSearchGamesFormValues);
+
+    /**
+     * Обработчик перехода по пагинации
+     */
     const handleChangePagination = (event: React.SyntheticEvent, data: PaginationProps) => {
-        props.fetchGames({
-            items: props.countItems || DEFAULT_PAGE_SIZE,
-            requestPage: Number(data.activePage),
-        })
+        props.fetchGames(
+            {
+                items: props.countItems || DEFAULT_PAGE_SIZE,
+                requestPage: Number(data.activePage),
+            },
+            searchGameFilter,
+        );
     };
 
     /**
-     * Запрос данных для таблицы
+     * Обработчик поиска списка игр с фильтрацией
+     */
+    const handleSubmitSearchGames = (values: TSearchGamesFormValues) => {
+        setFilterGamesData(values);
+
+        props.fetchGames(
+            {
+                items: props.countItems || DEFAULT_PAGE_SIZE,
+                requestPage: 1,
+            },
+            values
+        );
+    };
+
+    /**
+     * Обработчик нажатия на очистку формы фильтра
+     */
+    const handleClickClearFilter = (form: FormApi<any, any>) => {
+        setFilterGamesData({});
+        form.reset()
+    }
+
+    /**
+     * Запрос данных для таблицы при загрузке страницы
      */
     React.useEffect(() => {
         props.fetchGames({
@@ -62,6 +113,61 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
 
     return (
         <>
+            {
+                !props.hideFilter && (
+                    <Segment>
+                        <Header
+                            textAlign="center"
+                            content="Параметры фильтрации"
+                        />
+                        <Form
+                            onSubmit={handleSubmitSearchGames}
+                            initialValues={{}}
+                            render={({handleSubmit, form}) => (
+                                <SemanticForm size='large' onSubmit={handleSubmit}>
+                                    <Grid>
+                                        <Grid.Row columns="equal">
+                                            <Grid.Column width={4}>
+                                                <FinalFormDictionarySelectField
+                                                    dictionary={EDictionaryName.Races}
+                                                    label="Фракция"
+                                                    name="race"
+                                                />
+                                            </Grid.Column>
+                                            <Grid.Column width={4}>
+                                                <FinalFormDictionarySelectField
+                                                    dictionary={EDictionaryName.Heroes}
+                                                    label="Герой"
+                                                    name="hero"
+                                                />
+                                            </Grid.Column>
+                                        </Grid.Row>
+                                        <Grid.Row centered>
+                                            <Grid.Column width={4}>
+                                                <Button
+                                                    content="Сбросить"
+                                                    fluid
+                                                    onClick={() => handleClickClearFilter(form)}
+                                                    size='large'
+                                                />
+                                            </Grid.Column>
+                                            <Grid.Column width={4}>
+                                                <Button
+                                                    content="Отфильтровать"
+                                                    fluid
+                                                    primary
+                                                    size='large'
+                                                    type="submit"
+                                                />
+                                            </Grid.Column>
+                                        </Grid.Row>
+                                    </Grid>
+                                </SemanticForm>
+                            )}
+                        />
+                    </Segment>
+                )
+            }
             <Table>
                 <Table.Header>
                     <Table.Row textAlign={"center"}>

@@ -6,6 +6,7 @@ import {
     TGetShortGameInfoParams,
     TResponse,
     TResponseData,
+    TSearchGamesFormValues,
     TSetErrorFetchAction,
     TSetLoadingGameStatusAction,
     TSetShortGamesInfoListAction,
@@ -29,14 +30,15 @@ const setLoadingGameStatus = (newStatus: boolean): TSetLoadingGameStatusAction =
 /**
  * Запрос на получение краткой информации по всем играм
  */
-export const fetchGames = (params: TGetShortGameInfoParams) => async (
+export const fetchGames = (params: TGetShortGameInfoParams, filter: TSearchGamesFormValues = {}) => async (
     dispatch: any
 ) => {
     try {
         await dispatch(setLoadingGameStatus(true));
 
-        const shortGameInfoList: { data: TResponse } = await createRequest().get(
+        const shortGameInfoList: { data: TResponse } = await createRequest().post(
             '/get-short-game-info-list',
+            { filter },
             { params }
         );
 

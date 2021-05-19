@@ -122,3 +122,13 @@ export type TSetLoadingGameStatusAction = {
 export type TShortGameInfoTableAction = TSetShortGamesInfoListAction
     | TSetErrorFetchAction
     | TSetLoadingGameStatusAction;
+
+/**
+ * Тип значений формы поиска игр
+ */
+export type TSearchGamesFormValues = {
+    // ID героя
+    hero?: string;
+    // ID фракции
+    race?: string;
+};

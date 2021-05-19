@@ -3,7 +3,7 @@ import {EDictionaryName} from "./dictionary-constants";
 /**
  * Тип одиночной записи в справочнике
  */
-type TRecord = {
+export type TRecord = {
     // id записи в игре
     game_id: string;
     // Локализованное (русское) название записи
@@ -29,6 +29,7 @@ export type TDictionaryContext = {
     dictionaries: Record<EDictionaryName, TDictionary> | {};
     fetchDictionaries: () => void;
     getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string) => TRecord;
+    getDictionaryRecords: (dictName: EDictionaryName) => TRecord[];
     getLocalizeDictionaryValueByGameId: (dictName: EDictionaryName, gameId: string) => string;
     isErrorFetch: boolean;
     isFetching: boolean;

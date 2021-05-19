@@ -3,7 +3,7 @@ import {find, get, getOr} from "lodash/fp";
 import * as React from "react";
 import {createRequest} from "../../utils/create-request";
 import {EDictionaryName, recordNotFound} from "./dictionary-constants";
-import {TDictionaryContext} from "./dictionary-types";
+import {TDictionaryContext, TRecord} from "./dictionary-types";
 
 /**
  * Писец, как это меня бесит
@@ -11,7 +11,8 @@ import {TDictionaryContext} from "./dictionary-types";
 export const DictionaryContext = React.createContext<TDictionaryContext>({
     dictionaries: {},
     fetchDictionaries(): void {},
-    getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string) => ({}) as any,
+    getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string) => ({}) as TRecord,
+    getDictionaryRecords: (dictName: EDictionaryName) => [] as TRecord[],
     getLocalizeDictionaryValueByGameId: (dictName: EDictionaryName, gameId: string) => '',
     isErrorFetch: false,
     isFetching: false,
@@ -49,6 +50,15 @@ export const DictionaryProvider = ({ children }: { children: React.ReactChild}) 
         find({ game_id: gameId }),
     )(dictionaries);
 
+    /**
+     * Получение всех записей справочника
+     */
+    const getDictionaryRecords = (
+        dictName: EDictionaryName
+    ) => flow(
+        get(dictName),
+        get('records'),
+    )(dictionaries);
 
     /**
      * Получение локализованное значение из справочника по игровому ид
@@ -69,6 +79,7 @@ export const DictionaryProvider = ({ children }: { children: React.ReactChild}) 
         dictionaries,
         fetchDictionaries,
         getDictionaryRecordByGameId,
+        getDictionaryRecords,
         getLocalizeDictionaryValueByGameId,
         isErrorFetch,
         isFetching,
