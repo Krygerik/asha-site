@@ -3,6 +3,7 @@ import {
     SET_ERROR_FETCH,
     SET_LOADING_GAME_STATUS,
     SET_SHORT_GAME_INFO_LIST,
+    SET_USERS_ID_WITH_NICKNAME_LIST,
     TGetShortGameInfoParams,
     TResponse,
     TResponseData,
@@ -10,6 +11,8 @@ import {
     TSetErrorFetchAction,
     TSetLoadingGameStatusAction,
     TSetShortGamesInfoListAction,
+    TSetUsersIdWithNicknameListAction,
+    TUserIdWithNickname,
 } from "./short-game-info-table-types";
 
 const setShortGameInfoList = (data: TResponseData): TSetShortGamesInfoListAction => ({
@@ -25,6 +28,11 @@ const setErrorFetch: TSetErrorFetchAction = ({
 const setLoadingGameStatus = (newStatus: boolean): TSetLoadingGameStatusAction => ({
     data: newStatus,
     type: SET_LOADING_GAME_STATUS,
+});
+
+const setUsersData = (data: TUserIdWithNickname[]): TSetUsersIdWithNicknameListAction => ({
+    data,
+    type: SET_USERS_ID_WITH_NICKNAME_LIST,
 });
 
 /**
@@ -45,5 +53,20 @@ export const fetchGames = (params: TGetShortGameInfoParams, filter: TSearchGames
         dispatch(setShortGameInfoList(shortGameInfoList.data.DATA));
     } catch (e) {
         dispatch(setErrorFetch);
+    }
+}
+
+/**
+ * Запрос списка ид с ником всех пользователей
+ */
+export const fetchUsersIdWithNicknames = () => async (
+    dispatch: any
+) => {
+    try {
+        const allUserList: { data: { DATA: TUserIdWithNickname[] } } = await createRequest().get('/auth/get-users');
+
+        dispatch(setUsersData(allUserList.data.DATA));
+    } catch (e) {
+        throw new Error('Ошибка при запросе списка игроков: ' + e.toString());
     }
 }

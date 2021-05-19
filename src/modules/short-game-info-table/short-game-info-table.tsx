@@ -16,6 +16,7 @@ import {
     Table
 } from "semantic-ui-react";
 import {FinalFormDictionarySelectField} from "../../components/final-form-dictionary-select-field";
+import {FinalFormSelectField} from "../../components/final-form-select-field";
 import {DictionaryContext, EDictionaryName, withDictionaries} from "../dictionary";
 import {ShortGameInfoRow} from "./components/short-game-info-row";
 import {SHORT_GAME_INFO_TABLE_CONFIG} from "./short-game-info-table-constants";
@@ -85,7 +86,12 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
         props.fetchGames({
             items: props.countItems || DEFAULT_PAGE_SIZE,
             requestPage: 1,
-        })
+        });
+
+        /**
+         * Запрос списка игроков для фильтра
+         */
+        props.fetchUsersIdWithNicknames();
     }, []);
 
     /**
@@ -127,18 +133,25 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                 <SemanticForm size='large' onSubmit={handleSubmit}>
                                     <Grid>
                                         <Grid.Row columns="equal">
-                                            <Grid.Column width={4}>
+                                            <Grid.Column>
                                                 <FinalFormDictionarySelectField
                                                     dictionary={EDictionaryName.Races}
                                                     label="Фракция"
                                                     name="race"
                                                 />
                                             </Grid.Column>
-                                            <Grid.Column width={4}>
+                                            <Grid.Column>
                                                 <FinalFormDictionarySelectField
                                                     dictionary={EDictionaryName.Heroes}
                                                     label="Герой"
                                                     name="hero"
+                                                />
+                                            </Grid.Column>
+                                            <Grid.Column>
+                                                <FinalFormSelectField
+                                                    label="Игрок"
+                                                    name="user_id"
+                                                    options={props.userNicknamesOptionList}
                                                 />
                                             </Grid.Column>
                                         </Grid.Row>
