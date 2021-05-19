@@ -59,6 +59,16 @@ export type TResponseData = {
 };
 
 /**
+ * Поля ид с ником пользователя
+ */
+export type TUserIdWithNickname = {
+    // ник
+    nickname: string;
+    // user_id
+    _id: string;
+}
+
+/**
  * Тип ответа сервера
  */
 export type TResponse = {
@@ -81,6 +91,8 @@ export type TGetShortGameInfoParams = {
  * Тип состояния таблицы
  */
 export type TShortGameInfoTableState = {
+    // Список ников с ид всех пользователей
+    allUserList: TUserIdWithNickname[];
     // Ошибка при загрузке данных
     error: boolean;
     // Статус загрузки данных
@@ -94,6 +106,7 @@ export type TShortGameInfoTableState = {
 export const SET_SHORT_GAME_INFO_LIST = "SET_SHORT_GAME_INFO_LIST";
 export const SET_ERROR_FETCH = 'SET_ERROR_FETCH';
 export const SET_LOADING_GAME_STATUS = 'SET_LOADING_GAME_STATUS';
+export const SET_USERS_ID_WITH_NICKNAME_LIST = 'SET_USERS_ID_WITH_NICKNAME_LIST';
 
 /**
  * Тип экшена установки списка игр в стор
@@ -119,6 +132,27 @@ export type TSetLoadingGameStatusAction = {
     type: typeof SET_LOADING_GAME_STATUS;
 };
 
+/**
+ * Тип экшена установки списка игр в стор
+ */
+export type TSetUsersIdWithNicknameListAction = {
+    data: TUserIdWithNickname[];
+    type: typeof SET_USERS_ID_WITH_NICKNAME_LIST;
+};
+
 export type TShortGameInfoTableAction = TSetShortGamesInfoListAction
     | TSetErrorFetchAction
-    | TSetLoadingGameStatusAction;
+    | TSetLoadingGameStatusAction
+    | TSetUsersIdWithNicknameListAction;
+
+/**
+ * Тип значений формы поиска игр
+ */
+export type TSearchGamesFormValues = {
+    // ID героя
+    hero?: string;
+    // ID фракции
+    race?: string;
+    // ID пользователя
+    user_id?: string;
+};

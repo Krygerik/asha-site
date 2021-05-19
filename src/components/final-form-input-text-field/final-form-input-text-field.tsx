@@ -3,7 +3,8 @@ import {Field} from "react-final-form";
 import * as React from "react";
 
 type TProps = {
-    icon: string;
+    icon?: string;
+    label?: string;
     name: string;
     placeholder?: string;
     required?: boolean;
@@ -24,6 +25,7 @@ export const FinalFormInputTextField = (props: TProps) => (
                     fluid
                     icon={props.icon}
                     iconPosition='left'
+                    label={props.label}
                     name={innerProps.input.name}
                     onChange={innerProps.input.onChange}
                     placeholder={props.placeholder}

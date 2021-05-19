@@ -12,7 +12,8 @@ export const MainPage = React.memo(() => (
             <Header content="Последние 5 сыгранных игр" />
             <ShortGameInfoTable
                 countItems={5}
-                hidePagination={true}
+                hideFilter
+                hidePagination
             />
         </Segment>
     </Page>
