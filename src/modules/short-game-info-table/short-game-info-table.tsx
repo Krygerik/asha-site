@@ -129,7 +129,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                         <Form
                             onSubmit={handleSubmitSearchGames}
                             initialValues={{}}
-                            render={({handleSubmit, form}) => (
+                            render={({handleSubmit, form, values }) => (
                                 <SemanticForm size='large' onSubmit={handleSubmit}>
                                     <Grid>
                                         <Grid.Row columns="equal">
@@ -143,6 +143,11 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                             <Grid.Column>
                                                 <FinalFormDictionarySelectField
                                                     dictionary={EDictionaryName.Heroes}
+                                                    filter={
+                                                        values.race
+                                                            ? item => item.race_game_id === values.race
+                                                            : undefined
+                                                    }
                                                     label="Герой"
                                                     name="hero"
                                                 />

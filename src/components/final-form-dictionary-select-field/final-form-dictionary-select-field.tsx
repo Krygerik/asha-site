@@ -6,6 +6,7 @@ import {TRecord} from "../../modules/dictionary/dictionary-types";
 
 type TProps = {
     dictionary: EDictionaryName;
+    filter?: (item: TRecord) => boolean;
     label?: string;
     name: string;
 };
@@ -16,7 +17,13 @@ type TProps = {
 export const FinalFormDictionarySelectField = (props: TProps) => {
     const dictionaries = React.useContext(DictionaryContext);
 
-    const options: DropdownItemProps[] = dictionaries.getDictionaryRecords(props.dictionary)
+    let dictionaryRecords: TRecord[] = dictionaries.getDictionaryRecords(props.dictionary);
+
+    if (props.filter) {
+        dictionaryRecords = dictionaryRecords.filter(props.filter);
+    }
+
+    const options: DropdownItemProps[] = dictionaryRecords
         .map((record: TRecord) => ({
             key: record.game_id,
             text: record.localize_name,
