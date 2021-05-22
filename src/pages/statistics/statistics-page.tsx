@@ -79,7 +79,7 @@ const StatisticPage = React.memo((props: TStatisticsPageConnectedProps) => {
                                             <Table.Cell>
                                                 <b>
                                                     {
-                                                        countGames && Math.floor(Number(win)/(Number(win) + Number(lose) * 100))
+                                                        countGames && Math.floor(Number(win)/(Number(win) + Number(lose)) * 100)
                                                     } %
                                                 </b>
                                                 <br />
