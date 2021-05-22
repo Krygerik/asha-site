@@ -4,6 +4,7 @@ import {compose} from "redux";
 import {Header, Image, Message} from "semantic-ui-react";
 import {DictionaryContext, EDictionaryName, withDictionaries} from "../dictionary";
 import {MAP_HERO_IDS_TO_ICONS} from "./dictionary-hero-constants";
+import {THeroRecord} from "../dictionary/dictionary-types";
 
 type TProps = {
     hero: string;
@@ -18,7 +19,8 @@ export const DictionaryHero = React.memo((props: TProps) => {
         getLocalizeDictionaryValueByGameId,
     } = React.useContext(DictionaryContext);
 
-    const heroRecord = getDictionaryRecordByGameId(EDictionaryName.Heroes, props.hero);
+    // @ts-ignore
+    const heroRecord: THeroRecord = getDictionaryRecordByGameId(EDictionaryName.Heroes, props.hero);
 
     if (!heroRecord) {
         return <Message error content={`Не удалось найти героя: ${props.hero}`} />

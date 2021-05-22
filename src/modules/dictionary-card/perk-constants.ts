@@ -719,6 +719,10 @@ export const PERKS: TPerk[] = [
         gameId: "ID220",
         icon: enlightenment.Mentoring
     },
+    {
+        gameId: "ID137",
+        icon: enlightenment.Astrology
+    },
     /*
      Темное откровение-219
      */
