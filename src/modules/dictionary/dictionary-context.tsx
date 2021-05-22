@@ -3,7 +3,7 @@ import {find, get, getOr} from "lodash/fp";
 import * as React from "react";
 import {createRequest} from "../../utils/create-request";
 import {EDictionaryName, recordNotFound} from "./dictionary-constants";
-import {TDictionaryContext, TRecord} from "./dictionary-types";
+import {TCommonDictionaryRecord, TDictionaryContext} from "./dictionary-types";
 
 /**
  * Писец, как это меня бесит
@@ -11,8 +11,8 @@ import {TDictionaryContext, TRecord} from "./dictionary-types";
 export const DictionaryContext = React.createContext<TDictionaryContext>({
     dictionaries: {},
     fetchDictionaries(): void {},
-    getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string) => ({}) as TRecord,
-    getDictionaryRecords: (dictName: EDictionaryName) => [] as TRecord[],
+    getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string) => ({}) as TCommonDictionaryRecord,
+    getDictionaryRecords: (dictName: EDictionaryName) => [] as TCommonDictionaryRecord[],
     getLocalizeDictionaryValueByGameId: (dictName: EDictionaryName, gameId: string) => '',
     isErrorFetch: false,
     isFetching: false,

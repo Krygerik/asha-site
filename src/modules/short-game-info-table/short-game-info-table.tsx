@@ -22,6 +22,7 @@ import {ShortGameInfoRow} from "./components/short-game-info-row";
 import {SHORT_GAME_INFO_TABLE_CONFIG} from "./short-game-info-table-constants";
 import {TShortGameInfoTableConnectedProps, withShortGameInfoTableConnector} from "./short-game-info-table-connector";
 import {TSearchGamesFormValues} from "./short-game-info-table-types";
+import {THeroRecord} from "../dictionary/dictionary-types";
 
 type TOwnProps = {
     countItems?: number;
@@ -143,9 +144,10 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                             <Grid.Column>
                                                 <FinalFormDictionarySelectField
                                                     dictionary={EDictionaryName.Heroes}
+                                                    // @ts-ignore
                                                     filter={
                                                         values.race
-                                                            ? item => item.race_game_id === values.race
+                                                            ? (item: THeroRecord) => item.race_game_id === values.race
                                                             : undefined
                                                     }
                                                     label="Герой"

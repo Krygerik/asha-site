@@ -18,6 +18,11 @@ export const getHeaderMenuNavigation: ParametricSelector<any, any, THeaderNavIte
             active: match.path === "/games-history",
         },
         {
+            title: "Статистика",
+            link: "/statistics",
+            active: match.path === "/statistics",
+        },
+        {
             title: "Об АСХА",
             link: "/about-asha",
             active: match.path === "/about-asha",

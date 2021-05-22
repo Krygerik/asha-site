@@ -2,11 +2,11 @@ import {DropdownItemProps, Form as SemanticForm} from "semantic-ui-react";
 import {Field} from "react-final-form";
 import * as React from "react";
 import {DictionaryContext, EDictionaryName} from "../../modules/dictionary";
-import {TRecord} from "../../modules/dictionary/dictionary-types";
+import {TCommonDictionaryRecord} from "../../modules/dictionary/dictionary-types";
 
 type TProps = {
     dictionary: EDictionaryName;
-    filter?: (item: TRecord) => boolean;
+    filter?: (item: TCommonDictionaryRecord) => boolean;
     label?: string;
     name: string;
 };
@@ -17,14 +17,14 @@ type TProps = {
 export const FinalFormDictionarySelectField = (props: TProps) => {
     const dictionaries = React.useContext(DictionaryContext);
 
-    let dictionaryRecords: TRecord[] = dictionaries.getDictionaryRecords(props.dictionary);
+    let dictionaryRecords: TCommonDictionaryRecord[] = dictionaries.getDictionaryRecords(props.dictionary);
 
     if (props.filter) {
         dictionaryRecords = dictionaryRecords.filter(props.filter);
     }
 
     const options: DropdownItemProps[] = dictionaryRecords
-        .map((record: TRecord) => ({
+        .map((record: TCommonDictionaryRecord) => ({
             key: record.game_id,
             text: record.localize_name,
             value: record.game_id,

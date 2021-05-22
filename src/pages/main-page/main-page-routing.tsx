@@ -4,6 +4,7 @@ import {AboutAsha} from "../about-asha";
 import {Game} from "../game";
 import {Games} from "../games-history";
 import {ProfilePage} from "../profile-page";
+import {StatisticPage} from "../statistics";
 import {MainPage} from "./main-page";
 
 /**
@@ -12,6 +13,9 @@ import {MainPage} from "./main-page";
 export const MainPageRouting = React.memo(() => (
     <BrowserRouter>
         <Switch>
+            <Route exact path="/statistics" >
+                <StatisticPage />
+            </Route>
             <Route exact path="/about-asha" >
                 <AboutAsha />
             </Route>
