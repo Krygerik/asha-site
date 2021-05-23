@@ -61,35 +61,57 @@ const StatisticPage = React.memo((props: TStatisticsPageConnectedProps) => {
                                 </Table.Cell>
                             ))
                         }
+                        <Table.Cell>
+                            <b>Всего</b>
+                        </Table.Cell>
                     </Table.Row>
                     {
-                        racesDictionaryRecords.map((raceEntity: TRaceRecord) => (
-                            <Table.Row
-                                key={raceEntity.game_id}
-                            >
-                                <Table.Cell>
-                                    <b>{raceEntity.localize_name}</b>
-                                </Table.Cell>
-                                {
-                                    racesDictionaryRecords.map((secondRaceEntity: TRaceRecord) => {
-                                        const {win, lose} = props.allRacesWinRate?.[raceEntity.game_id][secondRaceEntity.game_id];
-                                        const countGames = win + lose;
+                        racesDictionaryRecords.map((raceEntity: TRaceRecord) => {
+                            let countAllWins = 0;
+                            let countAllLoses = 0;
+                            let countAllGames = 0;
 
-                                        return (
-                                            <Table.Cell>
-                                                <b>
-                                                    {
-                                                        countGames && Math.floor(Number(win)/(Number(win) + Number(lose)) * 100)
-                                                    } %
-                                                </b>
-                                                <br />
-                                                ({win} / {lose})
-                                            </Table.Cell>
-                                        )
-                                    })
-                                }
-                            </Table.Row>
-                        ))
+                            return (
+                                <Table.Row
+                                    key={raceEntity.game_id}
+                                >
+                                    <Table.Cell>
+                                        <b>{raceEntity.localize_name}</b>
+                                    </Table.Cell>
+                                    {
+                                        racesDictionaryRecords.map((secondRaceEntity: TRaceRecord) => {
+                                            const {win, lose} = props.allRacesWinRate?.[raceEntity.game_id][secondRaceEntity.game_id];
+                                            const countGames = win + lose;
+
+                                            countAllWins = countAllWins + win;
+                                            countAllLoses = countAllLoses + lose;
+                                            countAllGames = countAllWins + countAllLoses;
+
+                                            return (
+                                                <Table.Cell>
+                                                    <b>
+                                                        {
+                                                            countGames && Math.floor(Number(win)/countGames * 100)
+                                                        } %
+                                                    </b>
+                                                    <br />
+                                                    ({win} / {lose})
+                                                </Table.Cell>
+                                            )
+                                        })
+                                    }
+                                    <Table.Cell>
+                                        <b>
+                                            {
+                                                countAllGames && Math.floor(countAllWins/countAllGames * 100)
+                                            } %
+                                        </b>
+                                        <br />
+                                        ({countAllWins} / {countAllLoses})
+                                    </Table.Cell>
+                                </Table.Row>
+                            )
+                        })
                     }
                 </Table.Body>
             </Table>
