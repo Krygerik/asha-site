@@ -3,7 +3,7 @@ import {find, get, getOr} from "lodash/fp";
 import * as React from "react";
 import {createRequest} from "../../utils/create-request";
 import {EDictionaryName, recordNotFound} from "./dictionary-constants";
-import {TCommonDictionaryRecord, TDictionaryContext} from "./dictionary-types";
+import {ERacesIds, TCommonDictionaryRecord, TDictionaryContext} from "./dictionary-types";
 
 /**
  * Писец, как это меня бесит
@@ -43,7 +43,7 @@ export const DictionaryProvider = ({ children }: { children: React.ReactChild}) 
      */
     const getDictionaryRecordByGameId = (
         dictName: EDictionaryName,
-        gameId: string
+        gameId: string | ERacesIds
     ) => flow(
         get(dictName),
         get('records'),

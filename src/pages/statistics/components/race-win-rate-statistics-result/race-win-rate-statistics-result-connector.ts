@@ -1,11 +1,11 @@
 import {connect, ConnectedProps} from "react-redux";
 import { createStructuredSelector } from "reselect";
-import {fetchRacesWinRate} from "./statistics-page-actions";
+import {fetchRacesWinRate} from "../../statistics-page-actions";
 import {
     getAllRacesWinRate,
     getStatisticsPageErrorStatus,
     getStatisticsPageFetchingStatus
-} from "./statictics-page-selectors";
+} from "../../statictics-page-selectors";
 
 const mapStateToProps = createStructuredSelector({
     allRacesWinRate: getAllRacesWinRate,
@@ -17,6 +17,6 @@ const mapDispatchToProps = {
     fetchRacesWinRate,
 }
 
-export const withStatisticsPageConnector = connect(mapStateToProps, mapDispatchToProps);
+export const withRaceWinStatisticResultConnector = connect(mapStateToProps, mapDispatchToProps);
 
-export type TStatisticsPageConnectedProps = ConnectedProps<typeof withStatisticsPageConnector>;
+export type TRaceWinStatisticResultConnectedProps = ConnectedProps<typeof withRaceWinStatisticResultConnector>;
