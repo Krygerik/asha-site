@@ -57,6 +57,7 @@ export const STATISTICS_PAGE_NAMESPACE = '@@STATISTICS_PAGE_NAMESPACE';
  */
 export enum EFiltersName {
     Race = 'race',
+    UserId = 'user_id',
 }
 
 /**
@@ -65,6 +66,7 @@ export enum EFiltersName {
 export type TSingleStatisticsFilter = {
     name: EFiltersName;
     race?: ERacesIds;
+    user_id?: string;
 };
 
 /**

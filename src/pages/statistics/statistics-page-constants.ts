@@ -5,7 +5,11 @@ import {EFiltersName} from "./statistics-page-types";
  */
 export const FILTERS_LIST = [
     {
+        name: EFiltersName.UserId,
+        label: "Никнейм"
+    },
+    {
         name: EFiltersName.Race,
         label: "Раса"
-    }
+    },
 ];

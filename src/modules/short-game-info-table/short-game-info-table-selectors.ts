@@ -1,8 +1,7 @@
 import {createSelector, Selector} from "reselect";
-import {find, flow, get, map} from "lodash/fp";
+import {find, get, map} from "lodash/fp";
 import {SHORT_GAME_INFO_TABLE_NAMESPACE} from "./short-game-info-table-constants";
-import {EPlayerColor, IShortGame, IShortPlayer, TPagination, TUserIdWithNickname} from "./short-game-info-table-types";
-import {DropdownItemProps} from "semantic-ui-react";
+import {EPlayerColor, IShortGame, IShortPlayer, TPagination} from "./short-game-info-table-types";
 
 const getGamesStoreValue = get(SHORT_GAME_INFO_TABLE_NAMESPACE);
 
@@ -36,21 +35,6 @@ export const getPagination: Selector<any, TPagination> = createSelector(
 const getShortGameInfoListResponse: Selector<any, IShortGame[]> = createSelector(
     getGamesStoreValue,
     get('shortGameInfoList'),
-);
-
-/**
- * Список всех ников всех пользователей
- */
-export const getUserNicknamesOptionList: Selector<any, DropdownItemProps[]> = createSelector(
-    getGamesStoreValue,
-    flow(
-        get('allUserList'),
-        map((item: TUserIdWithNickname) => ({
-            key: item._id,
-            text: item.nickname,
-            value: item._id,
-        }))
-    )
 );
 
 export const getShortGameInfoListTableData: Selector<any, any[]> = createSelector(
