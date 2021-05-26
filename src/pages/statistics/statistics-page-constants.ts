@@ -17,6 +17,10 @@ export const FILTERS_LIST = [
         name: EFiltersName.Race,
         label: "Раса"
     },
+    {
+        name: EFiltersName.Hero,
+        label: "Герой"
+    },
 ];
 
 /**

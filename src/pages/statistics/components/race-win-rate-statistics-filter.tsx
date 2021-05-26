@@ -80,6 +80,17 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => (
                                                 </Grid.Column>
                                             )
                                         }
+                                        {
+                                            values.filters[index].name === EFiltersName.Hero && (
+                                                <Grid.Column width={10}>
+                                                    <FinalFormDictionarySelectField
+                                                        dictionary={EDictionaryName.Heroes}
+                                                        label="Герой"
+                                                        name={`${name}.value`}
+                                                    />
+                                                </Grid.Column>
+                                            )
+                                        }
                                         <Grid.Column width={1} textAlign="center" verticalAlign="middle">
                                             <Icon
                                                 size="large"

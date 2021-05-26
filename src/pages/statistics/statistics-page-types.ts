@@ -58,6 +58,7 @@ export const STATISTICS_PAGE_NAMESPACE = '@@STATISTICS_PAGE_NAMESPACE';
  */
 export enum EFiltersName {
     Color = 'color',
+    Hero = 'hero',
     Race = 'race',
     UserId = 'user_id',
 }
