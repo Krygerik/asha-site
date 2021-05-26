@@ -60,6 +60,7 @@ export enum EFiltersName {
     Color = 'color',
     Hero = 'hero',
     Race = 'race',
+    StartBonus = 'start_bonus',
     UserId = 'user_id',
 }
 

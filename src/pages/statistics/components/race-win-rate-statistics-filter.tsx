@@ -8,7 +8,7 @@ import {FinalFormDictionarySelectField} from "../../../components/final-form-dic
 import {FinalFormUsersSelectField} from "../../../components/final-form-users-select-field";
 import {EDictionaryName} from "../../../modules/dictionary";
 import {EFiltersName, TFilterStatisticsFormValues, TSingleStatisticsFilter} from "../statistics-page-types";
-import {FILTERS_LIST, PLAYER_COLOR_OPTIONS} from "../statistics-page-constants";
+import {FILTERS_LIST, PLAYER_COLOR_OPTIONS, PLAYER_STARTED_BONUS_OPTIONS} from "../statistics-page-constants";
 
 type TProps = {
     handleSubmit: (values: TFilterStatisticsFormValues) => void;
@@ -87,6 +87,17 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => (
                                                         dictionary={EDictionaryName.Heroes}
                                                         label="Герой"
                                                         name={`${name}.value`}
+                                                    />
+                                                </Grid.Column>
+                                            )
+                                        }
+                                        {
+                                            values.filters[index].name === EFiltersName.StartBonus && (
+                                                <Grid.Column width={10}>
+                                                    <FinalFormSelectField
+                                                        label="Стартовый бонус"
+                                                        name={`${name}.value`}
+                                                        options={PLAYER_STARTED_BONUS_OPTIONS}
                                                     />
                                                 </Grid.Column>
                                             )
