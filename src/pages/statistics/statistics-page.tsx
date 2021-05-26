@@ -30,7 +30,7 @@ const StatisticPage = React.memo(() => {
         filterValues.reduce((acc, item) => {
             return {
                 ...acc,
-                [item.name]: item.race
+                [item.name]: item.value
             }
         }, {} as TFetchStatisticsRequestFilter)
     );

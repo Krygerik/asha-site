@@ -1,12 +1,5 @@
+import {EPlayerColor} from "../../common/constants";
 import {SET_GAME_INFO, SET_GAME_INFO_FETCH_FAILURE} from "./game-constants";
-
-/**
- * Цвет игрока
- */
-export enum EPlayerColor {
-    RED = 1,
-    BLUE = 2,
-}
 
 /**
  * Тип ячейки существ

@@ -1,7 +1,8 @@
 import {createSelector, Selector} from "reselect";
 import {find, get, map} from "lodash/fp";
 import {SHORT_GAME_INFO_TABLE_NAMESPACE} from "./short-game-info-table-constants";
-import {EPlayerColor, IShortGame, IShortPlayer, TPagination} from "./short-game-info-table-types";
+import {IShortGame, IShortPlayer, TPagination} from "./short-game-info-table-types";
+import {EPlayerColor} from "../../common/constants";
 
 const getGamesStoreValue = get(SHORT_GAME_INFO_TABLE_NAMESPACE);
 

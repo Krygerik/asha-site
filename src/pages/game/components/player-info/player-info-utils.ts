@@ -1,5 +1,5 @@
-import {EPlayerColor} from "../../game-types";
 import {SemanticCOLORS} from "semantic-ui-react";
+import {EPlayerColor} from "../../../../common/constants";
 
 /**
  * Маппинг сохраненного цвета на цвет для компонентов Semantic

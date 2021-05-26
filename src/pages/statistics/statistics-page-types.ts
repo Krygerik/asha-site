@@ -1,4 +1,5 @@
 import {ERacesIds} from "../../modules/dictionary/dictionary-types";
+import {EPlayerColor} from "../../common/constants";
 
 /**
  * Тип количества побед/поражений в одном МА
@@ -56,6 +57,7 @@ export const STATISTICS_PAGE_NAMESPACE = '@@STATISTICS_PAGE_NAMESPACE';
  * Перечисление полей фильтров
  */
 export enum EFiltersName {
+    Color = 'color',
     Race = 'race',
     UserId = 'user_id',
 }
@@ -65,8 +67,7 @@ export enum EFiltersName {
  */
 export type TSingleStatisticsFilter = {
     name: EFiltersName;
-    race?: ERacesIds;
-    user_id?: string;
+    value?: EPlayerColor | ERacesIds | string;
 };
 
 /**
@@ -80,6 +81,8 @@ export type TFilterStatisticsFormValues = {
  * Тип фильтра в запросе статистик по расам
  */
 export type TFetchStatisticsRequestFilter = {
+    // ID цвета игрока
+    color?: EPlayerColor;
     // ID героя
     hero?: string;
     // ID фракции

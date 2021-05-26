@@ -8,7 +8,7 @@ import {FinalFormDictionarySelectField} from "../../../components/final-form-dic
 import {FinalFormUsersSelectField} from "../../../components/final-form-users-select-field";
 import {EDictionaryName} from "../../../modules/dictionary";
 import {EFiltersName, TFilterStatisticsFormValues, TSingleStatisticsFilter} from "../statistics-page-types";
-import {FILTERS_LIST} from "../statistics-page-constants";
+import {FILTERS_LIST, PLAYER_COLOR_OPTIONS} from "../statistics-page-constants";
 
 type TProps = {
     handleSubmit: (values: TFilterStatisticsFormValues) => void;
@@ -53,7 +53,18 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => (
                                                 <Grid.Column width={10}>
                                                     <FinalFormUsersSelectField
                                                         label="Никнейм"
-                                                        name={`${name}.user_id`}
+                                                        name={`${name}.value`}
+                                                    />
+                                                </Grid.Column>
+                                            )
+                                        }
+                                        {
+                                            values.filters[index].name === EFiltersName.Color && (
+                                                <Grid.Column width={10}>
+                                                    <FinalFormSelectField
+                                                        label="Цвет игрока"
+                                                        name={`${name}.value`}
+                                                        options={PLAYER_COLOR_OPTIONS}
                                                     />
                                                 </Grid.Column>
                                             )
@@ -64,7 +75,7 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => (
                                                     <FinalFormDictionarySelectField
                                                         dictionary={EDictionaryName.Races}
                                                         label="Фракция"
-                                                        name={`${name}.race`}
+                                                        name={`${name}.value`}
                                                     />
                                                 </Grid.Column>
                                             )

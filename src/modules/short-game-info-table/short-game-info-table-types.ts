@@ -1,10 +1,4 @@
-/**
- * Цвет игрока
- */
-export enum EPlayerColor {
-    RED = 1,
-    BLUE = 2,
-}
+import {EPlayerColor} from "../../common/constants";
 
 /**
  * Тип краткой информации по игроку
