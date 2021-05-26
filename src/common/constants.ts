@@ -15,3 +15,12 @@ export enum EPlayerStartedBonus {
     Gold = 'gold',
     Spell = 'spell',
 }
+
+/**
+ * Ключи сравнений для бд
+ */
+export enum EComparisonNames {
+    Equal = '$eq',
+    GreatThen = '$gt',
+    LessThen = '$lt',
+}

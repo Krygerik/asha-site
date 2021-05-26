@@ -3,12 +3,18 @@ import {Button, Form as SemanticForm, Grid, Header, Icon, Segment} from "semanti
 import {Form} from "react-final-form";
 import arrayMutators from "final-form-arrays";
 import {FieldArray} from "react-final-form-arrays";
+import {FinalFormInputTextField} from "../../../components/final-form-input-text-field";
 import {FinalFormSelectField} from "../../../components/final-form-select-field";
 import {FinalFormDictionarySelectField} from "../../../components/final-form-dictionary-select-field";
 import {FinalFormUsersSelectField} from "../../../components/final-form-users-select-field";
 import {EDictionaryName} from "../../../modules/dictionary";
 import {EFiltersName, TFilterStatisticsFormValues, TSingleStatisticsFilter} from "../statistics-page-types";
-import {FILTERS_LIST, PLAYER_COLOR_OPTIONS, PLAYER_STARTED_BONUS_OPTIONS} from "../statistics-page-constants";
+import {
+    COMPARISON_OPERATORS_OPTIONS,
+    FILTERS_LIST,
+    PLAYER_COLOR_OPTIONS,
+    PLAYER_STARTED_BONUS_OPTIONS
+} from "../statistics-page-constants";
 
 type TProps = {
     handleSubmit: (values: TFilterStatisticsFormValues) => void;
@@ -100,6 +106,25 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => (
                                                         options={PLAYER_STARTED_BONUS_OPTIONS}
                                                     />
                                                 </Grid.Column>
+                                            )
+                                        }
+                                        {
+                                            values.filters[index].name === EFiltersName.Mentoring && (
+                                                <>
+                                                    <Grid.Column width={5}>
+                                                        <FinalFormSelectField
+                                                            label="Сравнение"
+                                                            name={`${name}.operator`}
+                                                            options={COMPARISON_OPERATORS_OPTIONS}
+                                                        />
+                                                    </Grid.Column>
+                                                    <Grid.Column width={5}>
+                                                        <FinalFormInputTextField
+                                                            label="Количество использований ментора"
+                                                            name={`${name}.value`}
+                                                        />
+                                                    </Grid.Column>
+                                                </>
                                             )
                                         }
                                         <Grid.Column width={1} textAlign="center" verticalAlign="middle">

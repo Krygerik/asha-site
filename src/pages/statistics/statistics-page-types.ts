@@ -1,5 +1,5 @@
+import {EComparisonNames, EPlayerColor, EPlayerStartedBonus} from "../../common/constants";
 import {ERacesIds} from "../../modules/dictionary/dictionary-types";
-import {EPlayerColor} from "../../common/constants";
 
 /**
  * Тип количества побед/поражений в одном МА
@@ -59,6 +59,7 @@ export const STATISTICS_PAGE_NAMESPACE = '@@STATISTICS_PAGE_NAMESPACE';
 export enum EFiltersName {
     Color = 'color',
     Hero = 'hero',
+    Mentoring = 'mentoring',
     Race = 'race',
     StartBonus = 'start_bonus',
     UserId = 'user_id',
@@ -69,6 +70,7 @@ export enum EFiltersName {
  */
 export type TSingleStatisticsFilter = {
     name: EFiltersName;
+    operator?: EComparisonNames;
     value?: EPlayerColor | ERacesIds | string;
 };
 
@@ -89,4 +91,10 @@ export type TFetchStatisticsRequestFilter = {
     hero?: string;
     // ID фракции
     race?: ERacesIds;
+    // ID игрока
+    user_id?: string;
+    // Стартовый бонус игрока
+    start_bonus?: EPlayerStartedBonus;
+    // Количество ментора
+    mentoring?: Record<EComparisonNames, number>;
 }

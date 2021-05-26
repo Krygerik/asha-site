@@ -4,8 +4,8 @@ import * as React from "react";
 
 type TProps = {
     label?: string;
-    name: string;
     loading?: boolean;
+    name: string;
     options: DropdownItemProps[];
 };
 
