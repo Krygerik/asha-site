@@ -12,6 +12,7 @@ import {EFiltersName} from "./statistics-page-types";
 export const MAP_FILTERS_NAME_TO_LABEL = {
     [EFiltersName.Color]: "Цвет",
     [EFiltersName.Hero]: "Герой",
+    [EFiltersName.Level]: "Уровень",
     [EFiltersName.Mentoring]: "Количество ментора",
     [EFiltersName.Race]: "Раса",
     [EFiltersName.StartBonus]: "Стартовый бонус",
@@ -22,6 +23,7 @@ export const MAP_FILTERS_NAME_TO_LABEL = {
  * Список названий полей, в которых используется оператор сравнения
  */
 export const FILTERS_WITH_COMPARISON_OPERATORS = [
+    EFiltersName.Level,
     EFiltersName.Mentoring,
 ];
 
@@ -96,6 +98,13 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
         }
     },
     [EFiltersName.Mentoring]: {
+        Component: FinalFormInputTextField,
+        staticProps: {
+            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Mentoring],
+            type: 'number',
+        }
+    },
+    [EFiltersName.Level]: {
         Component: FinalFormInputTextField,
         staticProps: {
             label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Mentoring],

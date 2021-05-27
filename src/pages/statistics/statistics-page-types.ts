@@ -59,6 +59,7 @@ export const STATISTICS_PAGE_NAMESPACE = '@@STATISTICS_PAGE_NAMESPACE';
 export enum EFiltersName {
     Color = 'color',
     Hero = 'hero',
+    Level = 'level',
     Mentoring = 'mentoring',
     Race = 'race',
     StartBonus = 'start_bonus',
@@ -91,6 +92,8 @@ export type TFetchStatisticsRequestFilter = {
     hero?: string;
     // ID фракции
     race?: ERacesIds;
+    // Уровень героя
+    level?: number;
     // ID игрока
     user_id?: string;
     // Стартовый бонус игрока
