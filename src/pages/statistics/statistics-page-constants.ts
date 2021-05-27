@@ -10,11 +10,17 @@ import {EFiltersName} from "./statistics-page-types";
  * Мапа фильтров на их лейблы
  */
 export const MAP_FILTERS_NAME_TO_LABEL = {
+    [EFiltersName.Attack]: "Нападение",
     [EFiltersName.Color]: "Цвет",
+    [EFiltersName.Defence]: "Защита",
     [EFiltersName.Hero]: "Герой",
+    [EFiltersName.Knowledge]: "Знание",
     [EFiltersName.Level]: "Уровень",
+    [EFiltersName.Luck]: "Удача",
     [EFiltersName.Mentoring]: "Количество ментора",
+    [EFiltersName.Morale]: "Боевой дух",
     [EFiltersName.Race]: "Раса",
+    [EFiltersName.SpellPower]: "Колдовство",
     [EFiltersName.StartBonus]: "Стартовый бонус",
     [EFiltersName.UserId]: "Никнейм",
 };
@@ -23,8 +29,14 @@ export const MAP_FILTERS_NAME_TO_LABEL = {
  * Список названий полей, в которых используется оператор сравнения
  */
 export const FILTERS_WITH_COMPARISON_OPERATORS = [
+    EFiltersName.Attack,
+    EFiltersName.Defence,
+    EFiltersName.Knowledge,
     EFiltersName.Level,
+    EFiltersName.Luck,
     EFiltersName.Mentoring,
+    EFiltersName.Morale,
+    EFiltersName.SpellPower,
 ];
 
 /**
@@ -107,7 +119,49 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
     [EFiltersName.Level]: {
         Component: FinalFormInputTextField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Mentoring],
+            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Level],
+            type: 'number',
+        }
+    },
+    [EFiltersName.Attack]: {
+        Component: FinalFormInputTextField,
+        staticProps: {
+            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Attack],
+            type: 'number',
+        }
+    },
+    [EFiltersName.Defence]: {
+        Component: FinalFormInputTextField,
+        staticProps: {
+            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Defence],
+            type: 'number',
+        }
+    },
+    [EFiltersName.SpellPower]: {
+        Component: FinalFormInputTextField,
+        staticProps: {
+            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.SpellPower],
+            type: 'number',
+        }
+    },
+    [EFiltersName.Knowledge]: {
+        Component: FinalFormInputTextField,
+        staticProps: {
+            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Knowledge],
+            type: 'number',
+        }
+    },
+    [EFiltersName.Luck]: {
+        Component: FinalFormInputTextField,
+        staticProps: {
+            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Luck],
+            type: 'number',
+        }
+    },
+    [EFiltersName.Morale]: {
+        Component: FinalFormInputTextField,
+        staticProps: {
+            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Morale],
             type: 'number',
         }
     },

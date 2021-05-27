@@ -57,11 +57,17 @@ export const STATISTICS_PAGE_NAMESPACE = '@@STATISTICS_PAGE_NAMESPACE';
  * Перечисление полей фильтров
  */
 export enum EFiltersName {
+    Attack = 'attack',
     Color = 'color',
+    Defence = 'defence',
     Hero = 'hero',
+    Knowledge = 'knowledge',
     Level = 'level',
+    Luck = 'luck',
     Mentoring = 'mentoring',
+    Morale = 'morale',
     Race = 'race',
+    SpellPower = 'spell_power',
     StartBonus = 'start_bonus',
     UserId = 'user_id',
 }
@@ -72,7 +78,7 @@ export enum EFiltersName {
 export type TSingleStatisticsFilter = {
     name: EFiltersName;
     operator?: EComparisonNames;
-    value?: EPlayerColor | ERacesIds | string;
+    value?: EPlayerColor | ERacesIds | string | number;
 };
 
 /**
@@ -83,9 +89,26 @@ export type TFilterStatisticsFormValues = {
 };
 
 /**
+ * Значение фильтра со сравнением
+ */
+type TComparisonField = Record<EComparisonNames, number>;
+
+/**
  * Тип фильтра в запросе статистик по расам
  */
 export type TFetchStatisticsRequestFilter = {
+    // Нападение героя
+    attack?: TComparisonField;
+    // Защита героя
+    defence?: TComparisonField;
+    // Колдовство героя
+    spell_power?: TComparisonField;
+    // Знание героя
+    knowledge?: TComparisonField;
+    // Удача героя
+    luck?: TComparisonField;
+    // Мораль героя
+    morale?: TComparisonField;
     // ID цвета игрока
     color?: EPlayerColor;
     // ID героя
@@ -93,11 +116,11 @@ export type TFetchStatisticsRequestFilter = {
     // ID фракции
     race?: ERacesIds;
     // Уровень героя
-    level?: number;
+    level?: TComparisonField;
     // ID игрока
     user_id?: string;
     // Стартовый бонус игрока
     start_bonus?: EPlayerStartedBonus;
     // Количество ментора
-    mentoring?: Record<EComparisonNames, number>;
+    mentoring?: TComparisonField;
 }
