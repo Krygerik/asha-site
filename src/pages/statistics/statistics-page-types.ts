@@ -74,6 +74,7 @@ export enum EFiltersName {
     SpellPower = 'spell_power',
     StartBonus = 'start_bonus',
     UserId = 'user_id',
+    WarMachine = 'war_machines',
 }
 
 /**
@@ -135,4 +136,6 @@ export type TFetchStatisticsRequestFilter = {
     spells?: string;
     // Существо из армии героя
     "army.name"?: string;
+    // Боевая машина игрока
+    war_machines?: string;
 }
