@@ -13,6 +13,7 @@ export const MAP_FILTERS_NAME_TO_LABEL = {
     [EFiltersName.Art]: "Артефакт",
     [EFiltersName.Attack]: "Нападение",
     [EFiltersName.Color]: "Цвет",
+    [EFiltersName.Creature]: "Существо",
     [EFiltersName.Defence]: "Защита",
     [EFiltersName.Hero]: "Герой",
     [EFiltersName.Knowledge]: "Знание",
@@ -118,6 +119,13 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
         staticProps: {
             dictionary: EDictionaryName.Artifacts,
             label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Art],
+        }
+    },
+    [EFiltersName.Creature]: {
+        Component: FinalFormDictionarySelectField,
+        staticProps: {
+            dictionary: EDictionaryName.Creatures,
+            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Creature],
         }
     },
     [EFiltersName.Spell]: {

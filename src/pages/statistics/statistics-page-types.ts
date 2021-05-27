@@ -60,6 +60,7 @@ export enum EFiltersName {
     Art = 'arts',
     Attack = 'attack',
     Color = 'color',
+    Creature = 'army.name',
     Defence = 'defence',
     Hero = 'hero',
     Knowledge = 'knowledge',
@@ -128,8 +129,10 @@ export type TFetchStatisticsRequestFilter = {
     mentoring?: TComparisonField;
     // Стартовая мана героя
     mana_start?: TComparisonField;
-    // Артефакты героя
+    // Один артефакт героя
     arts?: string;
-    // Заклинания героя
+    // Одно из заклинаний героя
     spells?: string;
+    // Существо из армии героя
+    "army.name"?: string;
 }
