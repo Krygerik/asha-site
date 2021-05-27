@@ -64,6 +64,7 @@ export enum EFiltersName {
     Knowledge = 'knowledge',
     Level = 'level',
     Luck = 'luck',
+    ManaStart = 'mana_start',
     Mentoring = 'mentoring',
     Morale = 'morale',
     Race = 'race',
@@ -123,4 +124,6 @@ export type TFetchStatisticsRequestFilter = {
     start_bonus?: EPlayerStartedBonus;
     // Количество ментора
     mentoring?: TComparisonField;
+    // Стартовая мана героя
+    mana_start?: number;
 }

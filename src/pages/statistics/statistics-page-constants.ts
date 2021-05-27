@@ -17,6 +17,7 @@ export const MAP_FILTERS_NAME_TO_LABEL = {
     [EFiltersName.Knowledge]: "Знание",
     [EFiltersName.Level]: "Уровень",
     [EFiltersName.Luck]: "Удача",
+    [EFiltersName.ManaStart]: "Стартовая мана",
     [EFiltersName.Mentoring]: "Количество ментора",
     [EFiltersName.Morale]: "Боевой дух",
     [EFiltersName.Race]: "Раса",
@@ -34,6 +35,7 @@ export const FILTERS_WITH_COMPARISON_OPERATORS = [
     EFiltersName.Knowledge,
     EFiltersName.Level,
     EFiltersName.Luck,
+    EFiltersName.ManaStart,
     EFiltersName.Mentoring,
     EFiltersName.Morale,
     EFiltersName.SpellPower,
@@ -162,6 +164,13 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
         Component: FinalFormInputTextField,
         staticProps: {
             label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Morale],
+            type: 'number',
+        }
+    },
+    [EFiltersName.ManaStart]: {
+        Component: FinalFormInputTextField,
+        staticProps: {
+            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.ManaStart],
             type: 'number',
         }
     },
