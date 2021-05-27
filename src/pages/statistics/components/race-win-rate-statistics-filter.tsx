@@ -103,6 +103,7 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => {
                                                                     // @ts-ignore
                                                                     <Component
                                                                         {...staticProps}
+                                                                        label={MAP_FILTERS_NAME_TO_LABEL[selectedFieldName]}
                                                                         name={`${name}.value`}
                                                                     />
                                                                 }

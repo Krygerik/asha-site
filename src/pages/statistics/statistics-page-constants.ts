@@ -114,132 +114,112 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
         Component: FinalFormDictionarySelectField,
         staticProps: {
             dictionary: EDictionaryName.Races,
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Race],
         }
     },
     [EFiltersName.Art]: {
         Component: FinalFormDictionarySelectField,
         staticProps: {
             dictionary: EDictionaryName.Artifacts,
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Art],
         }
     },
     [EFiltersName.Creature]: {
         Component: FinalFormDictionarySelectField,
         staticProps: {
             dictionary: EDictionaryName.Creatures,
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Creature],
         }
     },
     [EFiltersName.Spell]: {
         Component: FinalFormDictionarySelectField,
         staticProps: {
             dictionary: EDictionaryName.Spells,
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Spell],
         }
     },
     [EFiltersName.WarMachine]: {
         Component: FinalFormDictionarySelectField,
         staticProps: {
             dictionary: EDictionaryName.WarMachines,
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.WarMachine],
         }
     },
     [EFiltersName.Mentoring]: {
         Component: FinalFormInputTextField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Mentoring],
             type: 'number',
         }
     },
     [EFiltersName.PercentageOfArmyLeft]: {
         Component: FinalFormInputTextField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.PercentageOfArmyLeft],
             type: 'number',
         }
     },
     [EFiltersName.Level]: {
         Component: FinalFormInputTextField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Level],
             type: 'number',
         }
     },
     [EFiltersName.Attack]: {
         Component: FinalFormInputTextField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Attack],
             type: 'number',
         }
     },
     [EFiltersName.Defence]: {
         Component: FinalFormInputTextField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Defence],
             type: 'number',
         }
     },
     [EFiltersName.SpellPower]: {
         Component: FinalFormInputTextField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.SpellPower],
             type: 'number',
         }
     },
     [EFiltersName.Knowledge]: {
         Component: FinalFormInputTextField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Knowledge],
             type: 'number',
         }
     },
     [EFiltersName.Luck]: {
         Component: FinalFormInputTextField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Luck],
             type: 'number',
         }
     },
     [EFiltersName.Morale]: {
         Component: FinalFormInputTextField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Morale],
             type: 'number',
         }
     },
     [EFiltersName.ManaStart]: {
         Component: FinalFormInputTextField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.ManaStart],
             type: 'number',
         }
     },
     [EFiltersName.StartBonus]: {
         Component: FinalFormSelectField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.StartBonus],
             options: PLAYER_STARTED_BONUS_OPTIONS
         }
     },
     [EFiltersName.Hero]: {
         Component: FinalFormDictionarySelectField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Hero],
             dictionary: EDictionaryName.Heroes,
         }
     },
     [EFiltersName.Color]: {
         Component: FinalFormSelectField,
         staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Color],
             options: PLAYER_COLOR_OPTIONS
         }
     },
     [EFiltersName.UserId]: {
         Component: FinalFormUsersSelectField,
-        staticProps: {
-            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.UserId],
-        }
+        staticProps: {}
     },
 }
