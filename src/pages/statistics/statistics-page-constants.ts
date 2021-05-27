@@ -23,6 +23,7 @@ export const MAP_FILTERS_NAME_TO_LABEL = {
     [EFiltersName.Morale]: "Боевой дух",
     [EFiltersName.Race]: "Раса",
     [EFiltersName.SpellPower]: "Колдовство",
+    [EFiltersName.Spell]: "Заклинание",
     [EFiltersName.StartBonus]: "Стартовый бонус",
     [EFiltersName.UserId]: "Никнейм",
 };
@@ -117,6 +118,13 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
         staticProps: {
             dictionary: EDictionaryName.Artifacts,
             label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Art],
+        }
+    },
+    [EFiltersName.Spell]: {
+        Component: FinalFormDictionarySelectField,
+        staticProps: {
+            dictionary: EDictionaryName.Spells,
+            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Spell],
         }
     },
     [EFiltersName.Mentoring]: {

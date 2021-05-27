@@ -69,6 +69,7 @@ export enum EFiltersName {
     Mentoring = 'mentoring',
     Morale = 'morale',
     Race = 'race',
+    Spell = 'spells',
     SpellPower = 'spell_power',
     StartBonus = 'start_bonus',
     UserId = 'user_id',
@@ -129,4 +130,6 @@ export type TFetchStatisticsRequestFilter = {
     mana_start?: TComparisonField;
     // Артефакты героя
     arts?: string;
+    // Заклинания героя
+    spells?: string;
 }
