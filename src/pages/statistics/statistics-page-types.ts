@@ -69,6 +69,7 @@ export enum EFiltersName {
     ManaStart = 'mana_start',
     Mentoring = 'mentoring',
     Morale = 'morale',
+    PercentageOfArmyLeft = 'percentage_of_army_left',
     Race = 'race',
     Spell = 'spells',
     SpellPower = 'spell_power',
@@ -138,4 +139,6 @@ export type TFetchStatisticsRequestFilter = {
     "army.name"?: string;
     // Боевая машина игрока
     war_machines?: string;
+    // Процент оставшейся силы армии
+    percentage_of_army_left?: TComparisonField;
 }
