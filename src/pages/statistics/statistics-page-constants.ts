@@ -10,6 +10,7 @@ import {EFiltersName} from "./statistics-page-types";
  * Мапа фильтров на их лейблы
  */
 export const MAP_FILTERS_NAME_TO_LABEL = {
+    [EFiltersName.Art]: "Артефакт",
     [EFiltersName.Attack]: "Нападение",
     [EFiltersName.Color]: "Цвет",
     [EFiltersName.Defence]: "Защита",
@@ -109,6 +110,13 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
         staticProps: {
             dictionary: EDictionaryName.Races,
             label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Race],
+        }
+    },
+    [EFiltersName.Art]: {
+        Component: FinalFormDictionarySelectField,
+        staticProps: {
+            dictionary: EDictionaryName.Artifacts,
+            label: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.Art],
         }
     },
     [EFiltersName.Mentoring]: {

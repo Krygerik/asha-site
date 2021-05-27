@@ -57,6 +57,7 @@ export const STATISTICS_PAGE_NAMESPACE = '@@STATISTICS_PAGE_NAMESPACE';
  * Перечисление полей фильтров
  */
 export enum EFiltersName {
+    Art = 'arts',
     Attack = 'attack',
     Color = 'color',
     Defence = 'defence',
@@ -125,5 +126,7 @@ export type TFetchStatisticsRequestFilter = {
     // Количество ментора
     mentoring?: TComparisonField;
     // Стартовая мана героя
-    mana_start?: number;
+    mana_start?: TComparisonField;
+    // Артефакты героя
+    arts?: string;
 }
