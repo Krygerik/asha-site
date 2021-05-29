@@ -1,4 +1,4 @@
-import {map} from "lodash";
+import {filter, map} from "lodash";
 import * as React from "react";
 import {Button, Form as SemanticForm, Grid, Header, Icon, Segment} from "semantic-ui-react";
 import {Form} from "react-final-form";
@@ -7,6 +7,7 @@ import {FieldArray} from "react-final-form-arrays";
 import {EComparisonNames} from "../../../common/constants";
 import {FinalFormSelectField} from "../../../components/final-form-select-field";
 import {
+    EFiltersName,
     TFetchStatisticsRequestFilter,
     TFilterStatisticsFormValues,
     TSingleStatisticsFilter
@@ -49,6 +50,20 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => {
         }, {} as TFetchStatisticsRequestFilter)
     );
 
+    /**
+     * Все опции выпадающего списка для выбора фильтров
+     */
+    // @ts-ignore
+    const options = Object.keys(MAP_FILTERS_NAME_TO_LABEL).map((filterName: EFiltersName) => {
+        const filterValue = MAP_FILTERS_NAME_TO_LABEL[filterName];
+
+        return ({
+            key: filterName,
+            text: filterValue,
+            value: filterName,
+        })
+    });
+
     return (
         <Segment>
             <Header
@@ -68,6 +83,26 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => {
                                         const selectedFieldName = values.filters[index].name;
                                         const withComparison = FILTERS_WITH_COMPARISON_OPERATORS.includes(selectedFieldName);
                                         const {Component, staticProps} = MAP_FILTER_NAMES_TO_FIELD_DATA[selectedFieldName] || {};
+                                        const selectedFiltersNames = map(
+                                            values.filters,
+                                            (item: TSingleStatisticsFilter) => item.name,
+                                        );
+
+                                        /**
+                                         * Список всех выбранных фильтров, кроме фильтра этой строки
+                                         */
+                                        const otherSelectedFiltersNames = filter(
+                                            selectedFiltersNames,
+                                            (item: EFiltersName | undefined) => item && item !== values.filters[index].name
+                                        );
+
+                                        /**
+                                         * Список доступных опций для выпадающего списка
+                                         */
+                                        const filteredOptions = options.filter(
+                                            (item: { value: EFiltersName, key: EFiltersName, text: string }) => (
+                                                !otherSelectedFiltersNames.includes(item.value)
+                                        ))
 
                                         return (
                                             <Grid.Row key={name}>
@@ -75,13 +110,7 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => {
                                                     <FinalFormSelectField
                                                         label="Фильтр"
                                                         name={`${name}.name`}
-                                                        options={
-                                                            map(MAP_FILTERS_NAME_TO_LABEL, (value, key) => ({
-                                                                key: key,
-                                                                text: value,
-                                                                value: key,
-                                                            }))
-                                                        }
+                                                        options={filteredOptions}
                                                     />
                                                 </Grid.Column>
                                                 {
