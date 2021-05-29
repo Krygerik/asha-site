@@ -8,12 +8,10 @@ import "semantic-ui-css/semantic.min.css"
 import "./index.css";
 
 ReactDOM.render(
-  <React.StrictMode>
-      <Provider store={store}>
-          <DictionaryProvider>
-              <MainPage />
-          </DictionaryProvider>
-      </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+      <DictionaryProvider>
+          <MainPage />
+      </DictionaryProvider>
+  </Provider>,
   document.getElementById('root')
 );

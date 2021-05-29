@@ -16,13 +16,13 @@ import {
     Table
 } from "semantic-ui-react";
 import {FinalFormDictionarySelectField} from "../../components/final-form-dictionary-select-field";
-import {FinalFormSelectField} from "../../components/final-form-select-field";
+import {FinalFormUsersSelectField} from "../../components/final-form-users-select-field";
 import {DictionaryContext, EDictionaryName, withDictionaries} from "../dictionary";
+import {THeroRecord} from "../dictionary/dictionary-types";
 import {ShortGameInfoRow} from "./components/short-game-info-row";
 import {SHORT_GAME_INFO_TABLE_CONFIG} from "./short-game-info-table-constants";
 import {TShortGameInfoTableConnectedProps, withShortGameInfoTableConnector} from "./short-game-info-table-connector";
 import {TSearchGamesFormValues} from "./short-game-info-table-types";
-import {THeroRecord} from "../dictionary/dictionary-types";
 
 type TOwnProps = {
     countItems?: number;
@@ -88,11 +88,6 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
             items: props.countItems || DEFAULT_PAGE_SIZE,
             requestPage: 1,
         });
-
-        /**
-         * Запрос списка игроков для фильтра
-         */
-        props.fetchUsersIdWithNicknames();
     }, []);
 
     /**
@@ -155,10 +150,9 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                                 />
                                             </Grid.Column>
                                             <Grid.Column>
-                                                <FinalFormSelectField
+                                                <FinalFormUsersSelectField
                                                     label="Игрок"
                                                     name="user_id"
-                                                    options={props.userNicknamesOptionList}
                                                 />
                                             </Grid.Column>
                                         </Grid.Row>

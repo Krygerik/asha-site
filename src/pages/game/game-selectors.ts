@@ -1,8 +1,9 @@
 import {Selector} from "react-redux";
 import {createSelector} from "reselect";
 import {flow, find, get, getOr} from "lodash/fp";
+import {EPlayerColor} from "../../common/constants";
 import {GAME_INFO_NAMESPACE} from "./game-constants";
-import {EPlayerColor, TGame, TPlayer} from "./game-types";
+import {TGame, TPlayer} from "./game-types";
 
 export const getGameState = get(GAME_INFO_NAMESPACE);
 

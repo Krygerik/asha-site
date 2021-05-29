@@ -4,6 +4,7 @@ import * as React from "react";
 
 type TProps = {
     label?: string;
+    loading?: boolean;
     name: string;
     options: DropdownItemProps[];
 };
@@ -19,6 +20,7 @@ export const FinalFormSelectField = (props: TProps) => (
             innerProps => (
                 <SemanticForm.Select
                     label={props.label}
+                    loading={props.loading}
                     name={innerProps.input.name}
                     onChange={(e, { value }) => innerProps.input.onChange(value)}
                     options={props.options}

@@ -57,7 +57,7 @@ export type TDictionary = TRacesDictionary | THeroesDictionary;
 export type TDictionaryContext = {
     dictionaries: Record<EDictionaryName, TDictionary> | {};
     fetchDictionaries: () => void;
-    getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string) => TRaceRecord | THeroRecord;
+    getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string | ERacesIds) => TRaceRecord | THeroRecord;
     getDictionaryRecords: (dictName: EDictionaryName) => TRaceRecord[] | THeroRecord[];
     getLocalizeDictionaryValueByGameId: (dictName: EDictionaryName, gameId: string) => string;
     isErrorFetch: boolean;

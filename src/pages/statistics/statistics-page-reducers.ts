@@ -1,6 +1,7 @@
 import {
     SET_ALL_RACES_WIN_RATE,
     SET_ERROR_FETCH_ALL_RACE_WIN_RATE,
+    SET_LOADING_STATISTICS_STATUS,
     TStatisticsPageActions,
     TStatisticsPageState
 } from "./statistics-page-types";
@@ -28,6 +29,14 @@ export const statisticsPageReducer = (
             ...state,
             errorFetch: true,
             isFetchingRacesWinRate: false,
+        }
+    }
+
+    if (action.type === SET_LOADING_STATISTICS_STATUS) {
+        return {
+            ...state,
+            errorFetch: false,
+            isFetchingRacesWinRate: true,
         }
     }
 
