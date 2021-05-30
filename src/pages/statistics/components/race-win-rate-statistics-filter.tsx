@@ -39,9 +39,15 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => {
      */
     const serializeFilterValues = (filterValues: TSingleStatisticsFilter[]) => (
         filterValues.reduce((acc, item) => {
+            const withComparison = FILTERS_WITH_COMPARISON_OPERATORS.includes(item.name);
+
+            if (item.value === undefined || (withComparison && item.operator === undefined)) {
+                return acc;
+            }
+
             return {
                 ...acc,
-                [item.name]: FILTERS_WITH_COMPARISON_OPERATORS.includes(item.name)
+                [item.name]: withComparison
                     ? item.operator
                         ? { [item.operator]: item.value }
                         : { [EComparisonNames.Equal]: item.value }
