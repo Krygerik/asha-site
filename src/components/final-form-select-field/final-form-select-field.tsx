@@ -3,6 +3,7 @@ import {Field} from "react-final-form";
 import * as React from "react";
 
 type TProps = {
+    fluid?: boolean;
     label?: string;
     loading?: boolean;
     name: string;
@@ -19,6 +20,7 @@ export const FinalFormSelectField = (props: TProps) => (
         {
             innerProps => (
                 <SemanticForm.Select
+                    fluid={props.fluid}
                     label={props.label}
                     loading={props.loading}
                     name={innerProps.input.name}

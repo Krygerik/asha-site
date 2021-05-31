@@ -7,6 +7,7 @@ import {TCommonDictionaryRecord} from "../../modules/dictionary/dictionary-types
 type TProps = {
     dictionary: EDictionaryName;
     filter?: (item: TCommonDictionaryRecord) => boolean;
+    fluid?: boolean;
     label?: string;
     name: string;
 };
@@ -37,6 +38,7 @@ export const FinalFormDictionarySelectField = (props: TProps) => {
             {
                 innerProps => (
                     <SemanticForm.Select
+                        fluid={props.fluid}
                         label={props.label}
                         name={innerProps.input.name}
                         onChange={(e, { value }) => innerProps.input.onChange(value)}

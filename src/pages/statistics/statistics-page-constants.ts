@@ -22,7 +22,7 @@ export const MAP_FILTERS_NAME_TO_LABEL = {
     [EFiltersName.ManaStart]: "Стартовая мана",
     [EFiltersName.Mentoring]: "Количество ментора",
     [EFiltersName.Morale]: "Боевой дух",
-    [EFiltersName.PercentageOfArmyLeft]: "Зрелищность",
+    // [EFiltersName.PercentageOfArmyLeft]: "Зрелищность",
     [EFiltersName.Race]: "Раса",
     [EFiltersName.SpellPower]: "Колдовство",
     [EFiltersName.Spell]: "Заклинание",
@@ -43,7 +43,7 @@ export const FILTERS_WITH_COMPARISON_OPERATORS = [
     EFiltersName.ManaStart,
     EFiltersName.Mentoring,
     EFiltersName.Morale,
-    EFiltersName.PercentageOfArmyLeft,
+    // EFiltersName.PercentageOfArmyLeft,
     EFiltersName.SpellPower,
 ];
 
@@ -95,13 +95,13 @@ export const COMPARISON_OPERATORS_OPTIONS = [
     },
     {
         key: EComparisonNames.GreatThen,
-        text: "Больше чем",
+        text: "Более",
         value: EComparisonNames.GreatThen,
     },
 
     {
         key: EComparisonNames.LessThen,
-        text: "Меньше чем",
+        text: "Менее",
         value: EComparisonNames.LessThen,
     },
 ];
@@ -146,12 +146,12 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
             type: 'number',
         }
     },
-    [EFiltersName.PercentageOfArmyLeft]: {
-        Component: FinalFormInputTextField,
-        staticProps: {
-            type: 'number',
-        }
-    },
+    // [EFiltersName.PercentageOfArmyLeft]: {
+    //     Component: FinalFormInputTextField,
+    //     staticProps: {
+    //         type: 'number',
+    //     }
+    // },
     [EFiltersName.Level]: {
         Component: FinalFormInputTextField,
         staticProps: {
