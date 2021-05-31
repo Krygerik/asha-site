@@ -5,6 +5,7 @@ import {FinalFormSelectField} from "../final-form-select-field";
 import {TUserIdWithNickname} from "./final-form-users-select-field-types";
 
 type TProps = {
+    fluid?: boolean;
     label?: string;
     name: string;
 };

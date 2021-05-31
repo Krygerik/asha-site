@@ -1,4 +1,4 @@
-import {map, times} from "lodash";
+import {map} from "lodash";
 import * as React from "react";
 import {Loader, Message, Segment, Table} from "semantic-ui-react";
 import {ERacesIds, TRaceRecord} from "../../../../modules/dictionary/dictionary-types";
@@ -53,13 +53,9 @@ const RaceWinRateStatisticsResult = React.memo((props: TProps) => {
         )
     }
 
-    // TODO: Вынести в селектор получение всех числовых значений
-    let totalWins = 0;
-    let totalLoses = 0;
-
     return (
         <Table
-            columns={11}
+            columns={10}
             textAlign={"center"}
         >
             <Table.Body>
@@ -74,9 +70,6 @@ const RaceWinRateStatisticsResult = React.memo((props: TProps) => {
                     }
                     <Table.Cell>
                         <b>Всего</b>
-                    </Table.Cell>
-                    <Table.Cell>
-                        <b>Итого игр</b>
                     </Table.Cell>
                 </Table.Row>
                 {
@@ -99,14 +92,9 @@ const RaceWinRateStatisticsResult = React.memo((props: TProps) => {
                                         const {win, lose} = props.allRacesWinRate?.[raceId][secondRaceEntity.game_id];
                                         const countGames = win + lose;
 
-                                        // Для текущей расы
                                         countAllWins = countAllWins + win;
                                         countAllLoses = countAllLoses + lose;
                                         countAllGames = countAllWins + countAllLoses;
-
-                                        // Для всех рас
-                                        totalWins = totalWins + win;
-                                        totalLoses = totalLoses + lose;
 
                                         return (
                                             <Table.Cell key={secondRaceEntity.game_id}>
@@ -129,33 +117,13 @@ const RaceWinRateStatisticsResult = React.memo((props: TProps) => {
                                     </b>
                                     <br />
                                     ({countAllWins} / {countAllLoses})
-                                </Table.Cell>
-                                <Table.Cell>
+                                    <br />
                                     {countAllGames}
                                 </Table.Cell>
                             </Table.Row>
                         )
                     })
                 }
-                <Table.Row>
-                    {
-                        times(9, (index) => (
-                            <Table.Cell key={index} />
-                        ))
-                    }
-                    <Table.Cell>
-                        <b>
-                            {
-                                (totalWins + totalLoses) && Math.floor(totalWins/(totalWins + totalLoses) * 100)
-                            } %
-                        </b>
-                        <br />
-                        ({totalWins} / {totalLoses})
-                    </Table.Cell>
-                    <Table.Cell>
-                        {(totalWins + totalLoses)}
-                    </Table.Cell>
-                </Table.Row>
             </Table.Body>
         </Table>
     );

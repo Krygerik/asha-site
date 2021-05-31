@@ -69,7 +69,7 @@ export enum EFiltersName {
     ManaStart = 'mana_start',
     Mentoring = 'mentoring',
     Morale = 'morale',
-    PercentageOfArmyLeft = 'percentage_of_army_left',
+    // PercentageOfArmyLeft = 'percentage_of_army_left',
     Race = 'race',
     Spell = 'spells',
     SpellPower = 'spell_power',
@@ -88,10 +88,19 @@ export type TSingleStatisticsFilter = {
 };
 
 /**
+ * Перечисление названий секций
+ */
+export enum EFilterSectionsName {
+    FirstPlayer = 'first_player',
+    SecondPlayer = 'second_player',
+}
+
+/**
  * Тип формы фильтров статистики
  */
 export type TFilterStatisticsFormValues = {
-    filters: TSingleStatisticsFilter[]
+    [EFilterSectionsName.FirstPlayer]: TSingleStatisticsFilter[];
+    [EFilterSectionsName.SecondPlayer]: TSingleStatisticsFilter[];
 };
 
 /**
@@ -100,9 +109,9 @@ export type TFilterStatisticsFormValues = {
 type TComparisonField = Record<EComparisonNames, number>;
 
 /**
- * Тип фильтра в запросе статистик по расам
+ * Тип полей фильтра игрока
  */
-export type TFetchStatisticsRequestFilter = {
+export type TPlayerFilterFields = {
     // Нападение героя
     attack?: TComparisonField;
     // Защита героя
@@ -139,6 +148,14 @@ export type TFetchStatisticsRequestFilter = {
     "army.name"?: string;
     // Боевая машина игрока
     war_machines?: string;
+}
+
+/**
+ * Тип фильтра в запросе статистик по расам
+ */
+export type TFetchStatisticsRequestFilter = {
+    // Фильтры по игрокам
+    players: TPlayerFilterFields[];
     // Процент оставшейся силы армии
     percentage_of_army_left?: TComparisonField;
 }

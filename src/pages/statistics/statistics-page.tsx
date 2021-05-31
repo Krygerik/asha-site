@@ -12,7 +12,7 @@ import {RaceWinRateStatisticsResult} from "./components/race-win-rate-statistics
  * Страница отображения статистик
  */
 const StatisticPage = React.memo(() => {
-    const [filters, setFilters] = React.useState({} as TFetchStatisticsRequestFilter);
+    const [filters, setFilters] = React.useState({ players: [{}, {}] } as TFetchStatisticsRequestFilter);
 
     return (
         <Page>

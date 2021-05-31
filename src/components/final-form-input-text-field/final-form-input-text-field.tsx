@@ -24,7 +24,7 @@ export const FinalFormInputTextField = (props: TProps) => (
                     error={innerProps.meta.touched && innerProps.meta.error}
                     fluid
                     icon={props.icon}
-                    iconPosition='left'
+                    iconPosition={props.icon ? 'left' : undefined}
                     label={props.label}
                     name={innerProps.input.name}
                     onChange={innerProps.input.onChange}

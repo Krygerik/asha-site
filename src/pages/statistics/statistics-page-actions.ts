@@ -28,7 +28,7 @@ const setErrorFetchAllRacesWinRate: TSetErrorFetchAllRaceWinRaceAction = ({
 /**
  * Получение статистики винрейта по расам
  */
-export const fetchRacesWinRate = (filter: TFetchStatisticsRequestFilter = {}) => async (
+export const fetchRacesWinRate = (filter: TFetchStatisticsRequestFilter) => async (
     dispatch: any
 ) => {
     try {
