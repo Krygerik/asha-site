@@ -117,6 +117,8 @@ const RaceWinRateStatisticsResult = React.memo((props: TProps) => {
                                     </b>
                                     <br />
                                     ({countAllWins} / {countAllLoses})
+                                    <br />
+                                    {countAllGames}
                                 </Table.Cell>
                             </Table.Row>
                         )
