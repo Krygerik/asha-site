@@ -70,7 +70,7 @@ export enum EFiltersName {
     Mentoring = 'mentoring',
     Morale = 'morale',
     // PercentageOfArmyLeft = 'percentage_of_army_left',
-    Race = 'race',
+    // Race = 'race',
     Spell = 'spells',
     SpellPower = 'spell_power',
     StartBonus = 'start_bonus',

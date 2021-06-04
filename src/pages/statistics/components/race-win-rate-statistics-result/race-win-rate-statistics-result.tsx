@@ -53,6 +53,9 @@ const RaceWinRateStatisticsResult = React.memo((props: TProps) => {
         )
     }
 
+    let totalWins = 0;
+    let totalLoses = 0;
+
     return (
         <Table
             columns={10}
@@ -96,6 +99,9 @@ const RaceWinRateStatisticsResult = React.memo((props: TProps) => {
                                         countAllLoses = countAllLoses + loses;
                                         countAllGames = countAllWins + countAllLoses;
 
+                                        totalWins = totalWins + wins;
+                                        totalLoses = totalLoses + loses;
+
                                         return (
                                             <Table.Cell key={secondRaceEntity.game_id}>
                                                 <b>
@@ -125,6 +131,21 @@ const RaceWinRateStatisticsResult = React.memo((props: TProps) => {
                     })
                 }
             </Table.Body>
+            <Table.Footer fullWidth>
+                <Table.Row>
+                    <Table.HeaderCell colSpan='10' textAlign="center">
+                        <b>
+                            Суммарно по всем расам: {
+                                (totalWins + totalLoses) && Math.floor(totalWins/(totalWins + totalLoses) * 100)
+                            }%
+                        </b>
+                        <br />
+                        ({totalWins} / {totalLoses})
+                        <br />
+                        {(totalWins + totalLoses)}
+                    </Table.HeaderCell>
+                </Table.Row>
+            </Table.Footer>
         </Table>
     );
 });
