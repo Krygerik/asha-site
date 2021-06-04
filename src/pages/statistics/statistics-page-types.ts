@@ -6,9 +6,9 @@ import {ERacesIds} from "../../modules/dictionary/dictionary-types";
  */
 export type TWinRateRecord = {
     // Количество проигранных игр
-    lose: number;
+    loses: number;
     // Количество выигранных игр
-    win: number;
+    wins: number;
 }
 
 /**
@@ -70,7 +70,7 @@ export enum EFiltersName {
     Mentoring = 'mentoring',
     Morale = 'morale',
     // PercentageOfArmyLeft = 'percentage_of_army_left',
-    Race = 'race',
+    // Race = 'race',
     Spell = 'spells',
     SpellPower = 'spell_power',
     StartBonus = 'start_bonus',
@@ -91,16 +91,16 @@ export type TSingleStatisticsFilter = {
  * Перечисление названий секций
  */
 export enum EFilterSectionsName {
-    FirstPlayer = 'first_player',
-    SecondPlayer = 'second_player',
+    MainPlayer = 'main_player',
+    OtherPlayer = 'other_player',
 }
 
 /**
  * Тип формы фильтров статистики
  */
 export type TFilterStatisticsFormValues = {
-    [EFilterSectionsName.FirstPlayer]: TSingleStatisticsFilter[];
-    [EFilterSectionsName.SecondPlayer]: TSingleStatisticsFilter[];
+    [EFilterSectionsName.MainPlayer]: TSingleStatisticsFilter[];
+    [EFilterSectionsName.OtherPlayer]: TSingleStatisticsFilter[];
 };
 
 /**
@@ -148,6 +148,8 @@ export type TPlayerFilterFields = {
     "army.name"?: string;
     // Боевая машина игрока
     war_machines?: string;
+    // Является ли текущий фильтр по главному игроку
+    main?: boolean;
 }
 
 /**

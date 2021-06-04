@@ -2,17 +2,15 @@ import * as React from "react";
 import {Message} from "semantic-ui-react";
 import {Page} from "../../modules/page";
 import {withDictionaries} from "../../modules/dictionary";
-import {
-    TFetchStatisticsRequestFilter,
-} from "./statistics-page-types";
 import {RacesWinRateStatisticsFilter} from "./components/race-win-rate-statistics-filter";
 import {RaceWinRateStatisticsResult} from "./components/race-win-rate-statistics-result";
+import {TFetchStatisticsRequestFilter} from "./statistics-page-types";
 
 /**
  * Страница отображения статистик
  */
 const StatisticPage = React.memo(() => {
-    const [filters, setFilters] = React.useState({ players: [{}, {}] } as TFetchStatisticsRequestFilter);
+    const [filters, setFilters] = React.useState({ players: [{ main: true }, {}] } as TFetchStatisticsRequestFilter);
 
     return (
         <Page>

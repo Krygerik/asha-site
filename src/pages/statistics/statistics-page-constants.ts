@@ -23,7 +23,7 @@ export const MAP_FILTERS_NAME_TO_LABEL = {
     [EFiltersName.Mentoring]: "Количество ментора",
     [EFiltersName.Morale]: "Боевой дух",
     // [EFiltersName.PercentageOfArmyLeft]: "Зрелищность",
-    [EFiltersName.Race]: "Раса",
+    // [EFiltersName.Race]: "Раса",
     [EFiltersName.SpellPower]: "Колдовство",
     [EFiltersName.Spell]: "Заклинание",
     [EFiltersName.StartBonus]: "Стартовый бонус",
@@ -110,12 +110,12 @@ export const COMPARISON_OPERATORS_OPTIONS = [
  * Данные полей фильтра по его названию
  */
 export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
-    [EFiltersName.Race]: {
-        Component: FinalFormDictionarySelectField,
-        staticProps: {
-            dictionary: EDictionaryName.Races,
-        }
-    },
+    // [EFiltersName.Race]: {
+    //     Component: FinalFormDictionarySelectField,
+    //     staticProps: {
+    //         dictionary: EDictionaryName.Races,
+    //     }
+    // },
     [EFiltersName.Art]: {
         Component: FinalFormDictionarySelectField,
         staticProps: {

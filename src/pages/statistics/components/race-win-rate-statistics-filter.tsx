@@ -26,8 +26,11 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => {
      */
     const handleClickFilterButton = (values: TFilterStatisticsFormValues) => () => {
         const players = [
-            serializeFilterValues(values[EFilterSectionsName.FirstPlayer]),
-            serializeFilterValues(values[EFilterSectionsName.SecondPlayer]),
+            {
+                ...serializeFilterValues(values[EFilterSectionsName.MainPlayer]),
+                main: true
+            },
+            serializeFilterValues(values[EFilterSectionsName.OtherPlayer]),
         ];
 
         props.setFilters({ players });
@@ -64,8 +67,8 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => {
             <Form
                 onSubmit={(values: TFilterStatisticsFormValues) => {}}
                 initialValues={{
-                    [EFilterSectionsName.FirstPlayer]: [{}],
-                    [EFilterSectionsName.SecondPlayer]: [{}],
+                    [EFilterSectionsName.MainPlayer]: [{}],
+                    [EFilterSectionsName.OtherPlayer]: [{}],
                 }}
                 mutators={{ ...arrayMutators }}
                 render={({ handleSubmit, form: { mutators: { push } }, values }) => (
@@ -73,19 +76,19 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => {
                         <Grid>
                             <Grid.Row divided>
                                 <Grid.Column width={8}>
-                                    <Header content="Игрок 1" textAlign="center" />
+                                    <Header content="Раса (в строке)" textAlign="center" />
                                     <PlayersFilterFields
                                         formValues={values}
                                         push={push}
-                                        sectionName={EFilterSectionsName.FirstPlayer}
+                                        sectionName={EFilterSectionsName.MainPlayer}
                                     />
                                 </Grid.Column>
                                 <Grid.Column width={8}>
-                                    <Header content="Игрок 2" textAlign="center" />
+                                    <Header content="Раса (в столбце)" textAlign="center" />
                                     <PlayersFilterFields
                                         formValues={values}
                                         push={push}
-                                        sectionName={EFilterSectionsName.SecondPlayer}
+                                        sectionName={EFilterSectionsName.OtherPlayer}
                                     />
                                 </Grid.Column>
                             </Grid.Row>
