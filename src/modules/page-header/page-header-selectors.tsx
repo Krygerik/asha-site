@@ -8,24 +8,25 @@ export const getHeaderMenuNavigation: ParametricSelector<any, any, THeaderNavIte
     (state: any, props: { match: any }) => props.match,
     (match: { path: string; }) => ([
         {
-            title: "Главная",
-            link: "/",
             active: match.path === "/",
+            icon: "chess",
+            link: "/",
+            title: "Half Random Tactical Arena",
         },
         {
-            title: "История игр",
-            link: "/games-history",
             active: match.path === "/games-history",
+            link: "/games-history",
+            title: "История игр",
         },
         {
-            title: "Статистика",
-            link: "/statistics",
             active: match.path === "/statistics",
+            link: "/statistics",
+            title: "Статистика",
         },
         {
-            title: "Об АСХА",
-            link: "/about-asha",
             active: match.path === "/about-asha",
+            link: "/about-asha",
+            title: "Об АСХА",
         }
     ]),
 );
