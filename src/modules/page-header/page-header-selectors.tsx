@@ -14,6 +14,11 @@ export const getHeaderMenuNavigation: ParametricSelector<any, any, THeaderNavIte
             title: "Half Random Tactical Arena",
         },
         {
+            active: match.path === "/tournaments",
+            link: "/tournaments",
+            title: "Турниры",
+        },
+        {
             active: match.path === "/games-history",
             link: "/games-history",
             title: "История игр",
