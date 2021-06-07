@@ -1,0 +1,110 @@
+import * as React from "react";
+import {Button, Form as SemanticForm, Header, Message, Modal, Segment} from "semantic-ui-react";
+import {Form} from "react-final-form";
+import {FinalFormInputTextField} from "../../../components/final-form-input-text-field";
+import {TCreateTournamentModalFormValues} from "./create-tournament-modal-types";
+import {createTournament} from "./create-tournament-modal-actions";
+
+type TProps = {
+    open: boolean;
+    setOpen: Function;
+};
+
+/**
+ * Модалка создания турнира
+ */
+export const CreateTournamentModal = React.memo((props: TProps) => {
+    /**
+     * Статус ожидания ответа с сервера
+     */
+    const [isLoading, setLoading] = React.useState(false);
+    /**
+     * Ошибки с сервера
+     */
+    const [error, setError] = React.useState(null);
+    /**
+     * Турнир создан
+     */
+    const [isTournamentCreated, setTournamentCreateStatus] = React.useState(false);
+
+    /**
+     * Обработчик подтверждения создания турнира
+     */
+    const handleSubmit = async (values: TCreateTournamentModalFormValues) => {
+        setLoading(true);
+
+        try {
+            await createTournament(values);
+
+            setTournamentCreateStatus(true);
+        } catch (e) {
+            setError(e.toString());
+        }
+
+        setLoading(false);
+    }
+
+    return (
+        <Modal
+            onClose={() => props.setOpen(false)}
+            onOpen={() => props.setOpen(true)}
+            open={props.open}
+            size="tiny"
+        >
+            <Modal.Content>
+                <Form
+                    onSubmit={handleSubmit}
+                    initialValues={{}}
+                    render={({handleSubmit}) => (
+                        <SemanticForm size='large' onSubmit={handleSubmit}>
+                            <Header
+                                as='h2'
+                                color='teal'
+                                textAlign='center'
+                                content="Создание нового турнира"
+                            />
+                            <Segment
+                                loading={isLoading}
+                                stacked
+                            >
+                                <FinalFormInputTextField
+                                    name="name"
+                                    placeholder='Название турнира'
+                                    required
+                                />
+                                <FinalFormInputTextField
+                                    name="start_date"
+                                    placeholder='Дата начала турнира'
+                                    required
+                                />
+                                {
+                                    error && (
+                                        <Message
+                                            color="red"
+                                            content={error}
+                                        />
+                                    )
+                                }
+                                {
+                                    isTournamentCreated && (
+                                        <Message
+                                            color="green"
+                                            content="Турнир успешно создан"
+                                        />
+                                    )
+                                }
+                                <Button
+                                    color='teal'
+                                    content="Создать"
+                                    fluid
+                                    size='large'
+                                    type="submit"
+                                />
+                            </Segment>
+                        </SemanticForm>
+                    )}
+                />
+            </Modal.Content>
+        </Modal>
+    )
+})

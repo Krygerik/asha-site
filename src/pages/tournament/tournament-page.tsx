@@ -1,28 +1,31 @@
 import * as React from "react";
 import {Button, Header, Segment} from "semantic-ui-react";
 import {Page} from "../../modules/page";
+import {CreateTournamentModal} from "./create-tournament-modal";
 
 /**
  * Страница с турнирами
  */
 export const TournamentPage = React.memo(() => {
     /**
-     * Обработчик нажатия на кнопку создания турнира
+     * Видимость модалки "Создание турнира"
      */
-    const handleClickCreateTournament = () => () => {
-        // TODO: открытие модалки создания турнира
-    }
+    const [open, setOpen] = React.useState(false);
 
     return (
         <Page>
+            <CreateTournamentModal
+                open={open}
+                setOpen={setOpen}
+            />
             <Segment>
                 <Header
-                    content="Особые возможности"
+                    content="Особые ролевые возможности"
                 />
                 <Button
                     color="green"
                     content="+ Создать турнир"
-                    onClick={handleClickCreateTournament}
+                    onClick={() => setOpen(true)}
                     size="large"
                     type="btn"
                 />
