@@ -6,7 +6,7 @@ import {TCreateTournamentModalFormValues} from "./create-tournament-modal-types"
  */
 export const createTournament = async (values: TCreateTournamentModalFormValues) => {
     try {
-        await createRequest().post('/tournament/create', values);
+        await createRequest().post('/tournament-list/create', values);
     } catch (e) {
         throw new Error(e.response?.data?.MESSAGE || e);
     }

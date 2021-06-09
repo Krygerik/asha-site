@@ -29,7 +29,7 @@ export const fetchTournaments = () => async (
 ) => {
     try {
         dispatch(setFetchingStatus(true));
-        const response: { data: { DATA: TTournament[] } } = await createRequest().get('/tournament/get-all');
+        const response: { data: { DATA: TTournament[] } } = await createRequest().get('/tournament-list/get-all');
 
         dispatch(setTournaments(response.data.DATA));
     } catch (error) {

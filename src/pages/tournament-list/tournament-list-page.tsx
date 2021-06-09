@@ -7,7 +7,7 @@ import {TournamentList} from "./tournament-list";
 /**
  * Страница с турнирами
  */
-export const TournamentPage = React.memo(() => {
+export const TournamentListPage = React.memo(() => {
     /**
      * Видимость модалки "Создание турнира"
      */

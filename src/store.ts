@@ -5,7 +5,7 @@ import {PROFILE_NAMESPACE, profileReducer} from "./modules/profile";
 import {PROFILE_PAGE_NAMESPACE, profilePageReducer} from "./pages/profile-page";
 import {GAME_INFO_NAMESPACE, gameReducer} from "./pages/game";
 import {STATISTICS_PAGE_NAMESPACE, statisticsPageReducer} from "./pages/statistics";
-import {TOURNAMENT_LIST_NAMESPACE, tournamentListReducer} from "./pages/tournament/tournament-list";
+import {TOURNAMENT_LIST_NAMESPACE, tournamentListReducer} from "./pages/tournament-list/tournament-list";
 
 const rootReducer = combineReducers({
     [GAME_INFO_NAMESPACE]: gameReducer,

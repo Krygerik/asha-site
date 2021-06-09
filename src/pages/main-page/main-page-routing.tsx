@@ -5,7 +5,7 @@ import {Game} from "../game";
 import {Games} from "../games-history";
 import {ProfilePage} from "../profile-page";
 import {StatisticPage} from "../statistics";
-import {TournamentPage} from "../tournament";
+import {TournamentListPage} from "../tournament-list";
 import {MainPage} from "./main-page";
 
 /**
@@ -18,7 +18,7 @@ export const MainPageRouting = React.memo(() => (
                 <StatisticPage />
             </Route>
             <Route exact path="/tournaments" >
-                <TournamentPage />
+                <TournamentListPage />
             </Route>
             <Route exact path="/about-asha" >
                 <AboutAsha />
