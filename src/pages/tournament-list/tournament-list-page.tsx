@@ -1,6 +1,7 @@
 import * as React from "react";
 import {Button, Header, Segment} from "semantic-ui-react";
 import {Page} from "../../modules/page";
+import {createRequest} from "../../utils/create-request";
 import {CreateTournamentModal} from "./create-tournament-modal";
 import {TournamentList} from "./tournament-list";
 
@@ -31,7 +32,9 @@ export const TournamentListPage = React.memo(() => {
                     type="btn"
                 />
             </Segment>
-            <TournamentList />
+            <TournamentList
+                request={() => createRequest().get('/tournament/get-all')}
+            />
         </Page>
     )
 });

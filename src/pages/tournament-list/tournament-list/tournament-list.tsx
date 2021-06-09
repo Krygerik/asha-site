@@ -1,42 +1,14 @@
 import * as React from "react";
-import {Button, Grid, Header, Loader, Message, Segment, Table} from "semantic-ui-react";
-import {TTournamentPageConnectedProps, withTournamentPageConnector} from "./tournament-list-connector";
+import {Button, Grid, Header, Segment, Table} from "semantic-ui-react";
+import {withFetching} from "../../../wrappers";
 import {TTournament} from "./tournament-list-types";
 
-const TournamentList = React.memo((props: TTournamentPageConnectedProps) => {
-    /**
-     * Запрос актуальных турниров
-     */
-    React.useEffect(() => {
-        props.fetchTournaments();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+type TProps = {
+    data: TTournament[];
+    refreshData: Function;
+}
 
-    /**
-     * Обработчик нажатия кнопки "Обновить"
-     */
-    const handleClickRefresh = React.useCallback(() => {
-        props.fetchTournaments();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    if (props.isErrorFetch) {
-        return (
-            <Message
-                content="Ошибка при загрузке списка турниров"
-                red
-            />
-        );
-    }
-
-    if (props.isFetching) {
-        return (
-            <Segment>
-                <Loader active inline="centered" size="large"/>
-            </Segment>
-        );
-    }
-
+const TournamentList = React.memo((props: TProps) => {
     return (
         <Segment>
             <Grid>
@@ -50,7 +22,7 @@ const TournamentList = React.memo((props: TTournamentPageConnectedProps) => {
                         <Button
                             content="Обновить"
                             fluid
-                            onClick={handleClickRefresh}
+                            onClick={() => props.refreshData()}
                         />
                     </Grid.Column>
                 </Grid.Row>
@@ -75,7 +47,7 @@ const TournamentList = React.memo((props: TTournamentPageConnectedProps) => {
                 </Table.Header>
                 <Table.Body>
                     {
-                        props.tournaments.map((tournament: TTournament) => (
+                        props.data.map((tournament: TTournament) => (
                             <Table.Row
                                 key={tournament._id}
                                 textAlign="center"
@@ -98,4 +70,4 @@ const TournamentList = React.memo((props: TTournamentPageConnectedProps) => {
     )
 })
 
-export const TournamentListController = withTournamentPageConnector(TournamentList);
+export const TournamentListController = withFetching(TournamentList);
