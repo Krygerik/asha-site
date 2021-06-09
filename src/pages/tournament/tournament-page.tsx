@@ -2,6 +2,7 @@ import * as React from "react";
 import {Button, Header, Segment} from "semantic-ui-react";
 import {Page} from "../../modules/page";
 import {CreateTournamentModal} from "./create-tournament-modal";
+import {TournamentList} from "./tournament-list";
 
 /**
  * Страница с турнирами
@@ -30,14 +31,7 @@ export const TournamentPage = React.memo(() => {
                     type="btn"
                 />
             </Segment>
-            <Segment>
-                <Header
-                    content="Текущий турнир"
-                />
-                {
-                    // TODO: Функционал по текущему турниру
-                }
-            </Segment>
+            <TournamentList />
         </Page>
     )
 });
