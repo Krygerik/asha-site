@@ -1,5 +1,6 @@
 import * as React from "react";
-import {Button, Grid, Header, Segment, Table} from "semantic-ui-react";
+import {Link} from "react-router-dom";
+import {Button, Grid, Header, Icon, Segment, Table} from "semantic-ui-react";
 import {withFetching} from "../../../wrappers";
 import {TTournament} from "./tournament-list-types";
 
@@ -58,9 +59,11 @@ const TournamentList = React.memo((props: TProps) => {
                                 <Table.Cell
                                     content={tournament.start_date}
                                 />
-                                <Table.Cell
-                                    content="TODO"
-                                />
+                                <Table.Cell>
+                                    <Link to={`/tournament/${tournament._id}`} target="_blank">
+                                        <Icon name="eye" size="large" />
+                                    </Link>
+                                </Table.Cell>
                             </Table.Row>
                         ))
                     }
