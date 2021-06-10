@@ -4,7 +4,7 @@
  */
 export type TCreateTournamentModalFormValues = {
     // Название турнира
-    name?: string;
+    name: string;
     // Дата начала турнира
-    start_date?: string;
+    start_date: string;
 };

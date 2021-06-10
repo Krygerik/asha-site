@@ -24,3 +24,8 @@ export enum EComparisonNames {
     GreatThen = '$gt',
     LessThen = '$lt',
 }
+
+/**
+ * Маска для отображения даты
+ */
+export const REPRESENTATIVE_DATE_MASK = 'YYYY-MM-DD HH:mm:ss';

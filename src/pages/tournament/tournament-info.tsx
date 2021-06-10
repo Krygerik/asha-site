@@ -1,5 +1,6 @@
 import *  as React from "react";
 import {Header, Segment} from "semantic-ui-react";
+import {convertLocalDateToUtc} from "../../utils/convert-local-date-to-utc";
 import {withFetching} from "../../wrappers";
 import {TTournament} from "./tournament-page-types";
 
@@ -13,7 +14,7 @@ type TProps = {
 const TournamentInfoComponent = React.memo((props: TProps) => (
     <Segment>
         <Header
-            content={`Дата начала: ${props.data.start_date}`}
+            content={`Дата начала: ${convertLocalDateToUtc(props.data.start_date)}`}
         />
     </Segment>
 ));

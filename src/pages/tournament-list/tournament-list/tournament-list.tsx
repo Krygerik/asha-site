@@ -1,6 +1,7 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
 import {Button, Grid, Header, Icon, Segment, Table} from "semantic-ui-react";
+import { convertUtcToLocalDate } from "../../../utils/convert-utc-to-local-date";
 import {withFetching} from "../../../wrappers";
 import {TTournament} from "./tournament-list-types";
 
@@ -57,7 +58,7 @@ const TournamentList = React.memo((props: TProps) => {
                                     content={tournament.name}
                                 />
                                 <Table.Cell
-                                    content={tournament.start_date}
+                                    content={convertUtcToLocalDate(tournament.start_date)}
                                 />
                                 <Table.Cell>
                                     <Link to={`/tournament/${tournament._id}`} target="_blank">

@@ -2,6 +2,8 @@ import * as React from "react";
 import {Button, Form as SemanticForm, Header, Message, Modal, Segment} from "semantic-ui-react";
 import {Form} from "react-final-form";
 import {FinalFormInputTextField} from "../../../components/final-form-input-text-field";
+import {FinalFormDateTimeInputField} from "../../../components/final-form-date-time-input-field";
+import {convertLocalDateToUtc} from "../../../utils/convert-local-date-to-utc";
 import {TCreateTournamentModalFormValues} from "./create-tournament-modal-types";
 import {createTournament} from "./create-tournament-modal-actions";
 
@@ -31,17 +33,20 @@ export const CreateTournamentModal = React.memo((props: TProps) => {
      * Обработчик подтверждения создания турнира
      */
     const handleSubmit = async (values: TCreateTournamentModalFormValues) => {
-        setLoading(true);
-
         try {
-            await createTournament(values);
+            setLoading(true);
+
+            await createTournament({
+                ...values,
+                start_date: convertLocalDateToUtc(values.start_date),
+            });
 
             setTournamentCreateStatus(true);
         } catch (e) {
             setError(e.toString());
+        } finally {
+            setLoading(false);
         }
-
-        setLoading(false);
     }
 
     return (
@@ -72,7 +77,7 @@ export const CreateTournamentModal = React.memo((props: TProps) => {
                                     placeholder='Название турнира'
                                     required
                                 />
-                                <FinalFormInputTextField
+                                <FinalFormDateTimeInputField
                                     name="start_date"
                                     placeholder='Дата начала турнира'
                                     required
