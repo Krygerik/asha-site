@@ -28,3 +28,11 @@ export const getProfile: Selector<any, TProfile | null> = createSelector(
     getProfileState,
     get('data')
 );
+
+/**
+ * Получение id зарегистрированного игрока
+ */
+export const getActiveUserId: Selector<any, string | undefined> = createSelector(
+    getProfile,
+    get('_id'),
+);

@@ -18,3 +18,15 @@ export type TTournament = {
 export type TTournamentParams = {
     id: string;
 }
+
+/**
+ * Тип публичных данных о учаснике матча
+ */
+export type TTournamentParticipant = {
+    // id пользователя в бд
+    _id: string;
+    // номер дискорда
+    discord: string;
+    // ник игрока
+    nickname: string;
+};
