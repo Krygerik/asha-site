@@ -44,6 +44,9 @@ const TournamentList = React.memo((props: TProps) => (
                         content="Дата начала турнира"
                     />
                     <Table.HeaderCell
+                        content="Количество участников"
+                    />
+                    <Table.HeaderCell
                         width={2}
                         content="Действия"
                     />
@@ -61,6 +64,9 @@ const TournamentList = React.memo((props: TProps) => (
                             />
                             <Table.Cell
                                 content={convertUtcToLocalDate(tournament.start_date)}
+                            />
+                            <Table.Cell
+                                content={tournament.users.length}
                             />
                             <Table.Cell>
                                 <Link to={`/tournament/${tournament._id}`} target="_blank">
