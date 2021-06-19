@@ -1,2 +1,2 @@
 
-export {TournamentListPage} from './tournament-list-page';
+export {TournamentListPageController as TournamentListPage} from './tournament-list-page';

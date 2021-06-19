@@ -1,6 +1,13 @@
 
 export const PROFILE_NAMESPACE = '@@PROFILE_NAMESPACE';
 
+/**
+ * Тип ролей пользователя
+ */
+export enum ERoles {
+    ADMIN = 'ADMIN',
+}
+
 export type TProfile = {
     // id пользователя в бд
     _id: string;
@@ -10,6 +17,8 @@ export type TProfile = {
     email: string;
     // ник игрока
     nickname: string;
+    // роли пользователя
+    roles: ERoles[];
 }
 
 /**
