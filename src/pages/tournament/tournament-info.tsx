@@ -4,6 +4,7 @@ import {convertUtcToLocalDate} from "../../utils/convert-utc-to-local-date";
 import {createRequest} from "../../utils/create-request";
 import {withFetching} from "../../wrappers";
 import {TTournament} from "./tournament-page-types";
+import {TournamentRules} from "./tournament-rules";
 import {UserList} from "./user-list/user-list";
 
 type TProps = {
@@ -33,6 +34,7 @@ const TournamentInfoComponent = React.memo((props: TProps) => (
             }
             tournamentId={props.data._id}
         />
+        <TournamentRules />
     </Segment>
 ));
 
