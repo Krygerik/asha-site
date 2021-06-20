@@ -10,6 +10,7 @@ type TProps = {
     data: TTournamentParticipant[];
     refreshPage: Function;
     tournamentId: string;
+    tournamentStarted: boolean;
 } & TWithUserListConnectedProps;
 
 /**
@@ -54,7 +55,7 @@ const UserListComponent = React.memo((props: TProps) => {
                         />
                     </Grid.Column>
                     {
-                        props.activeUserId && (
+                        props.activeUserId && !props.tournamentStarted && (
                             <Grid.Column width={4} floated="right">
                                 {
                                     userIsParticipant

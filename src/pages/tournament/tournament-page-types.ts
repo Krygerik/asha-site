@@ -10,6 +10,8 @@ export type TTournament = {
     users: string[];
     // Название турнира
     name: string;
+    // Турнир стартовал
+    started: boolean;
 };
 
 /**

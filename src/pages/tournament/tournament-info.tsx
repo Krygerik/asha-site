@@ -23,6 +23,9 @@ const TournamentInfoComponent = React.memo((props: TProps) => (
         <Header
             content={`Дата начала: ${convertUtcToLocalDate(props.data.start_date)}`}
         />
+        <Header
+            content={`Статус: ${props.data.started ? "В процессе" : "Регистрация на турнир"}`}
+        />
         <UserList
             refreshPage={props.refreshData}
             request={
@@ -33,6 +36,7 @@ const TournamentInfoComponent = React.memo((props: TProps) => (
                     )
             }
             tournamentId={props.data._id}
+            tournamentStarted={props.data.started}
         />
         <TournamentRules />
     </Segment>
