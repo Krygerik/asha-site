@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Grid, Header, Message, Segment, Table } from "semantic-ui-react";
+import {ArcherContainer, ArcherElement} from "react-archer";
+import {Divider, Grid, Header, Message, Segment, Table} from "semantic-ui-react";
 import { TTournamentRound } from "./tournament-page-types";
 
 type TProps = {
@@ -42,42 +43,58 @@ export const TournamentGrid = React.memo((props: TProps) => {
 
                 rounds.push(
                     <Grid.Column width={4} key={indexRound}>
-                        <Table compact textAlign="center">
-                            <Table.Body>
-                                <Table.Row>
-                                    <Table.Cell
-                                        style={{ fontSize: '18px' }}
-                                        content={currentRound.number_of_round}
-                                        width={2}
-                                        rowSpan={2}
-                                    />
-                                    <Table.Cell
-                                        content={
-                                            currentRound.players[0]?.user_id
-                                            || `Победитель ${currentRound.children_rounds[0]} раунда`
-                                        }
-                                        width={12}
-                                    />
-                                    <Table.Cell
-                                        content={currentRound.players[0]?.win_count || 0}
-                                        width={2}
-                                    />
-                                </Table.Row>
-                                <Table.Row>
-                                    <Table.Cell
-                                        content={
-                                            currentRound.players[1]?.user_id
-                                            || `Победитель ${currentRound.children_rounds[1]} раунда`
-                                        }
-                                        width={12}
-                                    />
-                                    <Table.Cell
-                                        content={currentRound.players[1]?.win_count || 0}
-                                        width={2}
-                                    />
-                                </Table.Row>
-                            </Table.Body>
-                        </Table>
+                        <ArcherElement
+                            id={currentRound.number_of_round.toString()}
+                            relations={
+                                currentRound.parent_round
+                                    ? [{
+                                        targetId: currentRound.parent_round.toString(),
+                                        targetAnchor: 'bottom',
+                                        sourceAnchor: 'top',
+                                        style: { strokeColor: 'black', strokeWidth: 2 },
+                                    }]
+                                    : []
+                            }
+                        >
+                            <div>
+                                <Table compact textAlign="center">
+                                    <Table.Body>
+                                        <Table.Row>
+                                            <Table.Cell
+                                                style={{ fontSize: '18px' }}
+                                                content={currentRound.number_of_round}
+                                                width={2}
+                                                rowSpan={2}
+                                            />
+                                            <Table.Cell
+                                                content={
+                                                    currentRound.players[0]?.user_id
+                                                    || `Победитель ${currentRound.children_rounds[0]} раунда`
+                                                }
+                                                width={12}
+                                            />
+                                            <Table.Cell
+                                                content={currentRound.players[0]?.win_count || 0}
+                                                width={2}
+                                            />
+                                        </Table.Row>
+                                        <Table.Row>
+                                            <Table.Cell
+                                                content={
+                                                    currentRound.players[1]?.user_id
+                                                    || `Победитель ${currentRound.children_rounds[1]} раунда`
+                                                }
+                                                width={12}
+                                            />
+                                            <Table.Cell
+                                                content={currentRound.players[1]?.win_count || 0}
+                                                width={2}
+                                            />
+                                        </Table.Row>
+                                    </Table.Body>
+                                </Table>
+                            </div>
+                        </ArcherElement>
                     </Grid.Column>
                 )
 
@@ -85,9 +102,16 @@ export const TournamentGrid = React.memo((props: TProps) => {
             }
 
             rows.push(
-                <Grid.Row key={indexRow}>
-                    {rounds}
-                </Grid.Row>
+                <>
+                    {
+                        indexRow !== 0
+                            ? (<Divider hidden />)
+                            : null
+                    }
+                    <Grid.Row key={indexRow} >
+                        {rounds}
+                    </Grid.Row>
+                </>
             )
         }
 
@@ -97,9 +121,11 @@ export const TournamentGrid = React.memo((props: TProps) => {
     return (
         <Segment>
             <Header textAlign="center" content="Турнирная сетка" />
-            <Grid centered>
-                { getRenderGrid() }
-            </Grid>
+            <ArcherContainer>
+                <Grid centered>
+                    { getRenderGrid() }
+                </Grid>
+            </ArcherContainer>
         </Segment>
     )
 });
