@@ -3,6 +3,7 @@ import {Header, Segment} from "semantic-ui-react";
 import {convertUtcToLocalDate} from "../../utils/convert-utc-to-local-date";
 import {createRequest} from "../../utils/create-request";
 import {withFetching} from "../../wrappers";
+import { TournamentGrid } from "./tournament-grid";
 import {TTournament} from "./tournament-page-types";
 import {TournamentRules} from "./tournament-rules";
 import {UserList} from "./user-list/user-list";
@@ -38,6 +39,7 @@ const TournamentInfoComponent = React.memo((props: TProps) => (
             tournamentId={props.data._id}
             tournamentStarted={props.data.started}
         />
+        <TournamentGrid grid={props.data.grid} />
         <TournamentRules />
     </Segment>
 ));

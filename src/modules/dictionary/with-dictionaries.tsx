@@ -30,7 +30,7 @@ export const withDictionaries = (Component: React.FC<any>) => (props: any) => {
     if (dictionaries.isErrorFetch) {
         return (
             <Message
-                red
+                color="red"
                 content={ERROR_FETCH_DICTIONARY}
             />
         );

@@ -41,7 +41,7 @@ export const withFetching = (Component: React.FC<any>) => (props: TProps) => {
         return (
             <Message
                 content="Произошла ошибка при запросе данных с сервера"
-                red
+                color="red"
             />
         )
     }

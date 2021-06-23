@@ -1,3 +1,33 @@
+import {EPlayerColor} from "../../common/constants";
+
+/**
+ * Данные по участнику раунда
+ */
+type TTournamentPlayer = {
+    // ИД игрока
+    user_id?: string;
+    // Цвет игрока
+    color?: EPlayerColor;
+    // Количество побед
+    win_count: number;
+}
+
+/**
+ * Турнирная встреча
+ */
+export type TTournamentRound = {
+    // Номера дочерних раундов
+    children_rounds: number[];
+    // Номер родительского раунда
+    parent_round?: number;
+    // Номер этого раунда
+    number_of_round: number;
+    // Данные игроков текущего раунда
+    players: TTournamentPlayer[];
+    // Ид игрока победителя в текущем раунде
+    winner_id?: string;
+}
+
 /**
  * Тип турнира
  */
@@ -12,6 +42,8 @@ export type TTournament = {
     name: string;
     // Турнир стартовал
     started: boolean;
+    // Список всех раундов турнира (Сетка)
+    grid: TTournamentRound[];
 };
 
 /**

@@ -15,7 +15,7 @@ export const TournamentRules = React.memo(() => {
     }
 
     return (
-        <Accordion styled fluid style={{ fontSize: '18px' }}>
+        <Accordion styled fluid style={{ fontSize: '18px', marginTop: '1rem' }}>
             <Accordion.Title
                 active={activeIndex === 0}
                 onClick={handleClickAccordionTitle(0)}
