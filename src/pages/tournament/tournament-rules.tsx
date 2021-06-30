@@ -64,55 +64,6 @@ export const TournamentRules = React.memo(() => {
                 </List>
             </Accordion.Content>
             <Accordion.Title
-                active={activeIndex === 1}
-                onClick={handleClickAccordionTitle(1)}
-            >
-                Формат турнира
-            </Accordion.Title>
-            <Accordion.Content active={activeIndex === 1}>
-                <List ordered>
-                    <List.Item>
-                        Турнир проводится в 2 этапа - групповой и плей-офф
-                    </List.Item>
-                    <List.Item>
-                        Групповой этап:
-                        <List>
-                            <List.Item>
-                                - 8 групп по 4-5 человек в каждой
-                            </List.Item>
-                            <List.Item>
-                                - Система проведения — round robin (каждый с каждым)
-                            </List.Item>
-                            <List.Item>
-                                - Формат матчей — best-of-5
-                            </List.Item>
-                            <List.Item>
-                                - Победа 3:0 и 3:1 - 3 очка, 3:2 - 2 очка, поражение 2:3 - 1 очко, 0:3 и 1:3 - 0 очков
-                            </List.Item>
-                            <List.Item>
-                                - 1-2 места попадают в плей-офф в сетку виннеров, 3 место в сетку лузеров;
-                            </List.Item>
-                            <List.Item>
-                                - Места определяются по следующему приоритету: очки, разница В-П, личная встреча, рейтинг.
-                            </List.Item>
-                        </List>
-                    </List.Item>
-                    <List.Item>
-                        Плей-офф: best-of-5
-                    </List.Item>
-                    <List.Item>
-                        Формат финала и матча за 3 место: best-of-7
-                    </List.Item>
-                    <List.Item>
-                        Выбор рас - Смешанный черк
-                    </List.Item>
-                    <List.Item>
-                        Игрок, ниже по рейтингу имеет право выбрать цвет в первой игре.
-                        В каждой последующей игре соперники меняются цветами.
-                    </List.Item>
-                </List>
-            </Accordion.Content>
-            <Accordion.Title
                 active={activeIndex === 2}
                 onClick={handleClickAccordionTitle(2)}
             >
