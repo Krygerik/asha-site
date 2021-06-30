@@ -64,6 +64,27 @@ export const TournamentRules = React.memo(() => {
                 </List>
             </Accordion.Content>
             <Accordion.Title
+                active={activeIndex === 1}
+                onClick={handleClickAccordionTitle(1)}
+            >
+                Отправка отчетов через АСХА
+            </Accordion.Title>
+            <Accordion.Content active={activeIndex === 1}>
+                <List ordered>
+                    <List.Item>
+                        АСХА автоматически следит за турнирами, в которых участвуют пользователи и при получении отчета,
+                        где оба игрока в текущий момент времени участвуют в одном раунде в турнире - учитывает
+                        игру в турнир
+                    </List.Item>
+                    <List.Item>
+                        Учет игр начинается сразу же после завершения регистрации
+                    </List.Item>
+                    <List.Item>
+                        Игра будет учтена, только если в отчете присутствуют оба игрока
+                    </List.Item>
+                </List>
+            </Accordion.Content>
+            <Accordion.Title
                 active={activeIndex === 2}
                 onClick={handleClickAccordionTitle(2)}
             >
