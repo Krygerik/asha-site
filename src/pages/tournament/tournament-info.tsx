@@ -25,8 +25,30 @@ const TournamentInfoComponent = React.memo((props: TProps) => (
             content={`Дата начала: ${convertUtcToLocalDate(props.data.start_date)}`}
         />
         <Header
-            content={`Статус: ${props.data.started ? "В процессе" : "Регистрация на турнир"}`}
+            content={`Статус: ${
+                props.data.started
+                    ? props.data.winner_id
+                        ? "Завершен"
+                        : "В процессе"
+                    : "Регистрация на турнир"
+            }`}
         />
+        <Header
+            content={`Максимальное количество участников: ${props.data.maximum_player_count}`}
+        />
+        <Header
+            content={`Формат суперфинала: ${props.data.super_final_format}`}
+        />
+        <Header
+            content={`Формат всех прочих раундов: ${props.data.rounds_format}`}
+        />
+        {
+            props.data.winner_id && (
+                <Header
+                    content={`Победитель: ${props.data.winner_id}`}
+                />
+            )
+        }
         <UserList
             refreshPage={props.refreshData}
             request={

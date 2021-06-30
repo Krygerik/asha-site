@@ -1,13 +1,4 @@
-
-/**
- * Возможные форматы раундов
- */
-export enum ERoundFormat {
-    // До 2 побед
-    Bo3 = 'Bo3',
-    // До 3 побед
-    Bo5 = 'Bo5',
-}
+import {ERoundFormat} from "../../../common/constants";
 
 /**
  * Тип данных формы "Создание турнира"

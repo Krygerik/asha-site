@@ -4,8 +4,9 @@ import {Form} from "react-final-form";
 import {FinalFormInputTextField} from "../../../components/final-form-input-text-field";
 import {FinalFormDateTimeInputField} from "../../../components/final-form-date-time-input-field";
 import {FinalFormSelectField} from "../../../components/final-form-select-field";
+import { ERoundFormat } from "../../../common/constants";
 import {convertLocalDateToUtc} from "../../../utils/convert-local-date-to-utc";
-import {ERoundFormat, TCreateTournamentModalFormValues} from "./create-tournament-modal-types";
+import {TCreateTournamentModalFormValues} from "./create-tournament-modal-types";
 import {createTournament} from "./create-tournament-modal-actions";
 
 type TProps = {

@@ -1,4 +1,4 @@
-import {EPlayerColor} from "../../common/constants";
+import {EPlayerColor, ERoundFormat} from "../../common/constants";
 
 /**
  * Данные по участнику раунда
@@ -36,6 +36,12 @@ export type TTournament = {
     _id: string;
     // Дата начала турнира
     start_date: string;
+    // Максимальное количество участников турнира
+    maximum_player_count: number;
+    // Формат прочих раундов
+    rounds_format: ERoundFormat;
+    // Формат суперфинала
+    super_final_format: ERoundFormat;
     // Список пользователей, зарегистрированных в турнире
     users: string[];
     // Название турнира
@@ -44,6 +50,8 @@ export type TTournament = {
     started: boolean;
     // Список всех раундов турнира (Сетка)
     grid: TTournamentRound[];
+    // Победитель турнира
+    winner_id?: string;
 };
 
 /**

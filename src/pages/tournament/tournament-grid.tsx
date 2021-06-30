@@ -14,7 +14,7 @@ export const TournamentGrid = React.memo((props: TProps) => {
     if (props.grid.length === 0) {
         return (
             <Message
-                content="Турнирная сетка отсутствует"
+                content="Турнирная сетка еще не создана"
             />
         )
     }
