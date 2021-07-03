@@ -71,6 +71,7 @@ export enum EFiltersName {
     Morale = 'morale',
     // PercentageOfArmyLeft = 'percentage_of_army_left',
     // Race = 'race',
+    Perks = 'perks',
     Spell = 'spells',
     SpellPower = 'spell_power',
     StartBonus = 'start_bonus',
