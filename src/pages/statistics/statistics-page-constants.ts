@@ -24,6 +24,7 @@ export const MAP_FILTERS_NAME_TO_LABEL = {
     [EFiltersName.Morale]: "Боевой дух",
     // [EFiltersName.PercentageOfArmyLeft]: "Зрелищность",
     // [EFiltersName.Race]: "Раса",
+    [EFiltersName.Perks]: "Навык",
     [EFiltersName.SpellPower]: "Колдовство",
     [EFiltersName.Spell]: "Заклинание",
     [EFiltersName.StartBonus]: "Стартовый бонус",
@@ -168,6 +169,12 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
         Component: FinalFormInputTextField,
         staticProps: {
             type: 'number',
+        }
+    },
+    [EFiltersName.Perks]: {
+        Component: FinalFormDictionarySelectField,
+        staticProps: {
+            dictionary: EDictionaryName.Perks,
         }
     },
     [EFiltersName.SpellPower]: {
