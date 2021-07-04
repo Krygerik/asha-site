@@ -1,7 +1,6 @@
 import *  as React from "react";
 import {Header, Segment} from "semantic-ui-react";
 import {convertUtcToLocalDate} from "../../utils/convert-utc-to-local-date";
-import {createRequest} from "../../utils/create-request";
 import {withFetching} from "../../wrappers";
 import { TournamentGrid } from "./tournament-grid";
 import {TTournament} from "./tournament-page-types";
@@ -50,18 +49,16 @@ const TournamentInfoComponent = React.memo((props: TProps) => (
             )
         }
         <UserList
+            mapUsersIdToUserInfo={props.data.mapUsersIdToUserInfo}
             refreshPage={props.refreshData}
-            request={
-                () => createRequest()
-                    .post(
-                        '/auth/get-users-by-ids',
-                        { userIds: props.data.users }
-                    )
-            }
             tournamentId={props.data._id}
             tournamentStarted={props.data.started}
+            userIdList={props.data.users}
         />
-        <TournamentGrid grid={props.data.grid} />
+        <TournamentGrid
+            grid={props.data.grid}
+            mapUsersIdToUserInfo={props.data.mapUsersIdToUserInfo}
+        />
         <TournamentRules />
     </Segment>
 ));

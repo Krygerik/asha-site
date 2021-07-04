@@ -1,16 +1,15 @@
 import * as React from "react";
-import {compose} from "redux";
 import {Button, Divider, Grid, Header, Segment, Table} from "semantic-ui-react";
 import {createRequest} from "../../../utils/create-request";
-import {withFetching} from "../../../wrappers";
 import {TTournamentParticipant} from "../tournament-page-types";
 import {TWithUserListConnectedProps, withUserListConnector} from "./user-list-connector";
 
 type TProps = {
-    data: TTournamentParticipant[];
+    mapUsersIdToUserInfo: Record<string, TTournamentParticipant>;
     refreshPage: Function;
     tournamentId: string;
     tournamentStarted: boolean;
+    userIdList: string[];
 } & TWithUserListConnectedProps;
 
 /**
@@ -22,7 +21,7 @@ const UserListComponent = React.memo((props: TProps) => {
     /**
      * Текущий пользователь - участник
      */
-    const userIsParticipant = props.data.find(participant => participant._id === props.activeUserId);
+    const userIsParticipant = props.activeUserId ? props.userIdList.includes(props.activeUserId) : false;
 
     /**
      * Обобщенный конструктор запросов для регистрации/снятии реги с турнира
@@ -83,7 +82,7 @@ const UserListComponent = React.memo((props: TProps) => {
             </Grid>
             <Divider />
             {
-                props.data.length === 0 && (
+                props.userIdList.length === 0 && (
                     <Header
                         content="Нет зарегистрированных участников"
                         textAlign="center"
@@ -91,7 +90,7 @@ const UserListComponent = React.memo((props: TProps) => {
                 )
             }
             {
-                props.data.length > 0 && (
+                props.userIdList.length > 0 && (
                     <Table>
                         <Table.Header>
                             <Table.Row>
@@ -107,17 +106,17 @@ const UserListComponent = React.memo((props: TProps) => {
                             </Table.Row>
                         </Table.Header>
                         <Table.Body>
-                            {props.data.map(
-                                (participant: TTournamentParticipant, index: number) => (
-                                    <Table.Row key={participant._id}>
+                            {props.userIdList.map(
+                                (id: string, index: number) => (
+                                    <Table.Row key={id}>
                                         <Table.Cell
                                             content={index+1}
                                         />
                                         <Table.Cell
-                                            content={participant.nickname}
+                                            content={props.mapUsersIdToUserInfo[id].nickname}
                                         />
                                         <Table.Cell
-                                            content={participant.discord}
+                                            content={props.mapUsersIdToUserInfo[id].discord}
                                         />
                                     </Table.Row>
                                 )
@@ -130,7 +129,4 @@ const UserListComponent = React.memo((props: TProps) => {
     )
 });
 
-export const UserList = compose<React.FC<any>>(
-    withFetching,
-    withUserListConnector,
-)(UserListComponent);
+export const UserList = withUserListConnector(UserListComponent);

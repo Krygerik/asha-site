@@ -29,6 +29,18 @@ export type TTournamentRound = {
 }
 
 /**
+ * Тип публичных данных о учаснике матча
+ */
+export type TTournamentParticipant = {
+    // id пользователя в бд
+    _id: string;
+    // номер дискорда
+    discord: string;
+    // ник игрока
+    nickname: string;
+};
+
+/**
  * Тип турнира
  */
 export type TTournament = {
@@ -38,6 +50,8 @@ export type TTournament = {
     start_date: string;
     // Максимальное количество участников турнира
     maximum_player_count: number;
+    // маппинг ид игроков на их краткую информацию
+    mapUsersIdToUserInfo: Record<string, TTournamentParticipant>;
     // Формат прочих раундов
     rounds_format: ERoundFormat;
     // Формат суперфинала
@@ -60,15 +74,3 @@ export type TTournament = {
 export type TTournamentParams = {
     id: string;
 }
-
-/**
- * Тип публичных данных о учаснике матча
- */
-export type TTournamentParticipant = {
-    // id пользователя в бд
-    _id: string;
-    // номер дискорда
-    discord: string;
-    // ник игрока
-    nickname: string;
-};

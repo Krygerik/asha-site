@@ -1,10 +1,12 @@
 import * as React from "react";
 import {ArcherContainer, ArcherElement} from "react-archer";
 import {Divider, Grid, Header, Message, Segment, Table} from "semantic-ui-react";
-import { TTournamentRound } from "./tournament-page-types";
+import {TTournamentParticipant, TTournamentRound} from "./tournament-page-types";
+import {AUTO_WIN} from "./tournament-constants";
 
 type TProps = {
     grid: TTournamentRound[];
+    mapUsersIdToUserInfo: Record<string, TTournamentParticipant>;
 };
 
 /**
@@ -29,6 +31,21 @@ export const TournamentGrid = React.memo((props: TProps) => {
         if (countRound < 64) return 6;
         return 7;
     };
+
+    /**
+     * Получение ника игрока из маппинга
+     */
+    const getPlayerNicknameById = (userId: string | undefined) => {
+        if (!userId) {
+            return '-';
+        }
+
+        if (userId === AUTO_WIN.VALUE) {
+            return AUTO_WIN.TITLE;
+        }
+
+        return props.mapUsersIdToUserInfo[userId]?.nickname;
+    }
 
     const getRenderGrid = () => {
         const stageCount = mapCountRoundOnCountStage(props.grid.length);
@@ -69,7 +86,7 @@ export const TournamentGrid = React.memo((props: TProps) => {
                                     <Table.Body>
                                         <Table.Row>
                                             <Table.Cell
-                                                content={currentRound.players[0]?.user_id || '-'}
+                                                content={getPlayerNicknameById(currentRound.players[0]?.user_id)}
                                                 width={12}
                                             />
                                             <Table.Cell
@@ -79,7 +96,7 @@ export const TournamentGrid = React.memo((props: TProps) => {
                                         </Table.Row>
                                         <Table.Row>
                                             <Table.Cell
-                                                content={currentRound.players[1]?.user_id ||'-'}
+                                                content={getPlayerNicknameById(currentRound.players[1]?.user_id)}
                                                 width={12}
                                             />
                                             <Table.Cell
