@@ -1,6 +1,6 @@
 import {Header, Segment, Message, Grid, Loader, Rating} from "semantic-ui-react";
 import * as React from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {Page} from "../../modules/page";
 import {TGameConnectedProps, withGameConnector} from "./game-connector";
 import {PlayerInfo} from "./components/player-info";
@@ -69,6 +69,16 @@ export const Game = React.memo((props: TGameConnectedProps) => {
                 }`} />
                 <Header content={`Версия карты: ${props.gameInfo.map_version}`} />
                 <Header content={`Победитель: ${props.winnerNickname}`} />
+                {
+                    props.gameInfo.tournament_id && (
+                        <Header>
+                            {`Игра сыграна в рамках турнира: `}
+                            <Link to={`/tournament/${props.gameInfo.tournament_id}`} target="_blank">
+                                {props.gameInfo.tournament_name}
+                            </Link>
+                        </Header>
+                    )
+                }
                 <Header>
                     Зрелищность:
                     <Rating
