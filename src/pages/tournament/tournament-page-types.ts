@@ -16,8 +16,12 @@ type TTournamentPlayer = {
  * Турнирная встреча
  */
 export type TTournamentRound = {
+    // Список ИД игр, учтенных в раунде
+    games: string[];
     // Номера дочерних раундов
     children_rounds: number[];
+    // Формат раунда
+    round_format: ERoundFormat;
     // Номер родительского раунда
     parent_round?: number;
     // Номер этого раунда

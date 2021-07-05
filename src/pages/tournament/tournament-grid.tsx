@@ -1,6 +1,7 @@
 import * as React from "react";
 import {ArcherContainer, ArcherElement} from "react-archer";
-import {Divider, Grid, Header, Message, Segment, Table} from "semantic-ui-react";
+import {Link} from "react-router-dom";
+import {Divider, Grid, Header, List, Message, Popup, Segment, Table} from "semantic-ui-react";
 import {TTournamentParticipant, TTournamentRound} from "./tournament-page-types";
 import {AUTO_WIN} from "./tournament-constants";
 
@@ -82,30 +83,61 @@ export const TournamentGrid = React.memo((props: TProps) => {
                                     marginLeft: '25%'
                                 }}
                             >
-                                <Table compact textAlign="center">
-                                    <Table.Body>
-                                        <Table.Row>
-                                            <Table.Cell
-                                                content={getPlayerNicknameById(currentRound.players[0]?.user_id)}
-                                                width={12}
-                                            />
-                                            <Table.Cell
-                                                content={currentRound.players[0]?.win_count || 0}
-                                                width={2}
-                                            />
-                                        </Table.Row>
-                                        <Table.Row>
-                                            <Table.Cell
-                                                content={getPlayerNicknameById(currentRound.players[1]?.user_id)}
-                                                width={12}
-                                            />
-                                            <Table.Cell
-                                                content={currentRound.players[1]?.win_count || 0}
-                                                width={2}
-                                            />
-                                        </Table.Row>
-                                    </Table.Body>
-                                </Table>
+                                <Popup
+                                    disabled={currentRound.games.length === 0}
+                                    hoverable
+                                    trigger={
+                                        <Table compact textAlign="center">
+                                            <Table.Body>
+                                                <Table.Row>
+                                                    <Table.Cell
+                                                        colSpan={2}
+                                                        style={{
+                                                            backgroundColor: '#bee2ff'
+                                                        }}
+                                                    >
+                                                        <b>{currentRound.round_format}</b>
+                                                    </Table.Cell>
+                                                </Table.Row>
+                                                <Table.Row>
+                                                    <Table.Cell
+                                                        content={getPlayerNicknameById(currentRound.players[0]?.user_id)}
+                                                        width={12}
+                                                    />
+                                                    <Table.Cell
+                                                        content={currentRound.players[0]?.win_count || 0}
+                                                        width={2}
+                                                    />
+                                                </Table.Row>
+                                                <Table.Row>
+                                                    <Table.Cell
+                                                        content={getPlayerNicknameById(currentRound.players[1]?.user_id)}
+                                                        width={12}
+                                                    />
+                                                    <Table.Cell
+                                                        content={currentRound.players[1]?.win_count || 0}
+                                                        width={2}
+                                                    />
+                                                </Table.Row>
+                                            </Table.Body>
+                                        </Table>
+                                    }
+                                >
+                                    <Popup.Header content="Список сыгранных игр" />
+                                    <Popup.Content>
+                                        <List ordered>
+                                            {
+                                                currentRound.games.map(gameId => (
+                                                    <List.Item>
+                                                        <Link to={`/game/${gameId}`} target="_blank">
+                                                            {gameId}
+                                                        </Link>
+                                                    </List.Item>
+                                                ))
+                                            }
+                                        </List>
+                                    </Popup.Content>
+                                </Popup>
                             </div>
                         </ArcherElement>
                     </React.Fragment>
