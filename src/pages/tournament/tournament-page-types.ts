@@ -45,6 +45,36 @@ export type TTournamentParticipant = {
 };
 
 /**
+ * Тип краткой информации по игроку
+ */
+export interface IShortPlayerWithId {
+    // Цвет игрока
+    color: EPlayerColor;
+    // Название героя
+    hero: string;
+    // id игрока
+    user_id: string;
+    // Раса
+    race: string;
+}
+
+/**
+ * Краткая информация об игре
+ */
+export type TShortGameInfo = {
+    // id в mongodb
+    _id: string;
+    // Дата окончания игры
+    date?: string;
+    // Произошел ли разрыв соединения
+    disconnect: boolean;
+    // Список данных обоих игроков
+    players: IShortPlayerWithId[];
+    // Цвет победителя
+    winner: EPlayerColor;
+}
+
+/**
  * Тип турнира
  */
 export type TTournament = {
@@ -56,6 +86,8 @@ export type TTournament = {
     maximum_player_count: number;
     // маппинг ид игроков на их краткую информацию
     mapUsersIdToUserInfo: Record<string, TTournamentParticipant>;
+    // маппинг ид игр на их краткую информацию
+    mapGameIdToShortGameInfo: Record<string, TShortGameInfo>;
     // Формат прочих раундов
     rounds_format: ERoundFormat;
     // Формат суперфинала

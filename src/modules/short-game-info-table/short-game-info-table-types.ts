@@ -20,8 +20,6 @@ export interface IShortPlayer {
 export interface IShortGame {
     // id в mongodb
     _id: string;
-    // id сражения
-    combat_id: number;
     // Дата окончания игры
     date?: string;
     // Произошел ли разрыв соединения

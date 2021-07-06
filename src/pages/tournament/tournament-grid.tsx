@@ -1,12 +1,14 @@
 import * as React from "react";
 import {ArcherContainer, ArcherElement} from "react-archer";
-import {Link} from "react-router-dom";
-import {Divider, Grid, Header, List, Message, Popup, Segment, Table} from "semantic-ui-react";
-import {TTournamentParticipant, TTournamentRound} from "./tournament-page-types";
-import {AUTO_WIN} from "./tournament-constants";
+import {Divider, Grid, Header, Message, Popup, Segment, Table} from "semantic-ui-react";
+import {ShortGameInfoTableComponent} from "../../components/short-game-info-table";
+import {transformShortGameInfoListToTableData} from "../../modules/short-game-info-table";
+import {IShortPlayerWithId, TShortGameInfo, TTournamentParticipant, TTournamentRound} from "./tournament-page-types";
+import {AUTO_WIN, SHORT_GAME_INFO_TABLE_CONFIG} from "./tournament-constants";
 
 type TProps = {
     grid: TTournamentRound[];
+    mapGameIdToShortGameInfo: Record<string, TShortGameInfo>;
     mapUsersIdToUserInfo: Record<string, TTournamentParticipant>;
 };
 
@@ -46,6 +48,30 @@ export const TournamentGrid = React.memo((props: TProps) => {
         }
 
         return props.mapUsersIdToUserInfo[userId]?.nickname;
+    }
+
+    /**
+     * Получение списка краткой инфы по сыгранным играм в рамках раунда
+     */
+    const getPopupContent = (gameIdList: string[]) => {
+        const shortGameInfoList = gameIdList.map((gameId: string) => {
+            return props.mapGameIdToShortGameInfo[gameId];
+        });
+
+        const shortGameInfoListWithNickname = shortGameInfoList.map((shortInfo: TShortGameInfo) => ({
+            ...shortInfo,
+            players: shortInfo.players.map((player: IShortPlayerWithId) => ({
+                ...player,
+                nickname: props.mapUsersIdToUserInfo[player.user_id]?.nickname,
+            })),
+        }));
+
+        return (
+            <ShortGameInfoTableComponent
+                tableConfig={SHORT_GAME_INFO_TABLE_CONFIG}
+                tableData={transformShortGameInfoListToTableData(shortGameInfoListWithNickname)}
+            />
+        )
     }
 
     const getRenderGrid = () => {
@@ -125,17 +151,7 @@ export const TournamentGrid = React.memo((props: TProps) => {
                                 >
                                     <Popup.Header content="Список сыгранных игр" />
                                     <Popup.Content>
-                                        <List ordered>
-                                            {
-                                                currentRound.games.map(gameId => (
-                                                    <List.Item>
-                                                        <Link to={`/game/${gameId}`} target="_blank">
-                                                            {gameId}
-                                                        </Link>
-                                                    </List.Item>
-                                                ))
-                                            }
-                                        </List>
+                                        {getPopupContent(currentRound.games)}
                                     </Popup.Content>
                                 </Popup>
                             </div>

@@ -57,6 +57,7 @@ const TournamentInfoComponent = React.memo((props: TProps) => (
         />
         <TournamentGrid
             grid={props.data.grid}
+            mapGameIdToShortGameInfo={props.data.mapGameIdToShortGameInfo}
             mapUsersIdToUserInfo={props.data.mapUsersIdToUserInfo}
         />
         <TournamentRules />
