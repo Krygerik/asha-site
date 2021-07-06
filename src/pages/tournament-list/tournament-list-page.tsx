@@ -5,7 +5,7 @@ import {ERoles} from "../../modules/profile";
 import {createRequest} from "../../utils/create-request";
 import {WithPermissionWrapper} from "../../wrappers/with-permission";
 import {CreateTournamentModal} from "./create-tournament-modal";
-import {TournamentList} from "./tournament-list";
+import {TournamentList} from "../../modules/tournament-list";
 
 /**
  * Страница с турнирами

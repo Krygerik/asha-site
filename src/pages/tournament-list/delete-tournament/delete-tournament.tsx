@@ -28,6 +28,7 @@ export const DeleteTournament = React.memo((props: TProps) => {
                 name="delete"
                 onClick={() => setOpen(true)}
                 size="large"
+                title="Удаление"
             />
             <Confirm
                 cancelButton='Нет'
