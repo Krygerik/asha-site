@@ -17,8 +17,14 @@ export type TProfile = {
     email: string;
     // ник игрока
     nickname: string;
+    // Соотношение имен турниров к их id
+    mapTournamentNameToId: Record<string, string>;
+    // Рейтинг игрока
+    rating: number;
     // роли пользователя
     roles: ERoles[];
+    // ИД турниров, в которых юзверь участвовал или участвует
+    tournaments: string[];
 }
 
 /**
