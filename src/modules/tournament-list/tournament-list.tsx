@@ -63,6 +63,15 @@ const TournamentList = React.memo((props: TProps) => (
             </Table.Header>
             <Table.Body>
                 {
+                    props.data.length === 0 && (
+                        <Table.Row textAlign="center" style={{ alignItems: "center" }}>
+                            <Table.Cell colSpan={4}>
+                                <Header content="Список пуст" />
+                            </Table.Cell>
+                        </Table.Row>
+                    )
+                }
+                {
                     props.data.map((tournament: TTournament) => (
                         <Table.Row
                             key={tournament._id}
