@@ -24,3 +24,18 @@ export enum EComparisonNames {
     GreatThen = '$gt',
     LessThen = '$lt',
 }
+
+/**
+ * Возможные форматы раундов
+ */
+export enum ERoundFormat {
+    // До 2 побед
+    Bo3 = 'Bo3',
+    // До 3 побед
+    Bo5 = 'Bo5',
+}
+
+/**
+ * Маска для отображения даты
+ */
+export const REPRESENTATIVE_DATE_MASK = 'YYYY-MM-DD HH:mm:ss';

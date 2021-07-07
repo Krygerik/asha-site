@@ -1,8 +1,11 @@
+import {SemanticICONS} from "semantic-ui-react";
+
 /**
  * Тип ячейки панели навигации
  */
 export type THeaderNavItem = {
-    title: string;
-    link: string;
     active: boolean;
+    icon?: SemanticICONS;
+    link: string;
+    title: string;
 };

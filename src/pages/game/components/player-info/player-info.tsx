@@ -6,7 +6,7 @@ import {DictionaryArmyList} from "../../../../modules/dictionary-army-list";
 import {DictionaryCardList} from "../../../../modules/dictionary-card-list";
 import {DictionaryHero} from "../../../../modules/dictionary-hero";
 import {TPlayer} from "../../game-types";
-import {AdditionalProperties, HeroPropertiesTable} from "./components";
+import {AdditionalProperties, HeroPropertiesTable, RatingInfo} from "./components";
 import {mapPlayerColorToSegmentColor} from "./player-info-utils";
 
 type TProps = {
@@ -28,6 +28,14 @@ export const PlayerInfo = React.memo((props: TProps) => (
         />
         <Segment attached="bottom">
             <DictionaryHero hero={props.player.hero} />
+            {
+                props.player.changed_rating && props.player.new_rating && (
+                    <RatingInfo
+                        changed_rating={props.player.changed_rating}
+                        new_rating={props.player.new_rating}
+                    />
+                )
+            }
             <HeroPropertiesTable player={props.player} />
             <AdditionalProperties player={props.player} />
             <DictionaryArmyList

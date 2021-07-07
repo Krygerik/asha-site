@@ -57,6 +57,10 @@ export type TPlayer = {
     spells: string[];
     // Выбранный стартовый бонус
     start_bonus: string;
+    // На сколько изменился рейтинг игрока за эту партию
+    changed_rating?: number;
+    // Новый рейтинг игрока после игры
+    new_rating?: number;
     // Боевые машины игрока
     war_machines: string[];
 };
@@ -81,6 +85,10 @@ export type TGame = {
     players: TPlayer[];
     // Список ников игроков, участвующих в игре
     players_nicknames: string[];
+    // ИД турнира, в рамках которого была сыграна игра
+    tournament_id?: string;
+    // Название турнира, в рамках которого была сыграна игра
+    tournament_name?: string;
     // Цвет победителя
     winner?: EPlayerColor;
 };

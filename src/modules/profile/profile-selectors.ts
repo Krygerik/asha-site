@@ -1,5 +1,5 @@
 import {get} from "lodash/fp";
-import {PROFILE_NAMESPACE, TProfile} from "./profile-types";
+import {ERoles, PROFILE_NAMESPACE, TProfile} from "./profile-types";
 import {Selector} from "react-redux";
 import {createSelector} from "reselect";
 
@@ -27,4 +27,20 @@ export const getIsFetchingProfileStatus: Selector<any, boolean> = createSelector
 export const getProfile: Selector<any, TProfile | null> = createSelector(
     getProfileState,
     get('data')
+);
+
+/**
+ * Получение id зарегистрированного игрока
+ */
+export const getActiveUserId: Selector<any, string | undefined> = createSelector(
+    getProfile,
+    get('_id'),
+);
+
+/**
+ * Получение ролей зарегистрированного игрока
+ */
+export const getActiveUserRoles: Selector<any, ERoles[] | undefined> = createSelector(
+    getProfile,
+    get('roles'),
 );

@@ -1,8 +1,9 @@
 import * as React from "react";
-import {TProfilePageConnectedProps, withProfilePageConnector} from "./profile-page-connector";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {Header, Loader, Message, Segment} from "semantic-ui-react";
 import {Page} from "../../modules/page";
+import {ERoles} from "../../modules/profile";
+import {TProfilePageConnectedProps, withProfilePageConnector} from "./profile-page-connector";
 
 /**
  * Тип параметров урла
@@ -43,6 +44,17 @@ const ProfilePage = React.memo((props: TProfilePageConnectedProps) => {
         );
     }
 
+    /**
+     * Приведение роли к русскому описанию
+     */
+    const translateRole = (role: ERoles) => {
+        if (role === ERoles.ADMIN) {
+            return 'Админ';
+        }
+
+        return 'Роль не определена'
+    }
+
     return (
         <Page>
             <Header as="h1" content={`Профиль игрока №: ${id}`} />
@@ -50,6 +62,16 @@ const ProfilePage = React.memo((props: TProfilePageConnectedProps) => {
                 <Header content={`Никнейм: ${props.profileData?.nickname}`} />
                 <Header content={`Почта: ${props.profileData?.email}`} />
                 <Header content={`Дискорд: ${props.profileData?.discord}`} />
+                <Header content={`Рейтинг игрока: ${props.profileData?.rating}`} />
+                <Header content={`Роли игрока: ${props.profileData?.roles?.map(translateRole).join(', ')}`} />
+                <Header>
+                    {`Турниры пользователя: `}
+                    {props.profileData?.tournaments?.map((tourId: string) => (
+                        <Link to={`/tournament/${tourId}`} target="_blank">
+                            {props.profileData?.mapTournamentNameToId[tourId]}
+                        </Link>
+                    ))}
+                </Header>
             </Segment>
         </Page>
     )

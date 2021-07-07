@@ -1,6 +1,6 @@
 export const SHORT_GAME_INFO_TABLE_NAMESPACE = "@@SHORT_GAME_INFO_LIST";
 
-type TConfigCell = {
+export type TConfigCell = {
     title: string;
     width: 1 | 2;
 }

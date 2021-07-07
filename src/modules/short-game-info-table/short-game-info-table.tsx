@@ -13,13 +13,12 @@ import {
     Pagination,
     PaginationProps,
     Segment,
-    Table
 } from "semantic-ui-react";
 import {FinalFormDictionarySelectField} from "../../components/final-form-dictionary-select-field";
 import {FinalFormUsersSelectField} from "../../components/final-form-users-select-field";
-import {DictionaryContext, EDictionaryName, withDictionaries} from "../dictionary";
+import {ShortGameInfoTableComponent} from "../../components/short-game-info-table";
+import {EDictionaryName, withDictionaries} from "../dictionary";
 import {THeroRecord} from "../dictionary/dictionary-types";
-import {ShortGameInfoRow} from "./components/short-game-info-row";
 import {SHORT_GAME_INFO_TABLE_CONFIG} from "./short-game-info-table-constants";
 import {TShortGameInfoTableConnectedProps, withShortGameInfoTableConnector} from "./short-game-info-table-connector";
 import {TSearchGamesFormValues} from "./short-game-info-table-types";
@@ -37,8 +36,6 @@ const DEFAULT_PAGE_SIZE = 10;
  * Визуальное отображение
  */
 export const ShortGameInfoTable = React.memo((props: TProps) => {
-    const { getLocalizeDictionaryValueByGameId } = React.useContext(DictionaryContext);
-
     /**
      * Активные значения фильтрации
      */
@@ -114,7 +111,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
     }
 
     return (
-        <>
+        <React.Fragment>
             {
                 !props.hideFilter && (
                     <Segment>
@@ -182,38 +179,10 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                     </Segment>
                 )
             }
-            <Table>
-                <Table.Header>
-                    <Table.Row textAlign={"center"}>
-                        {
-                            SHORT_GAME_INFO_TABLE_CONFIG.map((cell, index) => (
-                                <Table.HeaderCell
-                                    key={index}
-                                    width={cell.width}
-                                >
-                                    {cell.title}
-                                </Table.HeaderCell>
-                            ))
-                        }
-                    </Table.Row>
-                </Table.Header>
-                <Table.Body>
-                    {
-                        props.tableData.map((row, index) => (
-                            <ShortGameInfoRow
-                                blueHero={getLocalizeDictionaryValueByGameId(EDictionaryName.Heroes, row.blueHero)}
-                                blueNickname={row.blueNickname}
-                                date={row.date}
-                                id={row.id}
-                                key={index}
-                                redHero={getLocalizeDictionaryValueByGameId(EDictionaryName.Heroes, row.redHero)}
-                                redNickname={row.redNickname}
-                                result={row.result}
-                            />
-                        ))
-                    }
-                </Table.Body>
-            </Table>
+            <ShortGameInfoTableComponent
+                tableConfig={SHORT_GAME_INFO_TABLE_CONFIG}
+                tableData={props.tableData}
+            />
             {
                 !props.hidePagination && (
                     <Grid>
@@ -232,7 +201,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                     </Grid>
                 )
             }
-        </>
+        </React.Fragment>
     );
 });
 

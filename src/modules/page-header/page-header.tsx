@@ -26,12 +26,6 @@ export const PageHeader = React.memo((props: TProps) => {
         <>
             <Menu fixed="top" style={{ height: "5em" }}>
                 <Container>
-                    <Menu.Item>
-                        <Header>
-                            <Icon name="chess" />
-                            Half Random Tactical Arena
-                        </Header>
-                    </Menu.Item>
                     {
                         props.headerMenuNavigation.map((item: THeaderNavItem) => (
                             <Menu.Item
@@ -45,6 +39,9 @@ export const PageHeader = React.memo((props: TProps) => {
                                 }
                             >
                                 <Header>
+                                    {item.icon && (
+                                        <Icon name={item.icon} />
+                                    )}
                                     {item.title}
                                 </Header>
                             </Menu.Item>
