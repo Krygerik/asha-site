@@ -131,6 +131,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                                     dictionary={EDictionaryName.Races}
                                                     label="Фракция"
                                                     name="race"
+                                                    search
                                                 />
                                             </Grid.Column>
                                             <Grid.Column>
@@ -144,12 +145,14 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                                     }
                                                     label="Герой"
                                                     name="hero"
+                                                    search
                                                 />
                                             </Grid.Column>
                                             <Grid.Column>
                                                 <FinalFormUsersSelectField
                                                     label="Игрок"
                                                     name="user_id"
+                                                    search
                                                 />
                                             </Grid.Column>
                                         </Grid.Row>

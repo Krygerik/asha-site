@@ -121,24 +121,28 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
         Component: FinalFormDictionarySelectField,
         staticProps: {
             dictionary: EDictionaryName.Artifacts,
+            search: true,
         }
     },
     [EFiltersName.Creature]: {
         Component: FinalFormDictionarySelectField,
         staticProps: {
             dictionary: EDictionaryName.Creatures,
+            search: true,
         }
     },
     [EFiltersName.Spell]: {
         Component: FinalFormDictionarySelectField,
         staticProps: {
             dictionary: EDictionaryName.Spells,
+            search: true,
         }
     },
     [EFiltersName.WarMachine]: {
         Component: FinalFormDictionarySelectField,
         staticProps: {
             dictionary: EDictionaryName.WarMachines,
+            search: true,
         }
     },
     [EFiltersName.Mentoring]: {
@@ -175,6 +179,7 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
         Component: FinalFormDictionarySelectField,
         staticProps: {
             dictionary: EDictionaryName.Perks,
+            search: true,
         }
     },
     [EFiltersName.SpellPower]: {
@@ -210,19 +215,22 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
     [EFiltersName.StartBonus]: {
         Component: FinalFormSelectField,
         staticProps: {
-            options: PLAYER_STARTED_BONUS_OPTIONS
+            options: PLAYER_STARTED_BONUS_OPTIONS,
+            search: true,
         }
     },
     [EFiltersName.Hero]: {
         Component: FinalFormDictionarySelectField,
         staticProps: {
             dictionary: EDictionaryName.Heroes,
+            search: true,
         }
     },
     [EFiltersName.Color]: {
         Component: FinalFormSelectField,
         staticProps: {
-            options: PLAYER_COLOR_OPTIONS
+            options: PLAYER_COLOR_OPTIONS,
+            search: true,
         }
     },
     [EFiltersName.UserId]: {

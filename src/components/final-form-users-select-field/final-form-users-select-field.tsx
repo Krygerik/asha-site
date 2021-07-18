@@ -8,6 +8,7 @@ type TProps = {
     fluid?: boolean;
     label?: string;
     name: string;
+    search?: boolean;
 };
 
 /**
@@ -41,6 +42,7 @@ export const FinalFormUsersSelectField = React.memo((props: TProps) => {
             {...props}
             loading={isLoading}
             options={mapUsersToOptions(users)}
+            search={props.search}
         />
     )
 })

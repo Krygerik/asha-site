@@ -65,6 +65,7 @@ export const PlayersFilterFields = React.memo((props: TProps) => (
                                             label="Фильтр"
                                             name={`${name}.name`}
                                             options={filteredOptions}
+                                            search
                                         />
                                     </Grid.Column>
                                     {

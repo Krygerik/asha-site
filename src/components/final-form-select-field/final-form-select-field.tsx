@@ -10,6 +10,7 @@ type TProps = {
     options: DropdownItemProps[];
     placeholder?: string;
     required?: boolean;
+    search?: boolean;
 };
 
 const notEmptyValidator = (value?: string) => (value ? undefined : 'Поле обязательно для заполнения');
@@ -33,6 +34,7 @@ export const FinalFormSelectField = (props: TProps) => (
                     onChange={(e, { value }) => innerProps.input.onChange(value)}
                     options={props.options}
                     placeholder={props.placeholder}
+                    search={props.search}
                     value={innerProps.input.value}
                 />
             )
