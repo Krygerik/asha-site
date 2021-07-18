@@ -36,9 +36,24 @@ export const fetchGames = (params: TGetShortGameInfoParams, filter: TSearchGames
     try {
         await dispatch(setLoadingGameStatus(true));
 
+        const requestBody = {
+            players: [
+                {
+                    hero: filter.hero,
+                    race: filter.race,
+                    user_id: filter.user_id,
+                },
+                {
+                    hero: filter.hero_1,
+                    race: filter.race_1,
+                    user_id: filter.user_id_1,
+                }
+            ]
+        };
+
         const shortGameInfoList: { data: TResponse } = await createRequest().post(
             '/get-short-game-info-list',
-            { filter },
+            requestBody,
             { params }
         );
 

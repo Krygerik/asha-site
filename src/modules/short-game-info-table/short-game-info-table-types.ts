@@ -125,4 +125,10 @@ export type TSearchGamesFormValues = {
     race?: string;
     // ID пользователя
     user_id?: string;
+    // ID героя
+    hero_1?: string;
+    // ID фракции
+    race_1?: string;
+    // ID пользователя
+    user_id_1?: string;
 };

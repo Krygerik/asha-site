@@ -156,6 +156,47 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                                 />
                                             </Grid.Column>
                                         </Grid.Row>
+                                        <Grid.Row
+                                            style={{ paddingBottom: 0 }}
+                                        >
+                                            <Grid.Column textAlign="center">
+                                                <Header
+                                                    content="Противоположные значения"
+                                                    style={{ fontSize: "18px" }}
+                                                />
+                                            </Grid.Column>
+                                        </Grid.Row>
+                                        <Grid.Row columns="equal">
+                                            <Grid.Column>
+                                                <FinalFormDictionarySelectField
+                                                    dictionary={EDictionaryName.Races}
+                                                    label="Фракция"
+                                                    name="race_1"
+                                                    search
+                                                />
+                                            </Grid.Column>
+                                            <Grid.Column>
+                                                <FinalFormDictionarySelectField
+                                                    dictionary={EDictionaryName.Heroes}
+                                                    // @ts-ignore
+                                                    filter={
+                                                        values.race
+                                                            ? (item: THeroRecord) => item.race_game_id === values.race
+                                                            : undefined
+                                                    }
+                                                    label="Герой"
+                                                    name="hero_1"
+                                                    search
+                                                />
+                                            </Grid.Column>
+                                            <Grid.Column>
+                                                <FinalFormUsersSelectField
+                                                    label="Игрок"
+                                                    name="user_id_1"
+                                                    search
+                                                />
+                                            </Grid.Column>
+                                        </Grid.Row>
                                         <Grid.Row centered>
                                             <Grid.Column width={4}>
                                                 <Button
