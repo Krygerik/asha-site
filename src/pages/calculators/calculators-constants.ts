@@ -8,7 +8,7 @@ export enum EEffectName {
     // Ускорение с развитой магией Света
     AdvancedLightHaste = "AdvancedLightHaste",
     // Ускорение с искусной магией Света
-    ExpertLightHaste = "AdvancedLightHaste",
+    ExpertLightHaste = "ExpertLightHaste",
     // Замедление с базовой магией Тьмы
     BasicDarkSlow = "BasicDarkSlow",
     // Замедление с развитой магией Тьмы
