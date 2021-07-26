@@ -36,7 +36,7 @@ const mapPercentileToRating = (percentile: number) => {
 /**
  * Страница подробной информации о сражении
  */
-export const Game = React.memo((props: TGameConnectedProps) => {
+const Game = React.memo((props: TGameConnectedProps) => {
     const { id }: TGameParams = useParams();
 
     /**

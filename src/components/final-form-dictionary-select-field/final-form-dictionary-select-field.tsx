@@ -10,6 +10,7 @@ type TProps = {
     fluid?: boolean;
     label?: string;
     name: string;
+    onChange?: any;
     search?: boolean;
 };
 
@@ -42,7 +43,12 @@ export const FinalFormDictionarySelectField = (props: TProps) => {
                         fluid={props.fluid}
                         label={props.label}
                         name={innerProps.input.name}
-                        onChange={(e, { value }) => innerProps.input.onChange(value)}
+                        onChange={(e, { value }) => {
+                            innerProps.input.onChange(value);
+                            if (props.onChange) {
+                                props.onChange(value)
+                            }
+                        }}
                         options={options}
                         search={props.search}
                         value={innerProps.input.value}

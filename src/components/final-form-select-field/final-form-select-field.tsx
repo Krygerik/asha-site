@@ -7,6 +7,7 @@ type TProps = {
     label?: string;
     loading?: boolean;
     name: string;
+    onChange?: any;
     options: DropdownItemProps[];
     placeholder?: string;
     required?: boolean;
@@ -31,7 +32,12 @@ export const FinalFormSelectField = (props: TProps) => (
                     label={props.label}
                     loading={props.loading}
                     name={innerProps.input.name}
-                    onChange={(e, { value }) => innerProps.input.onChange(value)}
+                    onChange={(e, { value }) => {
+                        innerProps.input.onChange(value);
+                        if (props.onChange) {
+                            props.onChange(value)
+                        }
+                    }}
                     options={props.options}
                     placeholder={props.placeholder}
                     search={props.search}

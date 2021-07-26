@@ -1,6 +1,7 @@
 import * as React from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {AboutAsha} from "../about-asha";
+import {Calculators} from "../calculators";
 import {Game} from "../game";
 import {Games} from "../games-history";
 import {ProfilePage} from "../profile-page";
@@ -35,6 +36,9 @@ export const MainPageRouting = React.memo(() => (
             </Route>
             <Route exact path="/game/:id">
                 <Game />
+            </Route>
+            <Route exact path="/calculators">
+                <Calculators />
             </Route>
             <Route exact path="/">
                 <MainPage />

@@ -3,10 +3,13 @@ import {Field} from "react-final-form";
 import * as React from "react";
 
 type TProps = {
+    disabled?: boolean;
     icon?: string;
     label?: string;
     name: string;
+    onChange?: any;
     placeholder?: string;
+    readonly?: boolean;
     required?: boolean;
     type?: string;
 };
@@ -21,15 +24,30 @@ export const FinalFormInputTextField = (props: TProps) => (
         {
             innerProps => (
                 <SemanticForm.Input
+                    disabled={props.disabled}
                     error={innerProps.meta.touched && innerProps.meta.error}
                     fluid
                     icon={props.icon}
                     iconPosition={props.icon ? 'left' : undefined}
                     label={props.label}
                     name={innerProps.input.name}
-                    onChange={innerProps.input.onChange}
+                    onChange={(e, { value }) => {
+                        if (props.readonly) {
+                            return;
+                        }
+
+                        innerProps.input.onChange(value);
+                        if (props.onChange) {
+                            props.onChange(value)
+                        }
+                    }}
                     placeholder={props.placeholder}
                     type={props.type}
+                    style={
+                        props.readonly
+                            ? { opacity: 1 }
+                            : {}
+                    }
                     value={innerProps.input.value}
                 />
             )

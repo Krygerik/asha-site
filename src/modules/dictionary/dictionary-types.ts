@@ -30,7 +30,18 @@ export type THeroRecord = {
     race_game_id: string;
 }
 
-export type TCommonDictionaryRecord = TRaceRecord | THeroRecord;
+export type TCreatureRecord = {
+    // id записи в игре
+    game_id: ERacesIds;
+    // Локализованное (русское) название записи
+    localize_name: string;
+    // Характеристики существ
+    parameters: {
+        initiative: number;
+    }
+}
+
+export type TCommonDictionaryRecord = TRaceRecord | THeroRecord | TCreatureRecord;
 
 export type TRacesDictionary = {
     // Название справочника
@@ -57,7 +68,7 @@ export type TDictionary = TRacesDictionary | THeroesDictionary;
 export type TDictionaryContext = {
     dictionaries: Record<EDictionaryName, TDictionary> | {};
     fetchDictionaries: () => void;
-    getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string | ERacesIds) => TRaceRecord | THeroRecord;
+    getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string | ERacesIds) => TCommonDictionaryRecord;
     getDictionaryRecords: (dictName: EDictionaryName) => TRaceRecord[] | THeroRecord[];
     getLocalizeDictionaryValueByGameId: (dictName: EDictionaryName, gameId: string) => string;
     isErrorFetch: boolean;
