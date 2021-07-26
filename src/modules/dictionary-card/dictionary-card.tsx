@@ -25,6 +25,13 @@ export const DictionaryCard = (props: TProps) => {
         )
     }
 
+    /**
+     * Не отображаем карточки образования у орка, т.к. Нивал придумал записывать их вместе с обычным образованием
+     */
+    if (props.gameId === "ID183 = 1" || props.gameId === "ID183 = 2" || props.gameId === "ID183 = 3") {
+        return null;
+    }
+
     return (
         <Card>
             <Image src={item.icon} />
