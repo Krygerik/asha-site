@@ -64,8 +64,15 @@ const Calculators = React.memo(() => {
 
         const summaryEffect = calculatorValues.effects.reduce(
             (acc, effect) => {
-                if (!effect.value) {
+                if (!effect.name || !effect.value) {
                     return acc;
+                }
+
+                if (MAP_EFFECT_NAME_TO_PROPS[effect.name].type === EEffectTypes.Subtraction) {
+                    return ({
+                        string: acc.string + ` - ${-effect.value}`,
+                        result: acc.result + effect.value,
+                    })
                 }
 
                 return ({
@@ -106,7 +113,7 @@ const Calculators = React.memo(() => {
                                         // @ts-ignore
                                         const effect = MAP_EFFECT_NAME_TO_PROPS[fieldName];
 
-                                        if (effect.type === EEffectTypes.Simple) {
+                                        if (effect.type === EEffectTypes.Simple || effect.type === EEffectTypes.Subtraction) {
                                             tools.changeValue(
                                                 state,
                                                 `${args[0]}.value`,
@@ -196,7 +203,10 @@ const Calculators = React.memo(() => {
                                                                                 />
                                                                             </Grid.Column>
                                                                             {
-                                                                                effectType === EEffectTypes.Simple && (
+                                                                                (
+                                                                                    effectType === EEffectTypes.Simple
+                                                                                    || effectType === EEffectTypes.Subtraction
+                                                                                ) && (
                                                                                     <Grid.Column width={8}>
                                                                                         <FinalFormInputTextField
                                                                                             label="Коэффициент"

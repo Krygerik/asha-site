@@ -78,10 +78,12 @@ export const MAP_EFFECTS_NAME_TO_LABEL = {
  * Типы эффектов по виду вычисления
  */
 export enum EEffectTypes {
-    // У эффекта строго 1 значение
-    Simple = "Simple",
     // Эффект зависит от уровня героя
     ByLevel = "ByLevel",
+    // У эффекта строго 1 значение
+    Simple = "Simple",
+    // Прямое вычитание инициативы
+    Subtraction = "Subtraction",
 }
 
 /**
@@ -157,7 +159,7 @@ export const MAP_EFFECT_NAME_TO_PROPS = {
         value: 1.1,
     },
     [EEffectName.ArtStaffOfTheUnderworld]: {
-        type: EEffectTypes.Simple,
+        type: EEffectTypes.Subtraction,
         value: -1,
     },
     [EEffectName.SetDeathsEmbrace]: {
