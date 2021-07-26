@@ -5,6 +5,8 @@ import {EDictionaryName} from "../dictionary";
 import {mapTypeToDictionary} from "./dictionary-card-constants";
 
 type TProps = {
+    // центрирование картинки
+    centered?: boolean;
     // количество юнитов
     count: number;
     // id записи
@@ -24,7 +26,7 @@ export const DictionaryArmyCard = (props: TProps) => {
     }
 
     return (
-        <Card>
+        <Card centered={props.centered} >
             <Image src={item.icon} />
             <Card.Content
                 textAlign="center"

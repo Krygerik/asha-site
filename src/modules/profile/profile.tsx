@@ -27,6 +27,11 @@ const Profile = React.memo((props: TProps) => {
     const handleClickMyProfile = () => history.push(`/profile/${props.profile?._id}`);
 
     /**
+     * Обработчик перехода на страницу калькулятора инициатив
+     */
+    const handleClickCalculators = () => history.push('/calculators');
+
+    /**
      * Запрос профиля
      */
     React.useEffect(() => {
@@ -70,6 +75,11 @@ const Profile = React.memo((props: TProps) => {
                                 as={'a'}
                                 content="Мой профиль"
                                 onClick={handleClickMyProfile}
+                            />
+                            <Dropdown.Item
+                                as={'a'}
+                                content="Калькулятор инициатив"
+                                onClick={handleClickCalculators}
                             />
                             <Dropdown.Item
                                 content="Выход"
