@@ -113,10 +113,10 @@ const UserListComponent = React.memo((props: TProps) => {
                                             content={index+1}
                                         />
                                         <Table.Cell
-                                            content={props.mapUsersIdToUserInfo[id].nickname}
+                                            content={props.mapUsersIdToUserInfo[id]?.nickname}
                                         />
                                         <Table.Cell
-                                            content={props.mapUsersIdToUserInfo[id].discord}
+                                            content={props.mapUsersIdToUserInfo[id]?.discord}
                                         />
                                     </Table.Row>
                                 )

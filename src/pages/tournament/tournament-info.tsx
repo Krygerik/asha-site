@@ -44,7 +44,7 @@ const TournamentInfoComponent = React.memo((props: TProps) => (
         {
             props.data.winner_id && (
                 <Header
-                    content={`Победитель: ${props.data.mapUsersIdToUserInfo[props.data.winner_id].nickname}`}
+                    content={`Победитель: ${props.data.mapUsersIdToUserInfo[props.data.winner_id]?.nickname}`}
                 />
             )
         }
