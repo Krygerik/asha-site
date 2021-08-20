@@ -1,6 +1,14 @@
 import {EDictionaryName} from "./dictionary-constants";
 
 /**
+ * Локализация
+ */
+export type TLocalization = {
+    en: string;
+    ru: string;
+};
+
+/**
  * Перечисление id всех рас
  */
 export enum ERacesIds {
@@ -16,23 +24,23 @@ export enum ERacesIds {
 
 export type TRaceRecord = {
     // id записи в игре
-    game_id: ERacesIds;
-    // Локализованное (русское) название записи
-    localize_name: string;
+    game_id: ERacesIds[];
+    // Локализованное название записи
+    localize_name: TLocalization;
 };
 
 export type THeroRecord = {
     // id записи в игре
-    game_id: ERacesIds;
-    // Локализованное (русское) название записи
-    localize_name: string;
+    game_id: string[];
+    // Локализованное название записи
+    localize_name: TLocalization;
     // id расы текущего героя
     race_game_id: string;
 }
 
 export type TCreatureRecord = {
     // id записи в игре
-    game_id: ERacesIds;
+    game_id: string[];
     // Локализованное (русское) название записи
     localize_name: string;
     // Характеристики существ
@@ -70,7 +78,7 @@ export type TDictionaryContext = {
     fetchDictionaries: () => void;
     getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string | ERacesIds) => TCommonDictionaryRecord;
     getDictionaryRecords: (dictName: EDictionaryName) => TRaceRecord[] | THeroRecord[];
-    getLocalizeDictionaryValueByGameId: (dictName: EDictionaryName, gameId: string) => string;
+    getLocalizeDictionaryValueByGameId: (dictName: EDictionaryName, gameId: any) => string;
     isErrorFetch: boolean;
     isFetching: boolean;
 };

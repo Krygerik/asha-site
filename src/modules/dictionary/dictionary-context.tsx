@@ -13,7 +13,7 @@ export const DictionaryContext = React.createContext<TDictionaryContext>({
     fetchDictionaries(): void {},
     getDictionaryRecordByGameId: (dictName: EDictionaryName, gameId: string) => ({}) as TCommonDictionaryRecord,
     getDictionaryRecords: (dictName: EDictionaryName) => [] as TCommonDictionaryRecord[],
-    getLocalizeDictionaryValueByGameId: (dictName: EDictionaryName, gameId: string) => '',
+    getLocalizeDictionaryValueByGameId: (dictName: EDictionaryName, gameId: any) => '',
     isErrorFetch: false,
     isFetching: false,
 } as TDictionaryContext);
@@ -46,8 +46,7 @@ export const DictionaryProvider = ({ children }: { children: React.ReactChild}) 
         gameId: string | ERacesIds
     ) => flow(
         get(dictName),
-        get('records'),
-        find({ game_id: gameId }),
+        find((record: any) => record.game_id.includes(gameId)),
     )(dictionaries);
 
     /**
@@ -55,10 +54,23 @@ export const DictionaryProvider = ({ children }: { children: React.ReactChild}) 
      */
     const getDictionaryRecords = (
         dictName: EDictionaryName
-    ) => flow(
-        get(dictName),
-        get('records'),
-    )(dictionaries);
+    ) => {
+        const records = get(dictName)(dictionaries);
+
+        return records.map((record: any) => {
+            if (typeof record.localize_name === 'string') {
+                return record;
+            }
+
+            /**
+             * Пока все справочники не переведены, используем только рашен лангуаге
+             */
+            return {
+                ...record,
+                localize_name: record.localize_name['ru']
+            }
+        })
+    }
 
     /**
      * Получение локализованное значение из справочника по игровому ид
@@ -69,7 +81,21 @@ export const DictionaryProvider = ({ children }: { children: React.ReactChild}) 
     ) => {
         const record = getDictionaryRecordByGameId(dictName, gameId);
 
-        return getOr(recordNotFound(gameId), 'localize_name')(record);
+        if (!record) {
+            return recordNotFound(gameId);
+        }
+
+        /**
+         * Пока все справочники не переведены, используем только рашен лангуаге
+         */
+        const path = typeof record.localize_name === 'string'
+            ? 'localize_name'
+            : 'localize_name.ru';
+
+        return getOr(
+            recordNotFound(gameId),
+            path,
+        )(record);
     }
 
     /**

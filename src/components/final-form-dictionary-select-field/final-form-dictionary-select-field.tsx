@@ -1,8 +1,11 @@
 import {DropdownItemProps, Form as SemanticForm} from "semantic-ui-react";
 import {Field} from "react-final-form";
 import * as React from "react";
-import {DictionaryContext, EDictionaryName} from "../../modules/dictionary";
-import {TCommonDictionaryRecord} from "../../modules/dictionary/dictionary-types";
+import {
+    DictionaryContext,
+    EDictionaryName,
+    TCommonDictionaryRecord,
+} from "../../modules/dictionary";
 
 type TProps = {
     dictionary: EDictionaryName;
@@ -18,9 +21,9 @@ type TProps = {
  * Выпадающий список с опциями из переданного словаря
  */
 export const FinalFormDictionarySelectField = (props: TProps) => {
-    const dictionaries = React.useContext(DictionaryContext);
+    const { getDictionaryRecords, getLocalizeDictionaryValueByGameId } = React.useContext(DictionaryContext);
 
-    let dictionaryRecords: TCommonDictionaryRecord[] = dictionaries.getDictionaryRecords(props.dictionary);
+    let dictionaryRecords: TCommonDictionaryRecord[] = getDictionaryRecords(props.dictionary);
 
     if (props.filter) {
         dictionaryRecords = dictionaryRecords.filter(props.filter);
@@ -28,9 +31,9 @@ export const FinalFormDictionarySelectField = (props: TProps) => {
 
     const options: DropdownItemProps[] = dictionaryRecords
         .map((record: TCommonDictionaryRecord) => ({
-            key: record.game_id,
-            text: record.localize_name,
-            value: record.game_id,
+            key: record.game_id[0],
+            text: getLocalizeDictionaryValueByGameId(props.dictionary, record.game_id[0]),
+            value: record.game_id[0],
         }));
 
     return (

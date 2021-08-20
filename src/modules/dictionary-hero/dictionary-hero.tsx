@@ -27,6 +27,7 @@ export const DictionaryHero = React.memo((props: TProps) => {
     }
 
     const heroRaceName = getLocalizeDictionaryValueByGameId(EDictionaryName.Races, heroRecord.race_game_id);
+    const heroName = getLocalizeDictionaryValueByGameId(EDictionaryName.Heroes, props.hero);
 
     const heroIcon: string = flow(
         find({ gameId: props.hero }),
@@ -37,7 +38,7 @@ export const DictionaryHero = React.memo((props: TProps) => {
         <>
             <Image src={heroIcon} centered />
             <Header
-                content={`${heroRecord.localize_name}, ${heroRaceName}`}
+                content={`${heroName}, ${heroRaceName}`}
                 textAlign="center"
             />
         </>

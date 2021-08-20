@@ -9,7 +9,7 @@ export enum EDictionaryName {
     Races = 'races',
     Skills = 'skills',
     Spells = 'spells',
-    WarMachines = 'warMachines',
+    WarMachines = 'war-machines',
 }
 
 export const ERROR_FETCH_DICTIONARY = 'Ошибка при загрузке справочника';
