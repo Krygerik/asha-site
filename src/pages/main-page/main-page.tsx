@@ -4,6 +4,7 @@ import {ShortGameInfoTable} from "../../modules/short-game-info-table";
 import {Page} from "../../modules/page";
 import {createRequest} from "../../utils/create-request";
 import {TournamentList} from "../../modules/tournament-list";
+import { PlayerRatingList } from "../../modules/player-rating-list";
 
 /**
  * Визуал главной страницы
@@ -23,5 +24,9 @@ export const MainPage = React.memo(() => (
                 hidePagination
             />
         </Segment>
+        <PlayerRatingList
+            request={() => createRequest().get('/auth/get-player-rating-list')}
+            withoutRefresh
+        />
     </Page>
 ));
