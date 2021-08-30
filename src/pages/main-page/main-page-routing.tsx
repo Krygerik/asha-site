@@ -5,6 +5,7 @@ import {Calculators} from "../calculators";
 import {Game} from "../game";
 import {Games} from "../games-history";
 import {ProfilePage} from "../profile-page";
+import {RatingPage} from "../rating-page";
 import {StatisticPage} from "../statistics";
 import {TournamentPage} from "../tournament";
 import {TournamentListPage} from "../tournament-list";
@@ -39,6 +40,9 @@ export const MainPageRouting = React.memo(() => (
             </Route>
             <Route exact path="/calculators">
                 <Calculators />
+            </Route>
+            <Route exact path="/rating">
+                <RatingPage />
             </Route>
             <Route exact path="/">
                 <MainPage />

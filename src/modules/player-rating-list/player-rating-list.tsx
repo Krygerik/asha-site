@@ -4,6 +4,7 @@ import {Header, Segment, Table} from "semantic-ui-react";
 
 type TProps = {
     data: { nickname: string; rating: number; }[];
+    header?: string;
 };
 
 const PlayerRatingList = React.memo((props: TProps) => {
@@ -13,9 +14,11 @@ const PlayerRatingList = React.memo((props: TProps) => {
 
     return (
         <Segment>
-            <Header
-                content="Ладдерный рейтинг игроков (тестовый)"
-            />
+            {
+                props.header && (
+                    <Header content={props.header} />
+                )
+            }
             <Table striped>
                 <Table.Header>
                     <Table.Row
