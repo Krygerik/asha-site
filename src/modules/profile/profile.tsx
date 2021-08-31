@@ -78,6 +78,11 @@ const Profile = React.memo((props: TProps) => {
                             />
                             <Dropdown.Item
                                 as={'a'}
+                                content="Рейтинг игроков"
+                                onClick={() => history.push('/rating')}
+                            />
+                            <Dropdown.Item
+                                as={'a'}
                                 content="Калькулятор инициатив"
                                 onClick={handleClickCalculators}
                             />
