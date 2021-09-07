@@ -7,7 +7,7 @@ import {Button, Form as SemanticForm, Grid, Header, Segment} from "semantic-ui-r
 import {FinalFormDictionarySelectField} from "../../components/final-form-dictionary-select-field";
 import {FinalFormInputTextField} from "../../components/final-form-input-text-field";
 import {FinalFormSelectField} from "../../components/final-form-select-field";
-import {DictionaryContext, EDictionaryName, TCommonDictionaryRecord, withDictionaries} from "../../modules/dictionary";
+import {DictionaryContext, EDictionaryName, withDictionaries} from "../../modules/dictionary";
 import {Page} from "../../modules/page";
 import {TCreatureRecord} from "../../modules/dictionary/dictionary-types";
 import {DictionaryArmyCard} from "../../modules/dictionary-card";
