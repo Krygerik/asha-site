@@ -31,3 +31,12 @@ export const mapTypeDictionaryToHeader: Record<string, string> = {
     [EDictionaryName.Spells]: "Заклинания",
     [EDictionaryName.WarMachines]: "Военные машины",
 };
+
+/**
+ * Игровые ид орковского образования
+ */
+export const BARBARIAN_ENLIGHTENMENT_GAME_ID_LIST = [
+    "ID183 = 1",
+    "ID183 = 2",
+    "ID183 = 3",
+];

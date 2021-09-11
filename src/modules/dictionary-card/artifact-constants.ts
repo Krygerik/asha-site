@@ -78,7 +78,7 @@ import {
  * Тип артефакта для представления
  */
 export type TArtifact = {
-    gameId: string;
+    gameId: string[];
     icon: string;
 };
 
@@ -87,283 +87,283 @@ export type TArtifact = {
  */
 export const ARTIFACTS: TArtifact[] = [
     {
-       gameId: "ID85",
+       gameId: ["ID85"],
        icon: GnomishSmithyHammerIcon,
     },
     {
-       gameId: "ID36",
+       gameId: ["ID36"],
        icon: DragonscaleArmorIcon,
     },
     {
-       gameId: "ID74",
+       gameId: ["ID74"],
        icon: OgresCudgelIcon,
     },
     {
-       gameId: "ID25",
+       gameId: ["ID25"],
        icon: GoldenHorseshoeIcon,
     },
     {
-       gameId: "ID95",
+       gameId: ["ID95"],
        icon: MarvelousQuiverIcon,
     },
     {
-       gameId: "ID42",
+       gameId: ["ID42"],
        icon: DragonEyeRingIcon,
     },
     {
-       gameId: "ID21",
+       gameId: ["ID21"],
        icon: LifeForceRingIcon,
     },
     {
-       gameId: "ID65",
+       gameId: ["ID65"],
        icon: RingOfCautionIcon,
     },
     {
-       gameId: "ID23",
+       gameId: ["ID23"],
        icon: BrokenSpiritRingIcon,
     },
     {
-       gameId: "ID41",
+       gameId: ["ID41"],
        icon: DragonsClawCrownIcon,
     },
     {
-       gameId: "ID9",
+       gameId: ["ID9"],
        icon: IceShieldIcon,
     },
     {
-       gameId: "ID58",
+       gameId: ["ID58"],
        icon: MoonBladeIcon,
     },
     {
-       gameId: "ID39",
+       gameId: ["ID39"],
        icon: DragonwingMantleIcon,
     },
     {
-       gameId: "ID31",
+       gameId: ["ID31"],
        icon: LionManeCapeIcon,
     },
     {
-       gameId: "ID40",
+       gameId: ["ID40"],
        icon: DragonTeethNecklaceIcon,
     },
     {
-       gameId: "ID19",
+       gameId: ["ID19"],
        icon: VictoryNecklaceIcon,
     },
     {
-       gameId: "ID43",
+       gameId: ["ID43"],
        icon: FlameDragonTongueIcon,
     },
     {
-       gameId: "ID38",
+       gameId: ["ID38"],
        icon: DragonboneLeggingsIcon,
     },
     {
-       gameId: "ID63",
+       gameId: ["ID63"],
        icon: CursedRingIcon,
     },
     {
-       gameId: "ID82",
+       gameId: ["ID82"],
        icon: RunedWarHarnessIcon,
     },
     {
-       gameId: "ID81",
+       gameId: ["ID81"],
        icon: RunedBattleAxIcon,
     },
     {
-       gameId: "ID2",
+       gameId: ["ID2"],
        icon: AxOfTheMountainKingIcon,
     },
     {
-       gameId: "ID71",
+       gameId: ["ID71"],
        icon: VolumeOfForceIcon,
     },
     {
-       gameId: "ID37",
+       gameId: ["ID37"],
        icon: DragonscaleShieldIcon,
     },
     {
-       gameId: "ID75",
+       gameId: ["ID75"],
        icon: CannibalShieldIcon,
     },
     {
-       gameId: "ID13",
+       gameId: ["ID13"],
        icon: ForgottenHeroArmorIcon,
     },
     {
-       gameId: "ID48",
+       gameId: ["ID48"],
        icon: BreastplateOfTheDwarfKingIcon,
     },
     {
-       gameId: "ID47",
+       gameId: ["ID47"],
        icon: RingOfSarIssaIcon,
     },
     {
-       gameId: "ID59",
+       gameId: ["ID59"],
        icon: RingOfSwiftnessIcon,
     },
     {
-       gameId: "ID88",
+       gameId: ["ID88"],
        icon: LeadershipCrownIcon,
     },
     {
-       gameId: "ID11",
+       gameId: ["ID11"],
        icon: LionCrownIcon,
     },
     {
-       gameId: "ID46",
+       gameId: ["ID46"],
        icon: CrownOfSarIssaIcon,
     },
     {
-       gameId: "ID18",
+       gameId: ["ID18"],
        icon: PendantOfIcyEmbraceIcon,
     },
     {
-       gameId: "ID67",
+       gameId: ["ID67"],
        icon: PendantOfAbsorptionIcon,
     },
     {
-       gameId: "ID4",
+       gameId: ["ID4"],
        icon: UnicornHornBowIcon,
     },
     {
-       gameId: "ID17",
+       gameId: ["ID17"],
        icon: BloodClawNecklaceIcon,
     },
     {
-       gameId: "ID33",
+       gameId: ["ID33"],
        icon: DeadlyShadowCloakIcon,
     },
     {
-       gameId: "ID49",
+       gameId: ["ID49"],
        icon: LeggingsOfTheDwarfKingIcon,
     },
     {
-       gameId: "ID6",
+       gameId: ["ID6"],
        icon: StaffOfTheUnderworldIcon,
     },
     {
-       gameId: "ID45",
+       gameId: ["ID45"],
        icon: StaffOfSarIssaIcon,
     },
     {
-       gameId: "ID68",
+       gameId: ["ID68"],
        icon: SaintsSandalsIcon,
     },
     {
-       gameId: "ID57",
+       gameId: ["ID57"],
        icon: WanderersBootsIcon,
     },
     {
-       gameId: "ID79",
+       gameId: ["ID79"],
        icon: VolumeOfSummoningMagicIcon,
     },
     {
-       gameId: "ID77",
+       gameId: ["ID77"],
        icon: LightMagicVolumeIcon,
     },
     {
-       gameId: "ID78",
+       gameId: ["ID78"],
        icon: VolumeOfDarkMagicIcon,
     },
     {
-       gameId: "ID76",
+       gameId: ["ID76"],
        icon: ChaosMagicVolumeIcon,
     },
     {
-       gameId: "ID5",
+       gameId: ["ID5"],
        icon: TridentOfTheTitansIcon,
     },
     {
-       gameId: "ID44",
+       gameId: ["ID44"],
        icon: RobeOfSarIssaIcon,
     },
     {
-       gameId: "ID83",
+       gameId: ["ID83"],
        icon: MarkelsSkullIcon,
     },
     {
-       gameId: "ID50",
+       gameId: ["ID50"],
        icon: HelmOfTheDwarfKingIcon,
     },
     {
-       gameId: "ID51",
+       gameId: ["ID51"],
        icon: DwarfKingsShieldIcon,
     },
     {
-       gameId: "ID80",
+       gameId: ["ID80"],
        icon: BeginnersMagicWandIcon,
     },
     {
-       gameId: "ID90",
+       gameId: ["ID90"],
        icon: TheEdgeOfBalanceIcon,
     },
     {
-       gameId: "ID56",
+       gameId: ["ID56"],
        icon: FearlessArmorIcon,
     },
     {
-       gameId: "ID87",
+       gameId: ["ID87"],
        icon: TarotDeckIcon,
     },
     {
-       gameId: "ID70",
+       gameId: ["ID70"],
        icon: RingOfSinnersIcon,
     },
     {
-       gameId: "ID20",
+       gameId: ["ID20"],
        icon: LightningProtectionRingIcon,
     },
     {
-       gameId: "ID1",
+       gameId: ["ID1"],
        icon: SwordOfMightIcon,
     },
     {
-       gameId: "ID14",
+       gameId: ["ID14"],
        icon: ChestpieceOfImmensePowerIcon,
     },
     {
-       gameId: "ID16",
+       gameId: ["ID16"],
        icon: LionCollarIcon,
     },
     {
-       gameId: "ID62",
+       gameId: ["ID62"],
        icon: SilannasCloakIcon,
     },
     {
-       gameId: "ID60",
+       gameId: ["ID60"],
        icon: ElementalBeltIcon,
     },
     {
-       gameId: "ID27",
+       gameId: ["ID27"],
        icon: BootsOfArcaneProtectionIcon,
     },
     {
-       gameId: "ID10",
+       gameId: ["ID10"],
        icon: ManaScrollIcon,
     },
     {
-       gameId: "ID84",
+       gameId: ["ID84"],
        icon: SecretShieldsIcon,
     },
     {
-       gameId: "ID64",
+       gameId: ["ID64"],
        icon: TunicOfFleshIcon,
     },
     {
-       gameId: "ID8",
+       gameId: ["ID8"],
        icon: FourLeafCloverIcon,
     },
     {
-       gameId: "ID55",
+       gameId: ["ID55"],
        icon: NecromancerHelmetIcon,
     },
     {
-       gameId: "ID66",
+       gameId: ["ID66"],
        icon: ChaosHelmetIcon,
     },
     {
-       gameId: "ID7",
+       gameId: ["ID7"],
        icon: StaffOfTheUnderworldIcon,
     },
 ];

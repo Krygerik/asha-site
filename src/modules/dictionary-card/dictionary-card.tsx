@@ -17,19 +17,15 @@ type TProps = {
  * Отображение карточки заклинания или предмета
  */
 export const DictionaryCard = (props: TProps) => {
-    const item = find({ gameId: props.gameId }, mapTypeToDictionary[props.type])
+    const item = find(
+        record => record.gameId.includes(props.gameId),
+        mapTypeToDictionary[props.type],
+    );
 
     if (!item) {
         return (
             <Message error content={`Отсутствует иконка для: ${props.gameId}`} />
         )
-    }
-
-    /**
-     * Не отображаем карточки образования у орка, т.к. Нивал придумал записывать их вместе с обычным образованием
-     */
-    if (props.gameId === "ID183 = 1" || props.gameId === "ID183 = 2" || props.gameId === "ID183 = 3") {
-        return null;
     }
 
     return (

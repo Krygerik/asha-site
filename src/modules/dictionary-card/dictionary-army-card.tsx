@@ -3,6 +3,7 @@ import {find} from "lodash/fp";
 import * as React from "react";
 import {EDictionaryName} from "../dictionary";
 import {mapTypeToDictionary} from "./dictionary-card-constants";
+import {TCreatures} from "./creatures-constants";
 
 type TProps = {
     // центрирование картинки
@@ -17,7 +18,10 @@ type TProps = {
  * Отображение карточки существ
  */
 export const DictionaryArmyCard = (props: TProps) => {
-    const item = find({ gameId: props.gameId }, mapTypeToDictionary[EDictionaryName.Creatures])
+    const item: TCreatures | undefined = find<TCreatures>(
+        (creature: TCreatures) => creature.gameId.includes(props.gameId),
+        mapTypeToDictionary[EDictionaryName.Creatures],
+    )
 
     if (!item) {
         return (
