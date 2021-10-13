@@ -18,12 +18,13 @@ export const transformShortGameInfoListToTableData = (shortGameInfoList: IShortG
 
         return {
             blueHero: blueHero?.hero,
-            blueUserId: blueHero?.user_id,
             blueNickname: blueHero?.nickname || "Неизвестный",
+            blueUserId: blueHero?.user_id,
             date: shortGameInfo.date,
             id: shortGameInfo._id,
-            redUserId: redHero?.user_id,
+            redHero: redHero?.hero,
             redNickname: redHero?.nickname || "Неизвестный",
+            redUserId: redHero?.user_id,
             result: resultIcon,
         };
     })
