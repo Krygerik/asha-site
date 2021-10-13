@@ -1,5 +1,6 @@
 import * as React from "react";
 import {Button, Divider, Grid, Header, Segment, Table} from "semantic-ui-react";
+import {UserLink} from "../../../components/user-link";
 import {createRequest} from "../../../utils/create-request";
 import {TTournamentParticipant} from "../tournament-page-types";
 import {TWithUserListConnectedProps, withUserListConnector} from "./user-list-connector";
@@ -112,9 +113,12 @@ const UserListComponent = React.memo((props: TProps) => {
                                         <Table.Cell
                                             content={index+1}
                                         />
-                                        <Table.Cell
-                                            content={props.mapUsersIdToUserInfo[id]?.nickname}
-                                        />
+                                        <Table.Cell>
+                                            <UserLink
+                                                id={id}
+                                                nickname={props.mapUsersIdToUserInfo[id]?.nickname}
+                                            />
+                                        </Table.Cell>
                                         <Table.Cell
                                             content={props.mapUsersIdToUserInfo[id]?.discord}
                                         />

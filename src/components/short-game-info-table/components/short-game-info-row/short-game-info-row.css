@@ -1,12 +1,8 @@
-.red_player {
-    background: linear-gradient(95deg, #ff00005c, #ff00005c);
+
+.border-left-red {
+    border-left: 3px solid red !important;
 }
-.red_hero {
-    background: linear-gradient(95deg, #ff00005c, transparent);
-}
-.blue_hero {
-    background: linear-gradient(95deg, transparent, #0000ff69);
-}
-.blue_player {
-    background: linear-gradient(95deg, #0000ff69, #0000ff69);
+
+.border-right-blue {
+    border-right: 3px solid blue !important;
 }

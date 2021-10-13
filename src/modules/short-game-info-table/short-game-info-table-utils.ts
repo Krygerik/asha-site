@@ -10,7 +10,6 @@ export const transformShortGameInfoListToTableData = (shortGameInfoList: IShortG
         const redHero = find<IShortPlayer>({ color: EPlayerColor.RED })(shortGameInfo.players);
         const blueHero = find<IShortPlayer>({ color: EPlayerColor.BLUE })(shortGameInfo.players);
 
-
         const resultIcon = shortGameInfo.disconnect
             ? "broken chain"
             : shortGameInfo.winner === EPlayerColor.RED
@@ -19,10 +18,11 @@ export const transformShortGameInfoListToTableData = (shortGameInfoList: IShortG
 
         return {
             blueHero: blueHero?.hero,
+            blueUserId: blueHero?.user_id,
             blueNickname: blueHero?.nickname || "Неизвестный",
             date: shortGameInfo.date,
             id: shortGameInfo._id,
-            redHero: redHero?.hero,
+            redUserId: redHero?.user_id,
             redNickname: redHero?.nickname || "Неизвестный",
             result: resultIcon,
         };

@@ -1,9 +1,11 @@
 import * as React from "react";
-import { withFetching } from "../../wrappers";
 import {Header, Segment, Table} from "semantic-ui-react";
+import { withFetching } from "../../wrappers";
+import { TPlayerWithRating } from "./player-rating-list-types";
+import {UserLink} from "../../components/user-link";
 
 type TProps = {
-    data: { nickname: string; rating: number; }[];
+    data: TPlayerWithRating[];
     header?: string;
 };
 
@@ -39,15 +41,18 @@ const PlayerRatingList = React.memo((props: TProps) => {
                     {
                         playerRatingList.map((player, index) => (
                             <Table.Row
-                                key={player.nickname}
+                                key={player._id}
                                 textAlign="center"
                             >
                                 <Table.Cell
                                     content={index + 1}
                                 />
-                                <Table.Cell
-                                    content={player.nickname}
-                                />
+                                <Table.Cell>
+                                    <UserLink
+                                        id={player._id}
+                                        nickname={player.nickname}
+                                    />
+                                </Table.Cell>
                                 <Table.Cell
                                     content={player.rating}
                                 />

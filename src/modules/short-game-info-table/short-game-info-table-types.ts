@@ -8,6 +8,8 @@ export interface IShortPlayer {
     color: EPlayerColor;
     // Название героя
     hero: string;
+    // id пользователя в бд
+    user_id: string;
     // Никнейм игрока
     nickname: string;
     // Раса

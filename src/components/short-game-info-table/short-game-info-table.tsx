@@ -37,11 +37,13 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                         <ShortGameInfoRow
                             blueHero={getLocalizeDictionaryValueByGameId(EDictionaryName.Heroes, row.blueHero)}
                             blueNickname={row.blueNickname}
+                            blueUserId={row.blueUserId}
                             date={row.date}
                             id={row.id}
                             key={index}
                             redHero={getLocalizeDictionaryValueByGameId(EDictionaryName.Heroes, row.redHero)}
                             redNickname={row.redNickname}
+                            redUserId={row.redUserId}
                             result={row.result}
                         />
                     ))
