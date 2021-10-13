@@ -3,6 +3,7 @@ import { createSelector } from "reselect";
 import {PROFILE_PAGE_NAMESPACE, TProfilePageState} from "./profile-page-types";
 import {Selector} from "react-redux";
 import {TProfile} from "../../modules/profile/profile-types";
+import {getActiveUserId} from "../../modules/profile";
 
 /**
  * Стейт страницы
@@ -45,9 +46,34 @@ export const getErrorMessage: Selector<any, string | undefined> = createSelector
 );
 
 /**
- * Данные профиля открытого пользователя
+ * Запрошенные данные открытого профиля
  */
-export const getProfilePageData: Selector<any, TProfile | null> = createSelector(
+const getFetchedData: Selector<any, TProfile> = createSelector(
     getProfilePageState,
     get('data'),
+);
+
+/**
+ * Данные профиля открытого пользователя
+ */
+export const getProfilePageData: Selector<any, TProfile> = createSelector(
+    getFetchedData,
+    (fetchedData: TProfile) => ({
+        ...fetchedData,
+        tournaments: fetchedData?.tournaments?.map(
+            (tourId: string) => fetchedData?.mapTournamentNameToId[tourId] || "Неизвестный турнир"
+        )
+    }),
+);
+
+/**
+ * Открытый профиль - профиль текущего пользователя
+ */
+export const getIsProfileOfTheCurrentUser: Selector<any, boolean> = createSelector(
+    getFetchedData,
+    getActiveUserId,
+    (
+        fetchedData: TProfile,
+        activeUserId: string | undefined
+    ) => fetchedData?._id === activeUserId
 );

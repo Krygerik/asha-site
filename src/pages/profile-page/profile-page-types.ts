@@ -24,3 +24,15 @@ export type TProfilePageState = {
     errorMessage?: string;
     isFetching: boolean;
 }
+
+type TTableConfigRow = {
+    emptyValue?: string;
+    isList?: boolean;
+    key: string;
+    label: string;
+}
+
+/**
+ * Конфиг таблицы информации для чтения
+ */
+export type TTableConfig = TTableConfigRow[];

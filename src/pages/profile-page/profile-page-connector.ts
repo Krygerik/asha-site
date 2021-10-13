@@ -1,12 +1,19 @@
 import {connect, ConnectedProps} from "react-redux";
 import { createStructuredSelector } from "reselect";
 import {fetchPlayerProfile} from "./profile-page-actions";
-import {getError, getErrorMessage, getFetchingStatus, getProfilePageData} from "./profile-page-selectors";
+import {
+    getError,
+    getErrorMessage,
+    getFetchingStatus,
+    getIsProfileOfTheCurrentUser,
+    getProfilePageData,
+} from "./profile-page-selectors";
 
 const mapStateToProps = createStructuredSelector({
     errorMessage: getErrorMessage,
     hasError: getError,
     isFetching: getFetchingStatus,
+    isProfileOfTheCurrentUser: getIsProfileOfTheCurrentUser,
     profileData: getProfilePageData,
 });
 
