@@ -27,6 +27,7 @@ const ProfilePage = React.memo((props: TProfilePageConnectedProps) => {
      */
     React.useEffect(() => {
         props.fetchPlayerProfile(id);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (props.hasError) {
@@ -64,6 +65,7 @@ const ProfilePage = React.memo((props: TProfilePageConnectedProps) => {
                                 isEditable
                                     ? (
                                         <ProfilePageEditProfile
+                                            initialValues={props.editProfileInitialValues}
                                             setEditableStatus={setEditableStatus}
                                         />
                                     )

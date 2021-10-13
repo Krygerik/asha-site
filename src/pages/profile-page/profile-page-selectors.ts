@@ -1,6 +1,6 @@
-import { get } from "lodash/fp";
+import { get, pick } from "lodash/fp";
 import { createSelector } from "reselect";
-import {PROFILE_PAGE_NAMESPACE, TProfilePageState} from "./profile-page-types";
+import {PROFILE_PAGE_NAMESPACE, TEditProfileInitialValues, TProfilePageState} from "./profile-page-types";
 import {Selector} from "react-redux";
 import {TProfile} from "../../modules/profile/profile-types";
 import {getActiveUserId} from "../../modules/profile";
@@ -76,4 +76,16 @@ export const getIsProfileOfTheCurrentUser: Selector<any, boolean> = createSelect
         fetchedData: TProfile,
         activeUserId: string | undefined
     ) => fetchedData?._id === activeUserId
+);
+
+/**
+ * Начальные значения для редактирования профиля
+ */
+export const getEditProfileInitialValues: Selector<any, TEditProfileInitialValues> = createSelector(
+    getFetchedData,
+    pick([
+        'discord',
+        'email',
+        'nickname',
+    ]),
 );

@@ -5,8 +5,10 @@ import arrayMutators from "final-form-arrays";
 import {Button, Header, Segment} from "semantic-ui-react";
 import {FinalFormInputTextField} from "../../components/final-form-input-text-field";
 import {createRequest} from "../../utils/create-request";
+import {TEditProfileInitialValues} from "./profile-page-types";
 
 type TProps = {
+    initialValues: TEditProfileInitialValues;
     setEditableStatus: (a: boolean) => void;
 }
 
@@ -33,7 +35,7 @@ export const ProfilePageEditProfile = React.memo((props: TProps) => {
     return (
         <Form
             onSubmit={handleSubmit}
-            initialValues={{}}
+            initialValues={props.initialValues}
             mutators={{ ...arrayMutators }}
             render={({ handleSubmit }) => (
                 <form
@@ -46,16 +48,19 @@ export const ProfilePageEditProfile = React.memo((props: TProps) => {
                     <Segment>
                         <Header content="Личные данные" />
                         <FinalFormInputTextField
-                            name="nickname"
                             label="Никнейм"
+                            name="nickname"
+                            required
                         />
                         <FinalFormInputTextField
-                            name="email"
                             label="Почта"
+                            name="email"
+                            required
                         />
                         <FinalFormInputTextField
-                            name="discord"
                             label="Дискорд"
+                            name="discord"
+                            required
                         />
                     </Segment>
                     <>

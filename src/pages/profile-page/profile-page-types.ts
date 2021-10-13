@@ -36,3 +36,15 @@ type TTableConfigRow = {
  * Конфиг таблицы информации для чтения
  */
 export type TTableConfig = TTableConfigRow[];
+
+/**
+ * Начальные значения для формы изменения профиля
+ */
+export type TEditProfileInitialValues = {
+    // номер дискорда
+    discord: string;
+    // почта пользователя, используется вместо логина
+    email: string;
+    // ник игрока
+    nickname: string;
+};

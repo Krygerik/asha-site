@@ -2,6 +2,7 @@ import {connect, ConnectedProps} from "react-redux";
 import { createStructuredSelector } from "reselect";
 import {fetchPlayerProfile} from "./profile-page-actions";
 import {
+    getEditProfileInitialValues,
     getError,
     getErrorMessage,
     getFetchingStatus,
@@ -10,6 +11,7 @@ import {
 } from "./profile-page-selectors";
 
 const mapStateToProps = createStructuredSelector({
+    editProfileInitialValues: getEditProfileInitialValues,
     errorMessage: getErrorMessage,
     hasError: getError,
     isFetching: getFetchingStatus,
