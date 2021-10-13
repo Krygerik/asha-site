@@ -3,7 +3,11 @@ import { pick } from "lodash";
 import {Button} from "semantic-ui-react";
 import {TProfile} from "../../modules/profile/profile-types";
 import { ProfilePageTableSegment } from "./profile-page-table-segment";
-import {GAME_INFO_TABLE_CONFIG, PERSONAL_TABLE_CONFIG} from "./profile-page-constants";
+import {
+    GAME_INFO_TABLE_CONFIG,
+    PERSONAL_TABLE_CONFIG,
+    PRIVATE_TABLE_CONFIG,
+} from "./profile-page-constants";
 
 type TProps = {
     activeUserIsAdmin: boolean;
@@ -17,10 +21,19 @@ type TProps = {
  */
 export const ProfilePageViewProfile = React.memo((props: TProps) => (
     <>
+        {
+            (props.isProfileOfTheCurrentUser || props.activeUserIsAdmin) && (
+                <ProfilePageTableSegment
+                    header="Приватные данные"
+                    tableConfig={PRIVATE_TABLE_CONFIG}
+                    tableData={pick(props.profileData, ['email'])}
+                />
+            )
+        }
         <ProfilePageTableSegment
             header="Личные данные"
             tableConfig={PERSONAL_TABLE_CONFIG}
-            tableData={pick(props.profileData, ['email', 'discord'])}
+            tableData={pick(props.profileData, ['discord'])}
         />
         <ProfilePageTableSegment
             header="Игровые данные"

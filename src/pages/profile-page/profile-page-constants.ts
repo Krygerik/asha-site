@@ -1,9 +1,12 @@
 
-export const PERSONAL_TABLE_CONFIG = [
+export const PRIVATE_TABLE_CONFIG = [
     {
         key: "email",
         label: "Почта",
     },
+];
+
+export const PERSONAL_TABLE_CONFIG = [
     {
         key: "discord",
         label: "Дискорд",
