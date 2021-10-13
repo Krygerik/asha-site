@@ -9,6 +9,7 @@ import {TEditProfileInitialValues} from "./profile-page-types";
 
 type TProps = {
     initialValues: TEditProfileInitialValues;
+    profileId: string;
     setEditableStatus: (a: boolean) => void;
 }
 
@@ -24,7 +25,11 @@ export const ProfilePageEditProfile = React.memo((props: TProps) => {
 
             await createRequest().post(
                 '/auth/update-user-info',
-                { discord, nickname }
+                {
+                    discord,
+                    id: props.profileId,
+                    nickname,
+                }
             );
             history.go(0);
         } catch (e) {

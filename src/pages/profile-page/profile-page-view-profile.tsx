@@ -6,6 +6,7 @@ import { ProfilePageTableSegment } from "./profile-page-table-segment";
 import {GAME_INFO_TABLE_CONFIG, PERSONAL_TABLE_CONFIG} from "./profile-page-constants";
 
 type TProps = {
+    activeUserIsAdmin: boolean;
     isProfileOfTheCurrentUser: boolean;
     profileData: TProfile;
     setEditableStatus: (status: boolean) => void;
@@ -24,10 +25,10 @@ export const ProfilePageViewProfile = React.memo((props: TProps) => (
         <ProfilePageTableSegment
             header="Игровые данные"
             tableConfig={GAME_INFO_TABLE_CONFIG}
-            tableData={pick(props.profileData, ['nickname', 'roles', 'tournaments'])}
+            tableData={pick(props.profileData, ['nickname', 'rating', 'roles', 'tournaments'])}
         />
         {
-            props.isProfileOfTheCurrentUser && (
+            (props.isProfileOfTheCurrentUser || props.activeUserIsAdmin) && (
                 <Button
                     color='blue'
                     content="Изменить"

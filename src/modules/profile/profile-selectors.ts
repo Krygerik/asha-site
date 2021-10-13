@@ -1,7 +1,7 @@
-import {get} from "lodash/fp";
-import {ERoles, PROFILE_NAMESPACE, TProfile} from "./profile-types";
+import {get, includes} from "lodash/fp";
 import {Selector} from "react-redux";
 import {createSelector} from "reselect";
+import {ERoles, PROFILE_NAMESPACE, TProfile} from "./profile-types";
 
 const getProfileState = get(PROFILE_NAMESPACE);
 
@@ -43,4 +43,12 @@ export const getActiveUserId: Selector<any, string | undefined> = createSelector
 export const getActiveUserRoles: Selector<any, ERoles[] | undefined> = createSelector(
     getProfile,
     get('roles'),
+);
+
+/**
+ * Текущий зарегистрированный пользователь имеет роль админа
+ */
+export const getCurrentUserIsAdmin: Selector<any, boolean> = createSelector(
+    getActiveUserRoles,
+    includes('ADMIN'),
 );

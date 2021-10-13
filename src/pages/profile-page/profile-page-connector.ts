@@ -1,5 +1,6 @@
 import {connect, ConnectedProps} from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { getCurrentUserIsAdmin } from "../../modules/profile";
 import {fetchPlayerProfile} from "./profile-page-actions";
 import {
     getEditProfileInitialValues,
@@ -11,6 +12,7 @@ import {
 } from "./profile-page-selectors";
 
 const mapStateToProps = createStructuredSelector({
+    activeUserIsAdmin: getCurrentUserIsAdmin,
     editProfileInitialValues: getEditProfileInitialValues,
     errorMessage: getErrorMessage,
     hasError: getError,

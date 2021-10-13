@@ -16,6 +16,10 @@ export const GAME_INFO_TABLE_CONFIG = [
         label: "Никнейм",
     },
     {
+        key: "rating",
+        label: "Рейтинг (АСХА)",
+    },
+    {
         emptyValue: "Отсутствуют назначенные роли",
         isList: true,
         key: "roles",

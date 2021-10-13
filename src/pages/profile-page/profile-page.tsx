@@ -66,11 +66,13 @@ const ProfilePage = React.memo((props: TProfilePageConnectedProps) => {
                                     ? (
                                         <ProfilePageEditProfile
                                             initialValues={props.editProfileInitialValues}
+                                            profileId={props.profileData._id}
                                             setEditableStatus={setEditableStatus}
                                         />
                                     )
                                     : (
                                         <ProfilePageViewProfile
+                                            activeUserIsAdmin={props.activeUserIsAdmin}
                                             isProfileOfTheCurrentUser={props.isProfileOfTheCurrentUser}
                                             profileData={props.profileData}
                                             setEditableStatus={setEditableStatus}
