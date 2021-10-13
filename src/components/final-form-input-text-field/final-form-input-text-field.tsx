@@ -29,7 +29,11 @@ export const FinalFormInputTextField = (props: TProps) => (
                     fluid
                     icon={props.icon}
                     iconPosition={props.icon ? 'left' : undefined}
-                    label={props.label}
+                    label={
+                        props.required
+                            ? props.label + ' *'
+                            : props.label
+                    }
                     name={innerProps.input.name}
                     onChange={(e, { value }) => {
                         if (props.readonly) {
