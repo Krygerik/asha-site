@@ -20,6 +20,7 @@ export const MAP_FILTERS_NAME_TO_LABEL = {
     [EFiltersName.Level]: "Уровень",
     [EFiltersName.Luck]: "Удача",
     [EFiltersName.ManaStart]: "Стартовая мана",
+    [EFiltersName.MapVersion]: "Версия карты",
     [EFiltersName.Mentoring]: "Количество ментора",
     [EFiltersName.Morale]: "Боевой дух",
     // [EFiltersName.PercentageOfArmyLeft]: "Зрелищность",
@@ -236,5 +237,12 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
     [EFiltersName.UserId]: {
         Component: FinalFormUsersSelectField,
         staticProps: {}
+    },
+    [EFiltersName.MapVersion]: {
+        Component: FinalFormSelectField,
+        staticProps: {
+            fluid: true,
+            search: true,
+        }
     },
 }

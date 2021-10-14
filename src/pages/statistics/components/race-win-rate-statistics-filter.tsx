@@ -11,6 +11,7 @@ import {
     TSingleStatisticsFilter,
 } from "../statistics-page-types";
 import {FILTERS_WITH_COMPARISON_OPERATORS} from "../statistics-page-constants";
+import { GameFilterFields } from "./game-filter-fields";
 import {PlayersFilterFields} from "./players-filter-filds";
 
 type TProps = {
@@ -33,7 +34,10 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => {
             serializeFilterValues(values[EFilterSectionsName.OtherPlayer]),
         ];
 
-        props.setFilters({ players });
+        props.setFilters({
+            players,
+            ...serializeFilterValues(values[EFilterSectionsName.Game]),
+        });
     }
 
     /**
@@ -67,6 +71,7 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => {
             <Form
                 onSubmit={(values: TFilterStatisticsFormValues) => {}}
                 initialValues={{
+                    [EFilterSectionsName.Game]: [{}],
                     [EFilterSectionsName.MainPlayer]: [{}],
                     [EFilterSectionsName.OtherPlayer]: [{}],
                 }}
@@ -89,6 +94,15 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => {
                                         formValues={values}
                                         push={push}
                                         sectionName={EFilterSectionsName.OtherPlayer}
+                                    />
+                                </Grid.Column>
+                            </Grid.Row>
+                            <Grid.Row centered>
+                                <Grid.Column width={8}>
+                                    <Header content="Общеигровые фильтры" textAlign="center" />
+                                    <GameFilterFields
+                                        formValues={values}
+                                        push={push}
                                     />
                                 </Grid.Column>
                             </Grid.Row>

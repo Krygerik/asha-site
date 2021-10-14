@@ -57,6 +57,8 @@ export const STATISTICS_PAGE_NAMESPACE = '@@STATISTICS_PAGE_NAMESPACE';
  * Перечисление полей фильтров
  */
 export enum EFiltersName {
+    // PercentageOfArmyLeft = 'percentage_of_army_left',
+    // Race = 'race',
     Art = 'arts',
     Attack = 'attack',
     Color = 'color',
@@ -67,10 +69,9 @@ export enum EFiltersName {
     Level = 'level',
     Luck = 'luck',
     ManaStart = 'mana_start',
+    MapVersion = 'map_version',
     Mentoring = 'mentoring',
     Morale = 'morale',
-    // PercentageOfArmyLeft = 'percentage_of_army_left',
-    // Race = 'race',
     Perks = 'perks',
     Spell = 'spells',
     SpellPower = 'spell_power',
@@ -92,6 +93,7 @@ export type TSingleStatisticsFilter = {
  * Перечисление названий секций
  */
 export enum EFilterSectionsName {
+    Game = 'game',
     MainPlayer = 'main_player',
     OtherPlayer = 'other_player',
 }
@@ -100,6 +102,7 @@ export enum EFilterSectionsName {
  * Тип формы фильтров статистики
  */
 export type TFilterStatisticsFormValues = {
+    [EFilterSectionsName.Game]: TSingleStatisticsFilter[];
     [EFilterSectionsName.MainPlayer]: TSingleStatisticsFilter[];
     [EFilterSectionsName.OtherPlayer]: TSingleStatisticsFilter[];
 };
@@ -154,6 +157,20 @@ export type TPlayerFilterFields = {
 }
 
 /**
+ * Перечисление всех возможных значений версий карты
+ */
+export enum EMapVersionValues {
+    "1.21.0.7" = "1.21.0.7",
+    "1.21.0.8" = "1.21.0.8",
+    "1.21.1.1" = "1.21.1.1",
+    "1.21.1.2" = "1.21.1.2",
+    "1.21.1.3" = "1.21.1.3",
+    "1.21.1.4" = "1.21.1.4",
+    "1.21.2.1" = "1.21.2.1",
+    "1.21.2.100" = "1.21.2.100",
+}
+
+/**
  * Тип фильтра в запросе статистик по расам
  */
 export type TFetchStatisticsRequestFilter = {
@@ -161,4 +178,6 @@ export type TFetchStatisticsRequestFilter = {
     players: TPlayerFilterFields[];
     // Процент оставшейся силы армии
     percentage_of_army_left?: TComparisonField;
+    // Версия карты
+    map_version?: EMapVersionValues;
 }
