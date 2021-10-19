@@ -87,5 +87,6 @@ export const getEditProfileInitialValues: Selector<any, TEditProfileInitialValue
         'discord',
         'email',
         'nickname',
+        'original_rating',
     ]),
 );

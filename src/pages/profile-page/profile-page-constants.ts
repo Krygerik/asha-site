@@ -23,6 +23,10 @@ export const GAME_INFO_TABLE_CONFIG = [
         label: "Рейтинг (АСХА)",
     },
     {
+        key: "original_rating",
+        label: "Рейтинг на half-rta.com",
+    },
+    {
         emptyValue: "Отсутствуют назначенные роли",
         isList: true,
         key: "roles",

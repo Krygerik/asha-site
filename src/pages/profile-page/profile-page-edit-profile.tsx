@@ -8,6 +8,7 @@ import {createRequest} from "../../utils/create-request";
 import {TEditProfileInitialValues} from "./profile-page-types";
 
 type TProps = {
+    activeUserIsAdmin: boolean;
     initialValues: TEditProfileInitialValues;
     profileId: string;
     setEditableStatus: (a: boolean) => void;
@@ -19,18 +20,34 @@ export const ProfilePageEditProfile = React.memo((props: TProps) => {
     /**
      * Обработчик сохранения изменений данных пользователя
      */
-    const handleSubmit = async ({ discord, nickname }: { discord?: string; nickname?: string }) => {
+    const handleSubmit = async ({ discord, nickname, original_rating }: { discord: string; nickname: string; original_rating: number; }) => {
         try {
             props.setEditableStatus(false);
 
-            await createRequest().post(
-                '/auth/update-user-info',
-                {
-                    discord,
-                    id: props.profileId,
-                    nickname,
-                }
-            );
+            if (
+                discord !== props.initialValues.discord
+                || nickname !== props.initialValues.nickname
+            ) {
+                await createRequest().post(
+                    '/auth/update-user-info',
+                    {
+                        discord,
+                        id: props.profileId,
+                        nickname,
+                    }
+                );
+            }
+
+            if (props.activeUserIsAdmin && original_rating !== props.initialValues.original_rating) {
+                await createRequest().post(
+                    '/auth/update-user-game-info',
+                    {
+                        id: props.profileId,
+                        original_rating,
+                    }
+                );
+            }
+
             history.go(0);
         } catch (e) {
             throw new Error(e.response?.data?.MESSAGE || e);
@@ -67,6 +84,15 @@ export const ProfilePageEditProfile = React.memo((props: TProps) => {
                             name="discord"
                             required
                         />
+                        {
+                            props.activeUserIsAdmin && (
+                                <FinalFormInputTextField
+                                    label="Рейтинг на half-rta.com"
+                                    name="original_rating"
+                                    required
+                                />
+                            )
+                        }
                     </Segment>
                     <>
                         <Button

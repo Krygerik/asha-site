@@ -47,4 +47,6 @@ export type TEditProfileInitialValues = {
     email: string;
     // ник игрока
     nickname: string;
+    // Рейтинг игрока до АСХА
+    original_rating: number;
 };

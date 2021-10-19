@@ -38,7 +38,7 @@ export const ProfilePageViewProfile = React.memo((props: TProps) => (
         <ProfilePageTableSegment
             header="Игровые данные"
             tableConfig={GAME_INFO_TABLE_CONFIG}
-            tableData={pick(props.profileData, ['nickname', 'rating', 'roles', 'tournaments'])}
+            tableData={pick(props.profileData, ['nickname', 'rating', 'original_rating', 'roles', 'tournaments'])}
         />
         {
             (props.isProfileOfTheCurrentUser || props.activeUserIsAdmin) && (

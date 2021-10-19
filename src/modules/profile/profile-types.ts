@@ -19,6 +19,8 @@ export type TProfile = {
     nickname: string;
     // Соотношение имен турниров к их id
     mapTournamentNameToId: Record<string, string>;
+    // Рейтинг игрока до
+    original_rating: number;
     // Рейтинг игрока
     rating: number;
     // роли пользователя

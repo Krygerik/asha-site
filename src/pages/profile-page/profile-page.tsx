@@ -4,7 +4,7 @@ import {Grid, Header, Loader, Message, Segment} from "semantic-ui-react";
 import {Page} from "../../modules/page";
 import {DictionaryHero} from "../../modules/dictionary-hero";
 import {TProfilePageConnectedProps, withProfilePageConnector} from "./profile-page-connector";
-import {ProfilePageEditProfile} from "./profile-page-edit-profile";
+import { ProfilePageEditProfile } from "./profile-page-edit-profile";
 import { ProfilePageViewProfile } from "./profile-page-view-profile";
 
 /**
@@ -65,6 +65,7 @@ const ProfilePage = React.memo((props: TProfilePageConnectedProps) => {
                                 isEditable
                                     ? (
                                         <ProfilePageEditProfile
+                                            activeUserIsAdmin={props.activeUserIsAdmin}
                                             initialValues={props.editProfileInitialValues}
                                             profileId={props.profileData._id}
                                             setEditableStatus={setEditableStatus}
