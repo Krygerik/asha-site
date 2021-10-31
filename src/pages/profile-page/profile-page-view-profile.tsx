@@ -8,6 +8,8 @@ import {
     PERSONAL_TABLE_CONFIG,
     PRIVATE_TABLE_CONFIG,
 } from "./profile-page-constants";
+import {createRequest} from "../../utils/create-request";
+import {useHistory} from "react-router-dom";
 
 type TProps = {
     activeUserIsAdmin: boolean;
@@ -19,37 +21,63 @@ type TProps = {
 /**
  * Данные профиля в режиме просмотра
  */
-export const ProfilePageViewProfile = React.memo((props: TProps) => (
-    <>
-        {
-            (props.isProfileOfTheCurrentUser || props.activeUserIsAdmin) && (
-                <ProfilePageTableSegment
-                    header="Приватные данные"
-                    tableConfig={PRIVATE_TABLE_CONFIG}
-                    tableData={pick(props.profileData, ['email'])}
-                />
-            )
-        }
-        <ProfilePageTableSegment
-            header="Личные данные"
-            tableConfig={PERSONAL_TABLE_CONFIG}
-            tableData={pick(props.profileData, ['discord'])}
-        />
-        <ProfilePageTableSegment
-            header="Игровые данные"
-            tableConfig={GAME_INFO_TABLE_CONFIG}
-            tableData={pick(props.profileData, ['nickname', 'rating', 'original_rating', 'roles', 'tournaments'])}
-        />
-        {
-            (props.isProfileOfTheCurrentUser || props.activeUserIsAdmin) && (
-                <Button
-                    color='blue'
-                    content="Изменить"
-                    onClick={() => props.setEditableStatus(true)}
-                    size='large'
-                    type="button"
-                />
-            )
-        }
-    </>
-));
+export const ProfilePageViewProfile = React.memo((props: TProps) => {
+    const history = useHistory();
+
+    const handleDeletePlayer = async () => {
+        await createRequest().post(
+            '/auth/delete-user',
+            {
+                id: props.profileData._id,
+            }
+        );
+
+        history.go(0);
+    }
+
+    return (
+        <>
+            {
+                (props.isProfileOfTheCurrentUser || props.activeUserIsAdmin) && (
+                    <ProfilePageTableSegment
+                        header="Приватные данные"
+                        tableConfig={PRIVATE_TABLE_CONFIG}
+                        tableData={pick(props.profileData, ['email'])}
+                    />
+                )
+            }
+            <ProfilePageTableSegment
+                header="Личные данные"
+                tableConfig={PERSONAL_TABLE_CONFIG}
+                tableData={pick(props.profileData, ['discord'])}
+            />
+            <ProfilePageTableSegment
+                header="Игровые данные"
+                tableConfig={GAME_INFO_TABLE_CONFIG}
+                tableData={pick(props.profileData, ['nickname', 'rating', 'original_rating', 'roles', 'tournaments'])}
+            />
+            {
+                (props.isProfileOfTheCurrentUser || props.activeUserIsAdmin) && (
+                    <Button
+                        color='blue'
+                        content="Изменить"
+                        onClick={() => props.setEditableStatus(true)}
+                        size='large'
+                        type="button"
+                    />
+                )
+            }
+            {
+                props.activeUserIsAdmin && (
+                    <Button
+                        color='red'
+                        content="Удалить"
+                        onClick={handleDeletePlayer}
+                        size='large'
+                        type="button"
+                    />
+                )
+            }
+        </>
+    )
+});
