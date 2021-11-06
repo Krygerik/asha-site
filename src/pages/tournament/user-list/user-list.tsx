@@ -28,10 +28,15 @@ const UserListComponent = React.memo((props: TProps) => {
     /**
      * Обобщенный конструктор запросов для регистрации/снятии реги с турнира
      */
-    const requestCreator = (url: string) => {
+    const requestCreator = (url: string, user_id?: string) => {
         setLoadingStatus(true);
         createRequest()
-            .post(url, { tournament_id: props.tournamentId })
+            .post(url, {
+                tournament_id: props.tournamentId,
+                ...user_id
+                    ? { user_id }
+                    : {}
+            })
             .then(() => props.refreshPage())
             .catch(e => {
                 console.log(e?.response?.data?.MESSAGE || e.toString())
@@ -120,6 +125,13 @@ const UserListComponent = React.memo((props: TProps) => {
                                 <Table.HeaderCell
                                     content="Дискорд"
                                 />
+                                {
+                                    props.activeUserIsAdmin && props.tournamentStarted && !props.tournamentEnded && (
+                                        <Table.HeaderCell
+                                            content="Управление"
+                                        />
+                                    )
+                                }
                             </Table.Row>
                         </Table.Header>
                         <Table.Body>
@@ -138,6 +150,18 @@ const UserListComponent = React.memo((props: TProps) => {
                                         <Table.Cell
                                             content={props.mapUsersIdToUserInfo[id]?.discord}
                                         />
+                                        {
+                                            props.activeUserIsAdmin && props.tournamentStarted && !props.tournamentEnded && (
+                                                <Table.Cell width={4}>
+                                                    <Button
+                                                        color="red"
+                                                        content="Тех. поражение"
+                                                        fluid
+                                                        onClick={() => requestCreator('/tournament/leave', id)}
+                                                    />
+                                                </Table.Cell>
+                                            )
+                                        }
                                     </Table.Row>
                                 )
                             )}
