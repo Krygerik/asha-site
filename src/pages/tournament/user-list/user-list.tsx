@@ -157,7 +157,7 @@ const UserListComponent = React.memo((props: TProps) => {
                                                         color="red"
                                                         content="Тех. поражение"
                                                         fluid
-                                                        onClick={() => requestCreator('/tournament/leave', id)}
+                                                        onClick={() => requestCreator('/tournament/set-tech-lose', id)}
                                                     />
                                                 </Table.Cell>
                                             )
