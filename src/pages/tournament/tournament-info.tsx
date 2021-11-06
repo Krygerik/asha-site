@@ -51,6 +51,7 @@ const TournamentInfoComponent = React.memo((props: TProps) => (
         <UserList
             mapUsersIdToUserInfo={props.data.mapUsersIdToUserInfo}
             refreshPage={props.refreshData}
+            tournamentEnded={Boolean(props.data.winner_id)}
             tournamentId={props.data._id}
             tournamentStarted={props.data.started}
             userIdList={props.data.users}

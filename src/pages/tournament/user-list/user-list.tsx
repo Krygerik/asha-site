@@ -8,6 +8,7 @@ import {TWithUserListConnectedProps, withUserListConnector} from "./user-list-co
 type TProps = {
     mapUsersIdToUserInfo: Record<string, TTournamentParticipant>;
     refreshPage: Function;
+    tournamentEnded: boolean;
     tournamentId: string;
     tournamentStarted: boolean;
     userIdList: string[];
@@ -32,7 +33,10 @@ const UserListComponent = React.memo((props: TProps) => {
         createRequest()
             .post(url, { tournament_id: props.tournamentId })
             .then(() => props.refreshPage())
-            .catch(e => console.log(e?.response?.data?.MESSAGE || e.toString()))
+            .catch(e => {
+                console.log(e?.response?.data?.MESSAGE || e.toString())
+                props.refreshPage()
+            })
     }
 
     /**
@@ -55,7 +59,7 @@ const UserListComponent = React.memo((props: TProps) => {
                         />
                     </Grid.Column>
                     {
-                        props.activeUserId && !props.tournamentStarted && (
+                        props.activeUserId && !props.tournamentStarted && !props.tournamentEnded && (
                             <Grid.Column width={4} floated="right">
                                 {
                                     userIsParticipant
@@ -76,6 +80,18 @@ const UserListComponent = React.memo((props: TProps) => {
                                             />
                                         )
                                 }
+                            </Grid.Column>
+                        )
+                    }
+                    {
+                        props.tournamentStarted && userIsParticipant && !props.tournamentEnded && (
+                            <Grid.Column width={4} floated="right">
+                                <Button
+                                    color="red"
+                                    content="Сняться с турнира"
+                                    fluid
+                                    onClick={handleClickLeaveFromTournament}
+                                />
                             </Grid.Column>
                         )
                     }
