@@ -1,15 +1,16 @@
 import * as React from "react";
-import { pick } from "lodash";
+import {useHistory} from "react-router-dom";
+import {noop, pick } from "lodash";
 import {Button} from "semantic-ui-react";
+import {createRequest} from "../../utils/create-request";
 import {TProfile} from "../../modules/profile/profile-types";
+import {SimpleModalContext} from "../../modules/simple-modal";
 import { ProfilePageTableSegment } from "./profile-page-table-segment";
 import {
     GAME_INFO_TABLE_CONFIG,
     PERSONAL_TABLE_CONFIG,
     PRIVATE_TABLE_CONFIG,
 } from "./profile-page-constants";
-import {createRequest} from "../../utils/create-request";
-import {useHistory} from "react-router-dom";
 
 type TProps = {
     activeUserIsAdmin: boolean;
@@ -23,8 +24,12 @@ type TProps = {
  */
 export const ProfilePageViewProfile = React.memo((props: TProps) => {
     const history = useHistory();
+    const { showSimpleModal } = React.useContext(SimpleModalContext);
 
-    const handleDeletePlayer = async () => {
+    /**
+     * Запрос на удаление пользователя
+     */
+    const requestDeleteUser = async () => {
         await createRequest().post(
             '/auth/delete-user',
             {
@@ -33,6 +38,18 @@ export const ProfilePageViewProfile = React.memo((props: TProps) => {
         );
 
         history.go(0);
+    }
+
+    /**
+     * Обработчик клика на кнопку "Удаление пользователя"
+     */
+    const handleClickDeleteUser = () => {
+        showSimpleModal({
+            handleClickNo: noop,
+            handleClickYes: requestDeleteUser,
+            message: `Пользователь "${props.profileData.nickname}" будет удален, вы хотите продолжить?`,
+            title: 'Удаление пользователя'
+        });
     }
 
     return (
@@ -72,7 +89,7 @@ export const ProfilePageViewProfile = React.memo((props: TProps) => {
                     <Button
                         color='red'
                         content="Удалить"
-                        onClick={handleDeletePlayer}
+                        onClick={handleClickDeleteUser}
                         size='large'
                         type="button"
                     />
