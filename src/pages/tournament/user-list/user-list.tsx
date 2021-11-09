@@ -1,7 +1,9 @@
+import { noop } from "lodash";
 import * as React from "react";
 import {Button, Divider, Grid, Header, Segment, Table} from "semantic-ui-react";
 import {UserLink} from "../../../components/user-link";
 import {createRequest} from "../../../utils/create-request";
+import {SimpleModalContext} from "../../../modules/simple-modal";
 import {TTournamentParticipant} from "../tournament-page-types";
 import {TWithUserListConnectedProps, withUserListConnector} from "./user-list-connector";
 
@@ -19,6 +21,7 @@ type TProps = {
  */
 const UserListComponent = React.memo((props: TProps) => {
     const [loading, setLoadingStatus] = React.useState(false);
+    const { showSimpleModal } = React.useContext(SimpleModalContext);
 
     /**
      * Текущий пользователь - участник
@@ -47,12 +50,44 @@ const UserListComponent = React.memo((props: TProps) => {
     /**
      * Обработчик нажатия "Зарегистрироваться в турнире"
      */
-    const handleClickJoinToTournament = () => requestCreator('/tournament/register');
+    const handleClickJoinToTournament = () => {
+        showSimpleModal({
+            handleClickNo: noop,
+            handleClickYes: () => requestCreator('/tournament/register'),
+            isPositive: true,
+            message: 'Вы уверены, что хотите принять участие в турнире?',
+            title: 'Регистрация на турнир',
+        });
+    }
 
     /**
      * Обработчик нажатия "Отменить регистрацию"
      */
-    const handleClickLeaveFromTournament = () => requestCreator('/tournament/leave')
+    const handleClickLeaveFromTournament = () => {
+        showSimpleModal({
+            handleClickNo: noop,
+            handleClickYes: () => requestCreator('/tournament/leave'),
+            message: props.tournamentStarted
+                ? 'Вы уверены, что хотите сдаться? Вернуться в турнир уже будет невозможно'
+                : 'Вы уверены, что хотите отменить регистрацию на турнир?',
+            title: props.tournamentStarted
+                ? 'Снятие кандидатуры игрока с турнира'
+                : 'Отмена регистрации игрока',
+        });
+    }
+
+    /**
+     * Обработчик нажатия "Выдать пользователю техническое поражение"
+     */
+    const handleClickSetParticipantTechnicalLoseButton = (participantId: string) => () => {
+        showSimpleModal({
+            title: 'Выставление игроку технического поражения',
+            message: `Игроку ${props.mapUsersIdToUserInfo[participantId]?.nickname} будет проставлено техническое поражение.
+             Вы уверены, что хотите продолжить?`,
+            handleClickNo: noop,
+            handleClickYes: () => requestCreator('/tournament/set-tech-lose', participantId),
+        });
+    }
 
     return (
         <Segment loading={loading}>
@@ -157,7 +192,7 @@ const UserListComponent = React.memo((props: TProps) => {
                                                         color="red"
                                                         content="Тех. поражение"
                                                         fluid
-                                                        onClick={() => requestCreator('/tournament/set-tech-lose', id)}
+                                                        onClick={handleClickSetParticipantTechnicalLoseButton(id)}
                                                     />
                                                 </Table.Cell>
                                             )

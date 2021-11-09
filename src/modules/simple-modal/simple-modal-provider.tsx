@@ -47,12 +47,12 @@ export const SimpleModalProvider = ({ children }: { children: React.ReactChild})
                     <Button
                         content="Отмена"
                         onClick={handleClickCancel}
-                        positive
+                        {...modalContent.isPositive ? { negative: true } : { positive: true }}
                     />
                     <Button
                         content="Продолжить"
-                        negative
                         onClick={handleClickContinue}
+                        {...modalContent.isPositive ? { positive: true } : { negative: true }}
                     />
                 </Modal.Actions>
             </Modal>

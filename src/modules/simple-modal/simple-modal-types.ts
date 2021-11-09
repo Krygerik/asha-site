@@ -11,4 +11,6 @@ export type TShowSimpleModalArgs = {
     message: string;
     // Заголовок модального окна
     title: string;
+    // Исход модалки позитивный
+    isPositive?: boolean;
 }
