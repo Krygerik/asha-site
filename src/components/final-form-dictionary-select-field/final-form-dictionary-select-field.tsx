@@ -11,6 +11,8 @@ type TProps = {
     dictionary: EDictionaryName;
     filter?: (item: TCommonDictionaryRecord) => boolean;
     fluid?: boolean;
+    // Если это словарь неигровых значений
+    isAshaDictionary?: boolean;
     label?: string;
     name: string;
     onChange?: any;
@@ -29,12 +31,19 @@ export const FinalFormDictionarySelectField = (props: TProps) => {
         dictionaryRecords = dictionaryRecords.filter(props.filter);
     }
 
-    const options: DropdownItemProps[] = dictionaryRecords
-        .map((record: TCommonDictionaryRecord) => ({
-            key: record.game_id[0],
-            text: getLocalizeDictionaryValueByGameId(props.dictionary, record.game_id[0]),
-            value: record.game_id[0],
-        }));
+    const options: DropdownItemProps[] = props.isAshaDictionary
+        ? dictionaryRecords
+            .map((record: any) => ({
+                key: record.value,
+                text: record.value,
+                value: record.value,
+            }))
+        : dictionaryRecords
+            .map((record: TCommonDictionaryRecord) => ({
+                key: record.game_id[0],
+                text: getLocalizeDictionaryValueByGameId(props.dictionary, record.game_id[0]),
+                value: record.game_id[0],
+            }));
 
     return (
         <Field

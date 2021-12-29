@@ -1,5 +1,5 @@
 import {MAP_FILTERS_NAME_TO_LABEL} from "./statistics-page-constants";
-import {EFiltersName, EMapVersionValues} from "./statistics-page-types";
+import {EFiltersName} from "./statistics-page-types";
 
 /**
  * Все опции выпадающего списка для выбора фильтров
@@ -28,14 +28,3 @@ export const gameFiltersOption = [
         value: EFiltersName.MapVersion,
     }
 ]
-
-/**
- * Опции выпадающего списка "Версия карты"
- */
-export const mapVersionFilterOption = Object.values(EMapVersionValues)
-    // @ts-ignore
-    .map((mapVersion: EMapVersionValues) => ({
-        key: mapVersion,
-        text: mapVersion,
-        value: mapVersion,
-    }))

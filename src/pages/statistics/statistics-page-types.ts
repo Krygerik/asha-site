@@ -159,17 +159,7 @@ export type TPlayerFilterFields = {
 /**
  * Перечисление всех возможных значений версий карты
  */
-export enum EMapVersionValues {
-    "1.21.0.7" = "1.21.0.7",
-    "1.21.0.8" = "1.21.0.8",
-    "1.21.1.1" = "1.21.1.1",
-    "1.21.1.2" = "1.21.1.2",
-    "1.21.1.3" = "1.21.1.3",
-    "1.21.1.4" = "1.21.1.4",
-    "1.21.2.1" = "1.21.2.1",
-    "1.21.2.100" = "1.21.2.100",
-    "1.22.1" = "1.22.1",
-}
+export type TMapVersionValue = string;
 
 /**
  * Тип фильтра в запросе статистик по расам
@@ -180,5 +170,5 @@ export type TFetchStatisticsRequestFilter = {
     // Процент оставшейся силы армии
     percentage_of_army_left?: TComparisonField;
     // Версия карты
-    map_version?: EMapVersionValues;
+    map_version?: TMapVersionValue;
 }

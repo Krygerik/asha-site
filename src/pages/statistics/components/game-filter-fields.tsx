@@ -3,7 +3,7 @@ import {FieldArray} from "react-final-form-arrays";
 import {Button, Grid, Icon} from "semantic-ui-react";
 import {FinalFormSelectField} from "../../../components/final-form-select-field";
 import {EFilterSectionsName, TFilterStatisticsFormValues} from "../statistics-page-types";
-import {gameFiltersOption, mapVersionFilterOption} from "../statistics-page-utils";
+import {gameFiltersOption} from "../statistics-page-utils";
 import {MAP_FILTER_NAMES_TO_FIELD_DATA} from "../statistics-page-constants";
 
 type TProps = {
@@ -44,7 +44,6 @@ export const GameFilterFields = React.memo((props: TProps) => (
                                                     {...staticProps}
                                                     label="Значение"
                                                     name={`${name}.value`}
-                                                    options={mapVersionFilterOption}
                                                 />
                                             }
                                         </Grid.Column>

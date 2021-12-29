@@ -239,9 +239,11 @@ export const MAP_FILTER_NAMES_TO_FIELD_DATA = {
         staticProps: {}
     },
     [EFiltersName.MapVersion]: {
-        Component: FinalFormSelectField,
+        Component: FinalFormDictionarySelectField,
         staticProps: {
+            dictionary: EDictionaryName.MapVersions,
             fluid: true,
+            isAshaDictionary: true,
             search: true,
         }
     },

@@ -2,7 +2,7 @@ import { debounce, flow } from "lodash";
 import {find, get, getOr} from "lodash/fp";
 import * as React from "react";
 import {createRequest} from "../../utils/create-request";
-import {EDictionaryName, recordNotFound} from "./dictionary-constants";
+import {ASHA_DICTIONARIES, EDictionaryName, recordNotFound} from "./dictionary-constants";
 import {ERacesIds, TCommonDictionaryRecord, TDictionaryContext} from "./dictionary-types";
 
 /**
@@ -56,6 +56,13 @@ export const DictionaryProvider = ({ children }: { children: React.ReactChild}) 
         dictName: EDictionaryName
     ) => {
         const records = get(dictName)(dictionaries);
+
+        /**
+         * Если внутренний словарь асхи, то не морочимся с локализацией
+         */
+        if (ASHA_DICTIONARIES.includes(dictName)) {
+            return records;
+        }
 
         return records.map((record: any) => {
             if (typeof record.localize_name === 'string') {
