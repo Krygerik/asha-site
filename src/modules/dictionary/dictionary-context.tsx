@@ -26,15 +26,27 @@ export const DictionaryProvider = ({ children }: { children: React.ReactChild}) 
     /**
      * Загрузка справочников по дебаунсу
      */
-    const fetchDictionaries = debounce(() => {
+    const fetchDictionaries = debounce(async () => {
         if (!isFetching) {
             setFetchingStatus(true);
 
-            createRequest()
-                .get(`/get-dictionaries`)
-                .then((response) => setDictionaries(response.data.DATA))
-                .catch(() => setErrorFetchingStatus(true))
-                .finally(() => setFetchingStatus(false))
+            try {
+                const gameDictionaries = await createRequest()
+                    .get(`/get-dictionaries`)
+
+                const ashaDictionaries = await createRequest()
+                    .get(`/get-asha-dictionaries`)
+
+                setDictionaries({
+                    ...gameDictionaries.data.DATA,
+                    ...ashaDictionaries.data.DATA,
+                });
+            } catch (e) {
+                console.error(e);
+                setErrorFetchingStatus(true)
+            } finally {
+                setFetchingStatus(false)
+            }
         }
     }, 100);
 
