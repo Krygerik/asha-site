@@ -1,13 +1,21 @@
 import {createRequest} from "../../utils/create-request";
+import {removeToken, setToken } from "../../utils/token-utils";
 import {
     REMOVE_PROFILE_DATA,
     SET_ERROR_FETCH_PROFILE,
+    SET_FETCHING_STATUS,
     SET_PROFILE,
     TLoginRequestData,
     TProfile,
     TRegistrationRequestData,
+    TSetFetchingStatusAction,
     TSetProfileAction,
 } from "./profile-types";
+
+const setFetchingStatus = (data: boolean): TSetFetchingStatusAction => ({
+    type: SET_FETCHING_STATUS,
+    data,
+});
 
 const setProfile = (data: TProfile): TSetProfileAction => ({
     type: SET_PROFILE,
@@ -29,7 +37,7 @@ export const login = async (values: TLoginRequestData) => {
     try {
         const authResponse = await createRequest().post('/auth/login', values);
 
-        localStorage.setItem('token', authResponse.data.DATA.token);
+        setToken(authResponse.data.DATA.token);
     } catch (e) {
         throw new Error(e.response?.data?.MESSAGE || e);
     }
@@ -52,7 +60,7 @@ export const registration = async (values: TRegistrationRequestData) => {
 export const removeProfileData = () => (
     dispatch: any
 ) => {
-    localStorage.removeItem('token');
+    removeToken();
     dispatch(removeProfile);
 }
 
@@ -69,6 +77,7 @@ export const fetchProfile = () => async (
     dispatch: any
 ) => {
     try {
+        dispatch(setFetchingStatus(true));
         const response = await createRequest().get('/auth/get-profile');
 
         dispatch(setProfile(response.data.DATA));
@@ -78,5 +87,7 @@ export const fetchProfile = () => async (
         }
 
         dispatch(setErrorFetchProfile);
+    } finally {
+        dispatch(setFetchingStatus(false));
     }
 }

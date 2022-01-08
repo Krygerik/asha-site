@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
+import { getToken } from "./token-utils";
 
 /**
  * Конструктор запросов
@@ -8,7 +9,7 @@ export const createRequest = () => {
         baseURL: process.env.REACT_APP_API_URL,
     };
 
-    const token = localStorage.getItem('token');
+    const token = getToken();
 
     if (token) {
         option.headers = {

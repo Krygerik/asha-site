@@ -1,9 +1,10 @@
-import {Button, Dropdown, Header, Loader, Menu, Message} from "semantic-ui-react";
 import * as React from "react";
+import { useHistory } from "react-router-dom";
+import {Button, Dropdown, Header, Loader, Menu, Message} from "semantic-ui-react";
+import { getToken } from "../../utils/token-utils";
 import {TProfileConnectedProps, withProfileConnector} from "./profile-connector";
 import {AuthorizationModal} from "./modals/authorization-modal";
 import {RegistrationModal} from "./modals/registration";
-import { useHistory } from "react-router-dom";
 
 type TProps = TProfileConnectedProps;
 
@@ -13,6 +14,7 @@ type TProps = TProfileConnectedProps;
 const Profile = React.memo((props: TProps) => {
     const [isOpenRegModal, setRegModalOpenStatus] = React.useState(false);
     const [isOpenAuthModal, setAuthModalOpenStatus] = React.useState(false);
+    const token = getToken();
 
     const history = useHistory();
 
@@ -35,7 +37,7 @@ const Profile = React.memo((props: TProps) => {
      * Запрос профиля
      */
     React.useEffect(() => {
-        if (!props.profile) {
+        if (token && !props.profile) {
             props.fetchProfile();
         }
     }, []);
@@ -50,9 +52,8 @@ const Profile = React.memo((props: TProps) => {
             </Menu.Item>
         );
     }
-
     if (props.isFetchingStatus) {
-       return <Loader active inline="centered" size="large" />;
+        return <Loader active inline="centered" size="large" />;
     }
 
     return (

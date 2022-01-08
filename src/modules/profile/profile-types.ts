@@ -83,4 +83,14 @@ export type TRemoveProfileDataAction = {
     type: typeof REMOVE_PROFILE_DATA;
 }
 
-export type TProfileActions = TSetProfileAction | TSetErrorFetchProfileAction | TRemoveProfileDataAction;
+export const SET_FETCHING_STATUS = 'SET_FETCHING_STATUS';
+
+export type TSetFetchingStatusAction = {
+    type: typeof SET_FETCHING_STATUS;
+    data: boolean;
+}
+
+export type TProfileActions = TSetProfileAction
+    | TSetErrorFetchProfileAction
+    | TRemoveProfileDataAction
+    | TSetFetchingStatusAction;
