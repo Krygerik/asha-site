@@ -8,6 +8,7 @@ import {
     TLoginRequestData,
     TProfile,
     TRegistrationRequestData,
+    TSetErrorFetchProfileAction,
     TSetFetchingStatusAction,
     TSetProfileAction,
 } from "./profile-types";
@@ -22,8 +23,9 @@ const setProfile = (data: TProfile): TSetProfileAction => ({
     data,
 });
 
-const setErrorFetchProfile = ({
+const setErrorFetchProfile = (data: string): TSetErrorFetchProfileAction => ({
     type: SET_ERROR_FETCH_PROFILE,
+    data,
 });
 
 const removeProfile = ({
@@ -64,11 +66,7 @@ export const removeProfileData = () => (
     dispatch(removeProfile);
 }
 
-const ERROR_MESSAGES = [
-    'Пользователь не авторизован',
-    'Действите токена истекло',
-    'Пользователь не найден'
-]
+const TOKEN_EXPIRED_ERROR = 'TokenExpiredError';
 
 /**
  * Запрос профиля для авторизованного пользователя
@@ -82,11 +80,14 @@ export const fetchProfile = () => async (
 
         dispatch(setProfile(response.data.DATA));
     } catch (error) {
-        if (ERROR_MESSAGES.includes(error.response?.data?.MESSAGE)) {
-            return dispatch(setProfile(error.response?.data?.DATA));
+        /**
+         * Если токен истек
+         */
+        if (error.response?.data?.DATA?.error?.name === TOKEN_EXPIRED_ERROR) {
+            return removeToken();
         }
 
-        dispatch(setErrorFetchProfile);
+        dispatch(setErrorFetchProfile((error.response?.data?.MESSAGE)));
     } finally {
         dispatch(setFetchingStatus(false));
     }

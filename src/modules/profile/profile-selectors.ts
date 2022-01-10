@@ -6,11 +6,11 @@ import {ERoles, PROFILE_NAMESPACE, TProfile} from "./profile-types";
 const getProfileState = get(PROFILE_NAMESPACE);
 
 /**
- * Статус загрузки данных из сервера
+ * Текст ошибки при получении профиля
  */
-export const getIsErrorFetchingStatus: Selector<any, boolean> = createSelector(
+export const getErrorMessage: Selector<any, string> = createSelector(
     getProfileState,
-    get('error')
+    get('errorMessage')
 );
 
 /**

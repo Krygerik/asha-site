@@ -1,6 +1,7 @@
 import {
     REMOVE_PROFILE_DATA,
-    SET_ERROR_FETCH_PROFILE, SET_FETCHING_STATUS,
+    SET_ERROR_FETCH_PROFILE,
+    SET_FETCHING_STATUS,
     SET_PROFILE,
     TProfileActions,
     TProfileState
@@ -8,7 +9,7 @@ import {
 
 const initialState = {
     data: null,
-    error: false,
+    errorMessage: null,
     isFetching: false,
 };
 
@@ -32,7 +33,7 @@ export const profileReducer = (
     if (action.type === SET_ERROR_FETCH_PROFILE) {
         return {
             ...state,
-            error: true,
+            errorMessage: action.data,
         }
     }
 

@@ -60,7 +60,7 @@ export type TRegistrationRequestData = {
 
 export type TProfileState = {
     data: TProfile | null;
-    error: boolean;
+    errorMessage: string | null;
     isFetching: boolean;
 }
 
@@ -75,6 +75,7 @@ export const SET_ERROR_FETCH_PROFILE = 'SET_ERROR_FETCH_PROFILE';
 
 export type TSetErrorFetchProfileAction = {
     type: typeof SET_ERROR_FETCH_PROFILE;
+    data: string;
 }
 
 export const REMOVE_PROFILE_DATA = 'REMOVE_PROFILE_DATA';

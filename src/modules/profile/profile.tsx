@@ -42,12 +42,12 @@ const Profile = React.memo((props: TProps) => {
         }
     }, []);
 
-    if (props.isErrorFetch) {
+    if (props.errorMessage) {
         return (
             <Menu.Item position="right">
                 <Message
                     color="red"
-                    content="Ошибка при запросе профиля"
+                    content={props.errorMessage}
                 />
             </Menu.Item>
         );
