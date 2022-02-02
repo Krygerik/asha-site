@@ -12,6 +12,7 @@ import {
 } from "../profile-page-constants";
 import {TProfilePageData} from "../profile-page-types";
 import { ProfilePageMergingAccounts } from "./profile-page-merging-accounts";
+import { ProfilePageGettingClientId } from "./profile-page-getting-client-id";
 
 type TProps = {
     activeUserIsAdmin: boolean;
@@ -88,6 +89,11 @@ export const ProfilePageViewProfile = React.memo((
                     <ProfilePageMergingAccounts
                         id={profileData?._id}
                     />
+                )
+            }
+            {
+                isProfileOfTheCurrentUser && (
+                    <ProfilePageGettingClientId />
                 )
             }
             <ProfilePageTableSegment
