@@ -1,8 +1,12 @@
 import { get, pick } from "lodash/fp";
 import { createSelector } from "reselect";
-import {PROFILE_PAGE_NAMESPACE, TEditProfileInitialValues, TProfilePageState} from "./profile-page-types";
+import {
+    PROFILE_PAGE_NAMESPACE,
+    TEditProfileInitialValues,
+    TProfilePageData,
+    TProfilePageState,
+} from "./profile-page-types";
 import {Selector} from "react-redux";
-import {TProfile} from "../../modules/profile/profile-types";
 import {getActiveUserId} from "../../modules/profile";
 
 /**
@@ -48,22 +52,38 @@ export const getErrorMessage: Selector<any, string | undefined> = createSelector
 /**
  * Запрошенные данные открытого профиля
  */
-const getFetchedData: Selector<any, TProfile> = createSelector(
+const getFetchedData: Selector<any, TProfilePageData | null> = createSelector(
     getProfilePageState,
     get('data'),
 );
 
 /**
+ * Ник просматриваемого игрока
+ */
+export const getProfilePageNickname: Selector<any, string | null> = createSelector(
+    getFetchedData,
+    (profile: TProfilePageData | null) => {
+        if (!profile) return null;
+
+        return profile.nickname || `${profile?.username}#${profile?.discriminator}`;
+    },
+);
+
+/**
  * Данные профиля открытого пользователя
  */
-export const getProfilePageData: Selector<any, TProfile> = createSelector(
+export const getProfilePageData: Selector<any, TProfilePageData | null> = createSelector(
     getFetchedData,
-    (fetchedData: TProfile) => ({
-        ...fetchedData,
-        tournaments: fetchedData?.tournaments?.map(
-            (tourId: string) => fetchedData?.mapTournamentNameToId[tourId] || "Неизвестный турнир"
-        )
-    }),
+    (fetchedData: TProfilePageData | null) => {
+        if (!fetchedData) return null;
+
+        return ({
+            ...fetchedData,
+            tournaments: fetchedData.tournaments.map(
+                (tourId: string) => fetchedData?.mapTournamentNameToId[tourId] || "Неизвестный турнир"
+            )
+        })
+    },
 );
 
 /**
@@ -73,7 +93,7 @@ export const getIsProfileOfTheCurrentUser: Selector<any, boolean> = createSelect
     getFetchedData,
     getActiveUserId,
     (
-        fetchedData: TProfile,
+        fetchedData: TProfilePageData | null,
         activeUserId: string | undefined
     ) => fetchedData?._id === activeUserId
 );
@@ -84,8 +104,6 @@ export const getIsProfileOfTheCurrentUser: Selector<any, boolean> = createSelect
 export const getEditProfileInitialValues: Selector<any, TEditProfileInitialValues> = createSelector(
     getFetchedData,
     pick([
-        'discord',
-        'email',
         'nickname',
         'original_rating',
     ]),

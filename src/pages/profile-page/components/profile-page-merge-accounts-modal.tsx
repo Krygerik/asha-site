@@ -1,30 +1,28 @@
+import * as React from "react";
+import { useHistory } from "react-router-dom";
 import {hashSync} from "bcryptjs";
 import {FORM_ERROR} from "final-form";
-import {
-    Button,
-    Form as SemanticForm,
-    Header,
-    Message,
-    Modal,
-    Segment
-} from "semantic-ui-react";
-import * as React from "react";
-import {useHistory} from "react-router-dom";
-import {Form} from "react-final-form";
-import {FinalFormInputTextField} from "../../../../components/final-form-input-text-field";
-import {formValidators} from "./authorization-modal-utils";
-import {login} from "../../profile-actions";
+import { Modal, Form as SemanticForm, Header, Segment, Message, Button } from "semantic-ui-react";
+import { Form } from "react-final-form";
+import { FinalFormInputTextField } from "../../../components/final-form-input-text-field";
+import {createRequest} from "../../../utils/create-request";
 
 type TProps = {
+    id: string | undefined;
     open: boolean;
-    setOpen: Function;
+    setOpen: (value: boolean) => void;
 };
 
 /**
- * Модальное окно авторизации пользователя
- * (DRY вышел из чата ^_^)
+ * Модалка авторизации старого аккаунта для слияния аккаунтов
  */
-export const AuthorizationModal = (props: TProps) => {
+export const ProfilePageMergeAccountsModal = React.memo((
+    {
+        id,
+        open,
+        setOpen,
+    }: TProps
+) => {
     const [isLoading, setLoadingStatus] = React.useState(false);
 
     const history = useHistory();
@@ -33,20 +31,29 @@ export const AuthorizationModal = (props: TProps) => {
         try {
             setLoadingStatus(true);
 
-            const requestBody = {
-                email: values.email,
-                hash_password: hashSync(values.password,'$2a$10$m/x6e5Oamg.Iyz80/1s0se'),
-            };
+            if (!id) {
+                return new Error('Отсутствует id профиля');
+            }
 
-            await login(requestBody);
+            const response = await createRequest().post(
+                '/account/merge-accounts',
+                {
+                    id,
+                    email: values.email,
+                    hash_password: hashSync(values.password, process.env.SALT),
+                }
+            );
+
+            console.log('response:', response);
 
             setLoadingStatus(false);
+            history.push(`/profile/${response?.data?.DATA?._id}`);
             history.go(0);
         } catch (error) {
             setLoadingStatus(false);
 
             return {
-                [FORM_ERROR]: error.toString()
+                [FORM_ERROR]: error?.response?.data?.MESSAGE || error.toString()
             }
         }
 
@@ -54,23 +61,22 @@ export const AuthorizationModal = (props: TProps) => {
 
     return (
         <Modal
-            onClose={() => props.setOpen(false)}
-            onOpen={() => props.setOpen(true)}
-            open={props.open}
+            onClose={() => setOpen(false)}
+            onOpen={() => setOpen(true)}
+            open={open}
             size="tiny"
         >
             <Modal.Content>
                 <Form
                     onSubmit={handleSubmit}
                     initialValues={{}}
-                    validate={formValidators}
                     render={({handleSubmit, submitError}) => (
                         <SemanticForm size='large' onSubmit={handleSubmit}>
                             <Header
                                 as='h2'
                                 color='teal'
+                                content="Подтверждение старого аккаунта"
                                 textAlign='center'
-                                content="Авторизация"
                             />
                             <Segment
                                 stacked
@@ -78,13 +84,15 @@ export const AuthorizationModal = (props: TProps) => {
                             >
                                 <FinalFormInputTextField
                                     icon='user'
+                                    label='E-mail адрес'
                                     name="email"
-                                    placeholder='E-mail адрес'
+                                    required
                                 />
                                 <FinalFormInputTextField
                                     icon='lock'
+                                    label='Пароль'
                                     name="password"
-                                    placeholder='Пароль'
+                                    required
                                     type='password'
                                 />
                                 {
@@ -97,8 +105,9 @@ export const AuthorizationModal = (props: TProps) => {
                                 }
                                 <Button
                                     color='teal'
-                                    content="Войти"
+                                    content="Запустить слияние"
                                     fluid
+                                    loading={isLoading}
                                     size='large'
                                     type="submit"
                                 />
@@ -109,4 +118,6 @@ export const AuthorizationModal = (props: TProps) => {
             </Modal.Content>
         </Modal>
     )
-}
+})
+
+ProfilePageMergeAccountsModal.displayName = 'ProfilePageMergeAccountsModal';

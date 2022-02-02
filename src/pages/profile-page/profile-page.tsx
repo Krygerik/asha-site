@@ -4,8 +4,8 @@ import {Grid, Header, Loader, Message, Segment} from "semantic-ui-react";
 import {Page} from "../../modules/page";
 import {DictionaryHero} from "../../modules/dictionary-hero";
 import {TProfilePageConnectedProps, withProfilePageConnector} from "./profile-page-connector";
-import { ProfilePageEditProfile } from "./profile-page-edit-profile";
-import { ProfilePageViewProfile } from "./profile-page-view-profile";
+import { ProfilePageEditProfile } from "./components/profile-page-edit-profile";
+import { ProfilePageViewProfile } from "./components/profile-page-view-profile";
 
 /**
  * Тип параметров урла
@@ -17,7 +17,19 @@ type TParams = {
 /**
  * Страница информации о пользователе
  */
-const ProfilePage = React.memo((props: TProfilePageConnectedProps) => {
+const ProfilePage = React.memo((
+    {
+        activeUserIsAdmin,
+        editProfileInitialValues,
+        errorMessage,
+        fetchPlayerProfile,
+        hasError,
+        isFetching,
+        isProfileOfTheCurrentUser,
+        profileData,
+        profilePageNickname,
+    }: TProfilePageConnectedProps
+) => {
     const { id }: TParams = useParams();
 
     const [isEditable, setEditableStatus] = React.useState(false);
@@ -26,22 +38,22 @@ const ProfilePage = React.memo((props: TProfilePageConnectedProps) => {
      * Запрос данных профиля пользователя, чью страницу открыли
      */
     React.useEffect(() => {
-        props.fetchPlayerProfile(id);
+        fetchPlayerProfile(id);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    if (props.hasError) {
+    if (hasError) {
         return (
             <Page>
                 <Message
                     error
-                    content={props.errorMessage}
+                    content={errorMessage}
                 />
             </Page>
         )
     }
 
-    if (props.isFetching) {
+    if (isFetching) {
         return (
             <Segment>
                 <Loader active inline="centered" size="large"/>
@@ -51,7 +63,7 @@ const ProfilePage = React.memo((props: TProfilePageConnectedProps) => {
 
     return (
         <Page>
-            <Header as="h1" content={`Профиль игрока: ${props.profileData.nickname}`} />
+            <Header as="h1" content={`Профиль игрока: ${profilePageNickname}`} />
             <Segment>
                 <Grid>
                     <Grid.Row>
@@ -65,17 +77,17 @@ const ProfilePage = React.memo((props: TProfilePageConnectedProps) => {
                                 isEditable
                                     ? (
                                         <ProfilePageEditProfile
-                                            activeUserIsAdmin={props.activeUserIsAdmin}
-                                            initialValues={props.editProfileInitialValues}
-                                            profileId={props.profileData._id}
+                                            activeUserIsAdmin={activeUserIsAdmin}
+                                            initialValues={editProfileInitialValues}
+                                            profileId={profileData?._id}
                                             setEditableStatus={setEditableStatus}
                                         />
                                     )
                                     : (
                                         <ProfilePageViewProfile
-                                            activeUserIsAdmin={props.activeUserIsAdmin}
-                                            isProfileOfTheCurrentUser={props.isProfileOfTheCurrentUser}
-                                            profileData={props.profileData}
+                                            activeUserIsAdmin={activeUserIsAdmin}
+                                            isProfileOfTheCurrentUser={isProfileOfTheCurrentUser}
+                                            profileData={profileData}
                                             setEditableStatus={setEditableStatus}
                                         />
                                     )

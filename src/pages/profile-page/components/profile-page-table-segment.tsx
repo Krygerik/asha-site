@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Header, Segment, Table} from "semantic-ui-react";
-import { TTableConfig } from "./profile-page-types";
+import { TTableConfig } from "../profile-page-types";
 
 type TProps = {
     header: string;

@@ -30,7 +30,7 @@ export const fetchPlayerProfile = (id: string) => async (
     dispatch: any
 ) => {
     try {
-        const response = await createRequest().get(`/auth/get-profile/${id}`);
+        const response = await createRequest().get(`/account/get-profile/${id}`);
 
         dispatch(setProfile(response.data.DATA));
     } catch (error) {

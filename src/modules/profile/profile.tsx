@@ -1,32 +1,34 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import {Button, Dropdown, Header, Loader, Menu, Message} from "semantic-ui-react";
-import { getToken } from "../../utils/token-utils";
+import {Button, Dropdown, Header, Icon, Loader, Menu, Message} from "semantic-ui-react";
 import {TProfileConnectedProps, withProfileConnector} from "./profile-connector";
-import {AuthorizationModal} from "./modals/authorization-modal";
-import {RegistrationModal} from "./modals/registration";
 
 type TProps = TProfileConnectedProps;
 
 /**
  * Профиль игрока в шапке
  */
-const Profile = React.memo((props: TProps) => {
-    const [isOpenRegModal, setRegModalOpenStatus] = React.useState(false);
-    const [isOpenAuthModal, setAuthModalOpenStatus] = React.useState(false);
-    const token = getToken();
-
+const Profile = React.memo((
+    {
+        errorMessage,
+        fetchProfile,
+        isFetchingStatus,
+        nickname,
+        profile,
+        removeProfileData,
+    }: TProps
+) => {
     const history = useHistory();
 
     /**
      * Обработчик выхода из аккаунта
      */
-    const handleOnClickLogout = () => props.removeProfileData();
+    const handleOnClickLogout = () => removeProfileData();
 
     /**
      * Обработчик захода в свой профиль
      */
-    const handleClickMyProfile = () => history.push(`/profile/${props.profile?._id}`);
+    const handleClickMyProfile = () => history.push(`/profile/${profile?._id}`);
 
     /**
      * Обработчик перехода на страницу калькулятора инициатив
@@ -34,43 +36,40 @@ const Profile = React.memo((props: TProps) => {
     const handleClickCalculators = () => history.push('/calculators');
 
     /**
+     * Обработчик клика авторизации
+     */
+    const handleClickAuthorization = () => {
+        window.open(process.env.REACT_APP_API_URL + "/account/discord-registration", "_self")
+    }
+
+    /**
      * Запрос профиля
      */
     React.useEffect(() => {
-        if (token && !props.profile) {
-            props.fetchProfile();
-        }
+        fetchProfile();
     }, []);
 
-    if (props.errorMessage) {
+    if (errorMessage) {
         return (
             <Menu.Item position="right">
                 <Message
                     color="red"
-                    content={props.errorMessage}
+                    content={errorMessage}
                 />
             </Menu.Item>
         );
     }
-    if (props.isFetchingStatus) {
+    if (isFetchingStatus) {
         return <Loader active inline="centered" size="large" />;
     }
 
     return (
         <>
-            <AuthorizationModal
-                open={isOpenAuthModal}
-                setOpen={setAuthModalOpenStatus}
-            />
-            <RegistrationModal
-                open={isOpenRegModal}
-                setOpen={setRegModalOpenStatus}
-            />
             {
-                props.profile && (
+                profile && (
                     <Dropdown as={Header} text="Профиль" className='right item'>
                         <Dropdown.Menu>
-                            <Dropdown.Header content={props.profile.nickname} />
+                            <Dropdown.Header content={nickname} />
                             <Dropdown.Divider />
                             <Dropdown.Item
                                 as={'a'}
@@ -96,18 +95,18 @@ const Profile = React.memo((props: TProps) => {
                 )
             }
             {
-                !props.profile && (
+                !profile && (
                     <Menu.Item position="right">
                         <Button
-                            content="Войти"
-                            onClick={() => setAuthModalOpenStatus(true)}
-                        />
-                        <Button
-                            content="Зарегистрироваться"
+                            icon={true}
+                            labelPosition='right'
+                            onClick={handleClickAuthorization}
                             primary
                             style={{ marginLeft: '0.5em' }}
-                            onClick={() => setRegModalOpenStatus(true)}
-                        />
+                        >
+                            Войти
+                            <Icon name='discord' />
+                        </Button>
                     </Menu.Item>
                 )
             }

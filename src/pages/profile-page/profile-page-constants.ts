@@ -8,8 +8,12 @@ export const PRIVATE_TABLE_CONFIG = [
 
 export const PERSONAL_TABLE_CONFIG = [
     {
-        key: "discord",
-        label: "Дискорд",
+        key: "username",
+        label: "Ник в дискорде",
+    },
+    {
+        key: "discriminator",
+        label: "Тег в дискорде",
     },
 ];
 
@@ -39,3 +43,9 @@ export const GAME_INFO_TABLE_CONFIG = [
         label: "Турниры",
     },
 ];
+
+export const MERGING_ACCOUNT_MESSAGE_TEXT = 'Если у вас был аккаунт до изменения системы'
+    + ' авторизации в системе "АСХА", то вы можете произвести слияние старого аккаунта с текущим.'
+    + ' Это позволит не потерять текущий прогресс в личной статистике пользователя.';
+
+export const ACCOUNT_BANNED_WARNING = 'Пользователь заблокирован и не может участвовать в активностях проекта';

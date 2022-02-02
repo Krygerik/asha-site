@@ -9,6 +9,7 @@ import {
     getFetchingStatus,
     getIsProfileOfTheCurrentUser,
     getProfilePageData,
+    getProfilePageNickname,
 } from "./profile-page-selectors";
 
 const mapStateToProps = createStructuredSelector({
@@ -19,6 +20,7 @@ const mapStateToProps = createStructuredSelector({
     isFetching: getFetchingStatus,
     isProfileOfTheCurrentUser: getIsProfileOfTheCurrentUser,
     profileData: getProfilePageData,
+    profilePageNickname: getProfilePageNickname,
 });
 
 const mapDispatchToProps = {
