@@ -40,7 +40,7 @@ export const ProfilePageMergeAccountsModal = React.memo((
                 {
                     id,
                     email: values.email,
-                    hash_password: hashSync(values.password, process.env.SALT),
+                    hash_password: hashSync(values.password, '$2a$10$m/x6e5Oamg.Iyz80/1s0se'),
                 }
             );
 
