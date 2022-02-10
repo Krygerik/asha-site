@@ -11,7 +11,7 @@ export const RatingPage = React.memo(() => (
     <Page>
         <Header as="h1" content='Рейтинг игроков' />
         <PlayerRatingList
-            request={() => createRequest().get('/auth/get-player-rating-list')}
+            request={() => createRequest().get('/account/get-player-rating-list')}
         />
     </Page>
 ));

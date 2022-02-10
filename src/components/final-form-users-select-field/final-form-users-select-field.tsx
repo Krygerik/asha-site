@@ -23,7 +23,7 @@ export const FinalFormUsersSelectField = React.memo((props: TProps) => {
      */
     React.useEffect(() => {
         createRequest()
-            .get('/auth/get-users')
+            .get('/account/get-all-id-with-nicknames')
             .then((response: { data: { DATA: TUserIdWithNickname[] } }) => setUsers(response.data.DATA))
             .finally(() => setLoadingStatus(false));
     }, []);
