@@ -32,7 +32,7 @@ export const TournamentListPage = React.memo(() => {
                         content="+ Создать турнир"
                         onClick={() => setOpen(true)}
                         size="large"
-                        type="btn"
+                        type="button"
                     />
                 </Segment>
             </WithPermissionWrapper>
