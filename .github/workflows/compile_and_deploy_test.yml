@@ -16,7 +16,7 @@ jobs:
       with:
         node-version: '12.x'
     - run: npm install --production
-    - run: REACT_APP_API_URL=${{secrets.TEST_API_URL}} REACT_APP_LOGIN=${{secrets.BASIC_AUTH}} REACT_APP_PASSWORD=${{secrets.BASIC_PASS}} npm run build
+    - run: REACT_APP_API_URL=${{secrets.TEST_API_URL}} npm run build
     - name: Deploy to server
       uses: appleboy/scp-action@master
       with:
@@ -26,5 +26,5 @@ jobs:
         key: ${{secrets.SERVER_SSH_KEY}}
         overwrite: true
         source: build/*
-        target: /var/www/test-hrta-site.com/html/
+        target: /var/www/test-asha.com/html/
         strip_components: 1
