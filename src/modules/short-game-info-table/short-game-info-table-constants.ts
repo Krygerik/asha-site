@@ -1,5 +1,7 @@
 export const SHORT_GAME_INFO_TABLE_NAMESPACE = "@@SHORT_GAME_INFO_LIST";
 
+export const DEFAULT_PAGE_SIZE = 10;
+
 export type TConfigCell = {
     title: string;
     width: 1 | 2;

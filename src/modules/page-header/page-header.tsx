@@ -6,7 +6,6 @@ import {noop} from "lodash";
 import {Profile} from "../profile";
 import {TPageHeaderConnectedProps, withPageHeaderConnector} from "./page-header-connector";
 import {THeaderNavItem} from "./page-header-types";
-import { MapTypeSelect } from "./components";
 
 type TProps = TPageHeaderConnectedProps;
 
@@ -27,7 +26,6 @@ export const PageHeader = React.memo((props: TProps) => {
         <>
             <Menu fixed="top" style={{ height: "5em" }}>
                 <Container>
-                    <MapTypeSelect />
                     {
                         props.headerMenuNavigation.map((item: THeaderNavItem) => (
                             <Menu.Item
