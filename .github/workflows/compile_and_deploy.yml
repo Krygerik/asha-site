@@ -16,7 +16,7 @@ jobs:
       with:
         node-version: '12.x'
     - run: npm install --production
-    - run: REACT_APP_API_URL=${{secrets.API_URL}} PUBLIC_URL=https://asha-heroes.ru npm run build
+    - run: REACT_APP_API_URL=${{secrets.API_URL}} npm run build
     - name: Deploy to server
       uses: appleboy/scp-action@master
       with:
