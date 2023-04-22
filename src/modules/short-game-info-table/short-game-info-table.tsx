@@ -138,7 +138,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                                     // @ts-ignore
                                                     filter={
                                                         values.race
-                                                            ? (item: THeroRecord) => item.race_game_id === values.race
+                                                            ? (item: THeroRecord) => item.race_id === values.race
                                                             : undefined
                                                     }
                                                     label="Герой"
@@ -179,7 +179,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                                     // @ts-ignore
                                                     filter={
                                                         values.race
-                                                            ? (item: THeroRecord) => item.race_game_id === values.race
+                                                            ? (item: THeroRecord) => item.race_id === values.race
                                                             : undefined
                                                     }
                                                     label="Герой"

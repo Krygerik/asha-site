@@ -26,7 +26,7 @@ export const DictionaryHero = React.memo((props: TProps) => {
         return <Message error content={`Не удалось найти героя: ${props.hero}`} />
     }
 
-    const heroRaceName = getLocalizeDictionaryValueByGameId(EDictionaryName.Races, heroRecord.race_game_id);
+    const heroRaceName = getLocalizeDictionaryValueByGameId(EDictionaryName.Races, heroRecord.race_id);
     const heroName = getLocalizeDictionaryValueByGameId(EDictionaryName.Heroes, props.hero);
 
     const heroIcon: string = flow(

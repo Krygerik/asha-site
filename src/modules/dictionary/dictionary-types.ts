@@ -35,7 +35,7 @@ export type THeroRecord = {
     // Локализованное название записи
     localize_name: TLocalization;
     // id расы текущего героя
-    race_game_id: string;
+    race_id: string;
 }
 
 export type TCreatureRecord = {

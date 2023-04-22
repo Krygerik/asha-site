@@ -75,7 +75,7 @@ import {
  * Тип заклинания для отображения
  */
 export type TSpell = {
-    gameId: string[];
+    gameId: string;
     icon: string;
 };
 
@@ -84,335 +84,335 @@ export type TSpell = {
  */
 export const SPELLS: TSpell[] = [
     {
-        gameId: ["ID18"],
+        gameId: "18",
         icon: BerserkIcon,
     },
     {
-        gameId: ["ID278"],
+        gameId: "278",
         icon: VampirismIcon,
     },
     {
-        gameId: ["ID12"],
+        gameId: "12",
         icon: DecelerationIcon,
     },
     {
-        gameId: ["ID212"],
+        gameId: "212",
         icon: DecelerationIcon,
     },
     {
-        gameId: ["ID15"],
+        gameId: "15",
         icon: WeaknessIcon,
     },
     {
-        gameId: ["ID215"],
+        gameId: "215",
         icon: WeaknessIcon,
     },
     {
-        gameId: ["ID11"],
+        gameId: "11",
         icon: WeakeningIcon,
     },
     {
-        gameId: ["ID210"],
+        gameId: "210",
         icon: WeakeningIcon,
     },
     {
-        gameId: ["ID19"],
+        gameId: "19",
         icon: BlindnessIcon,
     },
     {
-        gameId: ["ID20"],
+        gameId: "20",
         icon: SubordinationIcon,
     },
     {
-        gameId: ["ID13"],
+        gameId: "13",
         icon: DestructiveBeamIcon,
     },
     {
-        gameId: ["ID211"],
+        gameId: "211",
         icon: DestructiveBeamIcon,
     },
     {
-        gameId: ["ID17"],
+        gameId: "17",
         icon: DistractionIcon,
     },
     {
-        gameId: ["ID213"],
+        gameId: "213",
         icon: DistractionIcon,
     },
     {
-        gameId: ["ID277"],
+        gameId: "277",
         icon: SorrowIcon,
     },
     {
-        gameId: ["ID14"],
+        gameId: "14",
         icon: PlagueIcon,
     },
     {
-        gameId: ["ID214"],
+        gameId: "214",
         icon: PlagueIcon,
     },
     {
-        gameId: ["ID10"],
+        gameId: "10",
         icon: ArmageddonIcon,
     },
     {
-        gameId: ["ID232"],
+        gameId: "232",
         icon: ArmageddonIcon,
     },
     {
-        gameId: ["ID237"],
+        gameId: "237",
         icon: StoneThornsIcon,
     },
     {
-        gameId: ["ID233"],
+        gameId: "233",
         icon: StoneThornsIcon,
     },
     {
-        gameId: ["ID6"],
+        gameId: "6",
         icon: RingOfColdIcon,
     },
     {
-        gameId: ["ID228"],
+        gameId: "228",
         icon: RingOfColdIcon,
     },
     {
-        gameId: ["ID4"],
+        gameId: "4",
         icon: IceBlockIcon,
     },
     {
-        gameId: ["ID226"],
+        gameId: "226",
         icon: IceBlockIcon,
     },
     {
-        gameId: ["ID1"],
+        gameId: "1",
         icon: MagicArrowIcon,
     },
     {
-        gameId: ["ID223"],
+        gameId: "223",
         icon: MagicArrowIcon,
     },
     {
-        gameId: ["ID8"],
+        gameId: "8",
         icon: MeteorRainIcon,
     },
     {
-        gameId: ["ID230"],
+        gameId: "230",
         icon: MeteorRainIcon,
     },
     {
-        gameId: ["ID3"],
+        gameId: "3",
         icon: LightningIcon,
     },
     {
-        gameId: ["ID225"],
+        gameId: "225",
         icon: LightningIcon,
     },
     {
-        gameId: ["ID5"],
+        gameId: "5",
         icon: FireballIcon,
     },
     {
-        gameId: ["ID227"],
+        gameId: "227",
         icon: FireballIcon,
     },
     {
-        gameId: ["ID279"],
+        gameId: "279",
         icon: StoppingColdIcon,
     },
     {
-        gameId: ["ID285"],
+        gameId: "285",
         icon: StoppingColdIcon,
     },
     {
-        gameId: ["ID236"],
+        gameId: "236",
         icon: WallOfFireIcon,
     },
     {
-        gameId: ["ID7"],
+        gameId: "7",
         icon: LightningChainIcon,
     },
     {
-        gameId: ["ID229"],
+        gameId: "229",
         icon: LightningChainIcon,
     },
     {
-        gameId: ["ID9"],
+        gameId: "9",
         icon: EarthShockIcon,
     },
     {
-        gameId: ["ID31"],
+        gameId: "31",
         icon: AntiMagicIcon,
     },
     {
-        gameId: ["ID23"],
+        gameId: "23",
         icon: DivinePowerIcon,
     },
     {
-        gameId: ["ID216"],
+        gameId: "216",
         icon: DivinePowerIcon,
     },
     {
-        gameId: ["ID48"],
+        gameId: "48",
         icon: ResurrectionIcon,
     },
     {
-        gameId: ["ID25"],
+        gameId: "25",
         icon: StoneSkinIcon,
     },
     {
-        gameId: ["ID218"],
+        gameId: "218",
         icon: StoneSkinIcon,
     },
     {
-        gameId: ["ID28"],
+        gameId: "28",
         icon: PunishingBlowIcon,
     },
     {
-        gameId: ["ID220"],
+        gameId: "220",
         icon: PunishingBlowIcon,
     },
     {
-        gameId: ["ID280"],
+        gameId: "280",
         icon: RegenerationIcon,
     },
     {
-        gameId: ["ID26"],
+        gameId: "26",
         icon: DisenchantmentIcon,
     },
     {
-        gameId: ["ID217"],
+        gameId: "217",
         icon: DisenchantmentIcon,
     },
     {
-        gameId: ["ID32"],
+        gameId: "32",
         icon: TeleportIcon,
     },
     {
-        gameId: ["ID29"],
+        gameId: "29",
         icon: EvasionIcon,
     },
     {
-        gameId: ["ID219"],
+        gameId: "219",
         icon: EvasionIcon,
     },
     {
-        gameId: ["ID24"],
+        gameId: "24",
         icon: AccelerationIcon,
     },
     {
-        gameId: ["ID221"],
+        gameId: "221",
         icon: AccelerationIcon,
     },
     {
-        gameId: ["ID250"],
+        gameId: "250",
         icon: BerserkRuneIcon,
     },
     {
-        gameId: ["ID255"],
+        gameId: "255",
         icon: RuneOfBattleFuryIcon,
     },
     {
-        gameId: ["ID257"],
+        gameId: "257",
         icon: RuneOfResurrectionIcon,
     },
     {
-        gameId: ["ID254"],
+        gameId: "254",
         icon: RuneOfRollingThunderIcon,
     },
     {
-        gameId: ["ID258"],
+        gameId: "258",
         icon: RuneOfDragonFormIcon,
     },
     {
-        gameId: ["ID251"],
+        gameId: "251",
         icon: RuneOfMagicalSupervisionIcon,
     },
     {
-        gameId: ["ID256"],
+        gameId: "256",
         icon: RuneOfIntangibilityIcon,
     },
     {
-        gameId: ["ID253"],
+        gameId: "253",
         icon: RuneOfElementalImmunityIcon,
     },
     {
-        gameId: ["ID252"],
+        gameId: "252",
         icon: RuneOfExorcismIcon,
     },
     {
-        gameId: ["ID249"],
+        gameId: "249",
         icon: RuneOfEnergyIcon,
     },
     {
-        gameId: ["ID294"],
+        gameId: "294",
         icon: BattleCryIcon,
     },
     {
-        gameId: ["ID291"],
+        gameId: "291",
         icon: CallOfBloodIcon,
     },
     {
-        gameId: ["ID293"],
+        gameId: "293",
         icon: FrighteningRoarIcon,
     },
     {
-        gameId: ["ID290"],
+        gameId: "290",
         icon: BuildableCryIcon,
     },
     {
-        gameId: ["ID292"],
+        gameId: "292",
         icon: TheWordOfTheLeaderIcon,
     },
     {
-        gameId: ["ID295"],
+        gameId: "295",
         icon: FuryOfTheHordeIcon,
     },
     {
-        gameId: ["ID2"],
+        gameId: "2",
         icon: MagicFistIcon,
     },
     {
-        gameId: ["ID224"],
+        gameId: "224",
         icon: MagicFistIcon,
     },
     {
-        gameId: ["ID282"],
+        gameId: "282",
         icon: CrystalOfTheSecretIcon,
     },
     {
-        gameId: ["ID34"],
+        gameId: "34",
         icon: HeavenlyShieldIcon,
     },
     {
-        gameId: ["ID38"],
+        gameId: "38",
         icon: FireTrapIcon,
     },
     {
-        gameId: ["ID42"],
+        gameId: "42",
         icon: RaisingTheDeadIcon,
     },
     {
-        gameId: ["ID39"],
+        gameId: "39",
         icon: SummonWaspSwarmIcon,
     },
     {
-        gameId: ["ID283"],
+        gameId: "283",
         icon: SummonTheHiveIcon,
     },
     {
-        gameId: ["ID235"],
+        gameId: "235",
         icon: PhoenixSummonIcon,
     },
     {
-        gameId: ["ID43"],
+        gameId: "43",
         icon: SummonElementalsIcon,
     },
     {
-        gameId: ["ID40"],
+        gameId: "40",
         icon: PhantomCreationIcon,
     },
     {
-        gameId: ["ID284"],
+        gameId: "284",
         icon: WallOfSwordsIcon,
     },
 ];

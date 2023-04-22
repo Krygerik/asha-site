@@ -4,6 +4,6 @@
  */
 export type TPlayerWithRating = {
     _id: string;
-    nickname: string;
+    username: string;
     rating: number;
 };

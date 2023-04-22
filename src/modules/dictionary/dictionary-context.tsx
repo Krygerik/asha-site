@@ -58,7 +58,7 @@ export const DictionaryProvider = ({ children }: { children: React.ReactChild}) 
         gameId: string | ERacesIds
     ) => flow(
         get(dictName),
-        find((record: any) => record.game_id.includes(gameId)),
+        find({ game_id: gameId }),
     )(dictionaries);
 
     /**

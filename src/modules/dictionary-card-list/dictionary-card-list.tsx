@@ -23,8 +23,6 @@ const DictionaryCardList = React.memo((props: TProps) => {
         return null;
     }
 
-    console.log('props.list:', props.list);
-
     return (
         <>
             <Header attached="top" content={mapTypeDictionaryToHeader[props.type]} textAlign="center" block />

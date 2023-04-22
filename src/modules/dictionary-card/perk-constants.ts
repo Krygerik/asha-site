@@ -26,701 +26,701 @@ import * as shatterLight from "../../assets/perks/shatter-light";
 import * as shatterSummoning from "../../assets/perks/shatter-summoning";
 
 export type TPerk = {
-    gameId: string[];
+    gameId: string;
     icon: string;
 };
 
 export const PERKS: TPerk[] = [
     {
-        gameId: ["ID19"],
+        gameId: "19",
         icon: logistics.Pathfinding
     },
     {
-        gameId: ["ID20"],
+        gameId: "20",
         icon: logistics.Scouting
     },
     {
-        gameId: ["ID21"],
+        gameId: "21",
         icon: logistics.Navigation
     },
     {
-        gameId: ["ID22"],
+        gameId: "22",
         icon: warMachines.FirstAid
     },
     {
-        gameId: ["ID23"],
+        gameId: "23",
         icon: warMachines.Ballista
     },
     {
-        gameId: ["ID24"],
+        gameId: "24",
         icon: AmmoCart
     },
     {
-        gameId: ["ID25"],
+        gameId: "25",
         icon: enlightenment.Intelligence
     },
     {
-        gameId: ["ID26"],
+        gameId: "26",
         icon: enlightenment.Scholar
     },
     {
-        gameId: ["ID27"],
+        gameId: "27",
         icon: enlightenment.ArcaneIntuition
     },
     {
-        gameId: ["ID28"],
+        gameId: "28",
         icon: leadership.Recruitment
     },
     {
-        gameId: ["ID29"],
+        gameId: "29",
         icon: leadership.Estates
     },
     {
-        gameId: ["ID30"],
+        gameId: "30",
         icon: leadership.Diplomacy
     },
     {
-        gameId: ["ID31"],
+        gameId: "31",
         icon: luck.MagicResistance
     },
     {
-        gameId: ["ID32"],
+        gameId: "32",
         icon: luck.SoldiersLuck
     },
     {
-        gameId: ["ID33"],
+        gameId: "33",
         icon: luck.Resourcefulness
     },
     {
-        gameId: ["ID34"],
+        gameId: "34",
         icon: attack.Tactics
     },
     {
-        gameId: ["ID35"],
+        gameId: "35",
         icon: attack.Shooting
     },
     {
-        gameId: ["ID36"],
+        gameId: "36",
         icon: attack.BattleFrenzy
     },
     {
-        gameId: ["ID37"],
+        gameId: "37",
         icon: defense.Reflection
     },
     {
-        gameId: ["ID38"],
+        gameId: "38",
         icon: defense.Evasion
     },
     {
-        gameId: ["ID39"],
+        gameId: "39",
         icon: defense.Persistence
     },
     {
-        gameId: ["ID40"],
+        gameId: "40",
         icon: sorcery.ManaRegeneration
     },
     {
-        gameId: ["ID41"],
+        gameId: "41",
         icon: sorcery.MagicInsight
     },
     {
-        gameId: ["ID42"],
+        gameId: "42",
         icon: sorcery.ArcaneTraining
     },
     {
-        gameId: ["ID43"],
+        gameId: "43",
         icon: destructiveMagic.MasterOfIce
     },
     {
-        gameId: ["ID44"],
+        gameId: "44",
         icon: destructiveMagic.MasterOfFire
     },
     {
-        gameId: ["ID45"],
+        gameId: "45",
         icon: destructiveMagic.MasterOfStorms
     },
     {
-        gameId: ["ID46"],
+        gameId: "46",
         icon: darkMagic.MasterOfCurses
     },
     {
-        gameId: ["ID47"],
+        gameId: "47",
         icon: darkMagic.MasterOfMind
     },
     {
-        gameId: ["ID48"],
+        gameId: "48",
         icon: darkMagic.MasterOfPain
     },
     {
-        gameId: ["ID49"],
+        gameId: "49",
         icon: lightMagic.MasterOfBlessings
     },
     {
-        gameId: ["ID50"],
+        gameId: "50",
         icon: lightMagic.MasterOfAbjuration
     },
     {
-        gameId: ["ID51"],
+        gameId: "51",
         icon: lightMagic.MasterOfWrath
     },
     {
-        gameId: ["ID52"],
+        gameId: "52",
         icon: summoningMagic.MasterOfEarthblood
     },
     {
-        gameId: ["ID53"],
+        gameId: "53",
         icon: summoningMagic.MasterOfConjuration
     },
     {
-        gameId: ["ID54"],
+        gameId: "54",
         icon: summoningMagic.MasterOfLife
     },
     {
-        gameId: ["ID55"],
+        gameId: "55",
         icon: haven.RetaliationStrike
     },
     {
-        gameId: ["ID56"],
+        gameId: "56",
         icon: haven.Benediction
     },
     {
-        gameId: ["ID57"],
+        gameId: "57",
         icon: haven.ExpertTrainer
     },
     {
-        gameId: ["ID58"],
+        gameId: "58",
         icon: inferno.ConsumeCorpse
     },
     {
-        gameId: ["ID59"],
+        gameId: "59",
         icon: inferno.Hellfire
     },
     {
-        gameId: ["ID60"],
+        gameId: "60",
         icon: inferno.MarkOfTheDamned
     },
     {
-        gameId: ["ID62"],
+        gameId: "62",
         icon: necropolis.EternalServitude
     },
     {
-        gameId: ["ID63"],
+        gameId: "63",
         icon: necropolis.BansheeHowl
     },
     {
-        gameId: ["ID64"],
+        gameId: "64",
         icon: sylvan.ShowerOfArrows
     },
     {
-        gameId: ["ID66"],
+        gameId: "66",
         icon: sylvan.EnchantedArrow
     },
     {
-        gameId: ["ID67"],
+        gameId: "67",
         icon: academy.MarkOfTheWizard
     },
     {
-        gameId: ["ID68"],
+        gameId: "68",
         icon: academy.ConsumeArtifact
     },
     {
-        gameId: ["ID69"],
+        gameId: "69",
         icon: academy.MagicMirror
     },
     {
-        gameId: ["ID70"],
+        gameId: "70",
         icon: dungeon.EmpoweredSpells
     },
     {
-        gameId: ["ID71"],
+        gameId: "71",
         icon: dungeon.DarkRitual
     },
     {
-        gameId: ["ID111"],
+        gameId: "111",
         icon: dungeon.ElementalVision
     },
     {
-        gameId: ["ID73"],
+        gameId: "73",
         icon: logistics.FamiliarGround
     },
     {
-        gameId: ["ID74"],
+        gameId: "74",
         icon: warMachines.TripleBallista
     },
     {
-        gameId: ["ID75"],
+        gameId: "75",
         icon: leadership.DivineGuidance
     },
     {
-        gameId: ["ID76"],
+        gameId: "76",
         icon: attack.Retribution
     },
     {
-        gameId: ["ID78"],
+        gameId: "78",
         icon: lightMagic.GuardianAngel
     },
     {
-        gameId: ["ID79"],
+        gameId: "79",
         icon: enlightenment.Graduate
     },
     {
-        gameId: ["ID80"],
+        gameId: "80",
         icon: luck.TearOfAshaVision
     },
     {
-        gameId: ["ID81"],
+        gameId: "81",
         icon: sorcery.ArcaneExcellence
     },
     {
-        gameId: ["ID83"],
+        gameId: "83",
         icon: darkMagic.FallenKnight
     },
     {
-        gameId: ["ID84"],
+        gameId: "84",
         icon: summoningMagic.ElementalBalance
     },
     {
-        gameId: ["ID86"],
+        gameId: "86",
         icon: logistics.SwiftGating
     },
     {
-        gameId: ["ID87"],
+        gameId: "87",
         icon: enlightenment.ArcaneExaltation
     },
     {
-        gameId: ["ID89"],
+        gameId: "89",
         icon: leadership.GateMaster
     },
     {
-        gameId: ["ID90"],
+        gameId: "90",
         icon: luck.SwarmingGate
     },
     {
-        gameId: ["ID91"],
+        gameId: "91",
         icon: attack.DevilsBlow
     },
     {
-        gameId: ["ID93"],
+        gameId: "93",
         icon: sorcery.Soulfire
     },
     {
-        gameId: ["ID94"],
+        gameId: "94",
         icon: destructiveMagic.SearingFires
     },
     {
-        gameId: ["ID95"],
+        gameId: "95",
         icon: darkMagic.WeakeningStrike
     },
     {
-        gameId: ["ID96"],
+        gameId: "96",
         icon: lightMagic.FireResistance
     },
     {
-        gameId: ["ID97"],
+        gameId: "97",
         icon: summoningMagic.FireWarriors
     },
     {
-        gameId: ["ID100"],
+        gameId: "100",
         icon: warMachines.PlagueTent
     },
     {
-        gameId: ["ID101"],
+        gameId: "101",
         icon: enlightenment.LordOfTheUndead
     },
     {
-        gameId: ["ID102"],
+        gameId: "102",
         icon: leadership.HeraldOfDeath
     },
     {
-        gameId: ["ID103"],
+        gameId: "103",
         icon: luck.DeadMansCurse
     },
     {
-        gameId: ["ID104"],
+        gameId: "104",
         icon: attack.ColdSteel
     },
     {
-        gameId: ["ID105"],
+        gameId: "105",
         icon: defense.GraveCold
     },
     {
-        gameId: ["ID106"],
+        gameId: "106",
         icon: sorcery.Boneward
     },
     {
-        gameId: ["ID107"],
+        gameId: "107",
         icon: destructiveMagic.ColdDeath
     },
     {
-        gameId: ["ID108"],
+        gameId: "108",
         icon: necropolis.MarkOfTheNecromancer
     },
     {
-        gameId: ["ID109"],
+        gameId: "109",
         icon: lightMagic.Twilight
     },
     {
-        gameId: ["ID112"],
+        gameId: "112",
         icon: logistics.SilentStalker
     },
     {
-        gameId: ["ID113"],
+        gameId: "113",
         icon: warMachines.ImbueBallista
     },
     {
-        gameId: ["ID114"],
+        gameId: "114",
         icon: sylvan.KnowYourEnemy
     },
     {
-        gameId: ["ID115"],
+        gameId: "115",
         icon: leadership.BattleCommander
     },
     {
-        gameId: ["ID116"],
+        gameId: "116",
         icon: luck.ElvenLuck
     },
     {
-        gameId: ["ID118"],
+        gameId: "118",
         icon: defense.BattleToTheLast
     },
     {
-        gameId: ["ID119"],
+        gameId: "119",
         icon: sorcery.ArcaneBrilliance
     },
     {
-        gameId: ["ID120"],
+        gameId: "120",
         icon: destructiveMagic.ManaBurst
     },
     {
-        gameId: ["ID121"],
+        gameId: "121",
         icon: darkMagic.CorruptedSoil
     },
     {
-        gameId: ["ID122"],
+        gameId: "122",
         icon: lightMagic.StormWind
     },
     {
-        gameId: ["ID123"],
+        gameId: "123",
         icon: summoningMagic.FogVeil
     },
     {
-        gameId: ["ID125"],
+        gameId: "125",
         icon: logistics.MarchOfTheGolems
     },
     {
-        gameId: ["ID126"],
+        gameId: "126",
         icon: warMachines.RemoteControl
     },
     {
-        gameId: ["ID127"],
+        gameId: "127",
         icon: enlightenment.WizardsReward
     },
     {
-        gameId: ["ID129"],
+        gameId: "129",
         icon: luck.SpoilsOfWar
     },
     {
-        gameId: ["ID130"],
+        gameId: "130",
         icon: attack.FireArrows
     },
     {
-        gameId: ["ID131"],
+        gameId: "131",
         icon: defense.Resistance
     },
     {
-        gameId: ["ID132"],
+        gameId: "132",
         icon: sorcery.Counterspell
     },
     {
-        gameId: ["ID133"],
+        gameId: "133",
         icon: destructiveMagic.SapMagic
     },
     {
-        gameId: ["ID134"],
+        gameId: "134",
         icon: darkMagic.SealOfDarkness
     },
     {
-        gameId: ["ID135"],
+        gameId: "135",
         icon: lightMagic.SuppressLight
     },
     {
-        gameId: ["ID136"],
+        gameId: "136",
         icon: summoningMagic.Banish
     },
     {
-        gameId: ["ID138"],
+        gameId: "138",
         icon: logistics.TeleportAssault
     },
     {
-        gameId: ["ID141"],
+        gameId: "141",
         icon: leadership.AuraOfSwiftness
     },
     {
-        gameId: ["ID142"],
+        gameId: "142",
         icon: luck.WarlocksLuck
     },
     {
-        gameId: ["ID143"],
+        gameId: "143",
         icon: attack.SpeedMagic
     },
     {
-        gameId: ["ID144"],
+        gameId: "144",
         icon: defense.StoneStrength
     },
     {
-        gameId: ["ID146"],
+        gameId: "146",
         icon: destructiveMagic.SecretsOfDestruction
     },
     {
-        gameId: ["ID148"],
+        gameId: "148",
         icon: lightMagic.RefinedMana
     },
     {
-        gameId: ["ID149"],
+        gameId: "149",
         icon: summoningMagic.Exorcism
     },
     {
-        gameId: ["ID152"],
+        gameId: "152",
         icon: fortress.RefreshRune
     },
     {
-        gameId: ["ID153"],
+        gameId: "153",
         icon: fortress.GreaterRune
     },
     {
-        gameId: ["ID154"],
+        gameId: "154",
         icon: fortress.FineRune
     },
     {
-        gameId: ["ID155"],
+        gameId: "155",
         icon: logistics.SwiftMind
     },
     {
-        gameId: ["ID156"],
+        gameId: "156",
         icon: warMachines.RunicMachines
     },
     {
-        gameId: ["ID157"],
+        gameId: "157",
         icon: enlightenment.TapRunes
     },
     {
-        gameId: ["ID158"],
+        gameId: "158",
         icon: leadership.RunicAttunement
     },
     {
-        gameId: ["ID159"],
+        gameId: "159",
         icon: luck.DwarvenLuck
     },
     {
-        gameId: ["ID160"],
+        gameId: "160",
         icon: attack.AttackingHird
     },
     {
-        gameId: ["ID161"],
+        gameId: "161",
         icon: defense.DefensiveHird
     },
     {
-        gameId: ["ID162"],
+        gameId: "162",
         icon: sorcery.Distract
     },
     {
-        gameId: ["ID163"],
+        gameId: "163",
         icon: destructiveMagic.Ignite
     },
     {
-        gameId: ["ID164"],
+        gameId: "164",
         icon: darkMagic.ShrugDarkness
     },
     {
-        gameId: ["ID165"],
+        gameId: "165",
         icon: lightMagic.EternalLight
     },
     {
-        gameId: ["ID166"],
+        gameId: "166",
         icon: summoningMagic.RunicArmour
     },
     {
-        gameId: ["ID168"],
+        gameId: "168",
         icon: logistics.Snatch
     },
     {
-        gameId: ["ID169"],
+        gameId: "169",
         icon: enlightenment.Mentoring
     },
     {
-        gameId: ["ID170"],
+        gameId: "170",
         icon: leadership.Empathy
     },
     {
-        gameId: ["ID171"],
+        gameId: "171",
         icon: defense.Readiness
     },
     {
-        gameId: ["ID173"],
+        gameId: "173",
         icon: stronghold.MightOverMagic
     },
     {
-        gameId: ["ID174"],
+        gameId: "174",
         icon: stronghold.MemoryOfOurBlood
     },
     {
-        gameId: ["ID175"],
+        gameId: "175",
         icon: stronghold.PowerfulBlow
     },
     {
-        gameId: ["ID177"],
+        gameId: "177",
         icon: logistics.Warpath
     },
     {
-        gameId: ["ID178"],
+        gameId: "178",
         icon: leadership.BattleElation
     },
     {
-        gameId: ["ID179"],
+        gameId: "179",
         icon: luck.LuckOfTheBarbarian
     },
     {
-        gameId: ["ID180"],
+        gameId: "180",
         icon: attack.StunningBlow
     },
     {
-        gameId: ["ID181"],
+        gameId: "181",
         icon: defense.ProtectUsAll
     },
     {
-        gameId: ["ID184"],
+        gameId: "184",
         icon: enlightenment.Bloodfire
     },
     {
-        gameId: ["ID185"],
+        gameId: "185",
         icon: enlightenment.BattleLore
     },
     {
-        gameId: ["ID186"],
+        gameId: "186",
         icon: enlightenment.Stamina
     },
     {
-        gameId: ["ID188"],
+        gameId: "188",
         icon: shout.ShoutTraining
     },
     {
-        gameId: ["ID189"],
+        gameId: "189",
         icon: shout.MightyShout
     },
     {
-        gameId: ["ID190"],
+        gameId: "190",
         icon: shout.ShoutOfRage
     },
     {
-        gameId: ["ID192"],
+        gameId: "192",
         icon: shatterDestruction.CorruptDestruction
     },
     {
-        gameId: ["ID193"],
+        gameId: "193",
         icon: shatterDestruction.WeakenDestruction
     },
     {
-        gameId: ["ID194"],
+        gameId: "194",
         icon: shatterDestruction.DetainDestruction
     },
     {
-        gameId: ["ID196"],
+        gameId: "196",
         icon: shatterDark.CorruptDark
     },
     {
-        gameId: ["ID197"],
+        gameId: "197",
         icon: shatterDark.WeakenDark
     },
     {
-        gameId: ["ID198"],
+        gameId: "198",
         icon: shatterDark.DetainDark
     },
     {
-        gameId: ["ID200"],
+        gameId: "200",
         icon: shatterLight.CorruptLight
     },
     {
-        gameId: ["ID201"],
+        gameId: "201",
         icon: shatterLight.WeakenLight
     },
     {
-        gameId: ["ID202"],
+        gameId: "202",
         icon: shatterLight.DetainLight
     },
     {
-        gameId: ["ID204"],
+        gameId: "204",
         icon: shatterSummoning.CorruptSummoning
     },
     {
-        gameId: ["ID205"],
+        gameId: "205",
         icon: shatterSummoning.WeakenSummoning
     },
     {
-        gameId: ["ID206"],
+        gameId: "206",
         icon: shatterSummoning.DetainSummoning
     },
     {
-        gameId: ["ID207"],
+        gameId: "207",
         icon: shatterSummoning.BackToTheVoid
     },
     {
-        gameId: ["ID209"],
+        gameId: "209",
         icon: darkMagic.WeakeningStrike
     },
     {
-        gameId: ["ID210"],
+        gameId: "210",
         icon: darkMagic.CorruptedSoil
     },
     {
-        gameId: ["ID211"],
+        gameId: "211",
         icon: summoningMagic.FogVeil
     },
     {
-        gameId: ["ID212"],
+        gameId: "212",
         icon: enlightenment.Intelligence
     },
     {
-        gameId: ["ID213"],
+        gameId: "213",
         icon: sorcery.ManaRegeneration
     },
     {
-        gameId: ["ID214"],
+        gameId: "214",
         icon: lightMagic.RefinedMana
     },
     {
-        gameId: ["ID215"],
+        gameId: "215",
         icon: lightMagic.StormWind
     },
     {
-        gameId: ["ID176"],
+        gameId: "176",
         icon: sorcery.ArcaneProtection
     },
     {
-        gameId: ["ID110"],
+        gameId: "110",
         icon: enlightenment.Astrology
     },
     {
-        gameId: ["ID216"],
+        gameId: "216",
         icon: lightMagic.FireResistance
     },
     {
-        gameId: ["ID217"],
+        gameId: "217",
         icon: destructiveMagic.ManaBurst
     },
     {
-        gameId: ["ID218"],
+        gameId: "218",
         icon: sorcery.Distract
     },
     {
-        gameId: ["ID219"],
+        gameId: "219",
         icon: sorcery.ArcaneBrilliance
     },
     {
-        gameId: ["ID220"],
+        gameId: "220",
         icon: enlightenment.Mentoring
     },
     {
-        gameId: ["ID137"],
+        gameId: "137",
         icon: enlightenment.Astrology
     },
     /*

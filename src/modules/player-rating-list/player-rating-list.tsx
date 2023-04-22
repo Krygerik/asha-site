@@ -50,7 +50,7 @@ const PlayerRatingList = React.memo((props: TProps) => {
                                 <Table.Cell>
                                     <UserLink
                                         id={player._id}
-                                        nickname={player.nickname}
+                                        nickname={player.username}
                                     />
                                 </Table.Cell>
                                 <Table.Cell
