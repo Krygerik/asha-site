@@ -14,6 +14,17 @@ type TProps = {
 };
 
 /**
+ * Убирает Катапульту из списка боевых машин игрока
+ */
+function removeCatapult(war_machines: string[]) {
+    const catapultIndex: number = war_machines.indexOf("2");
+    if (catapultIndex > -1) {
+        war_machines.splice(catapultIndex, 1);
+    }
+    return war_machines;
+}
+
+/**
  * Компонент отображения данных об игроке
  */
 export const PlayerInfo = React.memo((props: TProps) => (
@@ -43,7 +54,7 @@ export const PlayerInfo = React.memo((props: TProps) => (
                 list={props.player.army}
             />
             <DictionaryCardList
-                list={props.player.war_machines}
+                list={removeCatapult(props.player.war_machines)}
                 type={EDictionaryName.WarMachines}
             />
             <DictionaryCardList
