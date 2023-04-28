@@ -6,23 +6,32 @@ import {
     DeathKnight,
     EarthElemental,
     FireElemental,
+    Manticore,
     Mummy,
+    Phoenix,
     WaterElemental,
     Wolf
 } from "../../assets/creatures/neutral";
 import {
-    Archmage,
+    ArchMage,
     BattleMage,
+    Colossus,
+    Djinn,
     DjinnSultan,
     DjinnVizier,
     ElementalGargoyle,
+    Gremlin,
     GremlinSaboteur,
+    IronGolem,
+    Mage,
     MagneticGolem,
     MasterGremlin,
     ObsidianGargoyle,
     RakshasaKshatra,
     RakshasaRaja,
+    RakshasaRani,
     SteelGolem,
+    StoneGargoyle,
     StormTitan,
     Titan
 } from "../../assets/creatures/academy";
@@ -30,29 +39,43 @@ import {
     Assassin,
     BlackDragon,
     BloodFury,
+    BloodMaiden,
     BloodSister,
     BriskRaider,
+    DarkRaider,
     DeepHydra,
     FoulHydra,
     GrimRaider,
+    Hydra,
+    Minotaur,
     MinotaurGuard,
     MinotaurTaskmaster,
     RedDragon,
+    Scout,
+    ShadowDragon,
     ShadowMatriarch,
     ShadowMistress,
+    ShadowWitch,
     Stalker
 } from "../../assets/creatures/dungeon";
 import {
+    Angel,
     Archangel,
+    Archer,
     BattleGriffin,
     Brute,
+    Cavalier,
     Champion,
     Conscript,
     Crossbowman,
-    ImperialGriffin,
+    Footman,
+    Griffin,
+    RoyalGriffin,
     Inquisitor,
     Marksman,
     Paladin,
+    Peasant,
+    Priest,
     Seraph,
     Squire,
     Vindicator,
@@ -62,14 +85,21 @@ import {
     ArchDemon,
     ArchDevil,
     Cerberus,
+    Devil,
     Familiar,
     Firehound,
+    HellCharger,
+    HellHound,
     HellStallion,
+    HornedDemon,
     HornedGrunt,
     HornedOverseer,
+    Imp,
     Nightmare,
+    PitFiend,
     PitLord,
     PitSpawn,
+    Succubus,
     SuccubusMistress,
     SuccubusSeducer,
     Vermin
@@ -77,39 +107,57 @@ import {
 import {
     Archlich,
     Banshee,
+    BoneDragon,
+    Ghost,
     GhostDragon,
+    Lich,
     LichMaster,
     PlagueZombie,
     Poltergeist,
     RotZombie,
+    Skeleton,
     SkeletonArcher,
     SkeletonWarrior,
     SpectralDragon,
     Spectre,
+    Vampire,
     VampireLord,
     VampirePrince,
-    Wraith
+    Wight,
+    Wraith,
+    Zombie
 } from "../../assets/creatures/necropolis";
 import {
     AncientTreant,
     ArcaneArcher,
+    BladeDancer,
     CrystalDragon,
+    Druid,
     DruidElder,
     Dryad,
     EmeraldDragon,
+    GreenDragon,
     HighDruid,
+    Hunter,
     MasterHunter,
+    Pixie,
     PristineUnicorn,
     SavageTreant,
     SilverUnicorn,
     Sprite,
+    Treant,
+    Unicorn,
     WarDancer,
     WindDancer
 } from "../../assets/creatures/sylvan";
 import {
     Battlerager,
+    BearRider,
     Berserker,
     BlackbearRider,
+    Brawler,
+    Defender,
+    FireDragon,
     FlameLord,
     Harpooner,
     LavaDragon,
@@ -117,26 +165,36 @@ import {
     MountainGuard,
     RuneKeeper,
     RunePatriarch,
+    RunePriest,
     Shieldguard,
     Skirmisher,
+    Spearwielder,
+    Thane,
     ThunderThane,
     WhitebearRider
 } from "../../assets/creatures/fortress";
 import {
     BloodeyedCyclops,
+    Centaur,
     CentaurMarauder,
     CentaurNomad,
     Chieftain,
+    Cyclops,
     EarthDaughter,
     Executioner,
     FoulWyvern,
+    Goblin,
     GoblinTrapper,
     GoblinWitchDoctor,
     Mauler,
     Paokai,
+    Shaman,
+    Slayer,
     SkyDaughter,
     UntamedCyclops,
-    Warmonger
+    Warmonger,
+    Warrior,
+    Wyvern
 } from "../../assets/creatures/stronghold";
 
 export type TCreatures = {
@@ -146,8 +204,340 @@ export type TCreatures = {
 
 export const CREATURES: TCreatures[] = [
     {
-        gameId: "113",
-        icon: Wolf
+        gameId: "1",
+        icon: Peasant
+    },
+    {
+        gameId: "2",
+        icon: Conscript
+    },
+    {
+        gameId: "3",
+        icon: Archer
+    },
+    {
+        gameId: "4",
+        icon: Marksman
+    },
+    {
+        gameId: "5",
+        icon: Footman
+    },
+    {
+        gameId: "6",
+        icon: Squire
+    },
+    {
+        gameId: "7",
+        icon: Griffin
+    },
+    {
+        gameId: "8",
+        icon: RoyalGriffin
+    },
+    {
+        gameId: "9",
+        icon: Priest
+    },
+    {
+        gameId: "10",
+        icon: Inquisitor
+    },
+    {
+        gameId: "11",
+        icon: Cavalier
+    },
+    {
+        gameId: "12",
+        icon: Paladin
+    },
+    {
+        gameId: "13",
+        icon: Angel
+    },
+    {
+        gameId: "14",
+        icon: Archangel
+    },
+    {
+        gameId: "15",
+        icon: Imp
+    },
+    {
+        gameId: "16",
+        icon: Familiar
+    },
+    {
+        gameId: "17",
+        icon: HornedDemon
+    },
+    {
+        gameId: "18",
+        icon: HornedOverseer
+    },
+    {
+        gameId: "19",
+        icon: HellHound
+    },
+    {
+        gameId: "20",
+        icon: Cerberus
+    },
+    {
+        gameId: "21",
+        icon: Succubus
+    },
+    {
+        gameId: "22",
+        icon: SuccubusMistress
+    },
+    {
+        gameId: "23",
+        icon: HellCharger
+    },
+    {
+        gameId: "24",
+        icon: Nightmare
+    },
+    {
+        gameId: "25",
+        icon: PitFiend
+    },
+    {
+        gameId: "26",
+        icon: PitLord
+    },
+    {
+        gameId: "27",
+        icon: Devil
+    },
+    {
+        gameId: "28",
+        icon: ArchDevil
+    },
+    {
+        gameId: "29",
+        icon: Skeleton
+    },
+    {
+        gameId: "30",
+        icon: SkeletonArcher
+    },
+    {
+        gameId: "31",
+        icon: Zombie
+    },
+    {
+        gameId: "32",
+        icon: PlagueZombie
+    },
+    {
+        gameId: "33",
+        icon: Ghost
+    },
+    {
+        gameId: "34",
+        icon: Spectre
+    },
+    {
+        gameId: "35",
+        icon: Vampire
+    },
+    {
+        gameId: "36",
+        icon: VampireLord
+    },
+    {
+        gameId: "37",
+        icon: Lich
+    },
+    {
+        gameId: "38",
+        icon: Archlich
+    },
+    {
+        gameId: "39",
+        icon: Wight
+    },
+    {
+        gameId: "40",
+        icon: Wraith
+    },
+    {
+        gameId: "41",
+        icon: BoneDragon
+    },
+    {
+        gameId: "42",
+        icon: SpectralDragon
+    },
+    {
+        gameId: "43",
+        icon: Pixie
+    },
+    {
+        gameId: "44",
+        icon: Sprite
+    },
+    {
+        gameId: "45",
+        icon: BladeDancer
+    },
+    {
+        gameId: "46",
+        icon: WarDancer
+    },
+    {
+        gameId: "47",
+        icon: Hunter
+    },
+    {
+        gameId: "48",
+        icon: MasterHunter
+    },
+    {
+        gameId: "49",
+        icon: Druid
+    },
+    {
+        gameId: "50",
+        icon: DruidElder
+    },
+    {
+        gameId: "51",
+        icon: Unicorn
+    },
+    {
+        gameId: "52",
+        icon: SilverUnicorn
+    },
+    {
+        gameId: "53",
+        icon: Treant
+    },
+    {
+        gameId: "54",
+        icon: AncientTreant
+    },
+    {
+        gameId: "55",
+        icon: GreenDragon
+    },
+    {
+        gameId: "56",
+        icon: EmeraldDragon
+    },
+    {
+        gameId: "57",
+        icon: Gremlin
+    },
+    {
+        gameId: "58",
+        icon: MasterGremlin
+    },
+    {
+        gameId: "59",
+        icon: StoneGargoyle
+    },
+    {
+        gameId: "60",
+        icon: ObsidianGargoyle
+    },
+    {
+        gameId: "61",
+        icon: IronGolem
+    },
+    {
+        gameId: "62",
+        icon: SteelGolem
+    },
+    {
+        gameId: "63",
+        icon: Mage
+    },
+    {
+        gameId: "64",
+        icon: ArchMage
+    },
+    {
+        gameId: "65",
+        icon: Djinn
+    },
+    {
+        gameId: "66",
+        icon: DjinnSultan
+    },
+    {
+        gameId: "67",
+        icon: RakshasaRani
+    },
+    {
+        gameId: "68",
+        icon: RakshasaRaja
+    },
+    {
+        gameId: "69",
+        icon: Colossus
+    },
+    {
+        gameId: "70",
+        icon: Titan
+    },
+    {
+        gameId: "71",
+        icon: Scout
+    },
+    {
+        gameId: "72",
+        icon: Assassin
+    },
+    {
+        gameId: "73",
+        icon: BloodMaiden
+    },
+    {
+        gameId: "74",
+        icon: BloodFury
+    },
+    {
+        gameId: "75",
+        icon: Minotaur
+    },
+    {
+        gameId: "76",
+        icon: MinotaurGuard
+    },
+    {
+        gameId: "77",
+        icon: GrimRaider
+    },
+    {
+        gameId: "78",
+        icon: DarkRaider
+    },
+    {
+        gameId: "79",
+        icon: Hydra
+    },
+    {
+        gameId: "80",
+        icon: DeepHydra
+    },
+    {
+        gameId: "81",
+        icon: ShadowWitch
+    },
+    {
+        gameId: "82",
+        icon: ShadowMatriarch
+    },
+    {
+        gameId: "83",
+        icon: ShadowDragon
+    },
+    {
+        gameId: "84",
+        icon: BlackDragon
     },
     {
         gameId: "85",
@@ -158,148 +548,84 @@ export const CREATURES: TCreatures[] = [
         icon: WaterElemental
     },
     {
-        gameId: "88",
-        icon: AirElemental
-    },
-    {
         gameId: "87",
         icon: EarthElemental
     },
     {
-        gameId: "116",
-        icon: Mummy
+        gameId: "88",
+        icon: AirElemental
     },
     {
         gameId: "90",
         icon: DeathKnight
     },
     {
-        gameId: "58",
-        icon: MasterGremlin
+        gameId: "91",
+        icon: Phoenix
     },
     {
-        gameId: "159",
-        icon: GremlinSaboteur
+        gameId: "92",
+        icon: Defender
     },
     {
-        gameId: "60",
-        icon: ObsidianGargoyle
+        gameId: "93",
+        icon: Shieldguard
     },
     {
-        gameId: "160",
-        icon: ElementalGargoyle
+        gameId: "94",
+        icon: Spearwielder
     },
     {
-        gameId: "62",
-        icon: SteelGolem
+        gameId: "95",
+        icon: Skirmisher
     },
     {
-        gameId: "161",
-        icon: MagneticGolem
+        gameId: "96",
+        icon: BearRider
     },
     {
-        gameId: "64",
-        icon: Archmage
+        gameId: "97",
+        icon: BlackbearRider
     },
     {
-        gameId: "162",
-        icon: BattleMage
+        gameId: "98",
+        icon: Brawler
     },
     {
-        gameId: "66",
-        icon: DjinnSultan
+        gameId: "99",
+        icon: Berserker
     },
     {
-        gameId: "163",
-        icon: DjinnVizier
+        gameId: "100",
+        icon: RunePriest
     },
     {
-        gameId: "68",
-        icon: RakshasaRaja
+        gameId: "101",
+        icon: RunePatriarch
     },
     {
-        gameId: "164",
-        icon: RakshasaKshatra
+        gameId: "102",
+        icon: Thane
     },
     {
-        gameId: "70",
-        icon: Titan
+        gameId: "103",
+        icon: FlameLord
     },
     {
-        gameId: "165",
-        icon: StormTitan
+        gameId: "104",
+        icon: FireDragon
     },
     {
-        gameId: "72",
-        icon: Assassin
-    },
-    {
-        gameId: "138",
-        icon: Stalker
-    },
-    {
-        gameId: "74",
-        icon: BloodFury
-    },
-    {
-        gameId: "139",
-        icon: BloodSister
-    },
-    {
-        gameId: "76",
-        icon: MinotaurGuard
-    },
-    {
-        gameId: "140",
-        icon: MinotaurTaskmaster
-    },
-    {
-        gameId: "78",
-        icon: GrimRaider
-    },
-    {
-        gameId: "141",
-        icon: BriskRaider
-    },
-    {
-        gameId: "80",
-        icon: DeepHydra
-    },
-    {
-        gameId: "142",
-        icon: FoulHydra
-    },
-    {
-        gameId: "143",
-        icon: ShadowMistress
-    },
-    {
-        gameId: "84",
-        icon: BlackDragon
-    },
-    {
-        gameId: "144",
-        icon: RedDragon
-    },
-    {
-        gameId: "2",
-        icon: Conscript
+        gameId: "105",
+        icon: MagmaDragon
     },
     {
         gameId: "106",
         icon: Brute
     },
     {
-        gameId: "4",
-        icon: Marksman
-    },
-    {
         gameId: "107",
         icon: Crossbowman
-    },
-    {
-        gameId: "6",
-        icon: Squire
     },
     {
         gameId: "108",
@@ -310,16 +636,8 @@ export const CREATURES: TCreatures[] = [
         icon: BattleGriffin
     },
     {
-        gameId: "10",
-        icon: Inquisitor
-    },
-    {
         gameId: "110",
         icon: Zealot
-    },
-    {
-        gameId: "12",
-        icon: Paladin
     },
     {
         gameId: "111",
@@ -330,48 +648,92 @@ export const CREATURES: TCreatures[] = [
         icon: Seraph
     },
     {
-        gameId: "16",
-        icon: Familiar
+        gameId: "113",
+        icon: Wolf
+    },
+    {
+        gameId: "115",
+        icon: Manticore
+    },
+    {
+        gameId: "116",
+        icon: Mummy
+    },
+    {
+        gameId: "117",
+        icon: Goblin
+    },
+    {
+        gameId: "118",
+        icon: GoblinTrapper
+    },
+    {
+        gameId: "119",
+        icon: Centaur
+    },
+    {
+        gameId: "120",
+        icon: CentaurNomad
+    },
+    {
+        gameId: "121",
+        icon: Warrior
+    },
+    {
+        gameId: "122",
+        icon: Mauler
+    },
+    {
+        gameId: "123",
+        icon: Shaman
+    },
+    {
+        gameId: "124",
+        icon: SkyDaughter
+    },
+    {
+        gameId: "125",
+        icon: Slayer
+    },
+    {
+        gameId: "126",
+        icon: Executioner
+    },
+    {
+        gameId: "127",
+        icon: Wyvern
+    },
+    {
+        gameId: "128",
+        icon: FoulWyvern
+    },
+    {
+        gameId: "129",
+        icon: Cyclops
+    },
+    {
+        gameId: "130",
+        icon: UntamedCyclops
     },
     {
         gameId: "131",
         icon: Vermin
     },
     {
-        gameId: "18",
-        icon: HornedOverseer
-    },
-    {
         gameId: "132",
         icon: HornedGrunt
-    },
-    {
-        gameId: "19",
-        icon: Cerberus
     },
     {
         gameId: "133",
         icon: Firehound
     },
     {
-        gameId: "22",
-        icon: SuccubusMistress
-    },
-    {
         gameId: "134",
         icon: SuccubusSeducer
     },
     {
-        gameId: "24",
-        icon: Nightmare
-    },
-    {
         gameId: "135",
         icon: HellStallion
-    },
-    {
-        gameId: "26",
-        icon: PitLord
     },
     {
         gameId: "136",
@@ -382,60 +744,32 @@ export const CREATURES: TCreatures[] = [
         icon: ArchDemon
     },
     {
-        gameId: "30",
-        icon: SkeletonArcher
+        gameId: "138",
+        icon: Stalker
     },
     {
-        gameId: "152",
-        icon: SkeletonWarrior
+        gameId: "139",
+        icon: BloodSister
     },
     {
-        gameId: "32",
-        icon: PlagueZombie
+        gameId: "140",
+        icon: MinotaurTaskmaster
     },
     {
-        gameId: "153",
-        icon: RotZombie
+        gameId: "141",
+        icon: BriskRaider
     },
     {
-        gameId: "34",
-        icon: Spectre
+        gameId: "142",
+        icon: FoulHydra
     },
     {
-        gameId: "154",
-        icon: Poltergeist
+        gameId: "143",
+        icon: ShadowMistress
     },
     {
-        gameId: "36",
-        icon: VampireLord
-    },
-    {
-        gameId: "155",
-        icon: VampirePrince
-    },
-    {
-        gameId: "38",
-        icon: Archlich
-    },
-    {
-        gameId: "156",
-        icon: LichMaster
-    },
-    {
-        gameId: "40",
-        icon: Wraith
-    },
-    {
-        gameId: "157",
-        icon: Banshee
-    },
-    {
-        gameId: "42",
-        icon: SpectralDragon
-    },
-    {
-        gameId: "158",
-        icon: GhostDragon
+        gameId: "144",
+        icon: RedDragon
     },
     {
         gameId: "145",
@@ -454,10 +788,6 @@ export const CREATURES: TCreatures[] = [
         icon: HighDruid
     },
     {
-        gameId: "52",
-        icon: SilverUnicorn
-    },
-    {
         gameId: "149",
         icon: PristineUnicorn
     },
@@ -470,24 +800,68 @@ export const CREATURES: TCreatures[] = [
         icon: CrystalDragon
     },
     {
-        gameId: "93",
-        icon: Shieldguard
+        gameId: "152",
+        icon: SkeletonWarrior
     },
     {
-        gameId: "92",
+        gameId: "153",
+        icon: RotZombie
+    },
+    {
+        gameId: "154",
+        icon: Poltergeist
+    },
+    {
+        gameId: "155",
+        icon: VampirePrince
+    },
+    {
+        gameId: "156",
+        icon: LichMaster
+    },
+    {
+        gameId: "157",
+        icon: Banshee
+    },
+    {
+        gameId: "158",
+        icon: GhostDragon
+    },
+    {
+        gameId: "159",
+        icon: GremlinSaboteur
+    },
+    {
+        gameId: "160",
+        icon: ElementalGargoyle
+    },
+    {
+        gameId: "161",
+        icon: MagneticGolem
+    },
+    {
+        gameId: "162",
+        icon: BattleMage
+    },
+    {
+        gameId: "163",
+        icon: DjinnVizier
+    },
+    {
+        gameId: "164",
+        icon: RakshasaKshatra
+    },
+    {
+        gameId: "165",
+        icon: StormTitan
+    },
+    {
+        gameId: "166",
         icon: MountainGuard
-    },
-    {
-        gameId: "95",
-        icon: Skirmisher
     },
     {
         gameId: "167",
         icon: Harpooner
-    },
-    {
-        gameId: "97",
-        icon: BlackbearRider
     },
     {
         gameId: "168",
@@ -498,10 +872,6 @@ export const CREATURES: TCreatures[] = [
         icon: Battlerager
     },
     {
-        gameId: "101",
-        icon: RunePatriarch
-    },
-    {
         gameId: "170",
         icon: RuneKeeper
     },
@@ -510,115 +880,35 @@ export const CREATURES: TCreatures[] = [
         icon: ThunderThane
     },
     {
-        gameId: "105",
-        icon: MagmaDragon
-    },
-    {
         gameId: "172",
         icon: LavaDragon
-    },
-    {
-        gameId: "118",
-        icon: GoblinTrapper
     },
     {
         gameId: "173",
         icon: GoblinWitchDoctor
     },
     {
-        gameId: "120",
-        icon: CentaurNomad
-    },
-    {
         gameId: "174",
         icon: CentaurMarauder
-    },
-    {
-        gameId: "122",
-        icon: Mauler
     },
     {
         gameId: "175",
         icon: Warmonger
     },
     {
-        gameId: "124",
-        icon: SkyDaughter
-    },
-    {
         gameId: "176",
         icon: EarthDaughter
-    },
-    {
-        gameId: "126",
-        icon: Executioner
     },
     {
         gameId: "177",
         icon: Chieftain
     },
     {
-        gameId: "128",
-        icon: FoulWyvern
-    },
-    {
         gameId: "178",
         icon: Paokai
     },
     {
-        gameId: "130",
-        icon: UntamedCyclops
-    },
-    {
         gameId: "179",
         icon: BloodeyedCyclops
-    },
-    {
-        gameId: "8",
-        icon: ImperialGriffin
-    },
-    {
-        gameId: "54",
-        icon: AncientTreant
-    },
-    {
-        gameId: "56",
-        icon: EmeraldDragon
-    },
-    {
-        gameId: "44",
-        icon: Sprite
-    },
-    {
-        gameId: "103",
-        icon: FlameLord
-    },
-    {
-        gameId: "46",
-        icon: WarDancer
-    },
-    {
-        gameId: "48",
-        icon: MasterHunter
-    },
-    {
-        gameId: "50",
-        icon: DruidElder
-    },
-    {
-        gameId: "82",
-        icon: ShadowMatriarch
-    },
-    {
-        gameId: "99",
-        icon: Berserker
-    },
-    {
-        gameId: "28",
-        icon: ArchDevil
-    },
-    {
-        gameId: "14",
-        icon: Archangel
     },
 ];
