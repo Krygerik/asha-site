@@ -1,6 +1,7 @@
 export { default as ManaBurst } from "./Взрыв маны.png";
 export { default as SearingFires } from "./Иссушающее пламя.png";
 export { default as SapMagic } from "./Истощение магии.png";
+export { default as FieryWrath } from "./Огненная ярость.png";
 export { default as Ignite } from "./Пирокинез.png";
 export { default as MasterOfStorms } from "./Повелитель бурь.png";
 export { default as MasterOfFire } from "./Повелитель огня.png";

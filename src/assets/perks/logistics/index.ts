@@ -6,6 +6,7 @@ export { default as MarchOfTheGolems } from "./Марш големов.png";
 export { default as Navigation } from "./Навигация.png";
 export { default as SwiftMind } from "./Острый ум.png";
 export { default as Pathfinding } from "./Поиск пути.png";
+export { default as DeathMarch } from "./Поступь смерти.png";
 export { default as Warpath } from "./Путь войны.png";
 export { default as Scouting } from "./Разведка.png";
 export { default as FamiliarGround } from "./Родные земли.png";

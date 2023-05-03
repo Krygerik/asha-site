@@ -6,3 +6,4 @@ export { default as MasterOfCurses } from "./Повелитель проклят
 export { default as MasterOfMind } from "./Повелитель разума.png";
 export { default as CorruptedSoil } from "./Проклятая земля.png";
 export { default as ShrugDarkness } from "./Слабость Тьмы.png";
+export { default as DarkRenewal } from "./Тёмное восполнение.png";

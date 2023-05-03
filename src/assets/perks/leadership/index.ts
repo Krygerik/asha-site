@@ -3,6 +3,7 @@ export { default as HeraldOfDeath } from "./Вестник Смерти.png";
 export { default as DivineGuidance } from "./Воодушевление.png";
 export { default as Diplomacy } from "./Дипломатия.png";
 export { default as BattleCommander } from "./Лесной лидер.png";
+export { default as ArtificalGlory } from "./Преданность машин.png";
 export { default as RunicAttunement } from "./Рунная гармония.png";
 export { default as Recruitment } from "./Сбор войск.png";
 export { default as Empathy } from "./Сопереживание.png";

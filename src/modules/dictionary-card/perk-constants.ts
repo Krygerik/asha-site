@@ -1,6 +1,5 @@
 import * as logistics from "../../assets/perks/logistics";
 import * as warMachines from "../../assets/perks/war-machines";
-import {AmmoCart} from "../../assets/war-machines";
 import * as enlightenment from "../../assets/perks/enlightenment";
 import * as leadership from "../../assets/perks/leadership";
 import * as luck from "../../assets/perks/luck";
@@ -53,7 +52,7 @@ export const PERKS: TPerk[] = [
     },
     {
         gameId: "24",
-        icon: AmmoCart
+        icon: warMachines.Catapult
     },
     {
         gameId: "25",
@@ -97,7 +96,7 @@ export const PERKS: TPerk[] = [
     },
     {
         gameId: "35",
-        icon: attack.Shooting
+        icon: attack.Archery
     },
     {
         gameId: "36",
@@ -105,7 +104,7 @@ export const PERKS: TPerk[] = [
     },
     {
         gameId: "37",
-        icon: defense.Reflection
+        icon: defense.Protection
     },
     {
         gameId: "38",
@@ -113,7 +112,7 @@ export const PERKS: TPerk[] = [
     },
     {
         gameId: "39",
-        icon: defense.Persistence
+        icon: defense.Vitality
     },
     {
         gameId: "40",
@@ -209,11 +208,15 @@ export const PERKS: TPerk[] = [
     },
     {
         gameId: "64",
-        icon: sylvan.ShowerOfArrows
+        icon: sylvan.RainOfArrows
+    },
+    {
+        gameId: "65",
+        icon: sylvan.DeadeyeShot
     },
     {
         gameId: "66",
-        icon: sylvan.EnchantedArrow
+        icon: sylvan.ImbueArrow
     },
     {
         gameId: "65",
@@ -240,7 +243,7 @@ export const PERKS: TPerk[] = [
         icon: dungeon.DarkRitual
     },
     {
-        gameId: "111",
+        gameId: "72",
         icon: dungeon.ElementalVision
     },
     {
@@ -268,6 +271,10 @@ export const PERKS: TPerk[] = [
         icon: attack.Retribution
     },
     {
+        gameId: "77",
+        icon: defense.StandYourGround
+    },
+    {
         gameId: "78",
         icon: lightMagic.GuardianAngel
     },
@@ -284,6 +291,10 @@ export const PERKS: TPerk[] = [
         icon: sorcery.ArcaneExcellence
     },
     {
+        gameId: "82",
+        icon: destructiveMagic.FieryWrath
+    },
+    {
         gameId: "83",
         icon: darkMagic.FallenKnight
     },
@@ -292,12 +303,20 @@ export const PERKS: TPerk[] = [
         icon: summoningMagic.ElementalBalance
     },
     {
+        gameId: "85",
+        icon: haven.UnstoppableCharge
+    },
+    {
         gameId: "86",
         icon: logistics.SwiftGating
     },
     {
         gameId: "87",
         icon: enlightenment.ArcaneExaltation
+    },
+    {
+        gameId: "88",
+        icon: warMachines.BrimstoneRain
     },
     {
         gameId: "89",
@@ -309,7 +328,11 @@ export const PERKS: TPerk[] = [
     },
     {
         gameId: "91",
-        icon: attack.DevilsBlow
+        icon: attack.ExcruciatingStrike
+    },
+    {
+        gameId: "92",
+        icon: defense.Hellwrath
     },
     {
         gameId: "93",
@@ -330,6 +353,14 @@ export const PERKS: TPerk[] = [
     {
         gameId: "97",
         icon: summoningMagic.FireWarriors
+    },
+    {
+        gameId: "98",
+        icon: inferno.UrgashsCall
+    },
+    {
+        gameId: "99",
+        icon: logistics.DeathMarch
     },
     {
         gameId: "100",
@@ -353,7 +384,7 @@ export const PERKS: TPerk[] = [
     },
     {
         gameId: "105",
-        icon: defense.GraveCold
+        icon: defense.ChillingBones
     },
     {
         gameId: "106",
@@ -372,6 +403,14 @@ export const PERKS: TPerk[] = [
         icon: lightMagic.Twilight
     },
     {
+        gameId: "110",
+        icon: summoningMagic.HauntedMines
+    },
+    {
+        gameId: "111",
+        icon: necropolis.HowlOfTerror
+    },
+    {
         gameId: "112",
         icon: logistics.SilentStalker
     },
@@ -381,7 +420,7 @@ export const PERKS: TPerk[] = [
     },
     {
         gameId: "114",
-        icon: sylvan.KnowYourEnemy
+        icon: enlightenment.KnowYourEnemy
     },
     {
         gameId: "115",
@@ -392,12 +431,16 @@ export const PERKS: TPerk[] = [
         icon: luck.ElvenLuck
     },
     {
+        gameId: "117",
+        icon: attack.NaturesWrath
+    },
+    {
         gameId: "118",
-        icon: defense.BattleToTheLast
+        icon: defense.LastStand
     },
     {
         gameId: "119",
-        icon: sorcery.ArcaneBrilliance
+        icon: sorcery.ArcaneBrillance
     },
     {
         gameId: "120",
@@ -416,6 +459,10 @@ export const PERKS: TPerk[] = [
         icon: summoningMagic.FogVeil
     },
     {
+        gameId: "124",
+        icon: sylvan.NaturesLuck
+    },
+    {
         gameId: "125",
         icon: logistics.MarchOfTheGolems
     },
@@ -428,12 +475,16 @@ export const PERKS: TPerk[] = [
         icon: enlightenment.WizardsReward
     },
     {
+        gameId: "128",
+        icon: leadership.ArtificalGlory
+    },
+    {
         gameId: "129",
         icon: luck.SpoilsOfWar
     },
     {
         gameId: "130",
-        icon: attack.FireArrows
+        icon: attack.FlamingArrows
     },
     {
         gameId: "131",
@@ -460,8 +511,20 @@ export const PERKS: TPerk[] = [
         icon: summoningMagic.Banish
     },
     {
+        gameId: "137",
+        icon: academy.ArcaneOmniscience
+    },
+    {
         gameId: "138",
         icon: logistics.TeleportAssault
+    },
+    {
+        gameId: "139",
+        icon: warMachines.Tremors
+    },
+    {
+        gameId: "140",
+        icon: enlightenment.DarkRevelation
     },
     {
         gameId: "141",
@@ -473,15 +536,23 @@ export const PERKS: TPerk[] = [
     },
     {
         gameId: "143",
-        icon: attack.SpeedMagic
+        icon: attack.PowerOfSpeed
     },
     {
         gameId: "144",
-        icon: defense.StoneStrength
+        icon: defense.PowerOfEndurance
+    },
+    {
+        gameId: "145",
+        icon: sorcery.ErraticMana
     },
     {
         gameId: "146",
         icon: destructiveMagic.SecretsOfDestruction
+    },
+    {
+        gameId: "147",
+        icon: darkMagic.DarkRenewal
     },
     {
         gameId: "148",
@@ -490,6 +561,10 @@ export const PERKS: TPerk[] = [
     {
         gameId: "149",
         icon: summoningMagic.Exorcism
+    },
+    {
+        gameId: "150",
+        icon: dungeon.RageOfTheElements
     },
     {
         gameId: "152",
@@ -525,11 +600,11 @@ export const PERKS: TPerk[] = [
     },
     {
         gameId: "160",
-        icon: attack.AttackingHird
+        icon: attack.OffensiveFormation
     },
     {
         gameId: "161",
-        icon: defense.DefensiveHird
+        icon: defense.DefensiveFormation
     },
     {
         gameId: "162",
@@ -552,6 +627,10 @@ export const PERKS: TPerk[] = [
         icon: summoningMagic.RunicArmour
     },
     {
+        gameId: "167",
+        icon: fortress.AbsoluteProtection
+    },
+    {
         gameId: "168",
         icon: logistics.Snatch
     },
@@ -565,7 +644,7 @@ export const PERKS: TPerk[] = [
     },
     {
         gameId: "171",
-        icon: defense.Readiness
+        icon: defense.Preparation
     },
     {
         gameId: "173",
@@ -578,6 +657,10 @@ export const PERKS: TPerk[] = [
     {
         gameId: "175",
         icon: stronghold.PowerfulBlow
+    },
+    {
+        gameId: "176",
+        icon: stronghold.AbsoluteRage
     },
     {
         gameId: "177",
@@ -597,7 +680,11 @@ export const PERKS: TPerk[] = [
     },
     {
         gameId: "181",
-        icon: defense.ProtectUsAll
+        icon: defense.DefendUsAll
+    },
+    {
+        gameId: "182",
+        icon: warMachines.GoblinSupport
     },
     {
         gameId: "184",
@@ -676,6 +763,10 @@ export const PERKS: TPerk[] = [
         icon: shatterSummoning.BackToTheVoid
     },
     {
+        gameId: "208",
+        icon: destructiveMagic.FieryWrath
+    },
+    {
         gameId: "209",
         icon: darkMagic.WeakeningStrike
     },
@@ -704,34 +795,15 @@ export const PERKS: TPerk[] = [
         icon: lightMagic.StormWind
     },
     {
-        gameId: "HRTA-Wizarding-Protection",
-        icon: sorcery.ArcaneProtection
+        gameId: "HRTA-Ammo-Cart",
+        icon: warMachines.AmmoCart
     },
     {
         gameId: "HRTA-Astrology",
         icon: enlightenment.Astrology
     },
     {
-        gameId: "216",
-        icon: lightMagic.FireResistance
+        gameId: "HRTA-Wizarding-Protection",
+        icon: sorcery.WizardingProtection
     },
-    {
-        gameId: "217",
-        icon: destructiveMagic.ManaBurst
-    },
-    {
-        gameId: "218",
-        icon: sorcery.Distract
-    },
-    {
-        gameId: "219",
-        icon: sorcery.ArcaneBrilliance
-    },
-    {
-        gameId: "220",
-        icon: enlightenment.Mentoring
-    },
-    /*
-     Темное откровение-219
-     */
 ];
