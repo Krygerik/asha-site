@@ -692,11 +692,11 @@ export const PERKS: TPerk[] = [
         icon: lightMagic.StormWind
     },
     {
-        gameId: "176",
+        gameId: "HRTA-Wizarding-Protection",
         icon: sorcery.ArcaneProtection
     },
     {
-        gameId: "110",
+        gameId: "HRTA-Astrology",
         icon: enlightenment.Astrology
     },
     {
@@ -718,10 +718,6 @@ export const PERKS: TPerk[] = [
     {
         gameId: "220",
         icon: enlightenment.Mentoring
-    },
-    {
-        gameId: "137",
-        icon: enlightenment.Astrology
     },
     /*
      Темное откровение-219
