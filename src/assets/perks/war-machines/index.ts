@@ -6,3 +6,4 @@ export { default as FirstAid } from "./Первая помощь.png";
 export { default as RunicMachines } from "./Рунные машины.png";
 export { default as TripleBallista } from "./Скорострельная баллиста.png";
 export { default as PlagueTent } from "./Чумная палатка.png";
+export { default as AmmoCart } from "./Тележка с боеприпасами.png";

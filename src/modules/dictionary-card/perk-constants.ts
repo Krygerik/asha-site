@@ -216,6 +216,10 @@ export const PERKS: TPerk[] = [
         icon: sylvan.EnchantedArrow
     },
     {
+        gameId: "65",
+        icon: sylvan.DeadeyeShot
+    },
+    {
         gameId: "67",
         icon: academy.MarkOfTheWizard
     },
@@ -250,6 +254,14 @@ export const PERKS: TPerk[] = [
     {
         gameId: "75",
         icon: leadership.DivineGuidance
+    },
+    {
+        gameId: "128",
+        icon: leadership.ArtificalGlory
+    },
+    {
+        gameId: "HRTA-Ammo-Cart",
+        icon: warMachines.AmmoCart
     },
     {
         gameId: "76",
