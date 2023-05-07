@@ -85,7 +85,7 @@ export const ProfilePageViewProfile = React.memo((
                 )
             }
             {
-                isProfileOfTheCurrentUser && !profileData?.merged_with_old_account && (
+                false && isProfileOfTheCurrentUser && !profileData?.merged_with_old_account && (
                     <ProfilePageMergingAccounts
                         id={profileData?._id}
                     />
