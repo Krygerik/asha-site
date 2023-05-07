@@ -147,12 +147,11 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                                 />
                                             </Grid.Column>
                                             <Grid.Column>
-                                                Скрыт
-                                                {/*<FinalFormUsersSelectField*/}
-                                                {/*    label="Игрок"*/}
-                                                {/*    name="user_id"*/}
-                                                {/*    search*/}
-                                                {/*/>*/}
+                                                <FinalFormUsersSelectField
+                                                    label="Игрок"
+                                                    name="user_id"
+                                                    search
+                                                />
                                             </Grid.Column>
                                         </Grid.Row>
                                         <Grid.Row
@@ -189,12 +188,11 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                                 />
                                             </Grid.Column>
                                             <Grid.Column>
-                                                Скрыт
-                                                {/*<FinalFormUsersSelectField*/}
-                                                {/*    label="Игрок"*/}
-                                                {/*    name="user_id_1"*/}
-                                                {/*    search*/}
-                                                {/*/>*/}
+                                                <FinalFormUsersSelectField
+                                                    label="Игрок"
+                                                    name="user_id_1"
+                                                    search
+                                                />
                                             </Grid.Column>
                                         </Grid.Row>
                                         <Grid.Row centered>

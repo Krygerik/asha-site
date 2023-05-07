@@ -23,7 +23,8 @@ export const ShortGameInfoRow = React.memo((props: TProps) => (
         <Table.Cell>
             <UserLink
                 id={props.redUserId}
-                nickname={props.redNickname}
+                // nickname={props.redNickname}
+                nickname={"Скрыт"}
             />
         </Table.Cell>
         <Table.Cell>{props.redHero}</Table.Cell>
@@ -36,7 +37,8 @@ export const ShortGameInfoRow = React.memo((props: TProps) => (
         <Table.Cell>
             <UserLink
                 id={props.blueUserId}
-                nickname={props.blueNickname}
+                // nickname={props.redNickname}
+                nickname={"Скрыт"}
             />
         </Table.Cell>
         <Table.Cell>
