@@ -18,7 +18,7 @@ type TProps = {
  */
 export const DictionaryCard = (props: TProps) => {
     const item = find(
-        record => record.gameId.includes(props.gameId),
+        { gameId: props.gameId },
         mapTypeToDictionary[props.type],
     );
 

@@ -3,14 +3,14 @@ import {Form} from "react-final-form";
 import {useHistory} from "react-router-dom";
 import arrayMutators from "final-form-arrays";
 import {Button, Header, Segment} from "semantic-ui-react";
-import {FinalFormInputTextField} from "../../components/final-form-input-text-field";
-import {createRequest} from "../../utils/create-request";
-import {TEditProfileInitialValues} from "./profile-page-types";
+import {FinalFormInputTextField} from "../../../components/final-form-input-text-field";
+import {createRequest} from "../../../utils/create-request";
+import {TEditProfileInitialValues} from "../profile-page-types";
 
 type TProps = {
     activeUserIsAdmin: boolean;
     initialValues: TEditProfileInitialValues;
-    profileId: string;
+    profileId: string | undefined;
     setEditableStatus: (a: boolean) => void;
 }
 
@@ -20,18 +20,14 @@ export const ProfilePageEditProfile = React.memo((props: TProps) => {
     /**
      * Обработчик сохранения изменений данных пользователя
      */
-    const handleSubmit = async ({ discord, nickname, original_rating }: { discord: string; nickname: string; original_rating: number; }) => {
+    const handleSubmit = async ({ nickname, original_rating }: { nickname: string; original_rating: number; }) => {
         try {
             props.setEditableStatus(false);
 
-            if (
-                discord !== props.initialValues.discord
-                || nickname !== props.initialValues.nickname
-            ) {
+            if (nickname !== props.initialValues.nickname) {
                 await createRequest().post(
-                    '/auth/update-user-info',
+                    '/account/update-personal-info',
                     {
-                        discord,
                         id: props.profileId,
                         nickname,
                     }
@@ -40,7 +36,7 @@ export const ProfilePageEditProfile = React.memo((props: TProps) => {
 
             if (props.activeUserIsAdmin && original_rating !== props.initialValues.original_rating) {
                 await createRequest().post(
-                    '/auth/update-user-game-info',
+                    '/account/update-game-info',
                     {
                         id: props.profileId,
                         original_rating,
@@ -72,16 +68,6 @@ export const ProfilePageEditProfile = React.memo((props: TProps) => {
                         <FinalFormInputTextField
                             label="Никнейм"
                             name="nickname"
-                            required
-                        />
-                        <FinalFormInputTextField
-                            label="Почта"
-                            name="email"
-                            required
-                        />
-                        <FinalFormInputTextField
-                            label="Дискорд"
-                            name="discord"
                             required
                         />
                         {

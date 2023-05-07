@@ -29,7 +29,7 @@ export const MainPage = React.memo(() => (
             request={
                 () => createRequest()
                     .get(
-                        '/auth/get-player-rating-list',
+                        '/account/get-player-rating-list',
                         { params: { limit: 5 }}
                     )
             }

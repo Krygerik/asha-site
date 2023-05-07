@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { getToken } from "./token-utils";
 
 /**
  * Конструктор запросов
@@ -7,16 +6,8 @@ import { getToken } from "./token-utils";
 export const createRequest = () => {
     let option: AxiosRequestConfig =  {
         baseURL: process.env.REACT_APP_API_URL,
+        withCredentials: true,
     };
-
-    const token = getToken();
-
-    if (token) {
-        option.headers = {
-            ...option.headers,
-            'Authorization': 'Bearer ' + token,
-        }
-    }
 
     return axios.create(option);
 };

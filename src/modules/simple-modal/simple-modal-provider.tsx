@@ -22,7 +22,9 @@ export const SimpleModalProvider = ({ children }: { children: React.ReactChild})
 
     const handleClickCancel = () => {
         setModalOpened(false);
-        modalContent.handleClickNo();
+        if (modalContent.handleClickNo) {
+            modalContent.handleClickNo();
+        }
     }
 
     /**
@@ -44,11 +46,15 @@ export const SimpleModalProvider = ({ children }: { children: React.ReactChild})
                 <Modal.Header content={modalContent.title} />
                 <Modal.Content style={{ fontSize: '16px' }} content={modalContent.message} />
                 <Modal.Actions>
-                    <Button
-                        content="Отмена"
-                        onClick={handleClickCancel}
-                        {...modalContent.isPositive ? { negative: true } : { positive: true }}
-                    />
+                    {
+                        modalContent.handleClickNo && (
+                            <Button
+                                content="Отмена"
+                                onClick={handleClickCancel}
+                                {...modalContent.isPositive ? { negative: true } : { positive: true }}
+                            />
+                        )
+                    }
                     <Button
                         content="Продолжить"
                         onClick={handleClickContinue}

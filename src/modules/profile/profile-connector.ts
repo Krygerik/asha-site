@@ -1,11 +1,12 @@
 import {connect, ConnectedProps} from "react-redux";
 import {createStructuredSelector} from "reselect";
-import {getErrorMessage, getIsFetchingProfileStatus, getProfile} from "./profile-selectors";
+import {getActiveUserNickname, getErrorMessage, getIsFetchingProfileStatus, getProfile} from "./profile-selectors";
 import {fetchProfile, removeProfileData} from "./profile-actions";
 
 const mapStateToProps = createStructuredSelector({
     errorMessage: getErrorMessage,
     isFetchingStatus: getIsFetchingProfileStatus,
+    nickname: getActiveUserNickname,
     profile: getProfile,
 })
 

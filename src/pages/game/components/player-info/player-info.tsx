@@ -43,7 +43,8 @@ export const PlayerInfo = React.memo((props: TProps) => (
                 list={props.player.army}
             />
             <DictionaryCardList
-                list={props.player.war_machines}
+                // убираем Катапульту из списка машин
+                list={props.player.war_machines.filter(x => x !== "2")}
                 type={EDictionaryName.WarMachines}
             />
             <DictionaryCardList

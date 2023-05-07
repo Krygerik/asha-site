@@ -19,7 +19,7 @@ import {FinalFormUsersSelectField} from "../../components/final-form-users-selec
 import {ShortGameInfoTableComponent} from "../../components/short-game-info-table";
 import {EDictionaryName, withDictionaries} from "../dictionary";
 import {THeroRecord} from "../dictionary/dictionary-types";
-import {SHORT_GAME_INFO_TABLE_CONFIG} from "./short-game-info-table-constants";
+import {DEFAULT_PAGE_SIZE, SHORT_GAME_INFO_TABLE_CONFIG} from "./short-game-info-table-constants";
 import {TShortGameInfoTableConnectedProps, withShortGameInfoTableConnector} from "./short-game-info-table-connector";
 import {TSearchGamesFormValues} from "./short-game-info-table-types";
 
@@ -29,8 +29,6 @@ type TOwnProps = {
     hidePagination?: boolean;
 };
 type TProps = TOwnProps & TShortGameInfoTableConnectedProps;
-
-const DEFAULT_PAGE_SIZE = 10;
 
 /**
  * Визуальное отображение
@@ -140,7 +138,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                                     // @ts-ignore
                                                     filter={
                                                         values.race
-                                                            ? (item: THeroRecord) => item.race_game_id === values.race
+                                                            ? (item: THeroRecord) => item.race_id === values.race
                                                             : undefined
                                                     }
                                                     label="Герой"
@@ -181,7 +179,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                                     // @ts-ignore
                                                     filter={
                                                         values.race
-                                                            ? (item: THeroRecord) => item.race_game_id === values.race
+                                                            ? (item: THeroRecord) => item.race_id === values.race
                                                             : undefined
                                                     }
                                                     label="Герой"

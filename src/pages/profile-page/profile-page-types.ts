@@ -1,4 +1,4 @@
-import {TProfile} from "../../modules/profile/profile-types";
+import {TAccount, TProfile} from "../../modules/profile/profile-types";
 
 export const PROFILE_PAGE_NAMESPACE = '@@PROFILE_PAGE_NAMESPACE';
 
@@ -18,8 +18,12 @@ export type TSetErrorFetchProfileAction = {
 
 export type TProfilePageActions = TSetPlayerProfileDataAction | TSetErrorFetchProfileAction;
 
+export type TProfilePageData = {
+    mapTournamentNameToId: Record<string, string>;
+} & TAccount;
+
 export type TProfilePageState = {
-    data: TProfile | null;
+    data: TProfilePageData | null;
     error: boolean;
     errorMessage?: string;
     isFetching: boolean;
@@ -41,12 +45,6 @@ export type TTableConfig = TTableConfigRow[];
  * Начальные значения для формы изменения профиля
  */
 export type TEditProfileInitialValues = {
-    // номер дискорда
-    discord: string;
-    // почта пользователя, используется вместо логина
-    email: string;
-    // ник игрока
-    nickname: string;
-    // Рейтинг игрока до АСХА
-    original_rating: number;
+    nickname?: string; // ник, устанавниваемый игроком
+    original_rating?: number; // Рейтинг игрока, до создания АСХА
 };

@@ -86,31 +86,31 @@ export const CreateTournamentModal = React.memo((props: TProps) => {
                                 stacked
                             >
                                 <FinalFormInputTextField
+                                    label='Название турнира'
                                     name="name"
-                                    placeholder='Название турнира'
                                     required
                                 />
                                 <FinalFormDateTimeInputField
+                                    label='Дата начала турнира'
                                     name="start_date"
-                                    placeholder='Дата начала турнира'
                                     required
                                 />
                                 <FinalFormInputTextField
+                                    label='Количество участников'
                                     name="maximum_player_count"
-                                    placeholder='Количество участников'
                                     required
                                     type="number"
                                 />
                                 <FinalFormSelectField
+                                    label='Формат суперфинала'
                                     name="super_final_format"
                                     options={ROUND_FORMAT_OPTIONS}
-                                    placeholder='Формат суперфинала'
                                     required
                                 />
                                 <FinalFormSelectField
+                                    label='Формат прочих раундов'
                                     name="rounds_format"
                                     options={ROUND_FORMAT_OPTIONS}
-                                    placeholder='Формат прочих раундов'
                                     required
                                 />
                                 {

@@ -19,7 +19,7 @@ type TProps = {
  */
 export const DictionaryArmyCard = (props: TProps) => {
     const item: TCreatures | undefined = find<TCreatures>(
-        (creature: TCreatures) => creature.gameId.includes(props.gameId),
+        { gameId: props.gameId },
         mapTypeToDictionary[EDictionaryName.Creatures],
     )
 

@@ -30,36 +30,24 @@ export type TProfile = {
 }
 
 /**
- * Тип данных запроса на авторизацию
+ * Аккаунт пользователя, привязанный через дискорд
  */
-export type TLoginRequestData = {
-    email: string;
-    hash_password: string;
-}
-
-/**
- * Тип данных формы регистрации
- */
-export type TRegistrationFormValues = {
-    discord: string;
-    email: string;
-    nickname: string;
-    password: string;
-    second_password: string;
-}
-
-/**
- * Тип данных запроса на регистрацию
- */
-export type TRegistrationRequestData = {
-    discord: string;
-    email: string;
-    nickname: string;
-    hash_password: string;
+export type TAccount = {
+    _id: string; // ИД в монго
+    banned: boolean; // Забанен ли аккаунт
+    discordId: string; // Ид дискорд аккаунта
+    discriminator: string; // Дискорд тег пользователя
+    merged_with_old_account: boolean; // Игрок произвел слияние со старым аккаунтом
+    nickname?: string; // ник, устанавниваемый игроком
+    original_rating?: number; // Рейтинг игрока, до создания АСХА
+    rating: number; // Рейтинг игрока внутренний
+    roles: ERoles[]; // Роли игрока
+    tournaments: string[]; // ИД турниров, в которых юзверь участвовал или участвует
+    username: string; // Никнейм пользователя из дискорд аккаунта
 }
 
 export type TProfileState = {
-    data: TProfile | null;
+    data: TAccount | null;
     errorMessage: string | null;
     isFetching: boolean;
 }
@@ -68,7 +56,7 @@ export const SET_PROFILE = 'SET_PROFILE';
 
 export type TSetProfileAction = {
     type: typeof SET_PROFILE;
-    data: TProfile;
+    data: TAccount;
 }
 
 export const SET_ERROR_FETCH_PROFILE = 'SET_ERROR_FETCH_PROFILE';

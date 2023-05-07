@@ -1,7 +1,7 @@
 import {get, includes} from "lodash/fp";
 import {Selector} from "react-redux";
 import {createSelector} from "reselect";
-import {ERoles, PROFILE_NAMESPACE, TProfile} from "./profile-types";
+import {ERoles, PROFILE_NAMESPACE, TAccount} from "./profile-types";
 
 const getProfileState = get(PROFILE_NAMESPACE);
 
@@ -24,9 +24,27 @@ export const getIsFetchingProfileStatus: Selector<any, boolean> = createSelector
 /**
  * Статус загрузки данных из сервера
  */
-export const getProfile: Selector<any, TProfile | null> = createSelector(
+export const getProfile: Selector<any, TAccount | null> = createSelector(
     getProfileState,
     get('data')
+);
+
+/**
+ * Ник зарегистрированного игрока
+ */
+export const getActiveUserNickname: Selector<any, string | null> = createSelector(
+    getProfile,
+    (profile: TAccount | null) => {
+        if (!profile) {
+            return null;
+        }
+
+        if (profile?.nickname) {
+            return profile.nickname;
+        }
+
+        return profile.nickname || `${profile?.username}#${profile?.discriminator}`;
+    }
 );
 
 /**
