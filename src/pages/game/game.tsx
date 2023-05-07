@@ -68,7 +68,8 @@ const Game = React.memo((props: TGameConnectedProps) => {
                         : 'Не определена'
                 }`} />
                 <Header content={`Версия карты: ${props.gameInfo.map_version}`} />
-                <Header content={`Победитель: ${props.winnerNickname}`} />
+                {/*<Header content={`Победитель: ${props.winnerNickname}`} />*/}
+                <Header content={`Победитель: ${"Скрыт"}`} />
                 {
                     props.gameInfo.tournament_id && (
                         <Header>
