@@ -22,8 +22,10 @@ export const ShortGameInfoRow = React.memo((props: TProps) => (
         <Table.Cell>{convertUtcToLocalDate(props.date)}</Table.Cell>
         <Table.Cell>
             <UserLink
-                id={props.redUserId}
-                nickname={props.redNickname}
+                // id={props.redUserId}
+                id={""}
+                // nickname={props.redNickname}
+                nickname={"Скрыт"}
             />
         </Table.Cell>
         <Table.Cell>{props.redHero}</Table.Cell>
@@ -35,8 +37,10 @@ export const ShortGameInfoRow = React.memo((props: TProps) => (
         <Table.Cell>{props.blueHero}</Table.Cell>
         <Table.Cell>
             <UserLink
-                id={props.blueUserId}
-                nickname={props.blueNickname}
+                // id={props.blueUserId}
+                id={""}
+                // nickname={props.redNickname}
+                nickname={"Скрыт"}
             />
         </Table.Cell>
         <Table.Cell>

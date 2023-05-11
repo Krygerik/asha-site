@@ -8,3 +8,4 @@ export { default as JhoraIcon } from "./Ора.png";
 export { default as RazzakIcon } from "./Раззак.png";
 export { default as FaizIcon } from "./Фаиз.png";
 export { default as HavezIcon } from "./Хафиз.png";
+export { default as CyrusIcon } from "./Сайрус.png";

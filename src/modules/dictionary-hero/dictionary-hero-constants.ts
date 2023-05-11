@@ -49,6 +49,7 @@ import {
     YlthinIcon
 } from "../../assets/heroes/sylvan";
 import {
+    CyrusIcon,
     FaizIcon,
     GalipIcon,
     HavezIcon,
@@ -67,6 +68,7 @@ import {
     ShadyaIcon,
     SinitarIcon,
     SorgalIcon,
+    ThralsaiIcon,
     VayshanIcon,
     YlayaIcon,
     YrbethIcon,
@@ -310,8 +312,16 @@ export const MAP_HERO_IDS_TO_ICONS: { gameId: string; icon: string }[] = [
         icon: MaahirIcon,
     },
     {
+        gameId: "Cyrus",
+        icon: CyrusIcon,
+    },
+    {
         gameId: "Eruina",
         icon: EruinaIcon,
+    },
+    {
+        gameId: "Thralsai",
+        icon: ThralsaiIcon,
     },
     {
         gameId: "Inagost",

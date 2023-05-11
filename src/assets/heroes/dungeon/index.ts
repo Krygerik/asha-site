@@ -8,3 +8,4 @@ export { default as SinitarIcon } from "./Синитар.png";
 export { default as SorgalIcon } from "./Соргал.png";
 export { default as ShadyaIcon } from "./Шадия.png";
 export { default as EruinaIcon } from "./Эрин.png";
+export { default as ThralsaiIcon } from "./Тралсай.png";
