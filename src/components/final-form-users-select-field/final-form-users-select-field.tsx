@@ -28,7 +28,7 @@ export const FinalFormUsersSelectField = React.memo((props: TFinalFormUsersSelec
      */
     const mapUsersToOptions = map((item: TUserIdWithNickname) => ({
         key: item._id,
-        text: item.nickname,
+        text: item.username,
         value: item._id,
     }))
 
