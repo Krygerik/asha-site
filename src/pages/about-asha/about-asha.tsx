@@ -86,9 +86,9 @@ export const AboutAsha = () => {
                 </Container>
                 <Divider />
                 <p>
-                    <b>Этот проект сновасуществует благодаря этим людям, спасибо!</b><br/>
-                    <b>Разработка: @Syrill#6314, @Imladris#8746, @Queela#7877, @Ged_Blood#5380, @Persona, @Geradot#6151, @Jester101, @IuriiSh#9929</b><br/>
-                    <b>Тестирование: @Persona#4190 , @IuriiSh#9929, @smoker-#6053, @Merlin#5318, @Ikiru Tavi#3627, @Waterel#1412</b><br/><br/><br/>
+                    <b>Этот проект снова существует благодаря этим людям, спасибо!</b><br/>
+                    <b>Разработка: Syrill, Imladris, Queela, Ged_Blood, Persona, Geradot, Jester, IuriiSh</b><br/>
+                    <b>Тестирование: Persona, IuriiSh, smoker-, Merlin, Ikiru Tavi, Waterel</b><br/><br/><br/>
                     <b>Этот проект существует благодаря этим людям, спасибо!</b><br/>
                     <b>Разработка: Mostovik, Sokratik, gRiboN</b><br/>
                     <b>Тестирование: Persona, Deinera, Valah Belyadi, Welsch, 3y6, Auragash, Ikiru Tavi, Moonitouch, RayFever</b>
