@@ -170,6 +170,10 @@ export const SKILLS: TSkill[] = [
         icon: skills.ExpertCounterstrike
     },
     {
+        gameId: "13 = 4",
+        icon: skills.UltimateCounterstrike
+    },
+    {
         gameId: "14 = 1",
         icon: skills.BasicGating
     },
@@ -180,6 +184,10 @@ export const SKILLS: TSkill[] = [
     {
         gameId: "14 = 3",
         icon: skills.ExpertGating
+    },
+    {
+        gameId: "14 = 4",
+        icon: skills.UltimateGating
     },
     {
         gameId: "15 = 1",
@@ -194,6 +202,10 @@ export const SKILLS: TSkill[] = [
         icon: skills.ExpertNecromancy
     },
     {
+        gameId: "15 = 4",
+        icon: skills.UltimateNecromancy
+    },
+    {
         gameId: "16 = 1",
         icon: skills.BasicAvenger
     },
@@ -206,6 +218,10 @@ export const SKILLS: TSkill[] = [
         icon: skills.ExpertAvenger
     },
     {
+        gameId: "16 = 4",
+        icon: skills.UltimateAvenger
+    },
+    {
         gameId: "17 = 1",
         icon: skills.BasicArtificer
     },
@@ -216,6 +232,10 @@ export const SKILLS: TSkill[] = [
     {
         gameId: "17 = 3",
         icon: skills.ExpertArtificer
+    },
+    {
+        gameId: "17 = 4",
+        icon: skills.UltimateArtificer
     },
     {
         gameId: "18 = 1",
@@ -246,6 +266,10 @@ export const SKILLS: TSkill[] = [
         icon: skills.ExpertRunelore
     },
     {
+        gameId: "151 = 4",
+        icon: skills.UltimateRunelore
+    },
+    {
         gameId: "172 = 1",
         icon: skills.BasicBloodRage
     },
@@ -256,6 +280,10 @@ export const SKILLS: TSkill[] = [
     {
         gameId: "172 = 3",
         icon: skills.ExpertBloodRage
+    },
+    {
+        gameId: "172 = 4",
+        icon: skills.UltimateBloodRage
     },
     {
         gameId: "183 = 1",
