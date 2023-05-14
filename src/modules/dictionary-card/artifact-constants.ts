@@ -1,77 +1,102 @@
 import {
-    AxOfTheMountainKingIcon,
-    BrokenSpiritRingIcon,
-    CannibalShieldIcon,
-    CursedRingIcon,
-    DragonEyeRingIcon,
-    DragonTeethNecklaceIcon,
-    DragonboneLeggingsIcon,
-    DragonsClawCrownIcon,
-    DragonscaleArmorIcon,
-    DragonscaleShieldIcon,
-    DragonwingMantleIcon,
-    FlameDragonTongueIcon,
-    GnomishSmithyHammerIcon,
-    IceShieldIcon,
-    LifeForceRingIcon,
-    LionManeCapeIcon,
-    MarvelousQuiverIcon,
-    MoonBladeIcon,
-    OgresCudgelIcon,
-    RingOfCautionIcon,
-    RunedBattleAxIcon,
-    RunedWarHarnessIcon,
-    VictoryNecklaceIcon,
-    VolumeOfForceIcon,
-    GoldenHorseshoeIcon,
+    AxeOfTheMountainLords,
+    RingOfTheBrokenWill,
+    OgreShield,
+    CursedRing,
+    DragonEyeRing,
+    DragonTeethNecklace,
+    DragonBoneGreaves,
+    DragonTalonCrown,
+    DragonScaleArmor,
+    DragonScaleShield,
+    DragonWingMantle,
+    DragonFlameTongue,
+    DwarvenSmithyHammer,
+    ShieldOfCrystalIce,
+    RingOfVitality,
+    CapeOfTheLionsMane,
+    TreebornQuiver,
+    Moonblade,
+    OgreClub,
+    RingOfCaution,
+    RunicWarAxe,
+    RunicWarHarness,
+    NecklaceOfVictory,
+    BookOfPower,
+    GoldenHorseshoe,
+    ScaleMailOfEnlightenment,
+    HornOfPlenty,
+    RuneOfFlame,
+    BootsOfTheOpenRoad,
+    BootsOfTheSwiftJourney,
+    BagOfEndlessGold,
+    TurbanOfEnlightenment
 } from "../../assets/artifacts/great";
 import {
-    BloodClawNecklaceIcon,
-    BreastplateOfTheDwarfKingIcon,
-    ChaosMagicVolumeIcon,
-    CrownOfSarIssaIcon,
-    DeadlyShadowCloakIcon,
-    DwarfKingsShieldIcon,
-    ForgottenHeroArmorIcon,
-    HelmOfTheDwarfKingIcon,
-    LeadershipCrownIcon,
-    LeggingsOfTheDwarfKingIcon,
-    LightMagicVolumeIcon,
-    LionCrownIcon,
-    MarkelsSkullIcon,
-    PendantOfAbsorptionIcon,
-    PendantOfIcyEmbraceIcon,
-    RingOfSarIssaIcon,
-    RingOfSwiftnessIcon,
-    RobeOfSarIssaIcon,
-    SaintsSandalsIcon,
-    StaffOfSarIssaIcon,
-    StaffOfTheUnderworldIcon,
-    TridentOfTheTitansIcon,
-    UnicornHornBowIcon,
-    VolumeOfDarkMagicIcon,
-    VolumeOfSummoningMagicIcon,
-    WanderersBootsIcon
+    NecklaceOfTheBloodyClaw,
+    CuirassOfTheDwarvenKings,
+    TomeOfDestruction,
+    CrownOfSarIssus,
+    CloakOfDeathsShadow,
+    ShieldOfTheDwarvenKings,
+    ArmorOfTheForgottenHero,
+    HelmOfTheDwarvenKings,
+    CrownOfLeadership,
+    GreavesOfTheDwarvenKings,
+    TomeOfLightMagic,
+    LionCrown,
+    SkullOfMarkal,
+    PendantOfConflux,
+    EvercoldIcicle,
+    RingOfSarIssus,
+    RingOfCelerity,
+    RobeOfSarIssus,
+    SandalsOfTheBlessed,
+    StaffOfSarIssus,
+    StaffOfTheNetherworld,
+    TridentOfTheTitans,
+    UnicornHornBow,
+    TomeOfDarkMagic,
+    TomeOfSummoningMagic,
+    WindstriderBoots,
+    AmuletOfNecromancy,
+    ShacklesOfTheLastMan,
+    RingOfMachineAffinity,
+    RingOfSpeed,
+    WingsOfTheAngel,
+    PendantOfMastery,
+    MaskOfEquity,
+    SandrosCloak,
+    BootsOfLevitation,
+    TearOfAsha
 } from "../../assets/artifacts/relic";
 import {
-    BeginnersMagicWandIcon,
-    BootsOfArcaneProtectionIcon,
-    ChaosHelmetIcon,
-    ChestpieceOfImmensePowerIcon,
-    ElementalBeltIcon,
-    FearlessArmorIcon,
-    FourLeafCloverIcon,
-    LightningProtectionRingIcon,
-    LionCollarIcon,
-    ManaScrollIcon,
-    NecromancerHelmetIcon,
-    RingOfSinnersIcon,
-    SecretShieldsIcon,
-    SilannasCloakIcon,
-    SwordOfMightIcon,
-    TarotDeckIcon,
-    TheEdgeOfBalanceIcon,
-    TunicOfFleshIcon
+    BeginnersMagicWand,
+    BootsOfMagicalDefense,
+    HelmOfChaos,
+    BreastplateOfEldritchMight,
+    ElementalWaistband,
+    ArmorOfValor,
+    FourLeafClover,
+    RingOfLightningProtection,
+    NecklaceOfTheLion,
+    MagicScroll,
+    NecromancersHelm,
+    RingOfTheUnrepentant,
+    BearhideWraps,
+    CloakOfSylanna,
+    SwordOfMight,
+    TarotDeck,
+    EdgeOfBalance,
+    TunicOfTheCarvedFlesh,
+    EmeraldSlippers,
+    RingOfBanishment,
+    AllSeeingCrown,
+    SackOfEndlessGold,
+    PhoenixFeatherCape,
+    Wand,
+    ManaScroll,
+    SextantOfTheSeaElves
 } from "../../assets/artifacts/small";
 
 /**
@@ -87,279 +112,379 @@ export type TArtifact = {
  */
 export const ARTIFACTS: TArtifact[] = [
     {
-       gameId: "85",
-       icon: GnomishSmithyHammerIcon,
+        gameId: "1",
+        icon: SwordOfMight
     },
     {
-       gameId: "36",
-       icon: DragonscaleArmorIcon,
+        gameId: "2",
+        icon: AxeOfTheMountainLords
     },
     {
-       gameId: "74",
-       icon: OgresCudgelIcon,
+        gameId: "3",
+        icon: Wand
     },
     {
-       gameId: "25",
-       icon: GoldenHorseshoeIcon,
+        gameId: "4",
+        icon: UnicornHornBow
     },
     {
-       gameId: "95",
-       icon: MarvelousQuiverIcon,
+        gameId: "5",
+        icon: TridentOfTheTitans
     },
     {
-       gameId: "42",
-       icon: DragonEyeRingIcon,
+        gameId: "6",
+        icon: StaffOfTheNetherworld
     },
     {
-       gameId: "21",
-       icon: LifeForceRingIcon,
+        gameId: "7",
+        icon: ShacklesOfTheLastMan
     },
     {
-       gameId: "65",
-       icon: RingOfCautionIcon,
+        gameId: "8",
+        icon: FourLeafClover
     },
     {
-       gameId: "23",
-       icon: BrokenSpiritRingIcon,
+        gameId: "9",
+        icon: ShieldOfCrystalIce
     },
     {
-       gameId: "41",
-       icon: DragonsClawCrownIcon,
+        gameId: "10",
+        icon: SextantOfTheSeaElves
     },
     {
-       gameId: "9",
-       icon: IceShieldIcon,
+        gameId: "11",
+        icon: LionCrown
     },
     {
-       gameId: "58",
-       icon: MoonBladeIcon,
+        gameId: "12",
+        icon: AllSeeingCrown
     },
     {
-       gameId: "39",
-       icon: DragonwingMantleIcon,
+        gameId: "13",
+        icon: ArmorOfTheForgottenHero
     },
     {
-       gameId: "31",
-       icon: LionManeCapeIcon,
+        gameId: "14",
+        icon: BreastplateOfEldritchMight
     },
     {
-       gameId: "40",
-       icon: DragonTeethNecklaceIcon,
+        gameId: "15",
+        icon: PendantOfMastery
     },
     {
-       gameId: "19",
-       icon: VictoryNecklaceIcon,
+        gameId: "16",
+        icon: NecklaceOfTheLion
     },
     {
-       gameId: "43",
-       icon: FlameDragonTongueIcon,
+        gameId: "17",
+        icon: NecklaceOfTheBloodyClaw
     },
     {
-       gameId: "38",
-       icon: DragonboneLeggingsIcon,
+        gameId: "18",
+        icon: EvercoldIcicle
     },
     {
-       gameId: "63",
-       icon: CursedRingIcon,
+        gameId: "19",
+        icon: NecklaceOfVictory
     },
     {
-       gameId: "82",
-       icon: RunedWarHarnessIcon,
+        gameId: "20",
+        icon: RingOfLightningProtection
     },
     {
-       gameId: "81",
-       icon: RunedBattleAxIcon,
+        gameId: "21",
+        icon: RingOfVitality
     },
     {
-       gameId: "2",
-       icon: AxOfTheMountainKingIcon,
+        gameId: "22",
+        icon: RingOfSpeed
     },
     {
-       gameId: "94",
-       icon: VolumeOfForceIcon,
+        gameId: "23",
+        icon: RingOfTheBrokenWill
     },
     {
-       gameId: "37",
-       icon: DragonscaleShieldIcon,
+        gameId: "24",
+        icon: BootsOfTheSwiftJourney
     },
     {
-       gameId: "75",
-       icon: CannibalShieldIcon,
+        gameId: "25",
+        icon: GoldenHorseshoe
     },
     {
-       gameId: "13",
-       icon: ForgottenHeroArmorIcon,
+        gameId: "26",
+        icon: BootsOfTheOpenRoad
     },
     {
-       gameId: "48",
-       icon: BreastplateOfTheDwarfKingIcon,
+        gameId: "27",
+        icon: BootsOfMagicalDefense
     },
     {
-       gameId: "47",
-       icon: RingOfSarIssaIcon,
+        gameId: "28",
+        icon: BagOfEndlessGold
     },
     {
-       gameId: "59",
-       icon: RingOfSwiftnessIcon,
+        gameId: "29",
+        icon: SackOfEndlessGold
     },
     {
-       gameId: "88",
-       icon: LeadershipCrownIcon,
+        gameId: "30",
+        icon: WingsOfTheAngel
     },
     {
-       gameId: "11",
-       icon: LionCrownIcon,
+        gameId: "31",
+        icon: CapeOfTheLionsMane
     },
     {
-       gameId: "46",
-       icon: CrownOfSarIssaIcon,
+        gameId: "32",
+        icon: PhoenixFeatherCape
     },
     {
-       gameId: "18",
-       icon: PendantOfIcyEmbraceIcon,
+        gameId: "33",
+        icon: CloakOfDeathsShadow
     },
     {
-       gameId: "67",
-       icon: PendantOfAbsorptionIcon,
+        gameId: "34",
+        icon: TurbanOfEnlightenment
     },
     {
-       gameId: "4",
-       icon: UnicornHornBowIcon,
+        gameId: "35",
+        icon: ScaleMailOfEnlightenment
     },
     {
-       gameId: "17",
-       icon: BloodClawNecklaceIcon,
+        gameId: "36",
+        icon: DragonScaleArmor
     },
     {
-       gameId: "33",
-       icon: DeadlyShadowCloakIcon,
+        gameId: "37",
+        icon: DragonScaleShield
     },
     {
-       gameId: "49",
-       icon: LeggingsOfTheDwarfKingIcon,
+        gameId: "38",
+        icon: DragonBoneGreaves
     },
     {
-       gameId: "45",
-       icon: StaffOfSarIssaIcon,
+        gameId: "39",
+        icon: DragonWingMantle
     },
     {
-       gameId: "68",
-       icon: SaintsSandalsIcon,
+        gameId: "40",
+        icon: DragonTeethNecklace
     },
     {
-       gameId: "57",
-       icon: WanderersBootsIcon,
+        gameId: "41",
+        icon: DragonTalonCrown
     },
     {
-       gameId: "79",
-       icon: VolumeOfSummoningMagicIcon,
+        gameId: "42",
+        icon: DragonEyeRing
     },
     {
-       gameId: "77",
-       icon: LightMagicVolumeIcon,
+        gameId: "43",
+        icon: DragonFlameTongue
     },
     {
-       gameId: "78",
-       icon: VolumeOfDarkMagicIcon,
+        gameId: "44",
+        icon: RobeOfSarIssus
     },
     {
-       gameId: "76",
-       icon: ChaosMagicVolumeIcon,
+        gameId: "45",
+        icon: StaffOfSarIssus
     },
     {
-       gameId: "5",
-       icon: TridentOfTheTitansIcon,
+        gameId: "46",
+        icon: CrownOfSarIssus
     },
     {
-       gameId: "44",
-       icon: RobeOfSarIssaIcon,
+        gameId: "47",
+        icon: RingOfSarIssus
     },
     {
-       gameId: "83",
-       icon: MarkelsSkullIcon,
+        gameId: "48",
+        icon: CuirassOfTheDwarvenKings
     },
     {
-       gameId: "50",
-       icon: HelmOfTheDwarfKingIcon,
+        gameId: "49",
+        icon: GreavesOfTheDwarvenKings
     },
     {
-       gameId: "51",
-       icon: DwarfKingsShieldIcon,
+        gameId: "50",
+        icon: HelmOfTheDwarvenKings
     },
     {
-       gameId: "80",
-       icon: BeginnersMagicWandIcon,
+        gameId: "51",
+        icon: ShieldOfTheDwarvenKings
     },
     {
-       gameId: "90",
-       icon: TheEdgeOfBalanceIcon,
+        gameId: "52",
+        icon: MagicScroll
     },
     {
-       gameId: "56",
-       icon: FearlessArmorIcon,
+        gameId: "53",
+        icon: TearOfAsha
     },
     {
-       gameId: "87",
-       icon: TarotDeckIcon,
+        gameId: "54",
+        icon: BootsOfLevitation
     },
     {
-       gameId: "70",
-       icon: RingOfSinnersIcon,
+        gameId: "55",
+        icon: NecromancersHelm
     },
     {
-       gameId: "20",
-       icon: LightningProtectionRingIcon,
+        gameId: "56",
+        icon: ArmorOfValor
     },
     {
-       gameId: "1",
-       icon: SwordOfMightIcon,
+        gameId: "57",
+        icon: WindstriderBoots
     },
     {
-       gameId: "14",
-       icon: ChestpieceOfImmensePowerIcon,
+        gameId: "58",
+        icon: Moonblade
     },
     {
-       gameId: "16",
-       icon: LionCollarIcon,
+        gameId: "59",
+        icon: RingOfCelerity
     },
     {
-       gameId: "62",
-       icon: SilannasCloakIcon,
+        gameId: "60",
+        icon: ElementalWaistband
     },
     {
-       gameId: "60",
-       icon: ElementalBeltIcon,
+        gameId: "61",
+        icon: EmeraldSlippers
     },
     {
-       gameId: "27",
-       icon: BootsOfArcaneProtectionIcon,
+        gameId: "62",
+        icon: CloakOfSylanna
     },
     {
-       gameId: "52",
-       icon: ManaScrollIcon,
+        gameId: "63",
+        icon: CursedRing
     },
     {
-       gameId: "84",
-       icon: SecretShieldsIcon,
+        gameId: "64",
+        icon: TunicOfTheCarvedFlesh
     },
     {
-       gameId: "64",
-       icon: TunicOfFleshIcon,
+        gameId: "65",
+        icon: RingOfCaution
     },
     {
-       gameId: "8",
-       icon: FourLeafCloverIcon,
+        gameId: "66",
+        icon: HelmOfChaos
     },
     {
-       gameId: "55",
-       icon: NecromancerHelmetIcon,
+        gameId: "67",
+        icon: PendantOfConflux
     },
     {
-       gameId: "66",
-       icon: ChaosHelmetIcon,
+        gameId: "68",
+        icon: SandalsOfTheBlessed
     },
     {
-       gameId: "6",
-       icon: StaffOfTheUnderworldIcon,
+        gameId: "69",
+        icon: SandrosCloak
+    },
+    {
+        gameId: "70",
+        icon: RingOfTheUnrepentant
+    },
+    {
+        gameId: "71",
+        icon: AmuletOfNecromancy
+    },
+    {
+        gameId: "74",
+        icon: OgreClub
+    },
+    {
+        gameId: "75",
+        icon: OgreShield
+    },
+    {
+        gameId: "76",
+        icon: TomeOfDestruction
+    },
+    {
+        gameId: "77",
+        icon: TomeOfLightMagic
+    },
+    {
+        gameId: "78",
+        icon: TomeOfDarkMagic
+    },
+    {
+        gameId: "79",
+        icon: TomeOfSummoningMagic
+    },
+    {
+        gameId: "80",
+        icon: BeginnersMagicWand
+    },
+    {
+        gameId: "81",
+        icon: RunicWarAxe
+    },
+    {
+        gameId: "82",
+        icon: RunicWarHarness
+    },
+    {
+        gameId: "83",
+        icon: SkullOfMarkal
+    },
+    {
+        gameId: "84",
+        icon: BearhideWraps
+    },
+    {
+        gameId: "85",
+        icon: DwarvenSmithyHammer
+    },
+    {
+        gameId: "86",
+        icon: RuneOfFlame
+    },
+    {
+        gameId: "87",
+        icon: TarotDeck
+    },
+    {
+        gameId: "88",
+        icon: CrownOfLeadership
+    },
+    {
+        gameId: "89",
+        icon: MaskOfEquity
+    },
+    {
+        gameId: "90",
+        icon: EdgeOfBalance
+    },
+    {
+        gameId: "91",
+        icon: RingOfMachineAffinity
+    },
+    {
+        gameId: "92",
+        icon: HornOfPlenty
+    },
+    {
+        gameId: "93",
+        icon: RingOfBanishment
+    },
+    {
+        gameId: "94",
+        icon: BookOfPower
+    },
+    {
+        gameId: "95",
+        icon: TreebornQuiver
+    },
+    {
+        gameId: "HRTA-Mana-Scroll",
+        icon: ManaScroll
     },
 ];
