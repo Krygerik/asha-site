@@ -1,74 +1,78 @@
 import {
-    BerserkIcon,
-    BlindnessIcon,
-    DecelerationIcon,
-    DestructiveBeamIcon,
-    DistractionIcon,
-    PlagueIcon,
-    SorrowIcon,
-    SubordinationIcon,
-    VampirismIcon,
-    WeakeningIcon,
-    WeaknessIcon
+    Frenzy,
+    Blindness,
+    Slow,
+    Vulnerability,
+    CurseOfTheNetherworld,
+    Confusion,
+    Decay,
+    Sorrow,
+    PuppetMaster,
+    Vampirism,
+    Weakness,
+    Suffering
 } from "../../assets/spells/dark";
 import {
-    ArmageddonIcon,
-    EarthShockIcon,
-    FireballIcon,
-    IceBlockIcon,
-    LightningChainIcon,
-    LightningIcon,
-    MagicArrowIcon,
-    MeteorRainIcon,
-    RingOfColdIcon,
-    StoneThornsIcon,
-    StoppingColdIcon,
-    WallOfFireIcon
+    Armageddon,
+    Implosion,
+    Fireball,
+    IceBolt,
+    ChainLightning,
+    LightningBolt,
+    EldritchArrow,
+    MeteorShower,
+    CircleOfWinter,
+    StoneSpikes,
+    DeepFreeze,
+    Firewall
 } from "../../assets/spells/destructive";
 import {
-    AccelerationIcon,
-    AntiMagicIcon,
-    DisenchantmentIcon,
-    DivinePowerIcon,
-    EvasionIcon,
-    PunishingBlowIcon,
-    RegenerationIcon,
-    ResurrectionIcon,
-    StoneSkinIcon,
-    TeleportIcon
+    Haste,
+    MagicalImmunity,
+    Cleansing,
+    DivineStrength,
+    DeflectMissile,
+    RighteousMight,
+    Regeneration,
+    Resurrection,
+    Endurance,
+    Teleportation,
+    WordOfLight,
+    DivineVengeance
 } from "../../assets/spells/light";
 import {
-    BerserkRuneIcon,
-    RuneOfBattleFuryIcon,
-    RuneOfDragonFormIcon,
-    RuneOfElementalImmunityIcon,
-    RuneOfEnergyIcon,
-    RuneOfExorcismIcon,
-    RuneOfIntangibilityIcon,
-    RuneOfMagicalSupervisionIcon,
-    RuneOfResurrectionIcon,
-    RuneOfRollingThunderIcon
+    RuneOfBerserking,
+    RuneOfBattleRage,
+    RuneOfDragonform,
+    RuneOfElementalImmunity,
+    RuneOfCharge,
+    RuneOfExorcism,
+    RuneOfEtherealness,
+    RuneOfMagicControl,
+    RuneOfResurrection,
+    RuneOfThunderclap
 } from "../../assets/spells/rune";
 import {
-    BattleCryIcon,
-    BuildableCryIcon,
-    CallOfBloodIcon,
-    FrighteningRoarIcon,
-    FuryOfTheHordeIcon,
-    TheWordOfTheLeaderIcon
+    Battlecry,
+    RallingCry,
+    CallOfBlood,
+    FearMyRoar,
+    HordesAnger,
+    WordOfTheChief
 } from "../../assets/spells/shout";
 import {
-    CrystalOfTheSecretIcon,
-    FireTrapIcon,
-    HeavenlyShieldIcon,
-    MagicFistIcon,
-    PhantomCreationIcon,
-    PhoenixSummonIcon,
-    RaisingTheDeadIcon,
-    SummonElementalsIcon,
-    SummonTheHiveIcon,
-    SummonWaspSwarmIcon,
-    WallOfSwordsIcon
+    ArcaneCrystal,
+    FireTrap,
+    ArcaneArmor,
+    FistOfWrath,
+    PhantomForces,
+    ConjurePhoenix,
+    RaiseDead,
+    SummonElementals,
+    SummonHive,
+    WaspSwarm,
+    BladeBarrier,
+    Earthquake
 } from "../../assets/spells/summoning";
 
 /**
@@ -84,335 +88,355 @@ export type TSpell = {
  */
 export const SPELLS: TSpell[] = [
     {
-        gameId: "18",
-        icon: BerserkIcon,
-    },
-    {
-        gameId: "278",
-        icon: VampirismIcon,
-    },
-    {
-        gameId: "12",
-        icon: DecelerationIcon,
-    },
-    {
-        gameId: "212",
-        icon: DecelerationIcon,
-    },
-    {
-        gameId: "15",
-        icon: WeaknessIcon,
-    },
-    {
-        gameId: "215",
-        icon: WeaknessIcon,
-    },
-    {
-        gameId: "11",
-        icon: WeakeningIcon,
-    },
-    {
-        gameId: "210",
-        icon: WeakeningIcon,
-    },
-    {
-        gameId: "19",
-        icon: BlindnessIcon,
-    },
-    {
-        gameId: "20",
-        icon: SubordinationIcon,
-    },
-    {
-        gameId: "13",
-        icon: DestructiveBeamIcon,
-    },
-    {
-        gameId: "211",
-        icon: DestructiveBeamIcon,
-    },
-    {
-        gameId: "17",
-        icon: DistractionIcon,
-    },
-    {
-        gameId: "213",
-        icon: DistractionIcon,
-    },
-    {
-        gameId: "277",
-        icon: SorrowIcon,
-    },
-    {
-        gameId: "14",
-        icon: PlagueIcon,
-    },
-    {
-        gameId: "214",
-        icon: PlagueIcon,
-    },
-    {
-        gameId: "10",
-        icon: ArmageddonIcon,
-    },
-    {
-        gameId: "232",
-        icon: ArmageddonIcon,
-    },
-    {
-        gameId: "237",
-        icon: StoneThornsIcon,
-    },
-    {
-        gameId: "233",
-        icon: StoneThornsIcon,
-    },
-    {
-        gameId: "6",
-        icon: RingOfColdIcon,
-    },
-    {
-        gameId: "228",
-        icon: RingOfColdIcon,
-    },
-    {
-        gameId: "4",
-        icon: IceBlockIcon,
-    },
-    {
-        gameId: "226",
-        icon: IceBlockIcon,
-    },
-    {
         gameId: "1",
-        icon: MagicArrowIcon,
-    },
-    {
-        gameId: "223",
-        icon: MagicArrowIcon,
-    },
-    {
-        gameId: "8",
-        icon: MeteorRainIcon,
-    },
-    {
-        gameId: "230",
-        icon: MeteorRainIcon,
-    },
-    {
-        gameId: "3",
-        icon: LightningIcon,
-    },
-    {
-        gameId: "225",
-        icon: LightningIcon,
-    },
-    {
-        gameId: "5",
-        icon: FireballIcon,
-    },
-    {
-        gameId: "227",
-        icon: FireballIcon,
-    },
-    {
-        gameId: "279",
-        icon: StoppingColdIcon,
-    },
-    {
-        gameId: "285",
-        icon: StoppingColdIcon,
-    },
-    {
-        gameId: "236",
-        icon: WallOfFireIcon,
-    },
-    {
-        gameId: "7",
-        icon: LightningChainIcon,
-    },
-    {
-        gameId: "229",
-        icon: LightningChainIcon,
-    },
-    {
-        gameId: "9",
-        icon: EarthShockIcon,
-    },
-    {
-        gameId: "31",
-        icon: AntiMagicIcon,
-    },
-    {
-        gameId: "23",
-        icon: DivinePowerIcon,
-    },
-    {
-        gameId: "216",
-        icon: DivinePowerIcon,
-    },
-    {
-        gameId: "48",
-        icon: ResurrectionIcon,
-    },
-    {
-        gameId: "25",
-        icon: StoneSkinIcon,
-    },
-    {
-        gameId: "218",
-        icon: StoneSkinIcon,
-    },
-    {
-        gameId: "28",
-        icon: PunishingBlowIcon,
-    },
-    {
-        gameId: "220",
-        icon: PunishingBlowIcon,
-    },
-    {
-        gameId: "280",
-        icon: RegenerationIcon,
-    },
-    {
-        gameId: "26",
-        icon: DisenchantmentIcon,
-    },
-    {
-        gameId: "217",
-        icon: DisenchantmentIcon,
-    },
-    {
-        gameId: "32",
-        icon: TeleportIcon,
-    },
-    {
-        gameId: "29",
-        icon: EvasionIcon,
-    },
-    {
-        gameId: "219",
-        icon: EvasionIcon,
-    },
-    {
-        gameId: "24",
-        icon: AccelerationIcon,
-    },
-    {
-        gameId: "221",
-        icon: AccelerationIcon,
-    },
-    {
-        gameId: "250",
-        icon: BerserkRuneIcon,
-    },
-    {
-        gameId: "255",
-        icon: RuneOfBattleFuryIcon,
-    },
-    {
-        gameId: "257",
-        icon: RuneOfResurrectionIcon,
-    },
-    {
-        gameId: "254",
-        icon: RuneOfRollingThunderIcon,
-    },
-    {
-        gameId: "258",
-        icon: RuneOfDragonFormIcon,
-    },
-    {
-        gameId: "251",
-        icon: RuneOfMagicalSupervisionIcon,
-    },
-    {
-        gameId: "256",
-        icon: RuneOfIntangibilityIcon,
-    },
-    {
-        gameId: "253",
-        icon: RuneOfElementalImmunityIcon,
-    },
-    {
-        gameId: "252",
-        icon: RuneOfExorcismIcon,
-    },
-    {
-        gameId: "249",
-        icon: RuneOfEnergyIcon,
-    },
-    {
-        gameId: "294",
-        icon: BattleCryIcon,
-    },
-    {
-        gameId: "291",
-        icon: CallOfBloodIcon,
-    },
-    {
-        gameId: "293",
-        icon: FrighteningRoarIcon,
-    },
-    {
-        gameId: "290",
-        icon: BuildableCryIcon,
-    },
-    {
-        gameId: "292",
-        icon: TheWordOfTheLeaderIcon,
-    },
-    {
-        gameId: "295",
-        icon: FuryOfTheHordeIcon,
+        icon: EldritchArrow
     },
     {
         gameId: "2",
-        icon: MagicFistIcon,
+        icon: FistOfWrath
     },
     {
-        gameId: "224",
-        icon: MagicFistIcon,
+        gameId: "3",
+        icon: LightningBolt
     },
     {
-        gameId: "282",
-        icon: CrystalOfTheSecretIcon,
+        gameId: "4",
+        icon: IceBolt
+    },
+    {
+        gameId: "5",
+        icon: Fireball
+    },
+    {
+        gameId: "6",
+        icon: CircleOfWinter
+    },
+    {
+        gameId: "7",
+        icon: ChainLightning
+    },
+    {
+        gameId: "8",
+        icon: MeteorShower
+    },
+    {
+        gameId: "9",
+        icon: Implosion
+    },
+    {
+        gameId: "10",
+        icon: Armageddon
+    },
+    {
+        gameId: "11",
+        icon: Weakness
+    },
+    {
+        gameId: "12",
+        icon: Slow
+    },
+    {
+        gameId: "13",
+        icon: Vulnerability
+    },
+    {
+        gameId: "14",
+        icon: Decay
+    },
+    {
+        gameId: "15",
+        icon: Suffering
+    },
+    {
+        gameId: "17",
+        icon: Confusion
+    },
+    {
+        gameId: "18",
+        icon: Frenzy
+    },
+    {
+        gameId: "19",
+        icon: Blindness
+    },
+    {
+        gameId: "20",
+        icon: PuppetMaster
+    },
+    {
+        gameId: "21",
+        icon: CurseOfTheNetherworld
+    },
+    {
+        gameId: "23",
+        icon: DivineStrength
+    },
+    {
+        gameId: "24",
+        icon: Haste
+    },
+    {
+        gameId: "25",
+        icon: Endurance
+    },
+    {
+        gameId: "26",
+        icon: Cleansing
+    },
+    {
+        gameId: "28",
+        icon: RighteousMight
+    },
+    {
+        gameId: "29",
+        icon: DeflectMissile
+    },
+    {
+        gameId: "31",
+        icon: MagicalImmunity
+    },
+    {
+        gameId: "32",
+        icon: Teleportation
     },
     {
         gameId: "34",
-        icon: HeavenlyShieldIcon,
+        icon: ArcaneArmor
+    },
+    {
+        gameId: "35",
+        icon: WordOfLight
     },
     {
         gameId: "38",
-        icon: FireTrapIcon,
-    },
-    {
-        gameId: "42",
-        icon: RaisingTheDeadIcon,
+        icon: FireTrap
     },
     {
         gameId: "39",
-        icon: SummonWaspSwarmIcon,
-    },
-    {
-        gameId: "283",
-        icon: SummonTheHiveIcon,
-    },
-    {
-        gameId: "235",
-        icon: PhoenixSummonIcon,
-    },
-    {
-        gameId: "43",
-        icon: SummonElementalsIcon,
+        icon: WaspSwarm
     },
     {
         gameId: "40",
-        icon: PhantomCreationIcon,
+        icon: PhantomForces
+    },
+    {
+        gameId: "41",
+        icon: Earthquake
+    },
+    {
+        gameId: "42",
+        icon: RaiseDead
+    },
+    {
+        gameId: "43",
+        icon: SummonElementals
+    },
+    {
+        gameId: "48",
+        icon: Resurrection
+    },
+    {
+        gameId: "210",
+        icon: Weakness
+    },
+    {
+        gameId: "211",
+        icon: Vulnerability
+    },
+    {
+        gameId: "212",
+        icon: Slow
+    },
+    {
+        gameId: "213",
+        icon: Confusion
+    },
+    {
+        gameId: "214",
+        icon: Decay
+    },
+    {
+        gameId: "215",
+        icon: Suffering
+    },
+    {
+        gameId: "216",
+        icon: DivineStrength
+    },
+    {
+        gameId: "217",
+        icon: Cleansing
+    },
+    {
+        gameId: "218",
+        icon: Endurance
+    },
+    {
+        gameId: "219",
+        icon: DeflectMissile
+    },
+    {
+        gameId: "220",
+        icon: RighteousMight
+    },
+    {
+        gameId: "221",
+        icon: Haste
+    },
+    {
+        gameId: "223",
+        icon: EldritchArrow
+    },
+    {
+        gameId: "224",
+        icon: FistOfWrath
+    },
+    {
+        gameId: "225",
+        icon: LightningBolt
+    },
+    {
+        gameId: "226",
+        icon: IceBolt
+    },
+    {
+        gameId: "227",
+        icon: Fireball
+    },
+    {
+        gameId: "228",
+        icon: CircleOfWinter
+    },
+    {
+        gameId: "229",
+        icon: ChainLightning
+    },
+    {
+        gameId: "230",
+        icon: MeteorShower
+    },
+    {
+        gameId: "231",
+        icon: Implosion
+    },
+    {
+        gameId: "232",
+        icon: Armageddon
+    },
+    {
+        gameId: "233",
+        icon: StoneSpikes
+    },
+    {
+        gameId: "235",
+        icon: ConjurePhoenix
+    },
+    {
+        gameId: "236",
+        icon: Firewall
+    },
+    {
+        gameId: "237",
+        icon: StoneSpikes
+    },
+    {
+        gameId: "249",
+        icon: RuneOfCharge
+    },
+    {
+        gameId: "250",
+        icon: RuneOfBerserking
+    },
+    {
+        gameId: "251",
+        icon: RuneOfMagicControl
+    },
+    {
+        gameId: "252",
+        icon: RuneOfExorcism
+    },
+    {
+        gameId: "253",
+        icon: RuneOfElementalImmunity
+    },
+    {
+        gameId: "254",
+        icon: RuneOfThunderclap
+    },
+    {
+        gameId: "255",
+        icon: RuneOfBattleRage
+    },
+    {
+        gameId: "256",
+        icon: RuneOfEtherealness
+    },
+    {
+        gameId: "257",
+        icon: RuneOfResurrection
+    },
+    {
+        gameId: "258",
+        icon: RuneOfDragonform
+    },
+    {
+        gameId: "277",
+        icon: Sorrow
+    },
+    {
+        gameId: "278",
+        icon: Vampirism
+    },
+    {
+        gameId: "279",
+        icon: DeepFreeze
+    },
+    {
+        gameId: "280",
+        icon: Regeneration
+    },
+    {
+        gameId: "281",
+        icon: DivineVengeance
+    },
+    {
+        gameId: "282",
+        icon: ArcaneCrystal
+    },
+    {
+        gameId: "283",
+        icon: SummonHive
     },
     {
         gameId: "284",
-        icon: WallOfSwordsIcon,
+        icon: BladeBarrier
+    },
+    {
+        gameId: "285",
+        icon: DeepFreeze
+    },
+    {
+        gameId: "290",
+        icon: RallingCry
+    },
+    {
+        gameId: "291",
+        icon: CallOfBlood
+    },
+    {
+        gameId: "292",
+        icon: WordOfTheChief
+    },
+    {
+        gameId: "293",
+        icon: FearMyRoar
+    },
+    {
+        gameId: "294",
+        icon: Battlecry
+    },
+    {
+        gameId: "295",
+        icon: HordesAnger
     },
 ];

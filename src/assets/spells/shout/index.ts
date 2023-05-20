@@ -1,6 +1,6 @@
-export { default as BattleCryIcon } from "./Боевой клич.png";
-export { default as CallOfBloodIcon } from "./Зов крови.png";
-export { default as FrighteningRoarIcon } from "./Пугающий рык.png";
-export { default as BuildableCryIcon } from "./Сборный клич.png";
-export { default as TheWordOfTheLeaderIcon } from "./Слово вождя.png";
-export { default as FuryOfTheHordeIcon } from "./Ярость орды.png";
+export { default as Battlecry } from "./Боевой клич.png";
+export { default as CallOfBlood } from "./Зов крови.png";
+export { default as FearMyRoar } from "./Пугающий рык.png";
+export { default as RallingCry } from "./Сборный клич.png";
+export { default as WordOfTheChief } from "./Слово вождя.png";
+export { default as HordesAnger } from "./Ярость орды.png";
