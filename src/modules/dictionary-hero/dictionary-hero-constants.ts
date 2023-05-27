@@ -1,442 +1,557 @@
 import {
-    DougalIcon,
-    EllaineIcon,
-    GodricIcon,
-    IrinaIcon,
-    KlausIcon,
-    LaszloIcon,
-    MaeveIcon,
-    RutgerIcon,
-    ValeriaIcon,
-    VittorioIcon
-} from "../../assets/heroes/haven";
-import {
-    AgraelIcon,
-    AlastorIcon,
-    DelebIcon,
-    GrawlIcon,
-    GrokIcon,
-    JezebethIcon,
-    MarbasIcon,
-    NebirosIcon,
-    NymusIcon,
-    OrlandoIcon
-} from "../../assets/heroes/inferno";
-import {
-    ArantirIcon,
-    DeirdreIcon,
-    KasparIcon,
-    LucretiaIcon,
-    MarkalIcon,
-    NaadirIcon,
-    NicolaiIcon,
-    OrnellaIcon,
-    OrsonIcon,
-    RavenIcon,
-    VladimirIcon,
-    ZoltanIcon
-} from "../../assets/heroes/necropolis";
-import {
-    AlaronIcon,
-    AnwenIcon,
-    DiraelIcon,
-    FindanIcon,
-    GilraenIcon,
-    OssirIcon,
-    TalanarIcon,
-    VinraelIcon,
-    WyngaalIcon,
-    YlthinIcon
-} from "../../assets/heroes/sylvan";
-import {
-    CyrusIcon,
-    FaizIcon,
-    GalipIcon,
-    HavezIcon,
-    JhoraIcon,
-    MaahirIcon,
-    NarxesIcon,
-    NathirIcon,
-    NurIcon,
-    RazzakIcon,
-    ZehirIcon
+    Cyrus,
+    Faiz,
+    Galib,
+    Havez,
+    Jhora,
+    Maahir,
+    Narxes,
+    Nathir,
+    Nur,
+    Razzak,
+    Temkhan,
+    Zehir
 } from "../../assets/heroes/academy";
 import {
-    EruinaIcon,
-    KythraIcon,
-    LethosIcon,
-    ShadyaIcon,
-    SinitarIcon,
-    SorgalIcon,
-    ThralsaiIcon,
-    VayshanIcon,
-    YlayaIcon,
-    YrbethIcon,
-    YrwannaIcon
+    Agbeth,
+    Eruina,
+    Kythra,
+    Lethos,
+    Raelag,
+    Ranleth,
+    Shadya,
+    Sinitar,
+    Sorgal,
+    Thralsai,
+    Vayshan,
+    Ylaya,
+    Yrbeth,
+    Yrwanna
 } from "../../assets/heroes/dungeon";
 import {
-    BrandIcon,
-    EbbaIcon,
-    ErlingIcon,
-    HelmarIcon,
-    IngaIcon,
-    IngvarIcon,
-    KarliIcon,
-    RolfIcon,
-    SveaIcon,
-    WulfstanIcon
+    Brand,
+    Ebba,
+    Erling,
+    Hangvul,
+    Helmar,
+    Inga,
+    Ingvar,
+    Karli,
+    KingTolghar,
+    Rolf,
+    Svea,
+    Wulfstan
 } from "../../assets/heroes/fortress";
 import {
-    GarunaIcon,
-    GorshakIcon,
-    GotaiIcon,
-    HaggashIcon,
-    KilghanIcon,
-    KraghIcon,
-    KujinIcon,
-    QuroqIcon,
-    ShakKarukatIcon,
-    TelsekIcon
+    Alaric,
+    Andreas,
+    Benedikt,
+    Bertrand,
+    Dougal,
+    Duncan,
+    Ellaine,
+    Freyda,
+    Gabrielle,
+    Godric,
+    Irina,
+    Isabel,
+    Klaus,
+    Laszlo,
+    Lorenzo,
+    Maeve,
+    NicolaiHaven,
+    OrlandoHaven,
+    OrnellaHaven,
+    Rutger,
+    Valeria,
+    Vittorio
+} from "../../assets/heroes/haven";
+import {
+    Agrael,
+    Alastor,
+    Biara,
+    Deleb,
+    Grawl,
+    Grok,
+    Jezebeth,
+    Marbas,
+    Nebiros,
+    Nymus,
+    OrlandoInferno
+} from "../../assets/heroes/inferno";
+import {
+    Arantir,
+    Deirdre,
+    Giovanni,
+    Kaspar,
+    Lucretia,
+    Markal,
+    Naadir,
+    NicolaiNecro,
+    OrnellaNecro,
+    Orson,
+    Raven,
+    Vladimir,
+    Zoltan
+} from "../../assets/heroes/necropolis";
+import {
+    Garuna,
+    Gorshak,
+    Gotai,
+    Haggash,
+    Kilghan,
+    Kragh,
+    Kujin,
+    Kunyak,
+    Quroq,
+    ShakKarukat,
+    Telsek,
+    Urghat
 } from "../../assets/heroes/stronghold";
+import {
+    Alaron,
+    Anwen,
+    Dirael,
+    Findan,
+    Gilraen,
+    Ossir,
+    Talanar,
+    Tieru,
+    Vinrael,
+    Wyngaal,
+    Ylthin
+} from "../../assets/heroes/sylvan";
 
 /**
- * Перечисление всех герое и их свойств
+ * Перечисление всех героев и их свойств
  */
 export const MAP_HERO_IDS_TO_ICONS: { gameId: string; icon: string }[] = [
     {
-        gameId: "Orrin",
-        icon: DougalIcon,
+        gameId: "Aberrar",
+        icon: Zoltan
     },
     {
-        gameId: "Sarge",
-        icon: KlausIcon,
-    },
-    {
-        gameId: "Mardigo",
-        icon: LaszloIcon,
-    },
-    {
-        gameId: "Brem",
-        icon: RutgerIcon,
-    },
-    {
-        gameId: "Maeve",
-        icon: MaeveIcon,
-    },
-    {
-        gameId: "Ving",
-        icon: IrinaIcon,
-    },
-    {
-        gameId: "Nathaniel",
-        icon: EllaineIcon,
-    },
-    {
-        gameId: "Christian",
-        icon: VittorioIcon,
-    },
-    {
-        gameId: "Godric",
-        icon: GodricIcon,
-    },
-    {
-        gameId: "RedHeavenHero03",
-        icon: ValeriaIcon,
-    },
-    {
-        gameId: "Grok",
-        icon: GrokIcon,
-    },
-    {
-        gameId: "Oddrema",
-        icon: JezebethIcon,
-    },
-    {
-        gameId: "Marder",
-        icon: MarbasIcon,
-    },
-    {
-        gameId: "Jazaz",
-        icon: NebirosIcon,
-    },
-    {
-        gameId: "Efion",
-        icon: AlastorIcon,
-    },
-    {
-        gameId: "Deleb",
-        icon: DelebIcon,
-    },
-    {
-        gameId: "Calid",
-        icon: GrawlIcon,
-    },
-    {
-        gameId: "Nymus",
-        icon: NymusIcon,
-    },
-    {
-        gameId: "Orlando",
-        icon: OrlandoIcon,
+        gameId: "Agbeth",
+        icon: Agbeth
     },
     {
         gameId: "Agrael",
-        icon: AgraelIcon,
+        icon: Agrael
     },
     {
-        gameId: "Nemor",
-        icon: DeirdreIcon,
-    },
-    {
-        gameId: "Tamika",
-        icon: LucretiaIcon,
-    },
-    {
-        gameId: "Muscip",
-        icon: NaadirIcon,
-    },
-    {
-        gameId: "Aberrar",
-        icon: ZoltanIcon,
-    },
-    {
-        gameId: "Straker",
-        icon: OrsonIcon,
-    },
-    {
-        gameId: "Effig",
-        icon: RavenIcon,
-    },
-    {
-        gameId: "Pelt",
-        icon: VladimirIcon,
-    },
-    {
-        gameId: "Gles",
-        icon: KasparIcon,
-    },
-    {
-        gameId: "Arantir",
-        icon: ArantirIcon,
-    },
-    {
-        gameId: "OrnellaNecro",
-        icon: OrnellaIcon,
-    },
-    {
-        gameId: "Berein",
-        icon: MarkalIcon,
-    },
-    {
-        gameId: "Nikolas",
-        icon: NicolaiIcon,
-    },
-    {
-        gameId: "Metlirn",
-        icon: AnwenIcon,
-    },
-    {
-        gameId: "Gillion",
-        icon: GilraenIcon,
-    },
-    {
-        gameId: "Nadaur",
-        icon: TalanarIcon,
-    },
-    {
-        gameId: "Diraya",
-        icon: DiraelIcon,
-    },
-    {
-        gameId: "Ossir",
-        icon: OssirIcon,
-    },
-    {
-        gameId: "Itil",
-        icon: YlthinIcon,
-    },
-    {
-        gameId: "Elleshar",
-        icon: VinraelIcon,
-    },
-    {
-        gameId: "Linaas",
-        icon: WyngaalIcon,
-    },
-    {
-        gameId: "Heam",
-        icon: FindanIcon,
-    },
-    {
-        gameId: "Ildar",
-        icon: AlaronIcon,
-    },
-    {
-        gameId: "Faiz",
-        icon: FaizIcon,
-    },
-    {
-        gameId: "Havez",
-        icon: HavezIcon,
-    },
-    {
-        gameId: "Nur",
-        icon: NathirIcon,
-    },
-    {
-        gameId: "Astral",
-        icon: NurIcon,
-    },
-    {
-        gameId: "Sufi",
-        icon: JhoraIcon,
-    },
-    {
-        gameId: "Razzak",
-        icon: NarxesIcon,
-    },
-    {
-        gameId: "Tan",
-        icon: GalipIcon,
-    },
-    {
-        gameId: "Isher",
-        icon: RazzakIcon,
-    },
-    {
-        gameId: "Zehir",
-        icon: ZehirIcon,
-    },
-    {
-        gameId: "Maahir",
-        icon: MaahirIcon,
-    },
-    {
-        gameId: "Cyrus",
-        icon: CyrusIcon,
-    },
-    {
-        gameId: "Eruina",
-        icon: EruinaIcon,
-    },
-    {
-        gameId: "Thralsai",
-        icon: ThralsaiIcon,
-    },
-    {
-        gameId: "Inagost",
-        icon: SinitarIcon,
-    },
-    {
-        gameId: "Urunir",
-        icon: YrwannaIcon,
+        gameId: "Alaric",
+        icon: Alaric
     },
     {
         gameId: "Almegir",
-        icon: YrbethIcon,
+        icon: Yrbeth
     },
     {
-        gameId: "Menel",
-        icon: KythraIcon,
+        gameId: "Arantir",
+        icon: Arantir
     },
     {
-        gameId: "Dalom",
-        icon: LethosIcon,
+        gameId: "Astral",
+        icon: Nur
     },
     {
-        gameId: "Ferigl",
-        icon: SorgalIcon,
-    },
-    {
-        gameId: "Ohtarig",
-        icon: VayshanIcon,
-    },
-    {
-        gameId: "Kelodin",
-        icon: ShadyaIcon,
-    },
-    {
-        gameId: "Shadwyn",
-        icon: YlayaIcon,
-    },
-    {
-        gameId: "Brand",
-        icon: BrandIcon,
+        gameId: "Berein",
+        icon: Markal
     },
     {
         gameId: "Bersy",
-        icon: EbbaIcon,
+        icon: Ebba
+    },
+    {
+        gameId: "Biara",
+        icon: Biara
+    },
+    {
+        gameId: "Brand",
+        icon: Brand
+    },
+    {
+        gameId: "Brem",
+        icon: Rutger
+    },
+    {
+        gameId: "Calid",
+        icon: Grawl
+    },
+    {
+        gameId: "Christian",
+        icon: Vittorio
+    },
+    {
+        gameId: "Cyrus",
+        icon: Cyrus
+    },
+    {
+        gameId: "Dalom",
+        icon: Lethos
+    },
+    {
+        gameId: "Deleb",
+        icon: Deleb
+    },
+    {
+        gameId: "Diraya",
+        icon: Dirael
+    },
+    {
+        gameId: "Duncan",
+        icon: Duncan
+    },
+    {
+        gameId: "Effig",
+        icon: Raven
+    },
+    {
+        gameId: "Efion",
+        icon: Alastor
     },
     {
         gameId: "Egil",
-        icon: ErlingIcon,
+        icon: Erling
     },
     {
-        gameId: "Ottar",
-        icon: HelmarIcon,
+        gameId: "Elleshar",
+        icon: Vinrael
     },
     {
-        gameId: "Una",
-        icon: IngaIcon,
+        gameId: "Eruina",
+        icon: Eruina
     },
     {
-        gameId: "Ingvar",
-        icon: IngvarIcon,
+        gameId: "Faiz",
+        icon: Faiz
     },
     {
-        gameId: "Vegeyr",
-        icon: SveaIcon,
+        gameId: "Ferigl",
+        icon: Sorgal
     },
     {
-        gameId: "Skeggy",
-        icon: KarliIcon,
+        gameId: "Freyda",
+        icon: Freyda
     },
     {
-        gameId: "Wulfstan",
-        icon: WulfstanIcon,
+        gameId: "Gillion",
+        icon: Gilraen
     },
     {
-        gameId: "Rolf",
-        icon: RolfIcon,
+        gameId: "Giovanni",
+        icon: Giovanni
     },
     {
-        gameId: "Hero3",
-        icon: GarunaIcon,
+        gameId: "Gles",
+        icon: Kaspar
     },
     {
-        gameId: "Hero6",
-        icon: ShakKarukatIcon,
-    },
-    {
-        gameId: "Hero8",
-        icon: TelsekIcon,
-    },
-    {
-        gameId: "Hero7",
-        icon: HaggashIcon,
-    },
-    {
-        gameId: "Hero1",
-        icon: KraghIcon,
-    },
-    {
-        gameId: "Hero9",
-        icon: KilghanIcon,
-    },
-    {
-        gameId: "Hero4",
-        icon: GorshakIcon,
-    },
-    {
-        gameId: "Kujin",
-        icon: KujinIcon,
+        gameId: "Godric",
+        icon: Godric
     },
     {
         gameId: "Gottai",
-        icon: GotaiIcon,
+        icon: Gotai
+    },
+    {
+        gameId: "Grok",
+        icon: Grok
+    },
+    {
+        gameId: "Hangvul",
+        icon: Hangvul
+    },
+    {
+        gameId: "Havez",
+        icon: Havez
+    },
+    {
+        gameId: "Heam",
+        icon: Findan
+    },
+    {
+        gameId: "Hero1",
+        icon: Kragh
+    },
+    {
+        gameId: "Hero2",
+        icon: Urghat
+    },
+    {
+        gameId: "Hero3",
+        icon: Garuna
+    },
+    {
+        gameId: "Hero4",
+        icon: Gorshak
+    },
+    {
+        gameId: "Hero6",
+        icon: ShakKarukat
+    },
+    {
+        gameId: "Hero7",
+        icon: Haggash
+    },
+    {
+        gameId: "Hero8",
+        icon: Telsek
+    },
+    {
+        gameId: "Hero9",
+        icon: Kilghan
+    },
+    {
+        gameId: "Ildar",
+        icon: Alaron
+    },
+    {
+        gameId: "Inagost",
+        icon: Sinitar
+    },
+    {
+        gameId: "Ingvar",
+        icon: Ingvar
+    },
+    {
+        gameId: "Isabell",
+        icon: Isabel
+    },
+    {
+        gameId: "Isher",
+        icon: Razzak
+    },
+    {
+        gameId: "Itil",
+        icon: Ylthin
+    },
+    {
+        gameId: "Jazaz",
+        icon: Nebiros
+    },
+    {
+        gameId: "Kelodin",
+        icon: Shadya
+    },
+    {
+        gameId: "KingTolghar",
+        icon: KingTolghar
+    },
+    {
+        gameId: "Kujin",
+        icon: Kujin
+    },
+    {
+        gameId: "Kunyak",
+        icon: Kunyak
+    },
+    {
+        gameId: "Mardigo",
+        icon: Laszlo
+    },
+    {
+        gameId: "Linaas",
+        icon: Wyngaal
+    },
+    {
+        gameId: "Maahir",
+        icon: Maahir
+    },
+    {
+        gameId: "Maeve",
+        icon: Maeve
+    },
+    {
+        gameId: "Marder",
+        icon: Marbas
+    },
+    {
+        gameId: "Menel",
+        icon: Kythra
+    },
+    {
+        gameId: "Metlirn",
+        icon: Anwen
+    },
+    {
+        gameId: "Muscip",
+        icon: Naadir
+    },
+    {
+        gameId: "Nadaur",
+        icon: Talanar
+    },
+    {
+        gameId: "Nathaniel",
+        icon: Ellaine
+    },
+    {
+        gameId: "Nemor",
+        icon: Deirdre
+    },
+    {
+        gameId: "NicolaiHaven",
+        icon: NicolaiHaven
+    },
+    {
+        gameId: "NikolaiNecro",
+        icon: NicolaiNecro
+    },
+    {
+        gameId: "Nur",
+        icon: Nathir
+    },
+    {
+        gameId: "Nymus",
+        icon: Nymus
+    },
+    {
+        gameId: "Oddrema",
+        icon: Jezebeth
+    },
+    {
+        gameId: "Ohtarig",
+        icon: Vayshan
+    },
+    {
+        gameId: "Orlando_Haven",
+        icon: OrlandoHaven
+    },
+    {
+        gameId: "Orlando_Inferno",
+        icon: OrlandoInferno
+    },
+    {
+        gameId: "OrnellaHaven",
+        icon: OrnellaHaven
+    },
+    {
+        gameId: "OrnellaNecro",
+        icon: OrnellaNecro
+    },
+    {
+        gameId: "Orrin",
+        icon: Dougal
+    },
+    {
+        gameId: "Ossir",
+        icon: Ossir
+    },
+    {
+        gameId: "Ottar",
+        icon: Helmar
+    },
+    {
+        gameId: "Pelt",
+        icon: Vladimir
     },
     {
         gameId: "Quroq",
-        icon: QuroqIcon,
+        icon: Quroq
+    },
+    {
+        gameId: "Raelag",
+        icon: Raelag
+    },
+    {
+        gameId: "Ranleth",
+        icon: Ranleth
+    },
+    {
+        gameId: "Razzak",
+        icon: Narxes
+    },
+    {
+        gameId: "RedHeavenHero01",
+        icon: Andreas
+    },
+    {
+        gameId: "RedHeavenHero02",
+        icon: Lorenzo
+    },
+    {
+        gameId: "RedHeavenHero03",
+        icon: Valeria
+    },
+    {
+        gameId: "RedHeavenHero04",
+        icon: Benedikt
+    },
+    {
+        gameId: "RedHeavenHero05",
+        icon: Bertrand
+    },
+    {
+        gameId: "RedHeavenHero06",
+        icon: Gabrielle
+    },
+    {
+        gameId: "Rolf",
+        icon: Rolf
+    },
+    {
+        gameId: "Sarge",
+        icon: Klaus
+    },
+    {
+        gameId: "Shadwyn",
+        icon: Ylaya
+    },
+    {
+        gameId: "Skeggy",
+        icon: Karli
+    },
+    {
+        gameId: "Straker",
+        icon: Orson
+    },
+    {
+        gameId: "Sufi",
+        icon: Jhora
+    },
+    {
+        gameId: "Tamika",
+        icon: Lucretia
+    },
+    {
+        gameId: "Tan",
+        icon: Galib
+    },
+    {
+        gameId: "Thralsai",
+        icon: Thralsai
+    },
+    {
+        gameId: "Tieru",
+        icon: Tieru
+    },
+    {
+        gameId: "Timerkhan",
+        icon: Temkhan
+    },
+    {
+        gameId: "Una",
+        icon: Inga
+    },
+    {
+        gameId: "Urunir",
+        icon: Yrwanna
+    },
+    {
+        gameId: "Vegeyr",
+        icon: Svea
+    },
+    {
+        gameId: "Ving",
+        icon: Irina
+    },
+    {
+        gameId: "Wulfstan",
+        icon: Wulfstan
+    },
+    {
+        gameId: "Zehir",
+        icon: Zehir
     },
 ];
