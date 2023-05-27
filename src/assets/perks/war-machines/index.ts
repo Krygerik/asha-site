@@ -10,4 +10,3 @@ export { default as TripleBallista } from "./Скорострельная бал
 export { default as Tremors } from "./Сотрясение земли.png";
 export { default as AmmoCart } from "./Тележка с боеприпасами.png";
 export { default as PlagueTent } from "./Чумная палатка.png";
-export { default as AmmoCart } from "./Тележка с боеприпасами.png";

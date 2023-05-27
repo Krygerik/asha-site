@@ -10,4 +10,3 @@ export { default as Empathy } from "./Сопереживание.png";
 export { default as BattleElation } from "./Упоение битвой.png";
 export { default as Estates } from "./Управление казной.png";
 export { default as GateMaster } from "./Хозяин врат.png";
-export { default as ArtificalGlory } from "./Преданность машин.png";
