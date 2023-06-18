@@ -53,7 +53,7 @@ const UserListComponent = React.memo((props: TProps) => {
     const handleClickJoinToTournament = () => {
         showSimpleModal({
             handleClickNo: noop,
-            handleClickYes: () => requestCreator('/tournament/register'),
+            handleClickYes: () => requestCreator('/tournament/register', props.activeUserId),
             isPositive: true,
             message: 'Вы уверены, что хотите принять участие в турнире?',
             title: 'Регистрация на турнир',
@@ -66,7 +66,7 @@ const UserListComponent = React.memo((props: TProps) => {
     const handleClickLeaveFromTournament = () => {
         showSimpleModal({
             handleClickNo: noop,
-            handleClickYes: () => requestCreator('/tournament/leave'),
+            handleClickYes: () => requestCreator('/tournament/leave', props.activeUserId),
             message: props.tournamentStarted
                 ? 'Вы уверены, что хотите сдаться? Вернуться в турнир уже будет невозможно'
                 : 'Вы уверены, что хотите отменить регистрацию на турнир?',
