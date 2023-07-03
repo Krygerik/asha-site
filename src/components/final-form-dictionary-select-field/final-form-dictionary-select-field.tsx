@@ -40,9 +40,9 @@ export const FinalFormDictionarySelectField = (props: TProps) => {
             }))
         : dictionaryRecords
             .map((record: TCommonDictionaryRecord) => ({
-                key: record.game_id[0],
-                text: getLocalizeDictionaryValueByGameId(props.dictionary, record.game_id[0]),
-                value: record.game_id[0],
+                key: record.game_id,
+                text: getLocalizeDictionaryValueByGameId(props.dictionary, record.game_id),
+                value: record.game_id,
             }));
 
     return (

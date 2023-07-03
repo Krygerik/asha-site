@@ -2,7 +2,8 @@ import {DropdownItemProps, Form as SemanticForm} from "semantic-ui-react";
 import {Field} from "react-final-form";
 import * as React from "react";
 
-type TProps = {
+export type TFinalFormSelectFieldProps = {
+    disabled?: boolean;
     fluid?: boolean;
     label?: string;
     loading?: boolean;
@@ -19,7 +20,7 @@ const notEmptyValidator = (value?: string) => (value ? undefined : 'Поле о�
 /**
  * Выпадающий список с опциями из переданного словаря
  */
-export const FinalFormSelectField = (props: TProps) => (
+export const FinalFormSelectField = (props: TFinalFormSelectFieldProps) => (
     <Field
         name={props.name}
         validate={props.required ? notEmptyValidator : undefined}
@@ -27,6 +28,7 @@ export const FinalFormSelectField = (props: TProps) => (
         {
             innerProps => (
                 <SemanticForm.Select
+                    disabled={props.disabled}
                     error={innerProps.meta.touched && innerProps.meta.error}
                     fluid={props.fluid}
                     label={props.label}

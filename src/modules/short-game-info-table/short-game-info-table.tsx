@@ -148,6 +148,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                             </Grid.Column>
                                             <Grid.Column>
                                                 <FinalFormUsersSelectField
+                                                    disabled
                                                     label="Игрок"
                                                     name="user_id"
                                                     search
@@ -178,8 +179,8 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                                     dictionary={EDictionaryName.Heroes}
                                                     // @ts-ignore
                                                     filter={
-                                                        values.race
-                                                            ? (item: THeroRecord) => item.race_id === values.race
+                                                        values.race_1
+                                                            ? (item: THeroRecord) => item.race_id === values.race_1
                                                             : undefined
                                                     }
                                                     label="Герой"
@@ -189,6 +190,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                             </Grid.Column>
                                             <Grid.Column>
                                                 <FinalFormUsersSelectField
+                                                    disabled
                                                     label="Игрок"
                                                     name="user_id_1"
                                                     search

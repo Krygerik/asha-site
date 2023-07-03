@@ -1,20 +1,15 @@
 import {map} from "lodash/fp";
 import * as React from "react";
 import {createRequest} from "../../utils/create-request";
-import {FinalFormSelectField} from "../final-form-select-field";
+import {FinalFormSelectField, TFinalFormSelectFieldProps} from "../final-form-select-field";
 import {TUserIdWithNickname} from "./final-form-users-select-field-types";
 
-type TProps = {
-    fluid?: boolean;
-    label?: string;
-    name: string;
-    search?: boolean;
-};
+type TFinalFormUsersSelectFieldProps = Omit<TFinalFormSelectFieldProps, 'options'>;
 
 /**
  * Компонент отображения списка пользователей
  */
-export const FinalFormUsersSelectField = React.memo((props: TProps) => {
+export const FinalFormUsersSelectField = React.memo((props: TFinalFormUsersSelectFieldProps) => {
     const [users, setUsers] = React.useState([] as TUserIdWithNickname[]);
     const [isLoading, setLoadingStatus] = React.useState(true);
 
@@ -33,7 +28,7 @@ export const FinalFormUsersSelectField = React.memo((props: TProps) => {
      */
     const mapUsersToOptions = map((item: TUserIdWithNickname) => ({
         key: item._id,
-        text: item.nickname,
+        text: item.username,
         value: item._id,
     }))
 
@@ -42,7 +37,6 @@ export const FinalFormUsersSelectField = React.memo((props: TProps) => {
             {...props}
             loading={isLoading}
             options={mapUsersToOptions(users)}
-            search={props.search}
         />
     )
 })
