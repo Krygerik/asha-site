@@ -1,4 +1,5 @@
 import {EPlayerColor, ERoundFormat} from "../../common/constants";
+import {IShortPlayer} from "../../modules/short-game-info-table/short-game-info-table-types";
 
 /**
  * Данные по участнику раунда
@@ -62,16 +63,13 @@ export interface IShortPlayerWithId {
  * Краткая информация об игре
  */
 export type TShortGameInfo = {
-    // id в mongodb
-    _id: string;
-    // Дата окончания игры
-    date?: string;
-    // Произошел ли разрыв соединения
-    disconnect: boolean;
-    // Список данных обоих игроков
-    players: IShortPlayerWithId[];
-    // Цвет победителя
-    winner: EPlayerColor;
+    _id: string; // id в mongodb
+    date?: string; // Дата окончания игры
+    disconnect: boolean; // Произошел ли разрыв соединения
+    map_type: string; // Тип карты
+    map_version: string; // Версия карты
+    players: IShortPlayer[]; // Список данных обоих игроков
+    winner: EPlayerColor; // Цвет победителя
 }
 
 /**

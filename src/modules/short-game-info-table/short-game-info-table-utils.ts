@@ -22,6 +22,7 @@ export const transformShortGameInfoListToTableData = (shortGameInfoList: IShortG
             blueUserId: blueHero?.user_id,
             date: shortGameInfo.date,
             id: shortGameInfo._id,
+            mapVersion: `${shortGameInfo.map_type} ${shortGameInfo.map_version}`,
             redHero: redHero?.hero,
             redNickname: redHero?.nickname || "Неизвестный",
             redUserId: redHero?.user_id,

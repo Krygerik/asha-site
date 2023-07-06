@@ -41,6 +41,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                             date={row.date}
                             id={row.id}
                             key={index}
+                            mapVersion={row.mapVersion}
                             redHero={getLocalizeDictionaryValueByGameId(EDictionaryName.Heroes, row.redHero)}
                             redNickname={row.redNickname}
                             redUserId={row.redUserId}

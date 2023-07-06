@@ -33,6 +33,10 @@ export const SHORT_GAME_INFO_TABLE_CONFIG: TConfigCell[] = [
         width: 2,
     },
     {
+        title: "Карта",
+        width: 2,
+    },
+    {
         title: "Действия",
         width: 1,
     },

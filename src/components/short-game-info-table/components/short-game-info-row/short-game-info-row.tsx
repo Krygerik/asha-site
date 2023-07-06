@@ -14,6 +14,7 @@ type TProps = {
     redHero: string;
     redNickname: string;
     redUserId: string;
+    mapVersion: string;
     result: SemanticICONS;
 };
 
@@ -42,6 +43,9 @@ export const ShortGameInfoRow = React.memo((props: TProps) => (
                 // nickname={props.redNickname}
                 nickname={"Скрыт"}
             />
+        </Table.Cell>
+        <Table.Cell>
+            {props.mapVersion}
         </Table.Cell>
         <Table.Cell>
             <Link to={`/game/${props.id}`} target="_blank">

@@ -58,7 +58,7 @@ export const TournamentGrid = React.memo((props: TProps) => {
             return props.mapGameIdToShortGameInfo[gameId];
         });
 
-        const shortGameInfoListWithNickname = shortGameInfoList.map((shortInfo: TShortGameInfo) => ({
+        const shortGameInfoListWithNickname: TShortGameInfo[] = shortGameInfoList.map((shortInfo: TShortGameInfo) => ({
             ...shortInfo,
             players: shortInfo.players.map((player: IShortPlayerWithId) => ({
                 ...player,
