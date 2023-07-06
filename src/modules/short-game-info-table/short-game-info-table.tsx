@@ -17,11 +17,13 @@ import {
 import {FinalFormDictionarySelectField} from "../../components/final-form-dictionary-select-field";
 import {FinalFormUsersSelectField} from "../../components/final-form-users-select-field";
 import {ShortGameInfoTableComponent} from "../../components/short-game-info-table";
-import {EDictionaryName, withDictionaries} from "../dictionary";
+import {DictionaryContext, EDictionaryName, withDictionaries} from "../dictionary";
 import {THeroRecord} from "../dictionary/dictionary-types";
 import {DEFAULT_PAGE_SIZE, SHORT_GAME_INFO_TABLE_CONFIG} from "./short-game-info-table-constants";
 import {TShortGameInfoTableConnectedProps, withShortGameInfoTableConnector} from "./short-game-info-table-connector";
 import {TSearchGamesFormValues} from "./short-game-info-table-types";
+import {FinalFormSelectField} from "../../components/final-form-select-field";
+import {filter, flow, get, isEqual, map, uniq } from "lodash/fp";
 
 type TOwnProps = {
     countItems?: number;
@@ -34,6 +36,10 @@ type TProps = TOwnProps & TShortGameInfoTableConnectedProps;
  * Визуальное отображение
  */
 export const ShortGameInfoTable = React.memo((props: TProps) => {
+    const { getDictionaryRecords } = React.useContext(DictionaryContext);
+
+    const mapVersionList = getDictionaryRecords(EDictionaryName.MapVersions);
+
     /**
      * Активные значения фильтрации
      */
@@ -193,6 +199,58 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                                     disabled
                                                     label="Игрок"
                                                     name="user_id_1"
+                                                    search
+                                                />
+                                            </Grid.Column>
+                                        </Grid.Row>
+                                        <Grid.Row>
+                                            <Grid.Column textAlign="center">
+                                                <Header
+                                                    content="Общие фильтры"
+                                                    style={{ fontSize: "18px" }}
+                                                />
+                                            </Grid.Column>
+                                        </Grid.Row>
+                                        <Grid.Row centered>
+                                            <Grid.Column width={4}>
+                                                <FinalFormSelectField
+                                                    label="Тип карты"
+                                                    name="map_type"
+                                                    options={
+                                                        flow(
+                                                            map(get('value.type')),
+                                                            uniq,
+                                                            map((type: string) => ({
+                                                                key: type,
+                                                                text: type,
+                                                                value: type,
+                                                            }))
+                                                        )(mapVersionList)
+                                                    }
+                                                    search
+                                                />
+                                            </Grid.Column>
+                                            <Grid.Column width={4}>
+                                                <FinalFormSelectField
+                                                    disabled={!values.map_type}
+                                                    label="Версия карты"
+                                                    name="map_version"
+                                                    options={
+                                                        flow(
+                                                            filter(
+                                                                flow(
+                                                                    get('value.type'),
+                                                                    isEqual(values.map_type)
+                                                                )
+                                                            ),
+                                                            map(get('value.version')),
+                                                            map((type: string) => ({
+                                                                key: type,
+                                                                text: type,
+                                                                value: type,
+                                                            }))
+                                                        )(mapVersionList)
+                                                    }
                                                     search
                                                 />
                                             </Grid.Column>

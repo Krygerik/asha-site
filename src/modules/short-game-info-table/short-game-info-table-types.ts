@@ -130,4 +130,8 @@ export type TSearchGamesFormValues = {
     race_1?: string;
     // ID пользователя
     user_id_1?: string;
+    // Тип карты
+    map_type?: string;
+    // Версия карты
+    map_version?: string;
 };

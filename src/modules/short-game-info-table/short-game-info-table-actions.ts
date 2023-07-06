@@ -37,6 +37,8 @@ export const fetchGames = (params: TGetShortGameInfoParams, filter: TSearchGames
         await dispatch(setLoadingGameStatus(true));
 
         const requestBody = {
+            map_type: filter.map_type,
+            map_version: filter.map_version,
             players: [
                 {
                     hero: filter.hero,
