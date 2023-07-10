@@ -24,7 +24,7 @@ export enum ERacesIds {
 
 export type TRaceRecord = {
     // id записи в игре
-    game_id: ERacesIds[];
+    game_id: ERacesIds;
     // Локализованное название записи
     localize_name: TLocalization;
 };
@@ -40,7 +40,7 @@ export type THeroRecord = {
 
 export type TCreatureRecord = {
     // id записи в игре
-    game_id: string[];
+    game_id: string;
     // Локализованное (русское) название записи
     localize_name: string;
     // Характеристики существ

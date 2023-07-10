@@ -32,7 +32,7 @@ export const PlayersFilterFields = React.memo((props: TProps) => (
                 <>
                     {
                         fields.map((name, index) => {
-                            const playerFilterList = props.formValues[props.sectionName];
+                            const playerFilterList = props.formValues[props.sectionName as EFilterSectionsName.MainPlayer];
                             const selectedFieldName = playerFilterList[index].name;
                             const withComparison = FILTERS_WITH_COMPARISON_OPERATORS.includes(selectedFieldName);
                             const {Component, staticProps} = MAP_FILTER_NAMES_TO_FIELD_DATA[selectedFieldName] || {};

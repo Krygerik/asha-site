@@ -1,87 +1,67 @@
 import * as React from "react";
-import {FieldArray} from "react-final-form-arrays";
-import {Button, Grid, Icon} from "semantic-ui-react";
+import {Grid} from "semantic-ui-react";
 import {FinalFormSelectField} from "../../../components/final-form-select-field";
-import {EFilterSectionsName, TFilterStatisticsFormValues} from "../statistics-page-types";
-import {gameFiltersOption} from "../statistics-page-utils";
-import {MAP_FILTER_NAMES_TO_FIELD_DATA} from "../statistics-page-constants";
+import {ECommonFilters, EFilterSectionsName, TFilterStatisticsFormValues} from "../statistics-page-types";
+import {DictionaryContext, EDictionaryName} from "../../../modules/dictionary";
+import {filter, flow, get, isEqual, map, uniq} from "lodash/fp";
 
 type TProps = {
     formValues: TFilterStatisticsFormValues;
-    push: any;
 };
 
 /**
  * Общеигровые фильтры
  */
-export const GameFilterFields = React.memo((props: TProps) => (
-    <Grid>
-        <FieldArray name={EFilterSectionsName.Game}>
-            {({ fields }) => (
-                fields.map((name, index) => {
-                    const gameFilterList = props.formValues[EFilterSectionsName.Game];
-                    const selectedFieldName = gameFilterList[index].name;
-                    const {Component, staticProps} = MAP_FILTER_NAMES_TO_FIELD_DATA[selectedFieldName] || {};
+export const GameFilterFields = React.memo((props: TProps) => {
+    const { getDictionaryRecords } = React.useContext(DictionaryContext);
 
-                    return (
-                        <>
-                            <Grid.Row key={name}>
-                                <Grid.Column width={7}>
-                                    <FinalFormSelectField
-                                        fluid
-                                        label="Фильтр"
-                                        name={`${name}.name`}
-                                        options={gameFiltersOption}
-                                        search
-                                    />
-                                </Grid.Column>
-                                {
-                                    selectedFieldName && (
-                                        <Grid.Column width={7}>
-                                            {
-                                                // @ts-ignore
-                                                <Component
-                                                    {...staticProps}
-                                                    label="Значение"
-                                                    name={`${name}.value`}
-                                                />
-                                            }
-                                        </Grid.Column>
+    const mapVersionList = getDictionaryRecords(EDictionaryName.MapVersions);
+
+    return (
+        <Grid>
+            <Grid.Row centered>
+                <Grid.Column width={4}>
+                    <FinalFormSelectField
+                        label="Тип карты"
+                        name={`${EFilterSectionsName.Game}.${ECommonFilters.MapType}`}
+                        options={
+                            flow(
+                                map(get('value.type')),
+                                uniq,
+                                map((type: string) => ({
+                                    key: type,
+                                    text: type,
+                                    value: type,
+                                }))
+                            )(mapVersionList)
+                        }
+                        search
+                    />
+                </Grid.Column>
+                <Grid.Column width={4}>
+                    <FinalFormSelectField
+                        label="Версия карты"
+                        name={`${EFilterSectionsName.Game}.${ECommonFilters.MapVersion}`}
+                        options={
+                            flow(
+                                filter(
+                                    flow(
+                                        get('value.type'),
+                                        isEqual(props.formValues[EFilterSectionsName.Game]?.[ECommonFilters.MapType])
                                     )
-                                }
-                                <Grid.Column
-                                    textAlign="center"
-                                    verticalAlign="middle"
-                                    width={2}
-                                >
-                                    <Icon
-                                        size="large"
-                                        name="close"
-                                        style={{
-                                            cursor: "pointer",
-                                            paddingTop: "10px"
-                                        }}
-                                        onClick={() => fields.remove(index)}
-                                    />
-                                </Grid.Column>
-                            </Grid.Row>
-                            <Grid.Row centered>
-                                <Grid.Column width={8} textAlign="center">
-                                    <Button
-                                        fluid
-                                        onClick={() => props.push(EFilterSectionsName.Game, {})}
-                                        primary
-                                        size='large'
-                                    >
-                                        <Icon name="add" />
-                                        Добавить фильтр
-                                    </Button>
-                                </Grid.Column>
-                            </Grid.Row>
-                        </>
-                    )
-                })
-            )}
-        </FieldArray>
-    </Grid>
-))
+                                ),
+                                map(get('value.version')),
+                                map((type: string) => ({
+                                    key: type,
+                                    text: type,
+                                    value: type,
+                                }))
+                            )(mapVersionList)
+                        }
+                        search
+                    />
+                </Grid.Column>
+            </Grid.Row>
+        </Grid>
+    )
+})

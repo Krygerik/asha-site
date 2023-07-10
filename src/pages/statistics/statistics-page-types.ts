@@ -69,7 +69,6 @@ export enum EFiltersName {
     Level = 'level',
     Luck = 'luck',
     ManaStart = 'mana_start',
-    MapVersion = 'map_version',
     Mentoring = 'mentoring',
     Morale = 'morale',
     Perks = 'perks',
@@ -78,6 +77,14 @@ export enum EFiltersName {
     StartBonus = 'start_bonus',
     UserId = 'user_id',
     WarMachine = 'war_machines',
+}
+
+/**
+ * Общеигровые поля
+ */
+export enum ECommonFilters {
+    MapType = 'map_type',
+    MapVersion = 'map_version',
 }
 
 /**
@@ -102,7 +109,7 @@ export enum EFilterSectionsName {
  * Тип формы фильтров статистики
  */
 export type TFilterStatisticsFormValues = {
-    [EFilterSectionsName.Game]: TSingleStatisticsFilter[];
+    [EFilterSectionsName.Game]: Record<ECommonFilters, string>;
     [EFilterSectionsName.MainPlayer]: TSingleStatisticsFilter[];
     [EFilterSectionsName.OtherPlayer]: TSingleStatisticsFilter[];
 };
@@ -157,11 +164,6 @@ export type TPlayerFilterFields = {
 }
 
 /**
- * Перечисление всех возможных значений версий карты
- */
-export type TMapVersionValue = string;
-
-/**
  * Тип фильтра в запросе статистик по расам
  */
 export type TFetchStatisticsRequestFilter = {
@@ -169,6 +171,8 @@ export type TFetchStatisticsRequestFilter = {
     players: TPlayerFilterFields[];
     // Процент оставшейся силы армии
     percentage_of_army_left?: TComparisonField;
+    // Тип карты
+    map_type?: string;
     // Версия карты
-    map_version?: TMapVersionValue;
+    map_version?: string;
 }

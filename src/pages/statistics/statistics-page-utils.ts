@@ -18,13 +18,3 @@ export const playerFiltersOptions = Object.keys(MAP_FILTERS_NAME_TO_LABEL)
         })
     });
 
-/**
- * Общеигровые опции фильтров
- */
-export const gameFiltersOption = [
-    {
-        key: EFiltersName.MapVersion,
-        text: MAP_FILTERS_NAME_TO_LABEL[EFiltersName.MapVersion],
-        value: EFiltersName.MapVersion,
-    }
-]

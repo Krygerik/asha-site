@@ -73,11 +73,11 @@ const RaceWinRateStatisticsResult = React.memo((props: TProps) => {
                         racesDictionaryRecords.map((raceEntity: TRaceRecord) => {
                             const raceName = getLocalizeDictionaryValueByGameId(
                                 EDictionaryName.Races,
-                                raceEntity.game_id[0]
+                                raceEntity.game_id
                             );
 
                             return (
-                                <Table.Cell key={raceEntity.game_id[0]}>
+                                <Table.Cell key={raceEntity.game_id}>
                                     <b>{raceName}</b>
                                 </Table.Cell>
                             )
@@ -94,7 +94,7 @@ const RaceWinRateStatisticsResult = React.memo((props: TProps) => {
                         let countAllGames = 0;
 
                         const currentRaceRecord = getDictionaryRecordByGameId(EDictionaryName.Races, raceId);
-                        const currentRaceGameId = currentRaceRecord.game_id[0];
+                        const currentRaceGameId = currentRaceRecord.game_id;
 
                         return (
                             <Table.Row
@@ -105,7 +105,7 @@ const RaceWinRateStatisticsResult = React.memo((props: TProps) => {
                                 </Table.Cell>
                                 {
                                     racesDictionaryRecords.map((secondRaceEntity: TRaceRecord) => {
-                                        const secondRaceGameId = secondRaceEntity.game_id[0];
+                                        const secondRaceGameId = secondRaceEntity.game_id;
                                         const {wins, loses} = props.allRacesWinRate?.[raceId][secondRaceGameId];
                                         const countGames = wins + loses;
 
