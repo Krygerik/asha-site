@@ -1,3 +1,4 @@
+import { InstantTravelIcon, SummonBoatIcon, SummonCreaturesIcon, TownPortalIcon } from "../../assets/spells/adventure";
 import {
     BerserkIcon,
     BlindnessIcon,
@@ -415,4 +416,21 @@ export const SPELLS: TSpell[] = [
         gameId: "284",
         icon: WallOfSwordsIcon,
     },
+    {
+        gameId: "50",
+        icon: InstantTravelIcon,
+    },
+    {
+        gameId: "49",
+        icon: SummonBoatIcon,
+    },
+    {
+        gameId: "234",
+        icon: SummonCreaturesIcon,
+    },
+    {
+        gameId: "51",
+        icon: TownPortalIcon,
+    },
+
 ];
