@@ -154,7 +154,6 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                             </Grid.Column>
                                             <Grid.Column>
                                                 <FinalFormUsersSelectField
-                                                    disabled
                                                     label="Игрок"
                                                     name="user_id"
                                                     search
@@ -196,7 +195,6 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                             </Grid.Column>
                                             <Grid.Column>
                                                 <FinalFormUsersSelectField
-                                                    disabled
                                                     label="Игрок"
                                                     name="user_id_1"
                                                     search
