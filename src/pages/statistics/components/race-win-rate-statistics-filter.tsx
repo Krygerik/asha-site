@@ -4,6 +4,7 @@ import {Form} from "react-final-form";
 import arrayMutators from "final-form-arrays";
 import {EComparisonNames} from "../../../common/constants";
 import {
+    ECommonFilters,
     EFilterSectionsName,
     TFetchStatisticsRequestFilter,
     TFilterStatisticsFormValues,
@@ -71,7 +72,9 @@ export const RacesWinRateStatisticsFilter = React.memo((props: TProps) => {
             <Form
                 onSubmit={(values: TFilterStatisticsFormValues) => {}}
                 initialValues={{
-                    [EFilterSectionsName.Game]: {},
+                    [EFilterSectionsName.Game]: {
+                        [ECommonFilters.WithUnknown]: false,
+                    },
                     [EFilterSectionsName.MainPlayer]: [{}],
                     [EFilterSectionsName.OtherPlayer]: [{}],
                 }}

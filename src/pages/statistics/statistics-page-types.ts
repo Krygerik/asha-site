@@ -85,7 +85,14 @@ export enum EFiltersName {
 export enum ECommonFilters {
     MapType = 'map_type',
     MapVersion = 'map_version',
+    WithUnknown = 'with_unknown',
 }
+
+export type TCommonFilters = {
+    [ECommonFilters.MapType]: string;
+    [ECommonFilters.MapVersion]: string;
+    [ECommonFilters.WithUnknown]: boolean;
+};
 
 /**
  * Тип одного фильтра формы
@@ -109,7 +116,7 @@ export enum EFilterSectionsName {
  * Тип формы фильтров статистики
  */
 export type TFilterStatisticsFormValues = {
-    [EFilterSectionsName.Game]: Record<ECommonFilters, string>;
+    [EFilterSectionsName.Game]: TCommonFilters;
     [EFilterSectionsName.MainPlayer]: TSingleStatisticsFilter[];
     [EFilterSectionsName.OtherPlayer]: TSingleStatisticsFilter[];
 };
@@ -175,4 +182,6 @@ export type TFetchStatisticsRequestFilter = {
     map_type?: string;
     // Версия карты
     map_version?: string;
+    // Учитывать неизвестных
+    with_unknown: boolean;
 }
