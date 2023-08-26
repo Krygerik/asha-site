@@ -30,8 +30,8 @@ export const FinalFormDictionarySelectField = (props: TProps) => {
     }
 
     const options: DropdownItemProps[] = dictionaryRecords
-        .map((record: TCommonDictionaryRecord) => ({
-            key: record.game_id,
+        .map((record: TCommonDictionaryRecord, index: number) => ({
+            key: `${record.game_id}_${index}`,
             text: getLocalizeDictionaryValueByGameId(props.dictionary, record.game_id),
             value: record.game_id,
         }));
