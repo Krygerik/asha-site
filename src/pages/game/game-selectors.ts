@@ -43,7 +43,7 @@ export const getWinnerNickname: Selector<any, string> = createSelector(
 
         return flow(
             find((player: TPlayer) => player.color === gameInfo.winner),
-            getOr("Неизвестный", 'nickname'),
+            (player: TPlayer) => player.visible === false ? "Скрыт" : (player.nickname || "Неизвестный")
         )(gameInfo.players)
     },
 );

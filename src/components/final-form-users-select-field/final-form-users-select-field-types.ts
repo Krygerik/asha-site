@@ -7,4 +7,6 @@ export type TUserIdWithNickname = {
     username: string;
     // user_id
     _id: string;
+    // Видимость
+    visible: boolean;
 }

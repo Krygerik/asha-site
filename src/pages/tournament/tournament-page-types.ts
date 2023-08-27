@@ -57,6 +57,8 @@ export interface IShortPlayerWithId {
     user_id: string;
     // Раса
     race: string;
+    // Видимость
+    visible: boolean;
 }
 
 /**

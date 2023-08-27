@@ -63,6 +63,8 @@ export type TPlayer = {
     new_rating?: number;
     // Боевые машины игрока
     war_machines: string[];
+    // Видимость
+    visible?: boolean;
 };
 
 /**

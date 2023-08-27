@@ -12,6 +12,8 @@ export interface IShortPlayer {
     user_id: string;
     // Никнейм игрока
     nickname: string;
+    // Видимость
+    visible: boolean;
     // Раса
     race: string;
 }
