@@ -132,6 +132,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                         <Grid.Row columns="equal">
                                             <Grid.Column>
                                                 <FinalFormDictionarySelectField
+                                                    clearable
                                                     dictionary={EDictionaryName.Races}
                                                     label="Фракция"
                                                     name="race"
@@ -140,6 +141,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                             </Grid.Column>
                                             <Grid.Column>
                                                 <FinalFormDictionarySelectField
+                                                    clearable
                                                     dictionary={EDictionaryName.Heroes}
                                                     // @ts-ignore
                                                     filter={
@@ -154,6 +156,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                             </Grid.Column>
                                             <Grid.Column>
                                                 <FinalFormUsersSelectField
+                                                    clearable
                                                     label="Игрок"
                                                     name="user_id"
                                                     search
@@ -173,6 +176,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                         <Grid.Row columns="equal">
                                             <Grid.Column>
                                                 <FinalFormDictionarySelectField
+                                                    clearable
                                                     dictionary={EDictionaryName.Races}
                                                     label="Фракция"
                                                     name="race_1"
@@ -181,6 +185,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                             </Grid.Column>
                                             <Grid.Column>
                                                 <FinalFormDictionarySelectField
+                                                    clearable
                                                     dictionary={EDictionaryName.Heroes}
                                                     // @ts-ignore
                                                     filter={
@@ -195,6 +200,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                             </Grid.Column>
                                             <Grid.Column>
                                                 <FinalFormUsersSelectField
+                                                    clearable
                                                     label="Игрок"
                                                     name="user_id_1"
                                                     search
@@ -212,6 +218,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                         <Grid.Row centered>
                                             <Grid.Column width={4}>
                                                 <FinalFormSelectField
+                                                    clearable
                                                     label="Тип карты"
                                                     name="map_type"
                                                     options={
@@ -230,6 +237,7 @@ export const ShortGameInfoTable = React.memo((props: TProps) => {
                                             </Grid.Column>
                                             <Grid.Column width={4}>
                                                 <FinalFormSelectField
+                                                    clearable
                                                     disabled={!values.map_type}
                                                     label="Версия карты"
                                                     name="map_version"

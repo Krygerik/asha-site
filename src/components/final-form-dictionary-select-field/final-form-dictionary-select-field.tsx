@@ -8,6 +8,7 @@ import {
 } from "../../modules/dictionary";
 
 type TProps = {
+    clearable?: boolean;
     dictionary: EDictionaryName;
     filter?: (item: TCommonDictionaryRecord) => boolean;
     fluid?: boolean;
@@ -43,6 +44,7 @@ export const FinalFormDictionarySelectField = (props: TProps) => {
             {
                 innerProps => (
                     <SemanticForm.Select
+                        clearable={props.clearable}
                         fluid={props.fluid}
                         label={props.label}
                         name={innerProps.input.name}
