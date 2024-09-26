@@ -47,4 +47,5 @@ export type TTableConfig = TTableConfigRow[];
 export type TEditProfileInitialValues = {
     nickname?: string; // ник, устанавниваемый игроком
     original_rating?: number; // Рейтинг игрока, до создания АСХА
+    visible?: boolean; // Видимость аккаунта
 };

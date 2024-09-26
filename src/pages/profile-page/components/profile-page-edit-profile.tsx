@@ -2,10 +2,11 @@ import * as React from "react";
 import {Form} from "react-final-form";
 import {useHistory} from "react-router-dom";
 import arrayMutators from "final-form-arrays";
-import {Button, Header, Segment} from "semantic-ui-react";
+import {Button, Grid, Header, Message, Segment} from "semantic-ui-react";
 import {FinalFormInputTextField} from "../../../components/final-form-input-text-field";
 import {createRequest} from "../../../utils/create-request";
 import {TEditProfileInitialValues} from "../profile-page-types";
+import {FinalFormYesOrNotSelectField} from "../../../components/final-form-select-field";
 
 type TProps = {
     activeUserIsAdmin: boolean;
@@ -20,29 +21,21 @@ export const ProfilePageEditProfile = React.memo((props: TProps) => {
     /**
      * Обработчик сохранения изменений данных пользователя
      */
-    const handleSubmit = async ({ nickname, original_rating }: { nickname: string; original_rating: number; }) => {
+    const handleSubmit = async ({ nickname, original_rating, visible }: TEditProfileInitialValues) => {
         try {
             props.setEditableStatus(false);
 
-            if (nickname !== props.initialValues.nickname) {
-                await createRequest().post(
-                    '/account/update-personal-info',
-                    {
-                        id: props.profileId,
-                        nickname,
-                    }
-                );
-            }
-
-            if (props.activeUserIsAdmin && original_rating !== props.initialValues.original_rating) {
-                await createRequest().post(
-                    '/account/update-game-info',
-                    {
-                        id: props.profileId,
-                        original_rating,
-                    }
-                );
-            }
+            await createRequest().post(
+                props.activeUserIsAdmin
+                    ? '/account/update-personal-info'
+                    : '/account/update-game-info',
+                {
+                    id: props.profileId,
+                    nickname,
+                    original_rating,
+                    visible,
+                }
+            );
 
             history.go(0);
         } catch (e) {
@@ -55,7 +48,7 @@ export const ProfilePageEditProfile = React.memo((props: TProps) => {
             onSubmit={handleSubmit}
             initialValues={props.initialValues}
             mutators={{ ...arrayMutators }}
-            render={({ handleSubmit }) => (
+            render={({ handleSubmit, dirty }) => (
                 <form
                     onSubmit={handleSubmit}
                     style={{
@@ -65,25 +58,50 @@ export const ProfilePageEditProfile = React.memo((props: TProps) => {
                 >
                     <Segment>
                         <Header content="Личные данные" />
-                        <FinalFormInputTextField
-                            label="Никнейм"
-                            name="nickname"
-                            required
-                        />
-                        {
-                            props.activeUserIsAdmin && (
-                                <FinalFormInputTextField
-                                    label="Рейтинг на half-rta.com"
-                                    name="original_rating"
-                                    required
-                                />
-                            )
-                        }
+                        <Grid>
+                            {false && (
+                                <Grid.Row>
+                                    <Grid.Column width={4}>
+                                        <FinalFormInputTextField
+                                            label="Никнейм"
+                                            name="nickname"
+                                        />
+                                    </Grid.Column>
+                                </Grid.Row>
+                            )}
+                            <Grid.Row verticalAlign="middle">
+                                <Grid.Column width={4}>
+                                    <FinalFormYesOrNotSelectField
+                                        label="Видимость аккаунта"
+                                        name="visible"
+                                    />
+                                </Grid.Column>
+                                <Grid.Column width={12}>
+                                    <Message
+                                        content="Отображение никнейма в общем списке игр и возможность поиска по нику"
+                                        info
+                                    />
+                                </Grid.Column>
+                            </Grid.Row>
+                            {
+                                props.activeUserIsAdmin && (
+                                    <Grid.Row>
+                                        <Grid.Column width={4}>
+                                            <FinalFormInputTextField
+                                                label="Рейтинг на half-rta.com"
+                                                name="original_rating"
+                                            />
+                                        </Grid.Column>
+                                    </Grid.Row>
+                                )
+                            }
+                        </Grid>
                     </Segment>
                     <>
                         <Button
                             color='green'
                             content="Сохранить"
+                            disabled={!dirty}
                             size='large'
                             type="submit"
                         />

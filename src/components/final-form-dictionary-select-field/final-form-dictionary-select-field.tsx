@@ -8,6 +8,7 @@ import {
 } from "../../modules/dictionary";
 
 type TProps = {
+    clearable?: boolean;
     dictionary: EDictionaryName;
     filter?: (item: TCommonDictionaryRecord) => boolean;
     fluid?: boolean;
@@ -30,8 +31,8 @@ export const FinalFormDictionarySelectField = (props: TProps) => {
     }
 
     const options: DropdownItemProps[] = dictionaryRecords
-        .map((record: TCommonDictionaryRecord) => ({
-            key: record.game_id,
+        .map((record: TCommonDictionaryRecord, index: number) => ({
+            key: `${record.game_id}_${index}`,
             text: getLocalizeDictionaryValueByGameId(props.dictionary, record.game_id),
             value: record.game_id,
         }));
@@ -43,6 +44,7 @@ export const FinalFormDictionarySelectField = (props: TProps) => {
             {
                 innerProps => (
                     <SemanticForm.Select
+                        clearable={props.clearable}
                         fluid={props.fluid}
                         label={props.label}
                         name={innerProps.input.name}

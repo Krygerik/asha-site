@@ -23,6 +23,10 @@ export const GAME_INFO_TABLE_CONFIG = [
         label: "Никнейм",
     },
     {
+        key: "visible",
+        label: "Видимость аккаунта",
+    },
+    {
         key: "rating",
         label: "Рейтинг (АСХА)",
     },

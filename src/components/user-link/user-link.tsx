@@ -10,11 +10,19 @@ type TProps = {
 /**
  * Ссылка на профиль пользователя
  */
-export const UserLink = React.memo((props: TProps) => (
-    <Link
-        target="_blank"
-        to={`/profile/${props.id}`}
-    >
-        {props.nickname}
-    </Link>
-))
+export const UserLink = React.memo((props: TProps) => {
+    if (!props.id || props.nickname === "Скрыт") {
+        return (
+            <i>{props.nickname}</i>
+        );
+    }
+
+    return (
+        <Link
+            target="_blank"
+            to={`/profile/${props.id}`}
+        >
+            {props.nickname}
+        </Link>
+    )
+})

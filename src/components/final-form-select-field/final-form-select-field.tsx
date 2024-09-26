@@ -3,6 +3,7 @@ import {Field} from "react-final-form";
 import * as React from "react";
 
 export type TFinalFormSelectFieldProps = {
+    clearable?: boolean;
     disabled?: boolean;
     fluid?: boolean;
     label?: string;
@@ -28,6 +29,7 @@ export const FinalFormSelectField = (props: TFinalFormSelectFieldProps) => (
         {
             innerProps => (
                 <SemanticForm.Select
+                    clearable={props.clearable}
                     disabled={props.disabled}
                     error={innerProps.meta.touched && innerProps.meta.error}
                     fluid={props.fluid}

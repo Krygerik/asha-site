@@ -106,5 +106,6 @@ export const getEditProfileInitialValues: Selector<any, TEditProfileInitialValue
     pick([
         'nickname',
         'original_rating',
+        'visible',
     ]),
 );

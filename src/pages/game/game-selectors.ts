@@ -34,7 +34,7 @@ export const getGameInfo: Selector<any, TGame> = createSelector(
 /**
  * Получение никнейма победителя
  */
-export const getWinnerNickname: Selector<any, string> = createSelector(
+export const getWinnerNickname: Selector<any, string | undefined> = createSelector(
     getGameInfo,
     (gameInfo: TGame) => {
         if (gameInfo.disconnect) {
@@ -43,7 +43,7 @@ export const getWinnerNickname: Selector<any, string> = createSelector(
 
         return flow(
             find((player: TPlayer) => player.color === gameInfo.winner),
-            getOr("Неизвестный", 'nickname'),
+            (player: TPlayer | undefined) => player && (player.visible === false ? "Скрыт" : (player.nickname || "Неизвестный"))
         )(gameInfo.players)
     },
 );

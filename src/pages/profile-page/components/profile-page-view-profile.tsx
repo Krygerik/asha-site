@@ -106,7 +106,14 @@ export const ProfilePageViewProfile = React.memo((
                 tableConfig={GAME_INFO_TABLE_CONFIG}
                 tableData={pick(
                     profileData,
-                    ['nickname', 'rating', 'original_rating', 'roles', 'tournaments']
+                    [
+                        'nickname',
+                        'rating',
+                        'original_rating',
+                        'roles',
+                        'tournaments',
+                        'visible',
+                    ]
                 )}
             />
             {

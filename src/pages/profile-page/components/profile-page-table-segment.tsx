@@ -35,7 +35,9 @@ export const ProfilePageTableSegment = React.memo((props: TProps) => (
                                                 ? props.tableData[row.key].map((item: any, index: number) => (
                                                     <p key={`${item}-${index}`}>{item}</p>
                                                 ))
-                                                : props.tableData[row.key]
+                                                : typeof props.tableData[row.key] === "boolean"
+                                                    ? props.tableData[row.key] ? "Да" : "Нет"
+                                                    : props.tableData[row.key]
                                     }
                                 </Table.Cell>
                             </Table.Row>

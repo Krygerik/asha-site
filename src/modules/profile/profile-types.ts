@@ -44,6 +44,7 @@ export type TAccount = {
     roles: ERoles[]; // Роли игрока
     tournaments: string[]; // ИД турниров, в которых юзверь участвовал или участвует
     username: string; // Никнейм пользователя из дискорд аккаунта
+    visible: boolean; // Видимость аккаунта
 }
 
 export type TProfileState = {
