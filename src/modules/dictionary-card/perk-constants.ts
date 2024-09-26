@@ -240,7 +240,7 @@ export const PERKS: TPerk[] = [
         icon: dungeon.DarkRitual
     },
     {
-        gameId: "111",
+        gameId: "72",
         icon: dungeon.ElementalVision
     },
     {
